@@ -5,10 +5,7 @@
 
 package app;
 
-import model.Game;
-import model.Map;
-import model.Player;
-import model.Storehouse;
+import model.*;
 
 public class CityOfAaron {
 

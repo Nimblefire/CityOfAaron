@@ -5,6 +5,11 @@
 
 package app;
 
+import model.Game;
+import model.Map;
+import model.Player;
+import model.Storehouse;
+
 public class CityOfAaron {
 
     /**
@@ -14,8 +19,18 @@ public class CityOfAaron {
      * contained in this array.
      */
     public static void main(String[] args) {
-
-        System.out.println("It works!");
+        
+        Game gameOne = new Game();
+        
+        Player playerOne = new Player();
+        
+        gameOne.setPlayer(playerOne);
+        
+        playerOne.setName("Alma");
+        
+        Player player1 = gameOne.getPlayer();
+        
+        System.out.println(player1);
 
     }
 

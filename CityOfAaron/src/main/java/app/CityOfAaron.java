@@ -5,6 +5,8 @@
 
 package app;
 
+import model.*;
+
 public class CityOfAaron {
 
     /**
@@ -14,8 +16,28 @@ public class CityOfAaron {
      * contained in this array.
      */
     public static void main(String[] args) {
-
-        System.out.println("It works!");
+        
+        Game gameOne = new Game();
+        
+        Player playerOne = new Player();
+        
+        gameOne.setPlayer(playerOne);
+        
+        playerOne.setName("Alma");
+        
+        Player player1 = gameOne.getPlayer();
+        
+        //System.out.println(player1);
+        
+        
+        gameOne.setMap(new Map());
+        gameOne.setStorehouse(new Storehouse());
+        gameOne.setCurrentPopulation(110);
+        gameOne.setAcresOwned(2001);
+        gameOne.setWheatInStorage(20000);
+        
+        System.out.println(gameOne.toString());
+        
 
     }
 

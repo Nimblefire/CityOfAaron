@@ -10,5 +10,7 @@ package model;
  * @author dapon
  */
 public enum ItemType {
-    
+    Animal,
+    Tool,
+    Provisions;
 }

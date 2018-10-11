@@ -10,5 +10,7 @@ package model;
  * @author dapon
  */
 public enum Condition {
-
+    Good,
+    Fair,
+    Poor;
 }

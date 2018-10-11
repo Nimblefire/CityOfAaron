@@ -5,10 +5,19 @@
  */
 package model;
 
+
 /**
  *
  * @author Andrea
  */
 public class Map {
     
+    public Map() {
+        //default constructor
+    }
+    
+    @Override
+    public String toString() {
+        return "Map coming soon to a game near you";
+    }
 }

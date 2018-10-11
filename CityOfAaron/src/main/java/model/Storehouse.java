@@ -11,4 +11,13 @@ package model;
  */
 public class Storehouse {
     
+    public Storehouse() {
+        //default constructor
+    }
+    
+    @Override
+    public String toString() {
+        return "Storehouse coming soon to a game near you";
+    }
+    
 }

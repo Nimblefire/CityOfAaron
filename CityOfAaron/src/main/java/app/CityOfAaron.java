@@ -5,6 +5,8 @@
 
 package app;
 
+import java.util.HashSet;
+import java.util.Set;
 import model.*;
 
 public class CityOfAaron {
@@ -27,8 +29,41 @@ public class CityOfAaron {
         
         Player player1 = gameOne.getPlayer();
         
-        System.out.println(player1);
-
+        //System.out.println(player1);
+        
+        
+        gameOne.setMap(new Map());
+        gameOne.setStorehouse(new Storehouse());
+        gameOne.setCurrentPopulation(110);
+        gameOne.setAcresOwned(2001);
+        gameOne.setWheatInStorage(20000);
+        
+        System.out.println(gameOne.toString());
+        
+        InventoryItem hammer = new InventoryItem();
+        Animal horse = new Animal();
+        Provision apple = new Provision();
+        
+        hammer.setName("Hammer");
+        hammer.setCondition(Good);
+        hammer.setItemType(Tool);
+        hammer.setQuantity(1);
+        
+        horse.setName("Arabian Horse");
+        horse.setAge(7);
+        horse.setCondition(Good);
+        horse.setItemType(Animal);
+        horse.setQuantity(1);
+        
+        apple.setName("Apple");
+        apple.setCondition(Good);
+        apple.setPerishable(true);
+        apple.setItemType(Provisions);
+        apple.setQuantity(10);
+        
+        
+        
+        
     }
 
 }

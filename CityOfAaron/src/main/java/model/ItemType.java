@@ -7,8 +7,7 @@ package model;
 
 /**
  *
- * @author dapon
+ * @author Andrea
+ * 
  */
-public enum ItemType {
-    
-}
+public enum ItemType { ANIMAL, TOOL, PROVISIONS }

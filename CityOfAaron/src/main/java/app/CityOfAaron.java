@@ -58,13 +58,17 @@ public class CityOfAaron {
         System.out.println(Stefano.toString());
         
         // Test Storehouse
-        // Storehouse theStorehouse = new Storehouse();
-        // theStorehouse.setAuthors(ArrayList<Author>[Stefano, Andrea, Cristina});
-        // ArrayList<Author> authors = theStorehouse.getAuthors();
+        ArrayList<Author> authors = new ArrayList();
+        authors.add(Stefano);
+        authors.add(Andrea);
+        authors.add(Cristina);
+        Storehouse theStorehouse = new Storehouse();
+        theStorehouse.setAuthors(authors);
         
+        System.out.println(theStorehouse.toString());
         
         // Test InventoryItem, Animal, and Provision class + enum classes
-        InventoryItem hammer = new InventoryItem();
+        /*InventoryItem hammer = new InventoryItem();
         Animal horse = new Animal();
         Provision apple = new Provision();
             

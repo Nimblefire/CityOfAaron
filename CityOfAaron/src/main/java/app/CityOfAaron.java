@@ -47,12 +47,12 @@ public class CityOfAaron {
         
         // Test Author class
         Author Cristina = new Author();
-        Cristina.setName("Andrea Rochira");
-        Cristina.setTitle("Mr");
+        Cristina.setName("Cristina Irwin");
+        Cristina.setTitle("Mrs");
         System.out.println(Cristina.toString());
         
         Author Andrea = new Author();
-        Andrea.setName("Cristina Irwin");
+        Andrea.setName("Andrea Rochira");
         Andrea.setTitle("Mr");
         System.out.println(Andrea.toString());
         
@@ -70,6 +70,15 @@ public class CityOfAaron {
         theStorehouse.setAuthors(authors);
         
         System.out.println(theStorehouse.toString());
+        
+        // Test enum classes
+        for(ItemType it: ItemType.values()){
+            System.out.println(it); 
+        }
+        
+        for(Condition c: Condition.values()){
+           System.out.println(c); 
+        }
         
         // Test InventoryItem, Animal, and Provision class + enum classes
         /*InventoryItem hammer = new InventoryItem();

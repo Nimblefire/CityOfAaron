@@ -7,7 +7,7 @@ package model;
 
 /**
  *
- * @author dapon
- * @reviewer Andrea
+ * @author Andrea
+ *  
  */
 public enum Condition { GOOD, FAIR, POOR }

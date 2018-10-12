@@ -54,30 +54,38 @@ public class CityOfAaron {
         
         
         /*
+        Player playerOne = new Player();  // new player
         
+        playerOne.setName("Alma"); // setting a name for the player
+        
+        Player player1 = gameOne.getPlayer(); // retrieving the name of the player
+        
+        //System.out.println(player1);
+        */
         InventoryItem hammer = new InventoryItem();
         Animal horse = new Animal();
         Provision apple = new Provision();
         
         
+        
         hammer.setName("Hammer");
-        hammer.setCondition(Good);
-        hammer.setItemType(Tool);
+        hammer.setCondition(Condition.GOOD);
+        hammer.setItemType(ItemType.TOOL);
         hammer.setQuantity(1);
         
         horse.setName("Arabian Horse");
         horse.setAge(7);
-        horse.setCondition(Good);
-        horse.setItemType(Animal);
+        horse.setCondition(Condition.GOOD);
+        horse.setItemType(ItemType.ANIMAL);
         horse.setQuantity(1);
         
         apple.setName("Apple");
-        apple.setCondition(Good);
+        apple.setCondition(Condition.GOOD);
         apple.setPerishable(true);
-        apple.setItemType(Provisions);
+        apple.setItemType(ItemType.PROVISIONS);
         apple.setQuantity(10);
-        */
-            
+        
+        System.out.println(hammer.toString()+ "\n" + horse.toString() + "\n" + apple.toString());
     }
 
 }

@@ -19,27 +19,36 @@ public class CityOfAaron {
      */
     public static void main(String[] args) {
         
-        Game gameOne = new Game();
-        
-        Player playerOne = new Player();
-        
-        gameOne.setPlayer(playerOne);
-        
-        playerOne.setName("Alma");
-        
-        Player player1 = gameOne.getPlayer();
-        
-        //System.out.println(player1);
-        
-        gameOne.setMap(new Map());
-        gameOne.setStorehouse(new Storehouse());
+        Game gameOne = new Game();  // new Game object
+        gameOne.setPlayer(new Player());   // new Player object
+        gameOne.setStorehouse(new Storehouse()); // new Storehouse object
+        gameOne.setMap(new Map()); // new Map object
         gameOne.setCurrentPopulation(110);
         gameOne.setAcresOwned(2001);
         gameOne.setWheatInStorage(20000);
         
         System.out.println(gameOne.toString());
         
+        // Test enum classes
+        for(ItemType i: ItemType.values())
+        {
+           System.out.println(i); 
+        }
+        
+        for(Condition c: Condition.values())
+        {
+           System.out.println(c); 
+        }
+        
+        
         /*
+        Player playerOne = new Player();  // new player
+        
+        playerOne.setName("Alma"); // setting a name for the player
+        
+        Player player1 = gameOne.getPlayer(); // retrieving the name of the player
+        
+        //System.out.println(player1);
         
         InventoryItem hammer = new InventoryItem();
         Animal horse = new Animal();

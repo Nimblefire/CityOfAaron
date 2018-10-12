@@ -4,20 +4,40 @@
  * and open the template in the editor.
  */
 package model;
+import java.io.Serializable;
+import java.util.Arrays;
 
 
 /**
  *
- * @author Andrea
+ * @author cristinairwin
  */
-public class Map {
+public class Map implements Serializable {
+    // attributes
+    private Location[][] locations;
+    private Point currentLocation;
     
-    public Map() {
-        //default constructor
+    // constructor
+    public Map(){
+    }
+
+    // getter and setter
+    public Location[][] getLocations() {
+        return locations;
+}
+    public Point getCurrentLocation(){
+        return currentLocation;
+}
+    public void setCurrentLocation(Point point) {
+        this.currentLocation = point;
     }
     
     @Override
     public String toString() {
-        return "Map coming soon to a game near you";
+        return "Map{"
+                + " locations =" + Arrays.toString(locations)
+                + " current location =" + currentLocation
+                + '}';
+                
     }
 }

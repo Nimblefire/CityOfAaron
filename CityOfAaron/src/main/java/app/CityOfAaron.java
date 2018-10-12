@@ -21,8 +21,11 @@ public class CityOfAaron {
     public static void main(String[] args) {
         
         Game gameOne = new Game();  // new Game object
-        gameOne.setPlayer(new Player()); // new Player object
-        gameOne.setStorehouse(new Storehouse()); // new Storehouse object
+        
+        // gameOne.setPlayer(new Player()); // new Player object
+        
+        // gameOne.setStorehouse(new Storehouse()); // new Storehouse object
+        
         gameOne.setMap(new Map()); // new Map object
         gameOne.setCurrentPopulation(110);
         gameOne.setAcresOwned(2001);
@@ -31,43 +34,40 @@ public class CityOfAaron {
         System.out.println(gameOne.toString());
         
     
-        
-        /*
+        // Test Player class
         Player playerOne = new Player();  // new player
         playerOne.setName("Alma"); // setting a name for the player
-        String playerOneName = playerOne.getName();
+        //String playerOneName = playerOne.getName();
+        //Player player1 = gameOne.getPlayer();
         System.out.println(playerOne.toString());
         
-         Player player1 = gameOne.getPlayer(); // retrieving the name of the player
+        // Test Author class
+        Author Cristina = new Author();
+        Cristina.setName("Andrea Rochira");
+        Cristina.setTitle("Mr");
+        System.out.println(Cristina.toString());
         
-        //System.out.println(player1);
-        */
+        Author Andrea = new Author();
+        Andrea.setName("Cristina Irwin");
+        Andrea.setTitle("Mr");
+        System.out.println(Andrea.toString());
         
-        // Test enum classes
-        for(ItemType it: ItemType.values()){
-            System.out.println(it); 
-        }
+        Author Stefano = new Author();
+        Stefano.setName("Stefano DaPonte Becher");
+        Stefano.setTitle("Mr");
+        System.out.println(Stefano.toString());
         
-        for(Condition c: Condition.values()){
-           System.out.println(c); 
-        }
+        // Test Storehouse
+        // Storehouse theStorehouse = new Storehouse();
+        // theStorehouse.setAuthors(ArrayList<Author>[Stefano, Andrea, Cristina});
+        // ArrayList<Author> authors = theStorehouse.getAuthors();
         
         
-        /*
-        Player playerOne = new Player();  // new player
-        
-        playerOne.setName("Alma"); // setting a name for the player
-        
-        Player player1 = gameOne.getPlayer(); // retrieving the name of the player
-        
-        //System.out.println(player1);
-        */
+        // Test InventoryItem, Animal, and Provision class + enum classes
         InventoryItem hammer = new InventoryItem();
         Animal horse = new Animal();
         Provision apple = new Provision();
-        
-        
-        
+            
         hammer.setName("Hammer");
         hammer.setCondition(Condition.GOOD);
         hammer.setItemType(ItemType.TOOL);
@@ -86,6 +86,19 @@ public class CityOfAaron {
         apple.setQuantity(10);
         
         System.out.println(hammer.toString()+ "\n" + horse.toString() + "\n" + apple.toString());
+        
+        // Alternative test for enum classes
+        /*
+        for(ItemType it: ItemType.values()){
+            System.out.println(it); 
+        }
+        
+        for(Condition c: Condition.values()){
+           System.out.println(c); 
+        }
+        */
+        
+        
     }
 
 }

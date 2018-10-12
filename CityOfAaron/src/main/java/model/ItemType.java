@@ -8,5 +8,6 @@ package model;
 /**
  *
  * @author dapon
+ * @reviewer Andrea
  */
 public enum ItemType { ANIMAL, TOOL, PROVISIONS }

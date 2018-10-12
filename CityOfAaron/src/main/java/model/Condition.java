@@ -8,9 +8,6 @@ package model;
 /**
  *
  * @author dapon
+ * @reviewer Andrea
  */
-public enum Condition {
-    GOOD,
-    FAIR,
-    POOR;
-}
+public enum Condition { GOOD, FAIR, POOR }

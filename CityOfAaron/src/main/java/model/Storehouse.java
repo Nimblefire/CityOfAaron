@@ -6,6 +6,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,7 +20,7 @@ public class Storehouse implements Serializable {
     private ArrayList<InventoryItem> tools = new ArrayList<InventoryItem>();
     private ArrayList<Provision> provisions = new ArrayList<Provision>();
     
-    //default constructor
+    // default empty constructor for Java Bean 
     public Storehouse() {
     }
     

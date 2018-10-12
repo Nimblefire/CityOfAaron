@@ -17,7 +17,7 @@ public class Author implements Serializable {
     private String name;
     private String title;
     
-    // constructor
+    // default empty constructor for Java Bean class
     public Author() {
     }
     

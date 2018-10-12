@@ -31,7 +31,6 @@ public class CityOfAaron {
         
         //System.out.println(player1);
         
-        
         gameOne.setMap(new Map());
         gameOne.setStorehouse(new Storehouse());
         gameOne.setCurrentPopulation(110);
@@ -40,9 +39,12 @@ public class CityOfAaron {
         
         System.out.println(gameOne.toString());
         
+        /*
+        
         InventoryItem hammer = new InventoryItem();
         Animal horse = new Animal();
         Provision apple = new Provision();
+        
         
         hammer.setName("Hammer");
         hammer.setCondition(Good);
@@ -60,10 +62,8 @@ public class CityOfAaron {
         apple.setPerishable(true);
         apple.setItemType(Provisions);
         apple.setQuantity(10);
-        
-        
-        
-        
+        */
+            
     }
 
 }

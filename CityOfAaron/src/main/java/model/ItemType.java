@@ -9,8 +9,4 @@ package model;
  *
  * @author dapon
  */
-public enum ItemType {
-    Animal,
-    Tool,
-    Provisions;
-}
+public enum ItemType { ANIMAL, TOOL, PROVISIONS }

@@ -19,7 +19,7 @@ public class CityOfAaron {
      */
     public static void main(String[] args) {
         
-        Game gameOne = new Game();  // new Game object
+        /*Game gameOne = new Game();  // new Game object
         gameOne.setPlayer(new Player());   // new Player object
         gameOne.setStorehouse(new Storehouse()); // new Storehouse object
         gameOne.setMap(new Map()); // new Map object
@@ -49,30 +49,31 @@ public class CityOfAaron {
         Player player1 = gameOne.getPlayer(); // retrieving the name of the player
         
         //System.out.println(player1);
-        
+        */
         InventoryItem hammer = new InventoryItem();
         Animal horse = new Animal();
         Provision apple = new Provision();
         
         
+        
         hammer.setName("Hammer");
-        hammer.setCondition(Good);
-        hammer.setItemType(Tool);
+        hammer.setCondition(Condition.GOOD);
+        hammer.setItemType(ItemType.TOOL);
         hammer.setQuantity(1);
         
         horse.setName("Arabian Horse");
         horse.setAge(7);
-        horse.setCondition(Good);
-        horse.setItemType(Animal);
+        horse.setCondition(Condition.GOOD);
+        horse.setItemType(ItemType.ANIMAL);
         horse.setQuantity(1);
         
         apple.setName("Apple");
-        apple.setCondition(Good);
+        apple.setCondition(Condition.GOOD);
         apple.setPerishable(true);
-        apple.setItemType(Provisions);
+        apple.setItemType(ItemType.PROVISIONS);
         apple.setQuantity(10);
-        */
-            
+        
+        System.out.println(hammer.toString()+ "\n" + horse.toString() + "\n" + apple.toString());
     }
 
 }

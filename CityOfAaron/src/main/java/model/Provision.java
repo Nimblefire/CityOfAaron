@@ -45,6 +45,9 @@ public class Provision extends InventoryItem implements Serializable{
         return "Provision{"
                 + "\n name=" + name
                 + "\n perishable=" + perishable
+                + "\n itemType=" + super.getItemType()
+                + "\n quantity=" + super.getQuantity()
+                + "\n condition=" + super.getCondition()
                 + "}";
     }
 }

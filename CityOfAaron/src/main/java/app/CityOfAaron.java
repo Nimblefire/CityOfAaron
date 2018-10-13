@@ -140,26 +140,12 @@ public class CityOfAaron {
         
         // System.out.println(theStorehouse.toString());
         
-        
-        Location tips = new Location();
-        tips.setGameTips(new String[] {
-            "Pray", "Pay tithing", "Feed People"
-        });
-        
-       System.out.println(tips.toString());
-       //Location {tips = [Pray, Pay tithing, Feed People]}
-        
-        
-        
-        
-        
-        
+
         Location temple = new Location();
         temple.setName("temple");
         temple.setDescription("This is where the game begins");
         temple.setMapSymbol("*");
-        temple.setGameTips(args);
-        //temple.setGameTips("Visit here often.");
+        temple.setGameTips(new String[] {"Pray", "Pay tithing", "Feed people"});
         
         locations[templePosition.getRow()][templePosition.getColumn()] = temple;
 

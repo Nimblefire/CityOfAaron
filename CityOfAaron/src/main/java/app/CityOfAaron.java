@@ -98,57 +98,22 @@ public class CityOfAaron {
         //locations.setName();
         //String locations = locations.getName();
         
+        // Point class
         Point templePosition = new Point();
         templePosition.setRow(0);
         templePosition.setColumn(0);
         
+        // Location class
         Location temple = new Location();
         temple.setName("temple");
         temple.setDescription("This is where the game begins");
         temple.setMapSymbol("*");
-        temple.setGametips("test");
-        
-        
+        temple.setGametips(gameTips);
+         
         locations[templePosition.getRow()][templePosition.getColumn()] = temple;
 
         System.out.println(locations[0][0].toString());
-        //Point Class
-        
-        Point thisLocation = new Point();
-       
-        thisLocation.setRow(1);
-        thisLocation.setColumn(3);
-        
-        System.out.println(hammer.toString()+ "\n" + horse.toString() + "\n" + apple.toString());
-        
-        // Alternative test for enum classes
-        /*
-        for(ItemType it: ItemType.values()){
-            System.out.println(it); 
-        }
-        
-        for(Condition c: Condition.values()){
-           System.out.println(c); 
-        }
         */
-        
-        // Map Class
-       
-        //locations[currentLocation.getRow()][currentLocation.getColumn()].getMapSymbol();
-        
-        
-       
-        // Location Class
-       // ourTown.setName("Aaron");
-       // ourTown.setDescription("This is where the game begins");
-       // ourTown.setMapSymbol("*");
-        //ourTown.setGametips(gameTips);
-        
-        
-        // Point Class
-        
-       
-
     }
 
 }

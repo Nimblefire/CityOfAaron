@@ -12,7 +12,6 @@ import java.io.Serializable;
  */
 public class Provision extends InventoryItem implements Serializable{
     //attributes
-    private String name;
     private boolean perishable;
     
     //default constructor
@@ -21,16 +20,6 @@ public class Provision extends InventoryItem implements Serializable{
     }
     
     //getter and setter
-    @Override
-    public String getName(){
-        return name;
-    }
-    
-    @Override
-    public void setName(String name){
-        this.name = name;
-    }
-    
     
     public boolean getPerishable(){
         return perishable;
@@ -43,11 +32,8 @@ public class Provision extends InventoryItem implements Serializable{
     @Override
     public String toString(){
         return "Provision{"
-                + "\n name=" + name
+                + super.toString()
                 + "\n perishable=" + perishable
-                + "\n itemType=" + super.getItemType()
-                + "\n quantity=" + super.getQuantity()
-                + "\n condition=" + super.getCondition()
                 + "}";
     }
 }

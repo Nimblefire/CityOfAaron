@@ -158,7 +158,9 @@ public class CityOfAaron {
         temple.setName("temple");
         temple.setDescription("This is where the game begins");
         temple.setMapSymbol("*");
-        temple.setGameTips(args);
+        temple.setGameTips(new String[] {
+            "Pray", "Pay tithing", "Feed People"
+        });
         //temple.setGameTips("Visit here often.");
         
         locations[templePosition.getRow()][templePosition.getColumn()] = temple;

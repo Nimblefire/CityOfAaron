@@ -60,10 +60,10 @@ public class Storehouse implements Serializable {
     // auxiliary methods
     @Override
     public String toString() {
-        return "Storehouse{" + "authors=" + authors 
-                             + ", animals=" + animals 
-                             + ", tools=" + tools 
-                             + ", provisions=" + provisions 
+        return "Storehouse{" + "\n authors=" + authors
+                             + "\n animals=" + animals 
+                             + "\n tools=" + tools
+                             + "\n provisions=" + provisions 
                              + '}';
     }
     

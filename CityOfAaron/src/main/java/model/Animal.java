@@ -13,7 +13,6 @@ import java.io.Serializable;
 public class Animal extends InventoryItem implements Serializable{
     
     //attributes
-    private String name;
     private int age;
     
     //default constructor
@@ -22,18 +21,6 @@ public class Animal extends InventoryItem implements Serializable{
     }
     
     //getter and setter
-    @Override
-    public String getName(){
-        return name;
-    }
-    
-    @Override
-    public void setName(String name){
-        //if
-        this.name = name;
-    }
-    
-    
     public int getAge(){
         return age;
     }

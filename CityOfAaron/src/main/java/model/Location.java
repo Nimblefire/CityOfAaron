@@ -5,7 +5,8 @@
  */
 package model;
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.Arrays;
+
 
 /**
  *
@@ -16,8 +17,8 @@ public class Location implements Serializable {
     private String name;
     private String description;
     private String mapSymbol;
-    //private String[] gameTips;
-    private String gameTips;
+    private String[] gameTips;
+    //private String gameTips;
     //private ArrayList<String>gameTips = new ArrayList<>();
     //
     
@@ -51,26 +52,32 @@ public class Location implements Serializable {
         this.mapSymbol = symbol;
     }
     
-    public String getGameTips() {
-    //public String[] getGameTips() {
+    //public String getGameTips() {
+    public String[] getGameTips() {
         return gameTips;
     }
     
     //public String[]getGameTips() {
         //return}
     
-    public void setGametips (String gameTips){
-    //public void setGameTips(String[] tips) {
-      this.gameTips = gameTips;
+    //public void setGameTips (String gameTips){
+    
+    //public void setGameTips(String[] gameTips) {
+      //this.gameTips = gameTips;
+    //}
+    
+    public void setGameTips(String[] tips) {
+      this.gameTips = tips;
     }
     
     @Override
     public String toString() {
         return "Location{"
-                + " name =" + name
-                + ", description =" + description
-                + ", Map symbol =" + mapSymbol
-                + ", Game Tip =" + gameTips
+                + "\n name =" + name
+                + "\n description =" + description
+                + "\n Map symbol =" + mapSymbol
+                + "\n Game Tip =" + Arrays.toString(gameTips)
+              //  + "\n Game Tip =" + gameTips
                 + '}';
     }
 }

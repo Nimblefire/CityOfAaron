@@ -91,72 +91,35 @@ public class CityOfAaron {
         hammer.setItemType(ItemType.TOOL);
         hammer.setQuantity(1);
         
-        // Map Class
-        Map map = new Map();
+        System.out.println(hammer.toString()+ "\n" + horse.toString() + "\n" + apple.toString());
         
-        
+        // Test Map Class
+        Map map = new Map();        
         Location[][]locations = new Location[5][5];
-        //locations.setName();
-        //String locations = locations.getName();
-        
+        //Test Point Class
         Point templePosition = new Point();
         templePosition.setRow(0);
         templePosition.setColumn(0);
         
-        //String[]myTips = new String[] {"Pray", "Feed your people", "Pay tithing"};
-        //Location tipOne = new Location();
-        //tipOne.setGameTips(myTips);
-        //System.out.println(tipOne.toString());
-        
-        
-        //String[] strArray = new String[2];
-        //myTips[0] = "Pray";
-        //myTips[1] = "Eat";
-        
-        
-        
-        
-        
-       // Location tipOne = new Location();
-       // tipOne.setGameTips("Pray");
-        // System.out.println(tipOne.toString());
-        
-        // Location tipTwo = new Location();
-        // tipTwo.setGameTips("Pay tithing");
-        // System.out.println(tipTwo.toString());
-        
-        // Location tipThree = new Location();
-        // tipThree.setGameTips("Feed your people.");
-        // System.out.println(tipThree.toString());
-        
-        
-        // ArrayList<Location> tips = new ArrayList();
-        // tips.add(tipOne);
-        // tips.add(tipTwo);
-        // tips.add(tipThree);
-        
-        //Location GameTips = new Location();
-        //GameTips.setLocation(tips);
-        
-        // System.out.println(theStorehouse.toString());
-        
-
         Location temple = new Location();
         temple.setName("temple");
         temple.setDescription("This is where the game begins");
         temple.setMapSymbol("*");
         temple.setGameTips(new String[] {"Pray", "Pay tithing", "Feed people"});
-        
         locations[templePosition.getRow()][templePosition.getColumn()] = temple;
-
+        
         System.out.println(locations[0][0].toString());
-        //Point Class
-        Point thisLocation = new Point();
-       
-        thisLocation.setRow(1);
-        thisLocation.setColumn(3);
+        System.out.println(templePosition.toString());
+        
+        
+        //Point thisLocation = new Point();
+        //thisLocation.setRow(1);
+        //thisLocation.setColumn(3);
+        
+        //System.out.println(thisLocation.toString());
+        
                 
-        System.out.println(hammer.toString()+ "\n" + horse.toString() + "\n" + apple.toString());
+        
         
        
 

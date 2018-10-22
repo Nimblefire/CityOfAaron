@@ -52,20 +52,10 @@ public class Location implements Serializable {
         this.mapSymbol = symbol;
     }
     
-    //public String getGameTips() {
     public String[] getGameTips() {
         return gameTips;
     }
-    
-    //public String[]getGameTips() {
-        //return}
-    
-    //public void setGameTips (String gameTips){
-    
-    //public void setGameTips(String[] gameTips) {
-      //this.gameTips = gameTips;
-    //}
-    
+   
     public void setGameTips(String[] tips) {
       this.gameTips = tips;
     }
@@ -77,7 +67,6 @@ public class Location implements Serializable {
                 + "\n description =" + description
                 + "\n Map symbol =" + mapSymbol
                 + "\n Game Tip =" + Arrays.toString(gameTips)
-              //  + "\n Game Tip =" + gameTips
                 + '}';
     }
 }

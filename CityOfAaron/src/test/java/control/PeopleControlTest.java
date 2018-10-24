@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author cristinairwin
+ * @author Team Irwin - DaPonte - Rochira
  */
 public class PeopleControlTest {
     

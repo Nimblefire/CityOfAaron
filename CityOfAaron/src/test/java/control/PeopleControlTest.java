@@ -27,112 +27,80 @@ public class PeopleControlTest {
         
         //Test Case 1
         System.out.println("\tTest case 1");
-        // define the input variables
-        int wheatForPeople = 150000;
-        int curPop = 500;
-        int expDeaths = 0;
         //call the method
-        int result = PeopleControl.calculateMortality(wheatForPeople, curPop);
+        int result = PeopleControl.calculateMortality(15000, 500);
         //test to see if the result returned equals the expected amount
-        assertEquals(expDeaths, result);
+        assertEquals(0, result);
     }
      
     @Test
     public void test2CalculateMortality() {
         //Test Case 2
         System.out.println("\tTest case 2");
-        // define the input variables
-        int wheatForPeople = 9000;
-        int curPop = 500;
-        int expDeaths = 50;
         //call the method
-        int result = PeopleControl.calculateMortality(wheatForPeople, curPop);
+        int result = PeopleControl.calculateMortality(9000, 500);
         //test to see if the result returned equals the expected amount
-        assertEquals(expDeaths, result);
+        assertEquals(50, result);
     }
     
     @Test
     public void test3CalculateMortality() {
         //Test Case 3
         System.out.println("\tTest case 3");
-        // define the input variables
-        int wheatForPeople = 19;
-        int curPop = 500;
-        int expDeaths = 500;
         //call the method
-        int result = PeopleControl.calculateMortality(wheatForPeople, curPop);
+        int result = PeopleControl.calculateMortality(19, 500);
         //test to see if the result returned equals the expected amount
-        assertEquals(expDeaths, result);
+        assertEquals(500, result);
     }
     
     @Test
     public void test4CalculateMortality() {
         //Test Case 4
         System.out.println("\tTest case 4");
-        // define the input variables
-        int wheatForPeople = -10000;
-        int curPop = 500;
-        int expDeaths = -1;
         //call the method
-        int result = PeopleControl.calculateMortality(wheatForPeople, curPop);
+        int result = PeopleControl.calculateMortality(-10000, 500);
         //test to see if the result returned equals the expected amount
-        assertEquals(expDeaths, result);
+        assertEquals(-1, result);
     }
      
     @Test
     public void test5CalculateMortality() {
         //Test Case 5
         System.out.println("\tTest case 5");
-        // define the input variables
-        int wheatForPeople = 10000;
-        int curPop = -500;
-        int expDeaths = -2;
         //call the method
-        int result = PeopleControl.calculateMortality(wheatForPeople, curPop);
+        int result = PeopleControl.calculateMortality(10000, -500);
         //test to see if the result returned equals the expected amount
-        assertEquals(expDeaths, result);
+        assertEquals(-2, result);
     }    
     
     @Test
     public void test6CalculateMortality() {
         //Test Case 6
         System.out.println("\tTest case 6");
-        // define the input variables
-        int wheatForPeople = 10000;
-        int curPop = 0;
-        int expDeaths = -2;
         //call the method
-        int result = PeopleControl.calculateMortality(wheatForPeople, curPop);
+        int result = PeopleControl.calculateMortality(10000, 0);
         //test to see if the result returned equals the expected amount
-        assertEquals(expDeaths, result);
+        assertEquals(-2, result);
     }
     
     @Test
     public void test7CalculateMortality() {
         //Test Case 7
         System.out.println("\tTest case 7");
-        // define the input variables
-        int wheatForPeople = 10000;
-        int curPop = 1;
-        int expDeaths = 0;
         //call the method
-        int result = PeopleControl.calculateMortality(wheatForPeople, curPop);
+        int result = PeopleControl.calculateMortality(10000, 1);
         //test to see if the result returned equals the expected amount
-        assertEquals(expDeaths, result);
+        assertEquals(0, result);
     }
     
     @Test
     public void test8CalculateMortality() {
         //Test Case 8
         System.out.println("\tTest case 8");
-        // define the input variables
-        int wheatForPeople = 0;
-        int curPop = 500;
-        int expDeaths = 500;
         //call the method
-        int result = PeopleControl.calculateMortality(wheatForPeople, curPop);
+        int result = PeopleControl.calculateMortality(0, 500);
         //test to see if the result returned equals the expected amount
-        assertEquals(expDeaths, result);
+        assertEquals(500, result);
     }
 
     @Test
@@ -140,14 +108,10 @@ public class PeopleControlTest {
         //Test Case 9  
         // this is an extra text case to check how the method handles floating point values
         System.out.println("\tTest case 9");
-        // define the input variables
-        int wheatForPeople = 7587;
-        int curPop = 500;
-        int expDeaths = 121;
         //call the method
-        int result = PeopleControl.calculateMortality(wheatForPeople, curPop);
+        int result = PeopleControl.calculateMortality(7587, 500);
         //test to see if the result returned equals the expected amount
-        assertEquals(expDeaths, result);
+        assertEquals(121, result);
     }
     
 }

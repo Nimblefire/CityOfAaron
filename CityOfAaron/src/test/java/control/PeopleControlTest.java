@@ -148,7 +148,6 @@ public class PeopleControlTest {
         int result = PeopleControl.calculateMortality(wheatForPeople, curPop);
         //test to see if the result returned equals the expected amount
         assertEquals(expDeaths, result);
-        System.out.println(result);
     }
     
 }

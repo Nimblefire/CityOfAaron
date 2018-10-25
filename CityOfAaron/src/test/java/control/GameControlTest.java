@@ -21,7 +21,7 @@ public class GameControlTest {
     public void test1getRandomValue() {
         System.out.println("Test 1 - valid input test between 1 and 100");
         int random = GameControl.getRandomValue(1, 100);
-        assertTrue(1 <= random && random <= 100);
+        assertTrue("Test failed",1 <= random && random <= 100);
         System.out.printf("%d <= %d <= %d\n",1, random, 100);
     }
     
@@ -29,7 +29,7 @@ public class GameControlTest {
     public void test2getRandomValue() {
         System.out.println("Test 2 - valid input test between 435 and 2736");
         int random = GameControl.getRandomValue(435, 2736);
-        assertTrue(435 <= random && random <= 2736);
+        assertTrue("Test failed",435 <= random && random <= 2736);
         System.out.printf("%d <= %d <= %d\n",435, random, 2736);
     }
     
@@ -77,7 +77,7 @@ public class GameControlTest {
     public void test8getRandomValue() {
         System.out.println("Test 8 - boundary input test: lowValue is equals to 0");
         int random = GameControl.getRandomValue(0, 5000);
-        assertTrue( 0 <= random && random <= 5000);
+        assertTrue("Test failed", 0 <= random && random <= 5000);
         System.out.printf("%d <= %d <= %d\n",0, random, 5000);
         
     }

@@ -22,8 +22,7 @@ public class GameControlTest {
         System.out.println("Test 1 - valid input test between 1 and 100");
         int random = GameControl.getRandomValue(1, 100);
         assertTrue("Test 1 failed",1 <= random && random <= 100);
-        System.out.printf("%d <= %d <= %d\n",1, random, 100);
-        System.out.println("Test 1 passed");
+        System.out.printf(("Test 1 passed: " + "%d <= %d <= %d\n"),1, random, 100);
     }
     
     @Test
@@ -31,15 +30,14 @@ public class GameControlTest {
         System.out.println("Test 2 - valid input test between 435 and 2736");
         int random = GameControl.getRandomValue(435, 2736);
         assertTrue("Test 2 failed",435 <= random && random <= 2736);
-        System.out.printf("%d <= %d <= %d\n",435, random, 2736);
-        System.out.println("Test 2 passed");
+        System.out.printf(("Test 2 passed: " + "%d <= %d <= %d\n"),435, random, 2736);
     }
     
     @Test
     public void test3getRandomValue() {
         System.out.println("Test 3 - invalid input test: negative lowValue");
         int random = GameControl.getRandomValue(-23, 12);
-        assertEquals("lowValue is negative",-2, random);
+        assertEquals("Test 3 failed", -1, random);
         System.out.println("Test 3 passed");
     }
     
@@ -80,7 +78,7 @@ public class GameControlTest {
         System.out.println("Test 8 - boundary input test: lowValue is equals to 0");
         int random = GameControl.getRandomValue(0, 5000);
         assertTrue("Test 8 failed", 0 <= random && random <= 5000);
-        System.out.printf("%d <= %d <= %d\n",0, random, 5000);
-        System.out.println("Test 8 passed");
+        System.out.printf(("Test 8 passed: " + "%d <= %d <= %d\n"),0, random, 5000);
+        System.out.println();
     }
 }

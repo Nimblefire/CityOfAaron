@@ -7,16 +7,17 @@ package control;
 
 /**
  *
- * @author cristinairwin
+ * @author Team Irwin - DaPonte - Rochira
  */
 public class PeopleControl {
     
     public static int calculateMortality(int wheatForPeople, int curPop) {
         // Calculate the number of people who are not fed the amount required to
-        // sustain life (20 bushels per person). They die. It is very sad.
+        // sustain life (20 bushels per person).
         
-        //bushels per person - constant value
-        final int BUSHELS_PER_PERSON = 20; 
+        //bushels per person is a local constant value
+        final int BUSHELS_PER_PERSON = 20;
+        //local variable (return value) 
         int deaths = 0;
   
            

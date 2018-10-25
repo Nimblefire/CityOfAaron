@@ -78,6 +78,7 @@ public class GameControlTest {
         System.out.println("Test 8 - boundary input test: lowValue is equals to 0");
         int random = GameControl.getRandomValue(0, 5000);
         assertTrue( 0 <= random && random <= 5000);
-        System.out.println("test passed with lowValue equals to 0");
+        System.out.printf("%d <= %d <= %d\n",0, random, 5000);
+        
     }
 }

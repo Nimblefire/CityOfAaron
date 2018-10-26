@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package control;
 
 import java.util.Random;
@@ -12,50 +8,53 @@ import java.util.Random;
  * @author cristinairwin
  */
 public class WheatControl {
-    public static int calculateHarvest(int tithesPercent, int acresPlanted) {
+    
+    public static int calculateHarvest(int tithesOfferings, int acresPlanted) {
+       //int RanddomNumber;
+        //int low = 0;
+        //int high = 0;
+        //int randomTest = GameControl.getRandomValue(low, high);
+        int randomNumber = 0;
+        //Is this supposed to be setRandValue???
+
         
-        // Calculate the amount of wheat harvested, based on the percentage 
-        // of tithing paid. Assume that GameControl.getRandomNumber(low,high) 
-        // is available to be called.
-        int low = 1;
-        int high = 6;
-        //Random randomNumberTest = new Random(System.currentTimeMillis());
-        //int tithingPercent = 0;
-        
-        int tithingPercent = GameControl.getRandomValue(low, high);
-   
-        
-        //if acresPlanted < 0 then return -1
+        //If acresPlanted < 0, then RETURN -1.
         if(acresPlanted < 0) {
             return -1;
         }
-        //if tithingPercent < 0 OR tithingPercent > 100 then return -2
-        if(tithingPercent < 0 || tithingPercent > 100) {
+
+        //If tithesOfferings is > than 100, then RETURN -2.
+        if(tithesOfferings > 100) {
             return -2;
         }
-
-        //if tithingPercent < 8 then low = 1, high = 3
-        if(tithingPercent < 8) {
-            low = 1;
-            high = 3;
+        //If tithesOfferings is < 0, then RETURN -2.
+        if(tithesOfferings < 0) {
+            return -2;
         }
-        //if tithingPercent >= 8 AND tithingPercent <= 12 then low = 2, high = 4
-        if(tithingPercent >= 8 && tithingPercent <= 12) {
-            low = 2;
-            high = 4;
-        }
+       
         
-        //if tithingPercent > 12 then low = 2, high = 5
-        if(tithingPercent > 12) {
-            low = 2;
-            high = 5;
+        //If tithesOfferings is > 12, then randomNumber between 2 and 5.
+        if(tithesOfferings > 12) {
+            //GameControl.getRandomValue(acresPlanted, acresPlanted);
+            randomNumber = GameControl.getRandomValue(2, 5);
         }
 
-        //yield = GameControl.getRandomNumber(low, high)
-        int wheatForPeople = GameControl.getRandomValue(low, high); 
+        //If tithesOfferings between 12 and 8 (<12 and >8), then random number between 2 and 4.
+        if(tithesOfferings >= 8 && tithesOfferings <= 12) {
+           randomNumber = GameControl.getRandomValue(2, 4);
+            
+        }
+
+        //If tithesOfferings is < 8, then randomNumber between 1 and 3.
+        if(tithesOfferings < 8) {
+          randomNumber = GameControl.getRandomValue(1, 3);
+        }
+
         
-        //return yield * acresPlanted
-        return wheatForPeople * acresPlanted;
+        //calculatHarvest = acresPlanted * RandomNumber
+        int calculateHarvest = acresPlanted * randomNumber;
         
+        //RETURN calculateHarvest (store calculateHarvest)
+        return calculateHarvest;
     }
 }

@@ -30,7 +30,7 @@ public class PeopleControlTest {
         //call the method
         int result = PeopleControl.calculateMortality(15000, 500);
         //test to see if the result returned equals the expected amount
-        assertEquals(0, result);
+        assertEquals("Test 1 failed",0, result);
     }
      
     @Test
@@ -40,7 +40,7 @@ public class PeopleControlTest {
         //call the method
         int result = PeopleControl.calculateMortality(9000, 500);
         //test to see if the result returned equals the expected amount
-        assertEquals(50, result);
+        assertEquals("Test 2 failed",50, result);
     }
     
     @Test
@@ -50,7 +50,7 @@ public class PeopleControlTest {
         //call the method
         int result = PeopleControl.calculateMortality(19, 500);
         //test to see if the result returned equals the expected amount
-        assertEquals(500, result);
+        assertEquals("Test 3 failed",500, result);
     }
     
     @Test
@@ -60,7 +60,7 @@ public class PeopleControlTest {
         //call the method
         int result = PeopleControl.calculateMortality(-10000, 500);
         //test to see if the result returned equals the expected amount
-        assertEquals(-1, result);
+        assertEquals("Test 4 failed",-1, result);
     }
      
     @Test
@@ -70,7 +70,7 @@ public class PeopleControlTest {
         //call the method
         int result = PeopleControl.calculateMortality(10000, -500);
         //test to see if the result returned equals the expected amount
-        assertEquals(-2, result);
+        assertEquals("Test 5 failed",-2, result);
     }    
     
     @Test
@@ -80,7 +80,7 @@ public class PeopleControlTest {
         //call the method
         int result = PeopleControl.calculateMortality(10000, 0);
         //test to see if the result returned equals the expected amount
-        assertEquals(-2, result);
+        assertEquals("Test 6 failed",-2, result);
     }
     
     @Test
@@ -90,7 +90,7 @@ public class PeopleControlTest {
         //call the method
         int result = PeopleControl.calculateMortality(10000, 1);
         //test to see if the result returned equals the expected amount
-        assertEquals(0, result);
+        assertEquals("Test 7 failed",0, result);
     }
     
     @Test
@@ -100,7 +100,7 @@ public class PeopleControlTest {
         //call the method
         int result = PeopleControl.calculateMortality(0, 500);
         //test to see if the result returned equals the expected amount
-        assertEquals(500, result);
+        assertEquals("Test 8 failed",500, result);
     }
 
     @Test
@@ -111,7 +111,7 @@ public class PeopleControlTest {
         //call the method
         int result = PeopleControl.calculateMortality(7587, 500);
         //test to see if the result returned equals the expected amount
-        assertEquals(121, result);
+        assertEquals("Test 9 failed",121, result);
     }
     
 }

@@ -57,4 +57,52 @@ public class WheatControl {
         //RETURN calculateHarvest (store calculateHarvest)
         return calculateHarvest;
     }
+    
+    public static int calculateLossToRats(int randomNumber, int wheatInStorage, int tithesPercentage){
+        //int randomNumber = GameControl.getRandomValue(1, 100);
+        int wheatEaten;
+        int randomPercentage = 0;
+        
+        //IF randomNumber < 1 OR randomNumber > 100 THEN RETURN -1
+        if (randomNumber < 1 || randomNumber > 100){
+            return -1;
+        }
+        
+        //IF wheatInStorage < 0 THEN RETURN -2
+        if (wheatInStorage < 0){
+            return -2;
+        }
+        
+        //IF tithesPercentage < 0 THEN RETURN -3
+        if (tithesPercentage < 0){
+            return -3;
+        }
+    
+        //IF randomNumber >= 30 THEN wheatEaten = 0
+        if (randomNumber >= 30){
+            wheatEaten = 0;
+        }
+        
+        //IF randomNumber < 30 AND randomNumber >= 1 THEN
+        if (randomNumber < 30 && randomNumber >= 1){
+            //IF tithingPercentage < 8 THEN wheatEaten = getRandomNumber(6, 10)/100 * wheatInStorage
+            if (tithesPercentage < 8){
+                //randomPercentage = GameControl.getRandomValue(6, 10);
+                randomPercentage = 9;
+            }
+            
+            //IF tithingPercentage >= 8 AND tithingPercentage <= 12 THEN wheatEaten = getRandomNumber(3, 7)/100 * wheatInStorage
+            if (tithesPercentage >= 8 && tithesPercentage <= 12){
+                //randomPercentage = GameControl.getRandomValue(3, 7);
+                randomPercentage = 7;
+            }
+            
+            //IF tithingPercentage > 12 THEN wheatEaten = getRandomNumber(3, 5)/100 * wheatInStorage
+            if (tithesPercentage > 12){
+                //randomPercentage = GameControl.getRandomValue(3, 5);
+                randomPercentage = 4;
+            }
+        }
+        return wheatEaten = randomPercentage * wheatInStorage/100;
+    }
 }

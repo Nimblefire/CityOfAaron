@@ -197,5 +197,133 @@ public class WheatControlTest {
         assertEquals(expResult, result);
         
     }
+
+    /**
+     * Test of calculateLossToRats method, of class WheatControl.
+     */
+    @Test
+    public void test1CalculateLossToRats() {
+        System.out.println("calculateLossToRats Test 1");
+        int randomNumber = 20;
+        int wheatInStorage = 1;
+        int tithesPercentage = 1;
+        int expResult = 1*9/100;
+        int result = WheatControl.calculateLossToRats(randomNumber, wheatInStorage, tithesPercentage);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+    }
     
+    @Test
+    public void test2CalculateLossToRats() {
+        System.out.println("calculateLossToRats Test 2");
+        int randomNumber = 20;
+        int wheatInStorage = 1500;
+        int tithesPercentage = 9;
+        int expResult = 1500*7/100;
+        int result = WheatControl.calculateLossToRats(randomNumber, wheatInStorage, tithesPercentage);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+    }
+    
+    @Test
+    public void test3CalculateLossToRats() {
+        System.out.println("calculateLossToRats Test 3");
+        int randomNumber = 20;
+        int wheatInStorage = 1500;
+        int tithesPercentage = 13;
+        int expResult = 1500*4/100;
+        int result = WheatControl.calculateLossToRats(randomNumber, wheatInStorage, tithesPercentage);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+    }
+    
+    @Test
+    public void test4CalculateLossToRats() {
+        System.out.println("calculateLossToRats Test 4");
+        int randomNumber = 50;
+        int wheatInStorage = 1500;
+        int tithesPercentage = 1;
+        int expResult = 0;
+        int result = WheatControl.calculateLossToRats(randomNumber, wheatInStorage, tithesPercentage);
+        assertEquals("Test 4 failed", expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+    }
+    
+    @Test
+    public void test5CalculateLossToRats() {
+        System.out.println("calculateLossToRats Test 5");
+        int randomNumber = 101;
+        int wheatInStorage = 150;
+        int tithesPercentage = 10;
+        int expResult = -1;
+        int result = WheatControl.calculateLossToRats(randomNumber, wheatInStorage, tithesPercentage);
+        assertEquals(expResult, result);
+
+    }
+    
+    @Test
+    public void test6CalculateLossToRats() {
+        System.out.println("calculateLossToRats Test 6");
+        int randomNumber = 50;
+        int wheatInStorage = -1;
+        int tithesPercentage = 10;
+        int expResult = -2;
+        int result = WheatControl.calculateLossToRats(randomNumber, wheatInStorage, tithesPercentage);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void test7CalculateLossToRats() {
+        System.out.println("calculateLossToRats Test 7");
+        int randomNumber = 50;
+        int wheatInStorage = 1500;
+        int tithesPercentage = -1;
+        int expResult = -3;
+        int result = WheatControl.calculateLossToRats(randomNumber, wheatInStorage, tithesPercentage);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void test8CalculateLossToRats() {
+        System.out.println("calculateLossToRats Test 8");
+        int randomNumber = 100;
+        int wheatInStorage = 150;
+        int tithesPercentage = 1;
+        int expResult = 0;
+        int result = WheatControl.calculateLossToRats(randomNumber, wheatInStorage, tithesPercentage);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void test9CalculateLossToRats() {
+        System.out.println("calculateLossToRats Test 9");
+        int randomNumber = 1;
+        int wheatInStorage = 150;
+        int tithesPercentage = 1;
+        int expResult = wheatInStorage*9/100;
+        int result = WheatControl.calculateLossToRats(randomNumber, wheatInStorage, tithesPercentage);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void test10CalculateLossToRats() {
+        System.out.println("calculateLossToRats Test 10");
+        int randomNumber = 20;
+        int wheatInStorage = 150;
+        int tithesPercentage = 0;
+        int expResult = wheatInStorage*9/100;
+        int result = WheatControl.calculateLossToRats(randomNumber, wheatInStorage, tithesPercentage);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void test11CalculateLossToRats() {
+        System.out.println("calculateLossToRats Test 11");
+        int randomNumber = 20;
+        int wheatInStorage = 10;
+        int tithesPercentage = 0;
+        int expResult = 0;
+        int result = WheatControl.calculateLossToRats(randomNumber, wheatInStorage, tithesPercentage);
+        assertEquals(expResult, result);
+    }
 }

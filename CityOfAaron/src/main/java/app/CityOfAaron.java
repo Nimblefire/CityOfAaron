@@ -116,13 +116,7 @@ public class CityOfAaron {
         //thisLocation.setRow(1);
         //thisLocation.setColumn(3);
         
-        //System.out.println(thisLocation.toString());
-        
-                
-        
-        
-       
-
+        //System.out.println(thisLocation.toString())
     }
 
 }

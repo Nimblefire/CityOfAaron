@@ -156,12 +156,16 @@ public class HelpMenuView {
     // method will call based on the user's input.
     
     private void whatAreTheGoals(){
-        System.out.println("Rules of the game"
-                         + "-----------------"
-                         + "1. "
-                         + "2. "
-                         + "3. "
-                         + "... " );
+        System.out.println("Goals of the game\n"
+                         + "-----------------\n"
+                         + "1. Govern the City of Aaron successfully for a 10 year term of office\n"
+                         + "2. Determine how to allocate your bushels of wheat, each year you can\n"
+                         + "   a. buy and sell acres of land\n"
+                         + "   b. feed your people\n"
+                         + "   c. plant seeds for next year's crops\n"
+                         + "   d. pay tithes and offerings\n"
+                         + "3. Don't starve your people; if more than 50% of the population starves in one year, your people will feed you to the rats\n"
+                         + "If you make it to the 11th year, your rule will be evaluated and you'll be ranked against great figures in history." );
     }
 
     private void whereIsTheCity(){

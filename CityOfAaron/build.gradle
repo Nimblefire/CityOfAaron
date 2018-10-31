@@ -37,4 +37,8 @@ jar {
     }
 }
 
+run {
+    standardInput = System.in
+}
+
 

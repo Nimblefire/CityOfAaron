@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package view;
-import cityofaaron.CityOfAaron;
+import app.CityOfAaron;
 import java.util.Scanner;
 import model.*;
 

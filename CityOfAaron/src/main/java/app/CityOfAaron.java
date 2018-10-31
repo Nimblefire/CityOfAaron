@@ -10,22 +10,40 @@ import java.util.Set;
 import model.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import view.StartProgramView;
 
 public class CityOfAaron {
-
-    /**
-     * The starting point for our application. 
-     * 
-     * @param args Any parameters passed on the command line will be 
-     * contained in this array.
-     */
-    public static void main(String[] args) {
         
+    // keep a copy of the current Game object in the main class
+    public static Game currentGame = null;
+    
+    public static Game getCurrentGame(){
+        return currentGame;
+    } 
+    
+    public static void setCurrentGame(Game game){
+        currentGame = game;
+    }
+    
+    public static void main(String[] args){
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.displayView();
+    }   
+        
+        /**
+        
+        
+        * The starting point for our application. 
+        * 
+        * @param args Any parameters passed on the command line will be 
+        * contained in this array.
+        
+        public static void main(String[] args) {
         //Game Class
         Game gameOne = new Game();
         //Player playerOne = new Player();
-       // gameOne.setPlayer(playerOne);
-       // playerOne.setName("Alma");
+        // gameOne.setPlayer(playerOne);
+        // playerOne.setName("Alma");
         //Player player1 = gameOne.getPlayer();
         
         //System.out.println(player1);
@@ -117,6 +135,7 @@ public class CityOfAaron {
         //thisLocation.setColumn(3);
         
         //System.out.println(thisLocation.toString())
-    }
+        */ 
+    
 
 }

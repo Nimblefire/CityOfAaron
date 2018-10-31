@@ -29,8 +29,8 @@ public class HelpMenuView {
                 + "G - What are the goals of the game?\n"
                 + "W - Where is the city of Aaron?\n"
                 + "M - How do I view the map?\n"
-                + "L - How do I move to another location?"
-                + "S - How do I display a list of animals, provisions and tools in the city storehouse?"
+                + "L - How do I move to another location?\n"
+                + "S - How do I display a list of animals, provisions and tools in the city storehouse?\n"
                 + "B - Back to Main menu\n";
                 
     }

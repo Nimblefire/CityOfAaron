@@ -156,7 +156,7 @@ public class HelpMenuView {
     // method will call based on the user's input.
     
     private void whatAreTheGoals(){
-        System.out.println("Goals of the game\n"
+        System.out.println("\nGoals of the game\n"
                          + "-----------------\n"
                          + "1. Govern the City of Aaron successfully for a 10 year term of office\n"
                          + "2. Determine how to allocate your bushels of wheat, each year you can\n"
@@ -164,24 +164,24 @@ public class HelpMenuView {
                          + "   b. feed your people\n"
                          + "   c. plant seeds for next year's crops\n"
                          + "   d. pay tithes and offerings\n"
-                         + "3. Don't starve your people; if more than 50% of the population starves in one year, your people will feed you to the rats\n"
-                         + "If you make it to the 11th year, your rule will be evaluated and you'll be ranked against great figures in history." );
+                         + "3. Don't starve your people; if more than 50% of the population starves\n   in one year, your people will feed you to the rats.\n\n"
+                         + "If you make it to the 11th year, your rule will be evaluated and\nyou'll be ranked against great figures in history.\n\n" );
     }
 
     private void whereIsTheCity(){
-        System.out.println("*** whereIsTheCity() called. Implementation coming soon... ");
+        System.out.println("\nThe legendary City of Aaron, named after the high priest Aaron, brother of Moses, stands in vicinity\nof Moroni and Nephihah. The cities face Irreantum, which, being interpreted, is many waters.\n\n");
     }
 
     private void viewTheMap(){
-        System.out.println("*** viewTheMap() called. Implementation coming soon... ");
+        System.out.println("\nYou can access the Map from the Game Menu, which is available when you start a new\ngame or load a saved game. Each location will teach you something about your role.\n");
     }
 
     private void moveToLocation(){
-        System.out.println("*** moveToLocation() called. Implementation coming soon... ");
+        System.out.println("\nThe Map Menu includes a list of locations from which to choose from\nand move between. You will be moving by foot or by horse.");
     }
 
     private void checkStorehouse(){
-        System.out.println("*** checkStorehouse() called. Implementation coming soon... ");
+        System.out.println("\nTo display a list of animals, provisions, and tools, access the Game Menu and select Reports Menu or 'R'.");
     }
     
 }

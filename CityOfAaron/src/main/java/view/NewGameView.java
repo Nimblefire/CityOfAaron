@@ -151,8 +151,8 @@ public class NewGameView {
         CityOfAaron.setCurrentGame(game);
 
         System.out.println();
-        System.out.println("Welcome to the game" + CityOfAaron.getCurrentGame().getPlayer().getName() + "!\n"
-                         + "The GameView is coming soon. For now we send you back to the Main menu");
+        System.out.println("Welcome to the game " + CityOfAaron.getCurrentGame().getPlayer().getName() + "!\n"
+                         + "The GameView is coming soon. For now we send you back to the Main menu...\n");
         
         // GameMenuView view = GameMenuView();
         // view.displayView;

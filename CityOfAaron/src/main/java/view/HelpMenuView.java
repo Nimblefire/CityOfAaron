@@ -24,7 +24,7 @@ public class HelpMenuView {
      */
     public HelpMenuView(){
         
-        message = "Help Menu\n"
+        message = "\nHelp Menu\n"
                 + "---------\n"
                 + "G - What are the goals of the game?\n"
                 + "W - Where is the city of Aaron?\n"
@@ -169,7 +169,7 @@ public class HelpMenuView {
     }
 
     private void whereIsTheCity(){
-        System.out.println("\nThe legendary City of Aaron, named after the high priest Aaron, brother of Moses, stands in vicinity\nof Moroni and Nephihah. The cities face Irreantum, which, being interpreted, is many waters.\n\n");
+        System.out.println("\nThe legendary City of Aaron, named after the high priest Aaron, brother of Moses, stands in vicinity\nof Moroni and Nephihah. The cities face Irreantum, which, being interpreted, is 'many waters'.\n\n");
     }
 
     private void viewTheMap(){
@@ -177,11 +177,11 @@ public class HelpMenuView {
     }
 
     private void moveToLocation(){
-        System.out.println("\nThe Map Menu includes a list of locations from which to choose from\nand move between. You will be moving by foot or by horse.");
+        System.out.println("\nThe Map Menu includes a list of locations from which to choose from\nand move between. You will be moving by foot or by horse.\n");
     }
 
     private void checkStorehouse(){
-        System.out.println("\nTo display a list of animals, provisions, and tools, access the Game Menu and select Reports Menu or 'R'.");
+        System.out.println("\nTo display a list of animals, provisions, and tools, access the Game Menu and select Reports Menu or 'R'.\n");
     }
     
 }

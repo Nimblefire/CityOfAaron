@@ -139,23 +139,21 @@ public class NewGameView {
     // Define your action handlers here. These are the methods that your doAction() method will call based on the user's input
     
     private void createAndStartGame(String playerName){
-        
-        // Game game = GameControl.createNewGame(playerName);
-        
+                
         Player player = new Player();
         player.setName(playerName);
 
         Game game = new Game();
         game.setPlayer(player);
+        
+        GameMenuView view = new GameMenuView();
+        view.displayView();
 
         CityOfAaron.setCurrentGame(game);
 
         System.out.println();
-        System.out.println("Welcome to the game " + CityOfAaron.getCurrentGame().getPlayer().getName() + "!\n"
-                         + "The GameView is coming soon. For now we send you back to the Main menu...\n");
-        
-        // GameMenuView view = GameMenuView();
-        // view.displayView;
+        System.out.println("Welcome to the game " + CityOfAaron.getCurrentGame().getPlayer().getName());
+       
     }
-    
+
 }

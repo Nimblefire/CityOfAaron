@@ -31,7 +31,7 @@ public class Author implements Serializable {
     }
     
     public String getTitle() {
-        return name;
+        return title;
     }
     
     public void setTitle(String title){

@@ -1,17 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
-
-import java.util.Scanner;
 
 /**
  *
- * @author team Irwin - DaPonte - Rochira
+ * @author Andrea
  */
-public class GameMenuView {
+
+import java.util.Scanner;
+import java.util.ArrayList;
+import model.*;
+
+
+public class ReportsMenuView {
     
     
     /**
@@ -22,18 +21,15 @@ public class GameMenuView {
     /**
      * Constructor
      */
-    public GameMenuView(){
+    public ReportsMenuView(){
         
-        message = "Game Menu\n"
-                + "---------\n"
-                + "M - View the Map\n"
-                + "L - Move to a new location\n"
-                + "C - Manage the Crops\n"
-                + "Y - Live the Year\n"
-                + "R - Reports Menu\n"
-                + "S - Save Game\n"
-                + "B - Back to Main menu\n";
-                
+        message = "Reports Menu\n"
+                + "------------\n"
+                + "A - View the authors of this game\n"
+                + "L - View the livestock in the storehouse\n"
+                + "P - View the provisions in the storehouse\n"
+                + "T - View the tools in the storehouse\n"
+                + "B - Back to Game Menu\n";            
     }
     
     /**
@@ -62,13 +58,13 @@ public class GameMenuView {
         String[] inputs = new String[1];
         
         // the following string is printed to the console by the statement 'System.out.println(prompt)'
-        // included in the getUserInput method (line 92)
         inputs[0] = getUserInput("Select an action from the menu above:");
         
         // Repeat for each input you need, putting it into its proper slot in the array.
-        
+         
         return inputs;
     }
+    
     
     /**
      * An overloaded version of getUserInput that sets allowEmpty to false so we don't have 
@@ -126,62 +122,76 @@ public class GameMenuView {
     public boolean doAction(String[] inputs){
 
         switch ( inputs[0].trim().toUpperCase() ){
-            case "M":
-                viewMap();
+            case "A":
+                reportAuthors();
                 break;
             case "L":
-                newLocation();
+                reportLivestocks();
                 break;
-            case "C":
-                manageCrops();
+            case "P":
+                reportProvisions();
                 break;
-            case "Y":
-                liveTheYear();
-                break;
-            case "R":
-                reportsMenu();
-                break;
-            case "S":
-                saveGame();
+            case "T":
+                reportTools();
                 break;
             case "B":
-                System.out.println("Exiting Game Menu...");
-                // return false if you want this view to exit and return to the view that called it.
+                System.out.println("Exiting Report Menu...\n");
                 return false;
-            default: 
-                System.out.println("Invalid selection, try again.");
+            default:
+                System.out.println("Invalid selection, try again.\n");
         }
-        
-        
-        return true;
+                
+       return true; 
     }
-    
     
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input.
     
-    private void viewMap(){
-         System.out.println("*** viewMap()called. Implementation coming soon... ");
+    // To fulfill the requirements of the rubric (do-while logic + two String methods)
+    private void reportAuthors(){
+                
+        // Create Author objects
+        Author Cristina = new Author();
+        Cristina.setName("Cristina Irwin");
+        Cristina.setTitle("Mrs");
+        
+        Author Andrea = new Author();
+        Andrea.setName("Andrea Rochira");
+        Andrea.setTitle("Mr");
+        
+        Author Stefano = new Author();
+        Stefano.setName("Stefano DaPonte Becher");
+        Stefano.setTitle("Mr");
+        
+        // Add Author objects to an ArrayList
+        ArrayList<Author> authors = new ArrayList<>();
+        authors.add(Cristina);
+        authors.add(Stefano);
+        authors.add(Andrea);
+        
+        int size = authors.size();
+        int i = 0;
+        System.out.println("\nLet's get to know the authors:\n");
+        
+        do {
+            System.out.println(authors.get(i).getTitle().toUpperCase() + " " + authors.get(i).getName().concat("\n"));
+            i++; 
+        } while (i < size);
+            
+        SaveReportView view = new SaveReportView();
+        view.displayView();
+              
     }
 
-    private void newLocation(){
-         System.out.println("*** newLocation() called. Implementation coming soon... ");
+    private void reportLivestocks(){
+        System.out.println("List of animals in storehouse coming soon");
     }
 
-    private void manageCrops(){
-        System.out.println("*** manageCrops() called. Implementation coming soon... ");
-    }
-    
-     private void liveTheYear(){
-        System.out.println("*** liveTheYear() called. Implementation coming soon... ");
+    private void reportProvisions(){
+        System.out.println("List of provisions in storehouse coming soon");
     }
 
-     private void reportsMenu(){
-        ReportsMenuView view = new ReportsMenuView();
-        view.displayView();    
-    }
-     
-     private void saveGame(){
-        System.out.println("*** saveGame() called. Implementation coming soon... ");
+    private void reportTools(){
+        System.out.println("List of tools in storehouse coming soon");
     }
 }

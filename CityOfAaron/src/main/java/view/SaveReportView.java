@@ -1,19 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
-
-import java.util.Scanner;
 
 /**
  *
- * @author team Irwin - DaPonte - Rochira
+ * @author Andrea
  */
-public class GameMenuView {
-    
-    
+
+import java.util.Scanner;
+
+public class SaveReportView {
+      
     /**
      * The message that will be displayed by this view.
      */
@@ -22,18 +17,12 @@ public class GameMenuView {
     /**
      * Constructor
      */
-    public GameMenuView(){
+    public SaveReportView(){
         
-        message = "Game Menu\n"
-                + "---------\n"
-                + "M - View the Map\n"
-                + "L - Move to a new location\n"
-                + "C - Manage the Crops\n"
-                + "Y - Live the Year\n"
-                + "R - Reports Menu\n"
-                + "S - Save Game\n"
-                + "B - Back to Main menu\n";
-                
+        message = "Do you want to save this report on your local Disk?\n"
+                + "---------------------------------------------------\n"
+                + "Y - Save the report\n"
+                + "N - back to Report Menu\n";            
     }
     
     /**
@@ -62,13 +51,13 @@ public class GameMenuView {
         String[] inputs = new String[1];
         
         // the following string is printed to the console by the statement 'System.out.println(prompt)'
-        // included in the getUserInput method (line 92)
-        inputs[0] = getUserInput("Select an action from the menu above:");
+        inputs[0] = getUserInput("Select an action to proceed:");
         
         // Repeat for each input you need, putting it into its proper slot in the array.
-        
+         
         return inputs;
     }
+    
     
     /**
      * An overloaded version of getUserInput that sets allowEmpty to false so we don't have 
@@ -126,62 +115,23 @@ public class GameMenuView {
     public boolean doAction(String[] inputs){
 
         switch ( inputs[0].trim().toUpperCase() ){
-            case "M":
-                viewMap();
-                break;
-            case "L":
-                newLocation();
-                break;
-            case "C":
-                manageCrops();
-                break;
             case "Y":
-                liveTheYear();
+                saveReport();
                 break;
-            case "R":
-                reportsMenu();
+            case "N":
+                System.out.println("\nBack to Report Menu...\n");
                 break;
-            case "S":
-                saveGame();
-                break;
-            case "B":
-                System.out.println("Exiting Game Menu...");
-                // return false if you want this view to exit and return to the view that called it.
-                return false;
-            default: 
-                System.out.println("Invalid selection, try again.");
+            default:
+                System.out.println("\nInvalid selection, try again.\n");
         }
-        
-        
-        return true;
+                      
+       return false; 
     }
-    
     
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input.
-    
-    private void viewMap(){
-         System.out.println("*** viewMap()called. Implementation coming soon... ");
-    }
 
-    private void newLocation(){
-         System.out.println("*** newLocation() called. Implementation coming soon... ");
-    }
-
-    private void manageCrops(){
-        System.out.println("*** manageCrops() called. Implementation coming soon... ");
-    }
-    
-     private void liveTheYear(){
-        System.out.println("*** liveTheYear() called. Implementation coming soon... ");
-    }
-
-     private void reportsMenu(){
-        ReportsMenuView view = new ReportsMenuView();
-        view.displayView();    
-    }
-     
-     private void saveGame(){
-        System.out.println("*** saveGame() called. Implementation coming soon... ");
+    private void saveReport(){
+        System.out.println("\n'Saving report on disk' options coming soon...\n");
     }
 }

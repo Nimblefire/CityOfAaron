@@ -25,7 +25,7 @@ public class ManageCropsView {
                 + "S - Sell Land\n"
                 + "F - Feed the People\n"
                 + "P - Plant Crops\n"
-                + "T - Pay Tithes and Offerings"
+                + "T - Pay Tithes and Offerings\n"
                 + "Q - Back to Game Menu\n";            
     }
     

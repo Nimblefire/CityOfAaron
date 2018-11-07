@@ -124,6 +124,17 @@ public class GameMenuView {
      * should exit and return to the previous view.
      */
     public boolean doAction(String[] inputs){
+        
+        //calls current report
+        currentAnnualReport();
+        
+        //if more that 50% pf people starve call
+        gameOver();
+        
+        // calls final rating at the end of 10 years
+        finalRating();
+        
+        //return false;
 
         switch ( inputs[0].trim().toUpperCase() ){
             case "M":
@@ -156,6 +167,8 @@ public class GameMenuView {
         return true;
     }
     
+   
+    
     
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input.
@@ -165,7 +178,9 @@ public class GameMenuView {
     }
 
     private void newLocation(){
-         System.out.println("*** newLocation() called. Implementation coming soon... ");
+        // System.out.println("*** newLocation() called. Implementation coming soon... ");
+         NewLocationView view = new NewLocationView();
+         view.displayView();
     }
 
     private void manageCrops(){
@@ -183,4 +198,16 @@ public class GameMenuView {
      private void saveGame(){
         System.out.println("*** saveGame() called. Implementation coming soon... ");
     }
+     
+     private void currentAnnualReport() {
+         System.out.println("*** currentAnnualReport() called. Implementation coming soon... ");
+     }
+     
+     private void finalRating() {
+         System.out.println("*** finalRating() called. Implementation coming soon... ");
+     }
+     
+     private void gameOver() {
+         System.out.println("*** gameOver() called. Implementation coming soon... ");
+     }
 }

@@ -24,10 +24,13 @@ public class Map implements Serializable {
     // getter and setter
     public Location[][] getLocations() {
         return locations;
-}
+    }
+    public void setLocations(Location[][] locations){
+        this.locations = locations;
+    }
     public Point getCurrentLocation(){
         return currentLocation;
-}
+    }
     public void setCurrentLocation(Point point) {
         this.currentLocation = point;
     }

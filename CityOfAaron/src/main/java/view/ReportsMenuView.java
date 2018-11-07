@@ -173,6 +173,7 @@ public class ReportsMenuView {
         int i = 0;
         System.out.println("\nLet's get to know the authors:\n");
         
+        // loop through the arrayList by using a do-while repetition statement
         do {
             System.out.println(authors.get(i).getTitle().toUpperCase() + " " + authors.get(i).getName().concat("\n"));
             i++; 

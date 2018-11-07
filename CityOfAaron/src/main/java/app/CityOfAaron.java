@@ -31,11 +31,8 @@ public class CityOfAaron {
     }
     
     public static void main(String[] args){
-        /*StartProgramView startProgramView = new StartProgramView();
-        startProgramView.displayView();*/
-        MapView mapView = new MapView();
-        mapView.displayView();
-        
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.displayView();
     }   
         
         /**

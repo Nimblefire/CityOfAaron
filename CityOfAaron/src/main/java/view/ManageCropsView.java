@@ -118,30 +118,29 @@ public class ManageCropsView {
      */
     public boolean doAction(String[] inputs){
 
-        switch ( inputs[0].trim().toUpperCase() ){
-            case "B":
-                buyLand();
-                break;
-            case "S":
-                sellLand();
-                break;
-            case "F":
-                feedThePeople();
-                break;
-            case "P":
-                plantCrops();
-                break;
-            case "T":
-                payTithesOfferings();
-                break;
-            case "Q":
-                System.out.println("Exiting Manage Crops Menu...\n");
-                return false;
-            default:
-                System.out.println("Invalid selection, try again.\n");
-        }
-                
-       return true; 
+        if (inputs[0].trim().toUpperCase() == "B") {
+            buyLand();
+            }
+        else if (inputs[0].trim().toUpperCase() == "S") {
+            sellLand();
+            }
+        else if (inputs[0].trim().toUpperCase() == "F") {
+            feedThePeople();
+            }
+        else if (inputs[0].trim().toUpperCase() == "P") {
+            plantCrops();
+            }
+        else if (inputs[0].trim().toUpperCase() == "T") {
+            payTithesOfferings();
+            } 
+        else if (inputs[0].trim().toUpperCase() == "Q") {
+            System.out.println("Exiting Manage Crops Menu...\n");
+            return false;
+            }
+        else 
+            {System.out.println("Invalid selection, try again.\n");}
+        
+       return true;     
     }
     
     // Define your action handlers here. These are the methods that your doAction()

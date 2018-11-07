@@ -118,22 +118,22 @@ public class ManageCropsView {
      */
     public boolean doAction(String[] inputs){
 
-        if (inputs[0].trim().toUpperCase() == "B") {
+        if (inputs[0].trim().toUpperCase().equals("B")) {
             buyLand();
             }
-        else if (inputs[0].trim().toUpperCase() == "S") {
+        else if (inputs[0].trim().toUpperCase().equals("S")) {
             sellLand();
             }
-        else if (inputs[0].trim().toUpperCase() == "F") {
+        else if (inputs[0].trim().toUpperCase().equals("F")) {
             feedThePeople();
             }
-        else if (inputs[0].trim().toUpperCase() == "P") {
+        else if (inputs[0].trim().toUpperCase().equals("P")) {
             plantCrops();
             }
-        else if (inputs[0].trim().toUpperCase() == "T") {
+        else if (inputs[0].trim().toUpperCase().equals("T")) {
             payTithesOfferings();
             } 
-        else if (inputs[0].trim().toUpperCase() == "Q") {
+        else if (inputs[0].trim().toUpperCase().equals("Q")) {
             System.out.println("Exiting Manage Crops Menu...\n");
             return false;
             }

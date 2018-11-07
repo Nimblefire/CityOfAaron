@@ -161,7 +161,8 @@ public class GameMenuView {
     // method will call based on the user's input.
     
     private void viewMap(){
-         System.out.println("*** viewMap()called. Implementation coming soon... ");
+        MapView mapView = new MapView();
+        mapView.displayView();
     }
 
     private void newLocation(){

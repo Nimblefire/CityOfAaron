@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author team Irwin - DaPonte - Rochira
  */
-public class HelpMenuView {
+public class GameMenuView {
     
     
     /**
@@ -22,15 +22,16 @@ public class HelpMenuView {
     /**
      * Constructor
      */
-    public HelpMenuView(){
+    public GameMenuView(){
         
-        message = "\nHelp Menu\n"
+        message = "Game Menu\n"
                 + "---------\n"
-                + "G - What are the goals of the game?\n"
-                + "W - Where is the city of Aaron?\n"
-                + "M - How do I view the map?\n"
-                + "L - How do I move to another location?\n"
-                + "S - How do I display a list of animals, provisions and tools in the city storehouse?\n"
+                + "M - View the Map\n"
+                + "L - Move to a new location\n"
+                + "C - Manage the Crops\n"
+                + "Y - Live the Year\n"
+                + "R - Reports Menu\n"
+                + "S - Save Game\n"
                 + "B - Back to Main menu\n";
                 
     }
@@ -125,29 +126,33 @@ public class HelpMenuView {
     public boolean doAction(String[] inputs){
 
         switch ( inputs[0].trim().toUpperCase() ){
-            case "G":
-                whatAreTheGoals();
-                break;
-            case "W":
-                whereIsTheCity();
-                break;
             case "M":
-                viewTheMap();
+                viewMap();
                 break;
             case "L":
-                moveToLocation();
+                newLocation();
+                break;
+            case "C":
+                manageCrops();
+                break;
+            case "Y":
+                liveTheYear();
+                break;
+            case "R":
+                reportsMenu();
                 break;
             case "S":
-                checkStorehouse();
+                saveGame();
                 break;
-            case "B":
-                System.out.println("Exiting Help Menu...");
+           case "B":
+                System.out.println("Exiting Game Menu...");
                 // return false if you want this view to exit and return to the view that called it.
                 return false;
             default: 
                 System.out.println("Invalid selection, try again.");
-                
         }
+        
+        
         return true;
     }
     
@@ -155,33 +160,27 @@ public class HelpMenuView {
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input.
     
-    private void whatAreTheGoals(){
-        System.out.println("\nGoals of the game\n"
-                         + "-----------------\n"
-                         + "1. Govern the City of Aaron successfully for a 10 year term of office\n"
-                         + "2. Determine how to allocate your bushels of wheat, each year you can\n"
-                         + "   a. buy and sell acres of land\n"
-                         + "   b. feed your people\n"
-                         + "   c. plant seeds for next year's crops\n"
-                         + "   d. pay tithes and offerings\n"
-                         + "3. Don't starve your people; if more than 50% of the population starves\n   in one year, your people will feed you to the rats.\n\n"
-                         + "If you make it to the 11th year, your rule will be evaluated and\nyou'll be ranked against great figures in history.\n\n" );
+    private void viewMap(){
+         System.out.println("*** viewMap()called. Implementation coming soon... ");
     }
 
-    private void whereIsTheCity(){
-        System.out.println("\nThe legendary City of Aaron, named after the high priest Aaron, brother of Moses, stands in vicinity\nof Moroni and Nephihah. The cities face Irreantum, which, being interpreted, is 'many waters'.\n\n");
+    private void newLocation(){
+         System.out.println("*** newLocation() called. Implementation coming soon... ");
     }
 
-    private void viewTheMap(){
-        System.out.println("\nYou can access the Map from the Game Menu, which is available when you start a new\ngame or load a saved game. Each location will teach you something about your role.\n");
-    }
-
-    private void moveToLocation(){
-        System.out.println("\nThe Map Menu includes a list of locations from which to choose from\nand move between. You will be moving by foot or by horse.\n");
-    }
-
-    private void checkStorehouse(){
-        System.out.println("\nTo display a list of animals, provisions, and tools, access the Game Menu and select Reports Menu or 'R'.\n");
+    private void manageCrops(){
+        System.out.println("*** manageCrops() called. Implementation coming soon... ");
     }
     
+     private void liveTheYear(){
+        System.out.println("*** liveTheYear() called. Implementation coming soon... ");
+    }
+
+     private void reportsMenu(){
+        System.out.println("*** reportsMenu() called. Implementation coming soon... ");
+    }
+     
+     private void saveGame(){
+        System.out.println("*** saveGame() called. Implementation coming soon... ");
+    }
 }

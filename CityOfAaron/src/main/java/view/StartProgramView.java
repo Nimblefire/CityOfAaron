@@ -22,16 +22,20 @@ public class StartProgramView {
      */
     public StartProgramView(){
         
-        message = "Welcome to the city of Aaron.\n"
-                + "You have been summoned here by the High Priest to assume your role as ruler of the city.\n"
-                + "Your responsibility is:\n"
-                + "- to buy and sell land\n"
-                + "- to determine how much wheat to plant each year\n"
-                + "- to determine how much to set aside to feed your people\n"
-                + "In addition, it will be your job to pay an annual tithe on the wheat that is harvested.\n"
-                + "If you fail to provide enough wheat for the people, people will starve, some people will die,\n"
-                + "and your workforce will be diminished.\n"
-                + "Plan carefully. And Oh, there is always a danger of rats eating your wheat.\n";
+        message = "\n\n**************************************************************************************\n"
+                + "*                                                                                    *\n"
+                + "*                            Welcome to the city of Aaron!                           *\n"
+                + "*                                                                                    *\n"
+                + "**************************************************************************************\n\n"
+                + "\tYou have been summoned here by the High Priest to assume your role as\n"
+                + "\truler of the city.\n\tTo fulfill your duty, you are going to manage the following tasks:\n"
+                + "\t\u27BD buy and sell land\n"
+                + "\t\u27BD determine how much wheat to plant each year\n"
+                + "\t\u27BD determine how much to set aside to feed your people\n"
+                + "\tIn addition, it will be your job to pay an annual tithe on the wheat\n"
+                + "\tthat is harvested. If you fail to provide enough wheat for the people,\n"
+                + "\tpeople will starve, some people will die, and your workforce will be\n"
+                + "\tdiminished. Plan carefully. And Oh, there is always a danger of rats\n\teating your wheat.\n\n";
     }
     
     

@@ -190,7 +190,7 @@ public class NewLocationView {
         Map map = new Map();
         map.setCurrentLocation(coordinates);
         
-        CityOfAaron.getCurrentGame().getMap().setCurrentLocation(point);
+        //CityOfAaron.getCurrentGame().getMap().setCurrentLocation(point);
         
       //Point rulersCourt = new Point();
       //rulersCourt.setRow(0);

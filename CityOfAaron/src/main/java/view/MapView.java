@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package view;
+import app.CityOfAaron;
 import model.*;
 import control.*;
 
@@ -16,7 +17,6 @@ public class MapView {
      * The message that will be displayed by this view.
      */
     
-    Map gameMap = MapControl.createMap();
     protected String message;
     
     /**
@@ -24,12 +24,15 @@ public class MapView {
      */
     public MapView(){
         
-        message = "This is the map of your city\n"
+        
+        message = "City Map\n"
+                + "------------------------------\n"
+                + "This is the map of your city\n"
                 + "Legend:\n"
                 + /*temple.getMapSymbol()*/"T" + "- Temple\n"
                 + /*watchtower.getMapSymbol()*/"W" + "- Watchtower\n"
-                + /*undevelopedLand.getMapSymbol()"U" + "- Undeveloped Land\n"
-                + wheatField.getMapSymbol()*/"F" + "- Wheat Field\n"
+                + /*undevelopedLand.getMapSymbol()*/"U" + "- Undeveloped Land\n"
+                + /*wheatField.getMapSymbol()*/"F" + "- Wheat Field\n"
                 + /*river.getMapSymbol()*/"R" + "- River\n"
                 + /*granary.getMapSymbol()*/"G" + "- Granary\n"
                 + /*rulerCourt.getMapSymbol()*/"C" + "- Ruler's Court\n"
@@ -71,7 +74,7 @@ public class MapView {
      */
     public boolean doAction(String[] inputs){
         
-        printMap(gameMap);
+        printMap(CityOfAaron.getCurrentGame().getMap());
         
         // return false so that whoever call us doesn't call us again 
         return false;
@@ -80,7 +83,7 @@ public class MapView {
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input.
     
-    public void printMap(Map map) {
+    private void printMap(Map map) {
 	// creating and initializing two dimensional array with shortcut syntax
 	for (int i = 0; i < map.getLocations().length; i++) {
 		for (int j = 0; j < map.getLocations()[i].length; j++) {
@@ -89,6 +92,4 @@ public class MapView {
 		System.out.println("");
 	}
     }
-
-    
 }

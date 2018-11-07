@@ -156,7 +156,8 @@ public class ManageCropsView {
     }
 
     private void feedThePeople(){
-        System.out.println("Implementation coming soon...");
+        FeedPeopleView feedPeople = new FeedPeopleView();
+        feedPeople.displayView();
     }
 
     private void plantCrops(){

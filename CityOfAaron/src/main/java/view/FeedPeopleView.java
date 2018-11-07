@@ -24,9 +24,9 @@ public class FeedPeopleView {
      */
     public FeedPeopleView(){
         
-        currentGame.setWheatInStorage(2000);
-        currentGame.setCurrentPopulation(100);
-        message = "You currently have " + currentGame.getCurrentPopulation() + " people in your city.\n"
+        message = "\nFeed the People\n"
+                + "--------------------------\n"
+                + "You currently have " + currentGame.getCurrentPopulation() + " people in your city.\n"
                 + "You have " + currentGame.getWheatInStorage() + " bushels of grain in store.";
         
         
@@ -121,12 +121,22 @@ public class FeedPeopleView {
      * should exit and return to the previous view.
      */
     public boolean doAction(String[] inputs){
-        bushelsForFood = Integer.parseInt(inputs[0].trim());
-        if (bushelsForFood < 0){
-            System.out.println("Invalid input");
-            return false;
+        try {
+            bushelsForFood = Integer.parseInt(inputs[0]);
+        } catch (NumberFormatException exception) {
+            System.out.println("The value must be positive whole number.");
+            return true;//keep going
         }
-        currentGame.setWheatInStorage(currentGame.getWheatInStorage()-bushelsForFood);
-        return true;
+        if (bushelsForFood < 0){
+            System.out.println("The value must be positive whole number.");
+            return true;
+        }
+        
+        if (bushelsForFood > currentGame.getWheatInStorage()) {
+            System.out.println("The value is greater than the wheat you have. Please insert a valid value.");
+            return true;
+        }
+        System.out.println("You have " + (currentGame.getWheatInStorage()-bushelsForFood) + " bushels of wheat left.");
+        return false;
     }
 }

@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package view;
-import model.Map;
-import model.Location;
+import model.*;
+import control.*;
 
 /**
  *
@@ -38,9 +38,16 @@ public class MapView {
      * Constructor
      */
     public MapView(){
-        message = "You are in the Undeveloped land./n"
-        + "Description/n" 
-        + "GameTips";
+        message = "This is the map of your city\n"
+                + "Legend:\n"
+                + /*temple.getMapSymbol()*/"T" + "- Temple\n"
+                + /*watchtower.getMapSymbol()*/"W" + "- Watchtower\n"
+                + /*undevelopedLand.getMapSymbol()*/"U" + "- Undeveloped Land\n"
+                + /*wheatField.getMapSymbol()*/"F" + "- Wheat Field\n"
+                + /*river.getMapSymbol()*/"R" + "- River\n"
+                + /*granary.getMapSymbol()*/"G" + "- Granary\n"
+                + /*rulerCourt.getMapSymbol()*/"C" + "- Ruler's Court\n"
+                + /*village.getMapSymbol()*/"V" + "- Village";
     }
     
 
@@ -113,10 +120,3 @@ public class MapView {
 
     
 }
-
-
-/*watchtower, wheatField, river, wheatField, watchtower}, 
-                                 {undevelopedLand, temple, granary, river, undevelopedLand},
-                                 {wheatField, rulerCourt, village, village, river},
-                                 {undevelopedLand, village, village, wheatField, wheatField},
-                                 {watchtower, undevelopedLand, wheatField, wheatField, watchtower}};*/

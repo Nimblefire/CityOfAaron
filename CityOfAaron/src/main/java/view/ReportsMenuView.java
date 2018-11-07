@@ -61,7 +61,7 @@ public class ReportsMenuView {
         inputs[0] = getUserInput("Select an action from the menu above:");
         
         // Repeat for each input you need, putting it into its proper slot in the array.
-         
+        
         return inputs;
     }
     
@@ -184,14 +184,14 @@ public class ReportsMenuView {
     }
 
     private void reportLivestocks(){
-        System.out.println("List of animals in storehouse coming soon");
+        System.out.println("List of animals in storehouse coming soon\n");
     }
 
     private void reportProvisions(){
-        System.out.println("List of provisions in storehouse coming soon");
+        System.out.println("List of provisions in storehouse coming soon\n");
     }
 
     private void reportTools(){
-        System.out.println("List of tools in storehouse coming soon");
+        System.out.println("List of tools in storehouse coming soon\n");
     }
 }

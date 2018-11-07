@@ -19,7 +19,7 @@ public class SaveReportView {
      */
     public SaveReportView(){
         
-        message = "Do you want to save this report on your local Disk?\n"
+        message = "\nDo you want to save this report on your local Disk?\n"
                 + "---------------------------------------------------\n"
                 + "Y - Save the report\n"
                 + "N - back to Report Menu\n";            

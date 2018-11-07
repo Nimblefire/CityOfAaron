@@ -6,12 +6,8 @@ package view;
  */
 
 import java.util.Scanner;
-import java.util.ArrayList;
-import model.*;
 
-
-public class ReportsMenuView {
-    
+public class ManageCropsView {
     
     /**
      * The message that will be displayed by this view.
@@ -21,15 +17,16 @@ public class ReportsMenuView {
     /**
      * Constructor
      */
-    public ReportsMenuView(){
+    public ManageCropsView(){
         
-        message = "\nReports Menu\n"
-                + "------------\n"
-                + "A - View the authors of this game\n"
-                + "L - View the livestock in the storehouse\n"
-                + "P - View the provisions in the storehouse\n"
-                + "T - View the tools in the storehouse\n"
-                + "B - Back to Game Menu\n";            
+        message = "\nManage Crops Menu\n"
+                + "-----------------\n"
+                + "B - Buy Land\n"
+                + "S - Sell Land\n"
+                + "F - Feed the People\n"
+                + "P - Plant Crops\n"
+                + "T - Pay Tithes and Offerings"
+                + "Q - Back to Game Menu\n";            
     }
     
     /**
@@ -122,20 +119,23 @@ public class ReportsMenuView {
     public boolean doAction(String[] inputs){
 
         switch ( inputs[0].trim().toUpperCase() ){
-            case "A":
-                reportAuthors();
+            case "B":
+                buyLand();
                 break;
-            case "L":
-                reportLivestocks();
+            case "S":
+                sellLand();
+                break;
+            case "F":
+                feedThePeople();
                 break;
             case "P":
-                reportProvisions();
+                plantCrops();
                 break;
             case "T":
-                reportTools();
+                payTithesOfferings();
                 break;
-            case "B":
-                System.out.println("Exiting Report Menu...\n");
+            case "Q":
+                System.out.println("Exiting Manage Crops Menu...\n");
                 return false;
             default:
                 System.out.println("Invalid selection, try again.\n");
@@ -148,50 +148,24 @@ public class ReportsMenuView {
     // method will call based on the user's input.
     
     // To fulfill the requirements of the rubric (do-while logic + two String methods)
-    private void reportAuthors(){
-                
-        // Create Author objects
-        Author Cristina = new Author();
-        Cristina.setName("Cristina Irwin");
-        Cristina.setTitle("Mrs");
-        
-        Author Andrea = new Author();
-        Andrea.setName("Andrea Rochira");
-        Andrea.setTitle("Mr");
-        
-        Author Stefano = new Author();
-        Stefano.setName("Stefano DaPonte Becher");
-        Stefano.setTitle("Mr");
-        
-        // Add Author objects to an ArrayList
-        ArrayList<Author> authors = new ArrayList<>();
-        authors.add(Cristina);
-        authors.add(Stefano);
-        authors.add(Andrea);
-        
-        int size = authors.size();
-        int i = 0;
-        System.out.println("\nLet's get to know the authors:\n");
-        
-        do {
-            System.out.println(authors.get(i).getTitle().toUpperCase() + " " + authors.get(i).getName().concat("\n"));
-            i++; 
-        } while (i < size);
-            
-        SaveReportView view = new SaveReportView();
-        view.displayView();
-              
+    private void buyLand(){
+        System.out.println("Implementation coming soon...");
     }
 
-    private void reportLivestocks(){
-        System.out.println("List of animals in storehouse coming soon");
+    private void sellLand(){
+        System.out.println("Implementation coming soon...");
     }
 
-    private void reportProvisions(){
-        System.out.println("List of provisions in storehouse coming soon");
+    private void feedThePeople(){
+        System.out.println("Implementation coming soon...");
     }
 
-    private void reportTools(){
-        System.out.println("List of tools in storehouse coming soon");
+    private void plantCrops(){
+        System.out.println("Implementation coming soon...");
     }
+
+    private void payTithesOfferings(){
+        System.out.println("Implementation coming soon...");
+    }
+    
 }

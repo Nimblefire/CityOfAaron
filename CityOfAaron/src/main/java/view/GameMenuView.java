@@ -169,7 +169,8 @@ public class GameMenuView {
     }
 
     private void manageCrops(){
-        System.out.println("*** manageCrops() called. Implementation coming soon... ");
+        ManageCropsView view = new ManageCropsView();
+        view.displayView();
     }
     
      private void liveTheYear(){

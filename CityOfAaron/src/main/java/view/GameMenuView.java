@@ -24,7 +24,7 @@ public class GameMenuView {
      */
     public GameMenuView(){
         
-        message = "Game Menu\n"
+        message = "\nGame Menu\n"
                 + "---------\n"
                 + "M - View the Map\n"
                 + "L - Move to a new location\n"

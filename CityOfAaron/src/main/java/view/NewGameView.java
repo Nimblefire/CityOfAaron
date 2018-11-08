@@ -5,7 +5,9 @@
  */
 package view;
 import app.CityOfAaron;
+import control.MapControl;
 import java.util.Scanner;
+import java.util.Set;
 import model.*;
 
 /**
@@ -144,16 +146,21 @@ public class NewGameView {
         player.setName(playerName);
 
         Game game = new Game();
+        
         game.setPlayer(player);
+        
+        game.setWheatInStorage(2000);
+        game.setCurrentPopulation(100);
+        
+        CityOfAaron.setCurrentGame(game);
+        MapControl.createMap();
+        
+        System.out.println("Welcome to the game " + CityOfAaron.getCurrentGame().getPlayer().getName());
         
         GameMenuView view = new GameMenuView();
         view.displayView();
-
-        CityOfAaron.setCurrentGame(game);
-
-        System.out.println();
-        System.out.println("Welcome to the game " + CityOfAaron.getCurrentGame().getPlayer().getName());
-       
+        
+        
     }
 
 }

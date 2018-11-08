@@ -8,6 +8,7 @@ package view;
 import java.util.Scanner;
 import control.*;
 import model.*;
+import app.CityOfAaron;
 
 /**
  *
@@ -15,14 +16,20 @@ import model.*;
  */
 public class FeedPeopleView {
     protected String message;
+    Game currentGame = CityOfAaron.getCurrentGame();
+    public static int bushelsForFood;
     
     /**
      * Constructor
      */
     public FeedPeopleView(){
         
-        message = "You currently have " + /*currentGame.getCurrentPopulation()*/"100" + " people in your city.\n"
-                + "You have " + /*currentGame.getWheatInStorage*/ "2000" + " bushels of grain in store.";
+        message = "\nFeed the People\n"
+                + "--------------------------\n"
+                + "You currently have " + currentGame.getCurrentPopulation() + " people in your city.\n"
+                + "You have " + currentGame.getWheatInStorage() + " bushels of grain in store.";
+        
+        
                 
     }
     
@@ -53,7 +60,7 @@ public class FeedPeopleView {
         
         // the following string is printed to the console by the statement 'System.out.println(prompt)'
         // included in the getUserInput method (line 92)
-        inputs[0] = getUserInput("");
+        inputs[0] = getUserInput("How many bushels of grain do you want to give to the people?");
         
         // Repeat for each input you need, putting it into its proper slot in the array.
         
@@ -114,8 +121,22 @@ public class FeedPeopleView {
      * should exit and return to the previous view.
      */
     public boolean doAction(String[] inputs){
+        try {
+            bushelsForFood = Integer.parseInt(inputs[0]);
+        } catch (NumberFormatException exception) {
+            System.out.println("The value must be positive whole number.");
+            return true;//keep going
+        }
+        if (bushelsForFood < 0){
+            System.out.println("The value must be positive whole number.");
+            return true;
+        }
         
-                
-        return true;
+        if (bushelsForFood > currentGame.getWheatInStorage()) {
+            System.out.println("The value is greater than the wheat you have. Please insert a valid value.");
+            return true;
+        }
+        System.out.println("You have " + (currentGame.getWheatInStorage()-bushelsForFood) + " bushels of wheat left.");
+        return false;
     }
 }

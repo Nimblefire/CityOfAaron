@@ -24,7 +24,10 @@ public class GameMenuView {
      */
     public GameMenuView(){
         
-        message = "Game Menu\n"
+        message = 
+                //call annual report before Game Menu
+                //"Current annual Report is " + currentAnnualReport() "\n"
+                 "Game Menu\n"
                 + "---------\n"
                 + "M - View the Map\n"
                 + "L - Move to a new location\n"
@@ -45,6 +48,7 @@ public class GameMenuView {
         boolean keepGoing = true;
         
         while(keepGoing == true){
+          System.out.println("Annual Report called. Implementation coming soon");
             
             System.out.println(message);
             String[] inputs = getInputs();
@@ -125,16 +129,14 @@ public class GameMenuView {
      */
     public boolean doAction(String[] inputs){
         
-        //calls current report
-        currentAnnualReport();
         
         //if more that 50% pf people starve call
-        gameOver();
+        //gameOver();
         
         // calls final rating at the end of 10 years
-        finalRating();
+        //finalRating();
         
-        //return false;
+
 
         switch ( inputs[0].trim().toUpperCase() ){
             case "M":
@@ -207,10 +209,10 @@ public class GameMenuView {
      }
      
      private void finalRating() {
-         System.out.println("*** finalRating() called. Implementation coming soon... ");
+         System.out.println("*** finalRating() called. Find out how player did after 10 years. Implementation coming soon... ");
      }
      
      private void gameOver() {
-         System.out.println("*** gameOver() called. Implementation coming soon... ");
+         System.out.println("*** gameOver() called. More than 50% of people starved. Game over. Implementation coming soon... ");
      }
 }

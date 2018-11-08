@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 package control;
-import model.*;
+
 import java.util.Random;
+import model.*;
 
 /**
  *
@@ -52,14 +53,14 @@ public class GameControl {
      * @return The year's Annual Report data
      */
     
-    //public static AnnualReport liveTheYear(
-           //om Game game, int tithesPercent, int bushelsForFood, int acresToPlant) {
+    public static AnnualReport liveTheYear(
+           Game game, int tithesPercent, int bushelsForFood, int acresToPlant) {
         
         //if(game == null || tithesPercent < 0 || tithesPercent > 100 || bushelsForFood < 0 || acresToPlant < 0){
             //return null;
         //}
         
-        //AnnualReport report = new AnnualReport();
+        AnnualReport report = new AnnualReport();
         //report.setLandPrice(LandControl.getCurrentLandPrice());
         
         //int totalWheat = game.getWheatInStorage();
@@ -67,7 +68,7 @@ public class GameControl {
         //int harvested = WheatControl.calculateHarvest(tithesPercent, acresToPlant);
         //int tithingAmount = (int)(double)((tithesPercent/100.0) * harvested);
         //int lostToRats = WheatControl.calculateLossToRats(wheatIn, tithesPercent);
-        
-        
+       
+        return report;     
     }
-//}
+}

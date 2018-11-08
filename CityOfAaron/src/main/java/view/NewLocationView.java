@@ -169,13 +169,13 @@ public class NewLocationView {
           
        //} 
        
-       //if row = 0,1,2,3,4,5 and column =  0,1,2,3,4,5 call moveToLocation
-       if ((row > -1 && row < 6) && (column > -1 && column < 6)) {
+       //if row = 0,1,2,3,4 and column =  0,1,2,3,4 call moveToLocation
+       if ((row > -1 && row < 5) && (column > -1 && column < 5)) {
             moveToNewLocation(row, column);
-    }
+        }
        
        else {
-           System.out.println("Choose coordinate between 0 and 5, try again.\n");
+           System.out.println("Choose coordinate between 0 and 4, try again.\n");
        }
        
        return false;
@@ -278,58 +278,6 @@ public class NewLocationView {
         
         //CityOfAaron.getCurrentGame().getMap().setCurrentLocation(coordinates);
         
-      //Point rulersCourt = new Point();
-      //rulersCourt.setRow(0);
-      //rulersCourt.setColumn(0);
-      //System.out.println("Rulers Court");
-      
-      //Point storehouse = new Point();
-      //storehouse.setRow(0);
-      //storehouse.setColumn(1);
-      
-      //Point wheatField = new Point();
-      //wheatField.setRow(0);
-      //wheatField.setColumn(2);
-      
-      //Point undevelopedLand = new Point();
-      //undevelopedLand.setRow(0);
-      //undevelopedLand.setColumn(3);
-      
-      //Point village = new Point();
-      //village.setRow(1);
-      //village.setColumn(5);
-      
-      //Point river = new Point();
-      //river.setRow(1);
-      //river.setColumn(0);
-                
-      //Point lamanitesLand = new Point();
-      //lamanitesLand.setRow(1);
-      //lamanitesLand.setColumn(2);
-       
-      //Point temple = new Point();
-      //temple.setRow(1);
-      //temple.setColumn(2);
-      
-      
-        //Point thisLocation = new Point();
-        //thisLocation.setRow(1);
-        //thisLocation.setColumn(3);
-        
-        //System.out.println(thisLocation.toString())
-        
-        //Player player = new Player();
-        //player.setName(playerName);
-
-        //Game game = new Game();
-        //game.setPlayer(player);
-        
-        //GameMenuView view = new GameMenuView();
-        //view.displayView();
-
-        //CityOfAaron.setCurrentGame(game);
-
-        //System.out.println(thisLocation.toString());
        
     }
 

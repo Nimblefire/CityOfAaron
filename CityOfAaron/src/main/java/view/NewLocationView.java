@@ -196,6 +196,7 @@ public class NewLocationView {
          
         //Location[][] array = map.getLocations();
         
+        //CityOfAaron.getCurrentGame().getMap().setCurrentLocation(point);
         Location temple = new Location();
         Location watchtower = new Location();
         Location undevelopedLand = new Location();

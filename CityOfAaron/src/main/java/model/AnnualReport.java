@@ -9,6 +9,7 @@ public class AnnualReport implements Serializable {
     private int endingWheatInStorage;
     private int endingPopulation;
     private int endingAcresOwned;
+    private int bushelsForFood;
     
     private int landPrice;
     private int bushelsHarvested;
@@ -42,6 +43,14 @@ public class AnnualReport implements Serializable {
     
     public void setEndingAcresOwned(int endingAcresOwned) {
         this.endingAcresOwned = endingAcresOwned;
+    }
+    
+    public int getBushelsForFood(){
+        return bushelsForFood;
+    }
+    
+    public void setBushelsForFood(int bushelsForFood){
+        this.bushelsForFood = bushelsForFood;
     }
     
    public int getLandPrice() {

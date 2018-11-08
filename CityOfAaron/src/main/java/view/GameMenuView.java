@@ -189,16 +189,16 @@ public class GameMenuView {
         view.displayView();
     }
     
-     private void liveTheYear(){
+    private void liveTheYear(){
         System.out.println("*** liveTheYear() called. Implementation coming soon... ");
     }
 
-     private void reportsMenu(){
+    private void reportsMenu(){
         ReportsMenuView view = new ReportsMenuView();
         view.displayView();    
     }
      
-     private void saveGame(){
+    private void saveGame(){
         System.out.println("*** saveGame() called. Implementation coming soon... ");
     }
      
@@ -206,11 +206,11 @@ public class GameMenuView {
          System.out.println("*** currentAnnualReport() called. Implementation coming soon... ");
      }
      
-     private void finalRating() {
+    private void finalRating() {
          System.out.println("*** finalRating() called. Implementation coming soon... ");
-     }
+    }
      
-     private void gameOver() {
+    private void gameOver() {
          System.out.println("*** gameOver() called. Implementation coming soon... ");
-     }
+    }
 }

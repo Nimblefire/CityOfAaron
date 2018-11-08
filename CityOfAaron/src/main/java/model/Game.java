@@ -20,6 +20,7 @@ public class Game implements Serializable {
     private int currentPopulation;
     private int acresOwned;
     private int wheatInStorage;
+    private int bushelsForFood;
     
     // default constructor
     public Game() {
@@ -72,6 +73,14 @@ public class Game implements Serializable {
     
     public void setWheatInStorage(int wheatInStorage){
         this.wheatInStorage = wheatInStorage;
+    }
+    
+    public int getBushelsForFood(){
+        return bushelsForFood;
+    }
+    
+    public void setBushelsForFood(int bushelsForFood){
+        this.bushelsForFood = bushelsForFood;
     }
 
     @Override

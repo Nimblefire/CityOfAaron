@@ -16,8 +16,6 @@ import app.CityOfAaron;
  */
 public class FeedPeopleView {
     protected String message;
-    Game currentGame = CityOfAaron.getCurrentGame();
-    public static int bushelsForFood;
     
     /**
      * Constructor
@@ -26,8 +24,8 @@ public class FeedPeopleView {
         
         message = "\nFeed the People\n"
                 + "--------------------------\n"
-                + "You currently have " + currentGame.getCurrentPopulation() + " people in your city.\n"
-                + "You have " + currentGame.getWheatInStorage() + " bushels of grain in store.";
+                + "You currently have " + CityOfAaron.getCurrentGame().getCurrentPopulation() + " people in your city.\n"
+                + "You have " + CityOfAaron.getCurrentGame().getWheatInStorage() + " bushels of grain in store.";
         
         
                 
@@ -122,21 +120,21 @@ public class FeedPeopleView {
      */
     public boolean doAction(String[] inputs){
         try {
-            bushelsForFood = Integer.parseInt(inputs[0]);
+            CityOfAaron.getCurrentGame().setBushelsForFood(Integer.parseInt(inputs[0]));
         } catch (NumberFormatException exception) {
             System.out.println("The value must be positive whole number.");
             return true;//keep going
         }
-        if (bushelsForFood < 0){
+        if (CityOfAaron.getCurrentGame().getBushelsForFood() < 0){
             System.out.println("The value must be positive whole number.");
             return true;
         }
         
-        if (bushelsForFood > currentGame.getWheatInStorage()) {
+        if (CityOfAaron.getCurrentGame().getBushelsForFood() > CityOfAaron.getCurrentGame().getWheatInStorage()) {
             System.out.println("The value is greater than the wheat you have. Please insert a valid value.");
             return true;
         }
-        System.out.println("You have " + (currentGame.getWheatInStorage()-bushelsForFood) + " bushels of wheat left.");
+        System.out.println("You have " + (CityOfAaron.getCurrentGame().getWheatInStorage()-CityOfAaron.getCurrentGame().getBushelsForFood()) + " bushels of wheat left.");
         return false;
     }
 }

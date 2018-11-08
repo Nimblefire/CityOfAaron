@@ -27,7 +27,7 @@ public class GameMenuView {
         message = 
                 //call annual report before Game Menu
                 //"Current annual Report is " + currentAnnualReport() "\n"
-                 "Game Menu\n"
+                 "\nGame Menu\n"
                 + "---------\n"
                 + "M - View the Map\n"
                 + "L - Move to a new location\n"
@@ -35,8 +35,7 @@ public class GameMenuView {
                 + "Y - Live the Year\n"
                 + "R - Reports Menu\n"
                 + "S - Save Game\n"
-                + "B - Back to Main menu\n";
-                
+                + "B - Back to Main menu\n";           
     }
     
     /**
@@ -48,7 +47,7 @@ public class GameMenuView {
         boolean keepGoing = true;
         
         while(keepGoing == true){
-          System.out.println("Annual Report called. Implementation coming soon");
+          // System.out.println("Annual Report called. Implementation coming soon");
             
             System.out.println(message);
             String[] inputs = getInputs();
@@ -202,16 +201,17 @@ public class GameMenuView {
     private void saveGame(){
         System.out.println("*** saveGame() called. Implementation coming soon... ");
     }
-     
-     private void currentAnnualReport() {
-         System.out.println("*** currentAnnualReport() called. Implementation coming soon... ");
+    
+    // move to NewGameView, line 159
+    private void currentAnnualReport() {
+        System.out.println("*** currentAnnualReport() called. Implementation coming soon... ");
      }
      
     private void finalRating() {
-         System.out.println("*** finalRating() called. Implementation coming soon... ");
+        System.out.println("*** finalRating() called. Implementation coming soon... ");
     }
     
     private void gameOver() {
-         System.out.println("*** gameOver() called. Implementation coming soon... ");
+        System.out.println("*** gameOver() called. Implementation coming soon... ");
     }
 }

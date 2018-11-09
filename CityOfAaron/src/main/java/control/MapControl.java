@@ -17,7 +17,6 @@ import model.Map;
 public class MapControl {
     
     public static Map createMap(){
-        Game currentGame = CityOfAaron.getCurrentGame();
         Location temple = new Location();
         Location watchtower = new Location();
         Location undevelopedLand = new Location();
@@ -74,7 +73,6 @@ public class MapControl {
                                     {watchtower, undevelopedLand, wheatField, wheatField, watchtower}};
         
         
-        currentGame.setMap(gameMap);
         gameMap.setLocations(mapLocations);
         
         return gameMap;

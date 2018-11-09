@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package control;
+import app.CityOfAaron;
 import model.*;
 import java.util.Random;
 
@@ -69,5 +70,42 @@ public class GameControl {
         //int lostToRats = WheatControl.calculateLossToRats(wheatIn, tithesPercent);
         
         
+    
+        public static Game createNewGame(String playerName){
+            Game newGame = new Game();
+            Player newPlayer = new Player();
+            newGame.setPlayer(newPlayer);
+            newPlayer.setName(playerName);
+            newGame.setMap(MapControl.createMap());
+            newGame.setStorehouse(GameControl.createStorehouse());
+            newGame.setAcresOwned(1000);
+            newGame.setCurrentPopulation(100);
+            newGame.setWheatInStorage(2000);
+            newGame.setBushelsForFood(0);
+            
+            LandControl.getCurrentLandPrice();
+            
+            return newGame;
+        }
+        
+        public static Storehouse createStorehouse(){
+            Storehouse newStorehouse = new Storehouse();
+            Author irwin = new Author();
+            Author rochira = new Author();
+            Author daPonte = new Author();
+            
+            irwin.setName("Cristina Irwin");
+            rochira.setName("Andrea Rochira");
+            daPonte.setName("Stefano Da Ponte");
+            irwin.setTitle("Mrs");
+            rochira.setTitle("Mr");
+            daPonte.setTitle("Mr");
+            
+            Author[] authorArray = {irwin, rochira, daPonte};
+            
+            newStorehouse.setAuthors(authorArray);
+            
+            return newStorehouse;
+        }
     }
 //}

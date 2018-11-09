@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package control;
-import app.CityOfAaron;
 import model.*;
 import java.util.Random;
 
@@ -53,14 +52,14 @@ public class GameControl {
      * @return The year's Annual Report data
      */
     
-    //public static AnnualReport liveTheYear(
-           //om Game game, int tithesPercent, int bushelsForFood, int acresToPlant) {
+    /*public static AnnualReport liveTheYear(
+           Game game, int tithesPercent, int bushelsForFood, int acresToPlant) {
         
         //if(game == null || tithesPercent < 0 || tithesPercent > 100 || bushelsForFood < 0 || acresToPlant < 0){
             //return null;
         //}
         
-        //AnnualReport report = new AnnualReport();
+        AnnualReport report = new AnnualReport();
         //report.setLandPrice(LandControl.getCurrentLandPrice());
         
         //int totalWheat = game.getWheatInStorage();
@@ -70,42 +69,41 @@ public class GameControl {
         //int lostToRats = WheatControl.calculateLossToRats(wheatIn, tithesPercent);
         
         
-    
-        public static Game createNewGame(String playerName){
-            Game newGame = new Game();
-            Player newPlayer = new Player();
-            newGame.setPlayer(newPlayer);
-            newPlayer.setName(playerName);
-            newGame.setMap(MapControl.createMap());
-            newGame.setStorehouse(GameControl.createStorehouse());
-            newGame.setAcresOwned(1000);
-            newGame.setCurrentPopulation(100);
-            newGame.setWheatInStorage(2000);
-            newGame.setBushelsForFood(0);
+    }*/
+    public static Game createNewGame(String playerName){
+        Game newGame = new Game();
+        Player newPlayer = new Player();
+        newGame.setPlayer(newPlayer);
+        newPlayer.setName(playerName);
+        newGame.setMap(MapControl.createMap());
+        newGame.setStorehouse(GameControl.createStorehouse());
+        newGame.setAcresOwned(1000);
+        newGame.setCurrentPopulation(100);
+        newGame.setWheatInStorage(2000);
+        newGame.setBushelsForFood(0);
             
-            LandControl.getCurrentLandPrice();
+        LandControl.getCurrentLandPrice();
             
-            return newGame;
-        }
-        
-        public static Storehouse createStorehouse(){
-            Storehouse newStorehouse = new Storehouse();
-            Author irwin = new Author();
-            Author rochira = new Author();
-            Author daPonte = new Author();
-            
-            irwin.setName("Cristina Irwin");
-            rochira.setName("Andrea Rochira");
-            daPonte.setName("Stefano Da Ponte");
-            irwin.setTitle("Mrs");
-            rochira.setTitle("Mr");
-            daPonte.setTitle("Mr");
-            
-            Author[] authorArray = {irwin, rochira, daPonte};
-            
-            newStorehouse.setAuthors(authorArray);
-            
-            return newStorehouse;
-        }
+        return newGame;
     }
-//}
+        
+    public static Storehouse createStorehouse(){
+        Storehouse newStorehouse = new Storehouse();
+        Author irwin = new Author();
+        Author rochira = new Author();
+        Author daPonte = new Author();
+            
+        irwin.setName("Cristina Irwin");
+        rochira.setName("Andrea Rochira");
+        daPonte.setName("Stefano Da Ponte");
+        irwin.setTitle("Mrs");
+        rochira.setTitle("Mr");
+        daPonte.setTitle("Mr");
+            
+        Author[] authorArray = {irwin, rochira, daPonte};
+            
+        newStorehouse.setAuthors(authorArray);
+            
+        return newStorehouse;
+    }
+}

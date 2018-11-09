@@ -24,10 +24,7 @@ public class GameMenuView {
      */
     public GameMenuView(){
         
-        message = 
-                //call annual report before Game Menu
-                //"Current annual Report is " + currentAnnualReport() "\n"
-                 "Game Menu\n"
+        message =  "Game Menu\n"
                 + "---------\n"
                 + "M - View the Map\n"
                 + "L - Move to a new location\n"
@@ -137,7 +134,6 @@ public class GameMenuView {
         //finalRating();
         
 
-
         switch ( inputs[0].trim().toUpperCase() ){
             case "M":
                 viewMap();
@@ -150,6 +146,7 @@ public class GameMenuView {
                 break;
             case "Y":
                 liveTheYear();
+                //this is where we will put function to determine if the game ends, and when to display final report
                 break;
             case "R":
                 reportsMenu();
@@ -191,28 +188,28 @@ public class GameMenuView {
         view.displayView();
     }
     
-     private void liveTheYear(){
+    private void liveTheYear(){
         System.out.println("*** liveTheYear() called. Implementation coming soon... ");
     }
 
-     private void reportsMenu(){
+    private void reportsMenu(){
         ReportsMenuView view = new ReportsMenuView();
         view.displayView();    
     }
      
-     private void saveGame(){
+    private void saveGame(){
         System.out.println("*** saveGame() called. Implementation coming soon... ");
     }
      
-     private void currentAnnualReport() {
-         System.out.println("*** currentAnnualReport() called. Implementation coming soon... ");
-     }
+     //private void currentAnnualReport() {
+         //System.out.println("*** currentAnnualReport() called. Implementation coming soon... ");
+     //}
      
-     private void finalRating() {
-         System.out.println("*** finalRating() called. Find out how player did after 10 years. Implementation coming soon... ");
-     }
+     //private void finalRating() {
+         //System.out.println("*** finalRating() called. Find out how player did after 10 years. Implementation coming soon... ");
+     //}
      
-     private void gameOver() {
-         System.out.println("*** gameOver() called. More than 50% of people starved. Game over. Implementation coming soon... ");
-     }
+     //private void gameOver() {
+         //System.out.println("*** gameOver() called. More than 50% of people starved. Game over. Implementation coming soon... ");
+     //}
 }

@@ -16,17 +16,17 @@ public class PeopleControlTest {
     
     public PeopleControlTest() {
     }
-   
+    
 
     /**
      * Test of calculateMortality method, of class PeopleControl.
      */
     @Test
     public void test1CalculateMortality() {
-        System.out.println("calculateMortality");
+        
         
         //Test Case 1
-        System.out.println("\tTest case 1");
+        System.out.println("\tcalculateMortality Test case 1");
         //call the method
         int result = PeopleControl.calculateMortality(15000, 500);
         //test to see if the result returned equals the expected amount
@@ -36,7 +36,7 @@ public class PeopleControlTest {
     @Test
     public void test2CalculateMortality() {
         //Test Case 2
-        System.out.println("\tTest case 2");
+        System.out.println("\tcalculateMortality Test case 2");
         //call the method
         int result = PeopleControl.calculateMortality(9000, 500);
         //test to see if the result returned equals the expected amount
@@ -46,7 +46,7 @@ public class PeopleControlTest {
     @Test
     public void test3CalculateMortality() {
         //Test Case 3
-        System.out.println("\tTest case 3");
+        System.out.println("\tcalculateMortality Test case 3");
         //call the method
         int result = PeopleControl.calculateMortality(19, 500);
         //test to see if the result returned equals the expected amount
@@ -56,7 +56,7 @@ public class PeopleControlTest {
     @Test
     public void test4CalculateMortality() {
         //Test Case 4
-        System.out.println("\tTest case 4");
+        System.out.println("\tcalculateMortality Test case 4");
         //call the method
         int result = PeopleControl.calculateMortality(-10000, 500);
         //test to see if the result returned equals the expected amount
@@ -66,7 +66,7 @@ public class PeopleControlTest {
     @Test
     public void test5CalculateMortality() {
         //Test Case 5
-        System.out.println("\tTest case 5");
+        System.out.println("\tcalculateMortality Test case 5");
         //call the method
         int result = PeopleControl.calculateMortality(10000, -500);
         //test to see if the result returned equals the expected amount
@@ -76,7 +76,7 @@ public class PeopleControlTest {
     @Test
     public void test6CalculateMortality() {
         //Test Case 6
-        System.out.println("\tTest case 6");
+        System.out.println("\tcalculateMortality Test case 6");
         //call the method
         int result = PeopleControl.calculateMortality(10000, 0);
         //test to see if the result returned equals the expected amount
@@ -86,7 +86,7 @@ public class PeopleControlTest {
     @Test
     public void test7CalculateMortality() {
         //Test Case 7
-        System.out.println("\tTest case 7");
+        System.out.println("\tcalculateMortality Test case 7");
         //call the method
         int result = PeopleControl.calculateMortality(10000, 1);
         //test to see if the result returned equals the expected amount
@@ -96,7 +96,7 @@ public class PeopleControlTest {
     @Test
     public void test8CalculateMortality() {
         //Test Case 8
-        System.out.println("\tTest case 8");
+        System.out.println("\tcalculateMortality Test case 8");
         //call the method
         int result = PeopleControl.calculateMortality(0, 500);
         //test to see if the result returned equals the expected amount
@@ -107,7 +107,7 @@ public class PeopleControlTest {
     public void test9CalculateMortality() {
         //Test Case 9  
         // this is an extra text case to check how the method handles floating point values
-        System.out.println("\tTest case 9");
+        System.out.println("\tcalculateMortality Test case 9");
         //call the method
         int result = PeopleControl.calculateMortality(7587, 500);
         //test to see if the result returned equals the expected amount

@@ -41,6 +41,6 @@ public class PeopleControl {
             deaths = curPop - (int)Math.floor(wheatForPeople / BUSHELS_PER_PERSON);
              
         }
-         return deaths;
+        return deaths;
     }
 }

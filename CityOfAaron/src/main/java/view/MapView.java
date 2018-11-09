@@ -91,5 +91,6 @@ public class MapView {
 		}
 		System.out.println("");
 	}
+        System.out.println("\n");
     }
 }

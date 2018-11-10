@@ -4,9 +4,8 @@
  * and open the template in the editor.
  */
 package control;
-
-import java.util.Random;
 import model.*;
+import java.util.Random;
 
 /**
  *
@@ -53,7 +52,7 @@ public class GameControl {
      * @return The year's Annual Report data
      */
     
-    public static AnnualReport liveTheYear(
+    /*public static AnnualReport liveTheYear(
            Game game, int tithesPercent, int bushelsForFood, int acresToPlant) {
         
         //if(game == null || tithesPercent < 0 || tithesPercent > 100 || bushelsForFood < 0 || acresToPlant < 0){
@@ -68,7 +67,43 @@ public class GameControl {
         //int harvested = WheatControl.calculateHarvest(tithesPercent, acresToPlant);
         //int tithingAmount = (int)(double)((tithesPercent/100.0) * harvested);
         //int lostToRats = WheatControl.calculateLossToRats(wheatIn, tithesPercent);
-       
-        return report;     
+        
+        
+    }*/
+    public static Game createNewGame(String playerName){
+        Game newGame = new Game();
+        Player newPlayer = new Player();
+        newGame.setPlayer(newPlayer);
+        newPlayer.setName(playerName);
+        newGame.setMap(MapControl.createMap());
+        newGame.setStorehouse(GameControl.createStorehouse());
+        newGame.setAcresOwned(1000);
+        newGame.setCurrentPopulation(100);
+        newGame.setWheatInStorage(2000);
+        newGame.setBushelsForFood(0);
+            
+        LandControl.getCurrentLandPrice();
+            
+        return newGame;
+    }
+        
+    public static Storehouse createStorehouse(){
+        Storehouse newStorehouse = new Storehouse();
+        Author irwin = new Author();
+        Author rochira = new Author();
+        Author daPonte = new Author();
+            
+        irwin.setName("Cristina Irwin");
+        rochira.setName("Andrea Rochira");
+        daPonte.setName("Stefano Da Ponte");
+        irwin.setTitle("Mrs");
+        rochira.setTitle("Mr");
+        daPonte.setTitle("Mr");
+            
+        Author[] authorArray = {irwin, rochira, daPonte};
+            
+        newStorehouse.setAuthors(authorArray);
+            
+        return newStorehouse;
     }
 }

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Storehouse implements Serializable {
     
     // attributes
-    private ArrayList<Author> authors = new ArrayList<>();
+    private Author[] authors;
     private ArrayList<Animal> animals = new ArrayList<>();
     private ArrayList<InventoryItem> tools = new ArrayList<>();
     private ArrayList<Provision> provisions = new ArrayList<>();
@@ -25,11 +25,11 @@ public class Storehouse implements Serializable {
     }
     
     // getters and setters
-    public ArrayList<Author> getAuthors() {
+    public Author[] getAuthors() {
         return authors;
     }
 
-    public void setAuthors(ArrayList<Author> authors) {
+    public void setAuthors(Author[] authors) {
         this.authors = authors;
     }
     

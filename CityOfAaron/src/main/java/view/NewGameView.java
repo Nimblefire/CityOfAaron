@@ -7,8 +7,8 @@ package view;
 import app.CityOfAaron;
 import control.MapControl;
 import java.util.Scanner;
-import java.util.Set;
 import model.*;
+import control.*;
 
 /**
  *
@@ -132,7 +132,11 @@ public class NewGameView {
         }
 
         String playerName = inputs[0];
-        createAndStartGame(playerName);
+        CityOfAaron.setCurrentGame(GameControl.createNewGame(playerName));
+        System.out.println("Welcome to the game " + CityOfAaron.getCurrentGame().getPlayer().getName() + ".\nEverything is ready to start your reign.");
+        
+        GameMenuView view = new GameMenuView();
+        view.displayView();
         
         // to interrupt the loop of displayView method
         return false;
@@ -155,7 +159,7 @@ public class NewGameView {
         CityOfAaron.setCurrentGame(game);
         MapControl.createMap();
         
-        System.out.println("Welcome to the game " + CityOfAaron.getCurrentGame().getPlayer().getName());
+        System.out.println("Welcome to the game " + CityOfAaron.getCurrentGame().getPlayer().getName() + ".\nEverything is ready to start your reign.");
         
         GameMenuView view = new GameMenuView();
         view.displayView();

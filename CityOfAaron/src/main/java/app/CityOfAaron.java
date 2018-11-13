@@ -5,17 +5,12 @@
 
 package app;
 
-/**
-import java.util.HashSet;
-import java.util.Set;
-import java.util.ArrayList;
-import java.util.Arrays;
-*/
+/** 
+ * @author team Irwin - DaPonte - Rochira
+ */
+
 import model.*;
 import view.*;
-import control.*;
-import java.util.HashSet;
-import java.util.Set;
 
 public class CityOfAaron {
         
@@ -30,16 +25,9 @@ public class CityOfAaron {
         currentGame = game;
     }
     
+    // call the StartProgramView view
     public static void main(String[] args){
-        StartProgramView startProgramView = new StartProgramView();
+        View startProgramView = new StartProgramView();
         startProgramView.displayView();
     } 
-    
-        /**
-        
-        
-        * The starting point for our application. 
-        * 
-        * @param args Any parameters passed on the command line will be 
-        * contained in this array.**/
 }

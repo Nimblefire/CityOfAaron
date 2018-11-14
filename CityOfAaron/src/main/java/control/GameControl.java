@@ -81,7 +81,11 @@ public class GameControl {
         return report;
     }*/
     
-    
+    /**
+     * 
+     * @param playerName
+     * @return 
+     */
     public static Game createNewGame(String playerName){
         Game newGame = new Game();
         Player newPlayer = new Player();

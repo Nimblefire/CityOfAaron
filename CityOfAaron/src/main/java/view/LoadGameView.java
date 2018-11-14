@@ -120,7 +120,7 @@ public class LoadGameView {
         
         String filename = inputs[0];
         CityOfAaron.setCurrentGame(GameControl.loadGameFromFile(filename));
-        System.out.println("Welcome to your saved game " + CityOfAaron.getCurrentGame().getPlayer().getName() + ".\nEverything is ready to continue your reign.");
+        System.out.println("\nWelcome to your saved game " + CityOfAaron.getCurrentGame().getPlayer().getName() + ". Everything is ready to continue your reign.\n");
         
         GameMenuView view = new GameMenuView();
         view.displayView();

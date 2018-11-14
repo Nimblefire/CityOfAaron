@@ -58,7 +58,7 @@ public class NewGameView extends ViewBase {
 
         String playerName = inputs[0];
         CityOfAaron.setCurrentGame(GameControl.createNewGame(playerName));
-        System.out.println("Welcome to the game " + CityOfAaron.getCurrentGame().getPlayer().getName() + ".\nEverything is ready to start your reign.");
+        System.out.println("\nWelcome to the game " + CityOfAaron.getCurrentGame().getPlayer().getName() + ". Everything is ready to start your reign.\n");
         
         GameMenuView view = new GameMenuView();
         view.displayView();

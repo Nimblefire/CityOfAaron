@@ -5,50 +5,31 @@ package view;
  * @author Andrea
  */
 
-import java.util.Scanner;
+public class ManageCropsView extends ViewBase {
 
-public class ManageCropsView {
-    
-    /**
-     * The message that will be displayed by this view.
-     */
-    protected String message;
-    
     /**
      * Constructor
      */
-    public ManageCropsView(){
-        
-        message = "\nManage Crops Menu\n"
+    public ManageCropsView(){            
+    }
+
+    @Override
+    protected String getMessage(){
+        return "Manage Crops Menu\n"
                 + "-----------------\n"
                 + "B - Buy Land\n"
                 + "S - Sell Land\n"
                 + "F - Feed the People\n"
                 + "P - Plant Crops\n"
                 + "T - Pay Tithes and Offerings\n"
-                + "Q - Back to Game Menu\n";            
-    }
-    
-    /**
-     * Control this view's display/prompt/action loop until the user
-     * chooses an action that causes this view to close.
-     */
-    public void displayView(){
-        
-        boolean keepGoing = true;
-        
-        while(keepGoing == true){
-            
-            System.out.println(message);
-            String[] inputs = getInputs();
-            keepGoing = doAction(inputs);
-        }
+                + "Q - Back to Game Menu\n";
     }
 
     /**
      * Get the set of inputs from the user.
      * @return 
      */
+    @Override
     public String[] getInputs() {
         
         // Declare the array to have the number of elements you intend to get from the user.
@@ -62,85 +43,39 @@ public class ManageCropsView {
         return inputs;
     }
     
-    
-    /**
-     * An overloaded version of getUserInput that sets allowEmpty to false so we don't have 
-     * to type it ourselves.
-     * @param prompt
-     * @return 
-     */
-    // keep the following method untouched
-    protected String getUserInput(String prompt){
-        return getUserInput(prompt, false);
-    }
-
-    /**
-     * Get the user's input. Keep prompting them until they enter a value.
-     * @param prompt
-     * @param allowEmpty - determine whether the user can enter no value (just a return key)
-     * @return 
-     */
-    // keep the following method untouched 
-    protected String getUserInput(String prompt, boolean allowEmpty){
-        
-        Scanner keyboard = new Scanner(System.in);
-        String input = "";
-        boolean inputReceived = false;
-        
-        while(inputReceived == false){
-            
-            System.out.println(prompt);
-            input = keyboard.nextLine();
-            
-            // Make sure we avoid a null-pointer error.
-            if (input == null){
-                input = "";
-            }
-            
-            // Trim any trailing whitespace, including the carriage return.
-            input = input.trim();
-            
-            if (input.equals("") == false || allowEmpty == true){
-                inputReceived = true;
-            }
-        }
-        
-        // keyboard.close();
-        return input;
-        
-    }
-    
     /**
      * Perform the action indicated by the user's input.
      * @param inputs
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
+    @Override
     public boolean doAction(String[] inputs){
 
-        if (inputs[0].trim().toUpperCase().equals("B")) {
-            buyLand();
-            }
-        else if (inputs[0].trim().toUpperCase().equals("S")) {
-            sellLand();
-            }
-        else if (inputs[0].trim().toUpperCase().equals("F")) {
-            feedThePeople();
-            }
-        else if (inputs[0].trim().toUpperCase().equals("P")) {
-            plantCrops();
-            }
-        else if (inputs[0].trim().toUpperCase().equals("T")) {
-            payTithesOfferings();
-            } 
-        else if (inputs[0].trim().toUpperCase().equals("Q")) {
-            System.out.println("Exiting Manage Crops Menu...\n");
-            return false;
-            }
-        else 
-            {System.out.println("Invalid selection, try again.\n");}
-        
-       return true;     
+        switch ( inputs[0].trim().toUpperCase() ){
+            case "B":
+                buyLand();
+                break;
+            case "S":
+                sellLand();
+                break;
+            case "F":
+                feedThePeople();
+                break;
+            case "P":
+                plantCrops();
+                break;
+            case "T":
+                payTithesOfferings();
+                break;
+            case "Q":
+                System.out.println("Exiting Manage Crops Menu...\n");
+                return false;
+            default:
+                System.out.println("Invalid selection, try again.\n");
+        }
+                
+       return true; 
     }
     
     // Define your action handlers here. These are the methods that your doAction()

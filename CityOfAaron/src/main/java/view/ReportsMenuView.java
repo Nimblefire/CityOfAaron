@@ -87,7 +87,6 @@ public class ReportsMenuView extends ViewBase {
         // Get authors from the Storehouse 
         Author[] authors = CityOfAaron.getCurrentGame().getStorehouse().getAuthors();
         int i = 0;
-        int j = 2;
         System.out.println("\nLet's get to know the authors:\n");
         
         // Display the Authors

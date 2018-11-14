@@ -1,8 +1,6 @@
 
 package view;
 import app.CityOfAaron;
-import control.MapControl;
-import model.*;
 import control.*;
 
 /**
@@ -65,33 +63,12 @@ public class NewGameView extends ViewBase {
         GameMenuView view = new GameMenuView();
         view.displayView();
         
+        
+        
         // to interrupt the loop of displayView method
         return false;
     }
      
     // Define your action handlers here. These are the methods that your doAction() method will call based on the user's input
     
-    private void createAndStartGame(String playerName){
-                
-        Player player = new Player();
-        player.setName(playerName);
-
-        Game game = new Game();
-        
-        game.setPlayer(player);
-        
-        game.setWheatInStorage(2000);
-        game.setCurrentPopulation(100);
-        
-        CityOfAaron.setCurrentGame(game);
-        MapControl.createMap();
-        
-        System.out.println("Welcome to the game " + CityOfAaron.getCurrentGame().getPlayer().getName() + ".\nEverything is ready to start your reign.");
-        
-        GameMenuView view = new GameMenuView();
-        view.displayView();
-        
-        
-    }
-
 }

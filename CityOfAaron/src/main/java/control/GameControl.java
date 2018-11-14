@@ -70,6 +70,8 @@ public class GameControl {
         
         
     }*/
+    
+    
     public static Game createNewGame(String playerName){
         Game newGame = new Game();
         Player newPlayer = new Player();

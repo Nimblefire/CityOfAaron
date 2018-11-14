@@ -148,7 +148,9 @@ public class ManageCropsView {
     
     // To fulfill the requirements of the rubric (do-while logic + two String methods)
     private void buyLand(){
-        System.out.println("Implementation coming soon...");
+        BuyLandView buyLand = new BuyLandView();
+        buyLand.displayView();
+        //System.out.println("Implementation coming soon...");
     }
 
     private void sellLand(){
@@ -165,7 +167,9 @@ public class ManageCropsView {
     }
 
     private void payTithesOfferings(){
-        System.out.println("Implementation coming soon...");
+        PayTithingView payTithing = new PayTithingView();
+        payTithing.displayView();
+        //System.out.println("Implementation coming soon...");
     }
     
 }

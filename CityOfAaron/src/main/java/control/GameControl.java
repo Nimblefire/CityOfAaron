@@ -55,20 +55,30 @@ public class GameControl {
     /*public static AnnualReport liveTheYear(
            Game game, int tithesPercent, int bushelsForFood, int acresToPlant) {
         
-        //if(game == null || tithesPercent < 0 || tithesPercent > 100 || bushelsForFood < 0 || acresToPlant < 0){
+       if(game == null || tithesPercent < 0 || tithesPercent > 100 || bushelsForFood < 0 || acresToPlant < 0){
             //return null;
-        //}
+        }
         
         AnnualReport report = new AnnualReport();
-        //report.setLandPrice(LandControl.getCurrentLandPrice());
+        report.setLandPrice(LandControl.getCurrentLandPrice());
         
-        //int totalWheat = game.getWheatInStorage();
+        int totalWheat = game.getWheatInStorage();
         
-        //int harvested = WheatControl.calculateHarvest(tithesPercent, acresToPlant);
-        //int tithingAmount = (int)(double)((tithesPercent/100.0) * harvested);
-        //int lostToRats = WheatControl.calculateLossToRats(wheatIn, tithesPercent);
-        
-        
+        int harvested = WheatControl.calculateHarvest(tithesPercent, acresToPlant);
+        int tithingAmount = (int)(double)((tithesPercent/100.0) * harvested);
+        int lostToRats = WheatControl.calculateLossToRats(wheatIn, tithesPercent);
+    
+        int peopleStarved = PeopleControl.calculateMortality(bushelsForFood, game.getCurrentPopulation());
+        int peopleMovedIn = PeopleControl.calculateNewMoveIns(game.getCurrentPopulation());
+    
+        totalWheat = totalWheat + harvested - tithingAmount - lossToRats;
+        game.setWheatInStorage(totalWheat);
+        game.setCurrentPopulation(game.getCurrentPopulation() - peopleStarved + peopleMovedIn);
+    
+        report.setEndingWheatInStorage(game.getWheatInStorage());
+        report.setEndingPopulation(game.getCurrentPopulation());
+        report.setEndingAcresOwned(game.getAcresOwned());
+        return report;
     }*/
     
     
@@ -84,7 +94,7 @@ public class GameControl {
         newGame.setWheatInStorage(2000);
         newGame.setBushelsForFood(0);
             
-        LandControl.getCurrentLandPrice();
+        //LandControl.getCurrentLandPrice();
             
         return newGame;
     }
@@ -107,5 +117,11 @@ public class GameControl {
         newStorehouse.setAuthors(authorArray);
             
         return newStorehouse;
+    }
+    
+    public static Game loadGameFromFile(String filename) {
+        Game savedGame = new Game();
+        
+        return savedGame;
     }
 }

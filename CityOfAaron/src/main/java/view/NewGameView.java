@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package view;
 import app.CityOfAaron;
-import control.MapControl;
-import model.*;
 import control.*;
 
 /**
@@ -14,25 +8,24 @@ import control.*;
  * @author team Irwin - DaPonte - Rochira
  */
 public class NewGameView extends ViewBase {
-
+   
+    
     /**
      * Constructor
      */
     public NewGameView(){
-                
+        
     }
-    
-    @Override
-    protected String getMessage(){
-        return "Starting a new game...\n\n";
-    }
-    
-    
+   @Override 
+   protected String getMessage() {
+      return "Starting a new game...\n\n";
+   }
+
     /**
      * Get the set of inputs from the user.
      * @return 
      */
-    @Override
+   @Override
     public String[] getInputs() {
         
         // Declare the array to have the number of elements you intend to get 
@@ -47,7 +40,8 @@ public class NewGameView extends ViewBase {
         
         return inputs;
     }
-      
+
+    
     /**
      * Perform the action indicated by the user's input.
      * @param inputs
@@ -69,30 +63,12 @@ public class NewGameView extends ViewBase {
         GameMenuView view = new GameMenuView();
         view.displayView();
         
+        
+        
         // to interrupt the loop of displayView method
         return false;
     }
      
-    // Define your action handlers here. These are the methods that your doAction() method will call based on the user's input  
-    private void createAndStartGame(String playerName){
-                
-        Player player = new Player();
-        player.setName(playerName);
-
-        Game game = new Game();
-        
-        game.setPlayer(player);
-        
-        game.setWheatInStorage(2000);
-        game.setCurrentPopulation(100);
-        
-        CityOfAaron.setCurrentGame(game);
-        MapControl.createMap();
-        
-        System.out.println("\nWelcome to the game " + CityOfAaron.getCurrentGame().getPlayer().getName() + ".\nEverything is ready to start your reign.\n");
-        
-        GameMenuView view = new GameMenuView();
-        view.displayView();
-          
-    }
+    // Define your action handlers here. These are the methods that your doAction() method will call based on the user's input
+    
 }

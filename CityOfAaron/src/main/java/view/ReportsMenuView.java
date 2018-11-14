@@ -32,6 +32,7 @@ public class ReportsMenuView extends ViewBase {
      * Get the set of inputs from the user.
      * @return 
      */
+    @Override
     public String[] getInputs() {
         
         // Declare the array to have the number of elements you intend to get from the user.
@@ -51,6 +52,7 @@ public class ReportsMenuView extends ViewBase {
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
+    @Override
     public boolean doAction(String[] inputs){
 
         switch ( inputs[0].trim().toUpperCase() ){

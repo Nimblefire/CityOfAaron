@@ -1,28 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package view;
 
 /**
  *
  * @author team Irwin - DaPonte - Rochira
  */
-public class StartProgramView {
-    
-    
-    /**
-     * The message that will be displayed by this view.
-     */
-    protected String message;
+public class StartProgramView extends ViewBase {
     
     /**
      * Constructor
      */
-    public StartProgramView(){
+    public StartProgramView() {
+        super();
+    }
+    
+    @Override
+    protected String getMessage() {
         
-        message = "\n\n**************************************************************************************\n"
+        return  "\n\n**************************************************************************************\n"
                 + "*                                                                                    *\n"
                 + "*                            Welcome to the city of Aaron!                           *\n"
                 + "*                                                                                    *\n"
@@ -38,28 +33,13 @@ public class StartProgramView {
                 + "\tdiminished. Plan carefully. And Oh, there is always a danger of rats\n\teating your wheat.\n\n";
     }
     
-    
-     /**
-     * Control this view's display/prompt/action loop until the user
-     * chooses and action that causes this view to close.
-     */
-    public void displayView(){
-        
-        boolean keepGoing = true;
-        
-        while(keepGoing == true){
-            
-            System.out.println(message);
-            String[] inputs = getInputs();
-            keepGoing = doAction(inputs);
-        }
-    }
 
     /**
      * In this case the view does not collect any user input,
      * it only displays the welcome message and then the MAIN menu.
      * @return 
      */
+    @Override
     public String[] getInputs() {
         
         return null;
@@ -71,6 +51,7 @@ public class StartProgramView {
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
+    @Override
     public boolean doAction(String[] inputs){
         
         startMainMenuView();
@@ -83,14 +64,9 @@ public class StartProgramView {
     // method will call based on the user's input.
     
     private void startMainMenuView(){
-        // Pause for a couple of seconds
-        try{
-            Thread.sleep(2000);
-        } catch(InterruptedException exception){
-            // empty for now
-        }
-
-        MainMenuView mainMenu = new MainMenuView();
+        pause(2000);
+        View mainMenu = new MainMenuView();
+        //MainMenuView mainMenu = new MainMenuView();
         mainMenu.displayView();
     }
     

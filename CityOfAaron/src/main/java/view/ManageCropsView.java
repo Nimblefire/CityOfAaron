@@ -165,7 +165,9 @@ public class ManageCropsView {
     }
 
     private void payTithesOfferings(){
-        System.out.println("Implementation coming soon...");
+        PayTithingView payTithing = new PayTithingView();
+        payTithing.displayView();
+        //System.out.println("Implementation coming soon...");
     }
     
 }

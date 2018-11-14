@@ -5,7 +5,6 @@ package view;
  * @author Andrea
  */
 
-import java.util.Arrays;
 import model.*;
 import app.*;
 

@@ -10,20 +10,18 @@ public class MainMenuView extends ViewBase {
     /**
      * Constructor
      */
-    public MainMenuView(){
-      
+    public MainMenuView(){    
     }
+    
     @Override
-    protected String getMessage() {
-         return "Main Menu\n"
+    protected String getMessage(){
+        return "Main Menu\n"
                 + "---------\n"
                 + "N - Start a New Game\n"
                 + "L - Load a Saved Game\n"
                 + "H - Help Menu\n"
                 + "Q - Quit\n";
     }
-    
-    
 
     /**
      * Get the set of inputs from the user.
@@ -70,7 +68,6 @@ public class MainMenuView extends ViewBase {
             default: 
                 System.out.println("Invalid selection, try again.");
         }
-        
         
         return true;
     }

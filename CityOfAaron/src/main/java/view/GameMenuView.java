@@ -32,8 +32,7 @@ public class GameMenuView {
                 + "Y - Live the Year\n"
                 + "R - Reports Menu\n"
                 + "S - Save Game\n"
-                + "B - Back to Main menu\n";
-                
+                + "B - Back to Main menu\n";           
     }
     
     /**
@@ -45,7 +44,7 @@ public class GameMenuView {
         boolean keepGoing = true;
         
         while(keepGoing == true){
-          System.out.println("Annual Report called. Implementation coming soon");
+          // System.out.println("Annual Report called. Implementation coming soon");
             
             System.out.println(message);
             String[] inputs = getInputs();

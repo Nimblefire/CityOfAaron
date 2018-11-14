@@ -7,17 +7,13 @@ package view;
  */
 public class StartProgramView extends ViewBase {
     
-    /**
-     * Constructor
-     */
-    public StartProgramView() {
+    public StartProgramView(){
         super();
     }
     
     @Override
-    protected String getMessage() {
-        
-        return  "\n\n**************************************************************************************\n"
+    protected String getMessage(){
+        return "\n\n**************************************************************************************\n"
                 + "*                                                                                    *\n"
                 + "*                            Welcome to the city of Aaron!                           *\n"
                 + "*                                                                                    *\n"
@@ -33,7 +29,6 @@ public class StartProgramView extends ViewBase {
                 + "\tdiminished. Plan carefully. And Oh, there is always a danger of rats\n\teating your wheat.\n\n";
     }
     
-
     /**
      * In this case the view does not collect any user input,
      * it only displays the welcome message and then the MAIN menu.
@@ -60,13 +55,13 @@ public class StartProgramView extends ViewBase {
         return false;
     }
     
-    // Define your action handlers here. These are the methods that your doAction()
-    // method will call based on the user's input.
+    // Calling points to action methods
     
     private void startMainMenuView(){
+        // Pause for a couple of seconds
         pause(2000);
+        
         View mainMenu = new MainMenuView();
-        //MainMenuView mainMenu = new MainMenuView();
         mainMenu.displayView();
     }
     

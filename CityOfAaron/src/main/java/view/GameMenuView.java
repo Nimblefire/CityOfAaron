@@ -160,14 +160,10 @@ public class GameMenuView {
             default: 
                 System.out.println("Invalid selection, try again.");
         }
-        
-        
+              
         return true;
     }
-    
-   
-    
-    
+     
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input.
     
@@ -183,8 +179,8 @@ public class GameMenuView {
     }
 
     private void manageCrops(){
-        ManageCropsView view = new ManageCropsView();
-        view.displayView();
+        View manageCrops = new ManageCropsView();
+        manageCrops.displayView();
     }
     
     private void liveTheYear(){
@@ -192,12 +188,13 @@ public class GameMenuView {
     }
 
     private void reportsMenu(){
-        ReportsMenuView view = new ReportsMenuView();
-        view.displayView();    
+        View reports = new ReportsMenuView();
+        reports.displayView();    
     }
      
     private void saveGame(){
-        System.out.println("*** saveGame() called. Implementation coming soon... ");
+        View saveGame = new SaveGameView();
+        saveGame.displayView();
     }
      
      //private void currentAnnualReport() {

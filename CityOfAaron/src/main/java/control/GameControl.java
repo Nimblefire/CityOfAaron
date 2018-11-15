@@ -93,9 +93,9 @@ public class GameControl {
         newPlayer.setName(playerName);
         newGame.setMap(MapControl.createMap());
         newGame.setStorehouse(GameControl.createStorehouse());
-        newGame.setAcresOwned(1000);
+        newGame.setAcresOwned(990);
         newGame.setCurrentPopulation(100);
-        newGame.setWheatInStorage(2000);
+        newGame.setWheatInStorage(5000);
         newGame.setBushelsForFood(0);
             
         //LandControl.getCurrentLandPrice();
@@ -123,8 +123,12 @@ public class GameControl {
         return newStorehouse;
     }
     
-    public static Game loadGameFromFile(String filename) {
+    public static Game loadSavedgame(String filename) {
         Game savedGame = new Game();
+        Player returningPlayer = new Player();
+        savedGame.setPlayer(returningPlayer);
+        returningPlayer.setName(filename);
+        
         
         return savedGame;
     }

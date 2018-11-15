@@ -1,53 +1,37 @@
 package view;
 import java.util.Scanner;
 import app.CityOfAaron;
-import model.*;
 import control.*;
 
 /**
  *
  * @author cristinairwin
  */
-public class BuyLandView {
+public class BuyLandView extends ViewBase {
     //some place to hold the getRandom land price for the whole class
     int wheatPrice = GameControl.getRandomValue(17, 27);
 /**
-     * The message that will be displayed by this view.
-     */
-    protected String message;
-    
+     
     /**
      * Constructor
      */
     public BuyLandView(){
-        
-        
-        
-        message = "\nBuy Land\n"
-                + "--------------------\n"
-                + "Land is selling for" + wheatPrice + "an acre.\n";
     }
     
-    /**
-     * Control this view's display/prompt/action loop until the user
-     * chooses and action that causes this view to close.
-     */
-    public void displayView(){
+    @Override    
+    protected String getMessage() {    
         
-        boolean keepGoing = true;
-        
-        while(keepGoing == true){
-            
-            System.out.println(message);
-            String[] inputs = getInputs();
-            keepGoing = doAction(inputs);
-        }
+        return "\nBuy Land\n"
+                + "--------------------\n"
+                + "Land is selling for " + wheatPrice + " an acre.\n";
     }
+    
     
     /**
      * Get the set of inputs from the user.
      * @return 
      */
+    @Override
     public String[] getInputs() {
         
         // Declare the array to have the number of elements you intend to get 
@@ -62,55 +46,12 @@ public class BuyLandView {
     }
     
     /**
-     * An overloaded version of getUserInput that sets allowEmpty to false so we don't have 
-     * to type it ourselves.
-     * @param prompt
-     * @return 
-     */
-    protected String getUserInput(String prompt){
-        return getUserInput(prompt, false);
-    }
-    
-    
-    /**
-     * Get the user's input. Keep prompting them until they enter a value.
-     * @param prompt
-     * @param allowEmpty - determine whether the user can enter no value (just a return key)
-     * @return 
-     */
-    protected String getUserInput(String prompt, boolean allowEmpty){
-        
-        Scanner keyboard = new Scanner(System.in);
-        String input = "";
-        boolean inputReceived = false;
-        
-        while(inputReceived == false){
-            
-            System.out.println(prompt);
-            input = keyboard.nextLine();
-            
-            // Make sure we avoid a null-pointer error.
-            if (input == null){
-                input = "";
-            }
-            
-            // Trim any trailing whitespace, including the carriage return.
-            input = input.trim();
-            
-            if (input.equals("") == false || allowEmpty == true){
-                inputReceived = true;
-            }
-        }
-        
-        return input;
-    }
-    
-    /**
      * Perform the action indicated by the user's input.
      * @param inputs
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
+    @Override
     public boolean doAction(String[] inputs){
         // Act on the user's input.
         // This is a "dispatch" function that decides what
@@ -134,7 +75,7 @@ public class BuyLandView {
      
         int totalWheatCost= wheatPrice * acresToBuy;
         
-        //if acresToBuy is greater than -1 ask player to enter in number 0 or larger. 
+        //if acresToBuy is less than -1 ask player to enter in number 0 or larger. 
         if (acresToBuy < 0) {
             System.out.println("Please enter a number 0 or larger.");
             return true;
@@ -144,18 +85,22 @@ public class BuyLandView {
             System.out.println("You don't have enough wheat, please try again");
             return true;
         }
-        //if acresToBuy is more than people to tend it, ask user to try again.
-        else if (( CityOfAaron.getCurrentGame().getCurrentPopulation() * 10) < acresToBuy ) {
+        //if acresToBuy is more than people to tend it (1 person can maintain 10 acres), ask user to try again.
+        else if ((CityOfAaron.getCurrentGame().getCurrentPopulation() * 10) < (acresToBuy + CityOfAaron.getCurrentGame().getAcresOwned())) {
             System.out.println(" You don't have enought people to work that amount of land, please enter in another number. ");
             return true;//Have to ask input again
         } 
         else {
            reportAcresOwned(acresToBuy);
            reportWheatInStorage(wheatPrice, totalWheatCost);
-       }
+        }
+     
         return false;
     
     }
+    
+     // Define your action handlers here. These are the methods that your doAction()
+     // method will call based on the user's input.
         private void reportAcresOwned(int acresToBuy) {
             //add the number of acres purchased to the acres owned
             //acresToBuy + acresOwned = acresOwned;
@@ -170,7 +115,7 @@ public class BuyLandView {
             CityOfAaron.getCurrentGame().setWheatInStorage(CityOfAaron.getCurrentGame().getWheatInStorage() - totalWheatCost);
             
    
-            System.out.println("You now have " + CityOfAaron.getCurrentGame().getWheatInStorage()  + " bushels in storage.\n");
+            System.out.println("You now have " + CityOfAaron.getCurrentGame().getWheatInStorage()  + " bushels of wheat in storage.\n");
         }
     
     //private void reportLand() {

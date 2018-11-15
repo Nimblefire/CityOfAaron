@@ -6,6 +6,7 @@
 package view;
 
 import app.CityOfAaron;
+import java.util.Scanner;
 
 /**
  *
@@ -38,8 +39,7 @@ public class PlantCropsView extends ViewBase {
          
         return inputs;
     }
-    
-    
+        
     /**
      * Perform the action indicated by the user's input.
      * @param inputs
@@ -48,21 +48,15 @@ public class PlantCropsView extends ViewBase {
      */
     @Override
     public boolean doAction(String[] inputs){
-        
-        // test if the user input is null
-        if (inputs[0] == null || inputs[0].equals("")) {
-            System.out.println("Missing amount. Returning to the Manage Crops Menu");
-            return false;
-        }
-        
-        // declare a variable to hold the user input
+         
+        // declare a variable to hold later the user input
         int acresToPlant;
         
         // test if the user input is an integer value
         try {
             acresToPlant = Integer.parseInt(inputs[0]);
         } catch (NumberFormatException exception) {
-            System.out.println("The amount of land must be a whole number. Try again.");
+            System.out.println("\nThe amount of land must be a whole number. Try again.");
             return true;
         }
         
@@ -71,23 +65,25 @@ public class PlantCropsView extends ViewBase {
         
         // test if the user input is 0 or a positive value
         if ( acresToPlant < 0 ) {
-            System.out.println("Please enter an amount equal or greater than 0");
+            System.out.println("\nPlease enter an amount equal or greater than 0");
             return true;
         }
         // also test if the user is requiring more land than available
         else if ( acresToPlant > CityOfAaron.getCurrentGame().getAcresOwned() ){
-            System.out.println("You don't have all that land to till, please enter a smaller amount");
+            System.out.println("\nYou don't have all that land to till, please enter a smaller amount");
             return true;
         }
         else {
+            // use explicit type casting & Math.ceil method to round up
+            // in case of odd user inputs and to count 1 bushel also for half acre
             bushelsRequired = (int) Math.ceil(acresToPlant/2);
             if ( bushelsRequired > CityOfAaron.getCurrentGame().getWheatInStorage() ){
-                System.out.println("You don't have all that wheat available, please enter a smaller amount");
+                System.out.println("\nYou don't have all that wheat available, please enter a smaller amount");
                 return true;
             }
             else {
                 int wheatLeftInStorage = CityOfAaron.getCurrentGame().getWheatInStorage() - bushelsRequired;
-                System.out.println("This is the new amount of wheat available in the Storehouse: " + wheatLeftInStorage);
+                System.out.println("\nThis is the new amount of wheat available in the Storehouse: " + wheatLeftInStorage + "\n\n");
                 CityOfAaron.getCurrentGame().setWheatInStorage(wheatLeftInStorage);
             }
         }

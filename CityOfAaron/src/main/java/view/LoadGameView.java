@@ -3,8 +3,7 @@ package view;
 import app.CityOfAaron;
 import control.GameControl;
 import java.util.Scanner;
-import model.*;
-import control.*;
+
 
 /**
  *
@@ -112,7 +111,7 @@ public class LoadGameView {
         if ( inputs[0] == null || inputs[0].equals("") ) {
             System.out.println("Error. Returning to the Main menu...");
             return false; 
-        }
+        } else {
         //false breaks out of loop and returns to who called it, which is the Main Menu
         // If true, moves to next statement
         
@@ -130,7 +129,7 @@ public class LoadGameView {
         // to interrupt the loop of displayView method
         return false;
     }
-    
+    }
    
     
     // Define your action handlers here. These are the methods that your doAction()

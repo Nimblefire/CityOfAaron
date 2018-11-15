@@ -4,22 +4,26 @@
  * and open the template in the editor.
  */
 package view;
+import app.*;
 
 /**
  *
  * @author Andrea
  */
-public class SaveGameView extends ViewBase {
+public class EndGameView extends ViewBase {
     
     // Constructor 
-    public SaveGameView(){
+    public EndGameView(){
     }
     
     @Override
     protected String getMessage(){
-        return "\nDo you want to save your progress and create a checkpoint?\n"
-                + "Y - Save your progress and create a checkpoint\n"
-                + "N - Back to Game Menu\n";
+        return "\nSorry " + CityOfAaron.getCurrentGame().getPlayer().getName()
+                + ", it seems you didn't meet the expectations of your mandate.\n"
+                + "What do you want to do next?\n"
+                + "R - Restart the game\n"
+                + "L - Restart from a checkpoint\n"
+                + "N - Exit the game and leave the country\n";
     }
     
     /**
@@ -50,11 +54,15 @@ public class SaveGameView extends ViewBase {
     public boolean doAction(String[] inputs){
 
         switch ( inputs[0].trim().toUpperCase() ){
-            case "Y":
-                saveGame();
+            case "R":
+                restartGame();
+                break;
+            case "L":
+                loadGame();
                 break;
             case "N":
-                System.out.println("\nBack to Game Menu...\n");
+                System.out.println("\nExiting Game...\n");
+                // code to terminate the program
                 break;
             default:
                 System.out.println("\nInvalid selection, try again.\n");
@@ -66,9 +74,13 @@ public class SaveGameView extends ViewBase {
     
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input.
-
-    private void saveGame(){
-        System.out.println("\n'Saving progress on disk' implementation coming soon...\n");
+    
+    private void restartGame(){
     }
+
+    private void loadGame(){
+        LoadGameView loadGame = new LoadGameView();
+        loadGame.displayView();
+    }  
     
 }

@@ -196,6 +196,11 @@ public class GameMenuView {
         View saveGame = new SaveGameView();
         saveGame.displayView();
     }
+    
+    private void gameOver() {
+        View gameOver = new EndGameView();
+        gameOver.displayView();
+    }
      
      //private void currentAnnualReport() {
          //System.out.println("*** currentAnnualReport() called. Implementation coming soon... ");
@@ -203,9 +208,5 @@ public class GameMenuView {
      
      //private void finalRating() {
          //System.out.println("*** finalRating() called. Find out how player did after 10 years. Implementation coming soon... ");
-     //}
-     
-     //private void gameOver() {
-         //System.out.println("*** gameOver() called. More than 50% of people starved. Game over. Implementation coming soon... ");
      //}
 }

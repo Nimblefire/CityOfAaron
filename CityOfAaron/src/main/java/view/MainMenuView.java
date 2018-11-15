@@ -77,8 +77,8 @@ public class MainMenuView extends ViewBase {
     // method will call based on the user's input.
     
     private void startNewGame(){
-        NewGameView view = new NewGameView();
-        view.displayView();
+        View newGame = new NewGameView();
+        newGame.displayView();
     }
 
     private void helpMenu(){

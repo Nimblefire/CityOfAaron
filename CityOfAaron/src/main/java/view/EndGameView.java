@@ -20,10 +20,9 @@ public class EndGameView extends ViewBase {
     protected String getMessage(){
         return "\nSorry " + CityOfAaron.getCurrentGame().getPlayer().getName()
                 + ", it seems you didn't meet the expectations of your mandate.\n"
-                + "What do you want to do next?\n"
-                + "R - Restart the game\n"
-                + "L - Restart from a checkpoint\n"
-                + "N - Exit the game and leave the country\n";
+                + "What do you want to do next?...\n"
+                + "B - Back to the Main Menu to start over or restart from a checkpoint\n"
+                + "E - Just exit the game and leave the country\n";
     }
     
     /**
@@ -54,15 +53,12 @@ public class EndGameView extends ViewBase {
     public boolean doAction(String[] inputs){
 
         switch ( inputs[0].trim().toUpperCase() ){
-            case "R":
-                restartGame();
+            case "B":
+                mainMenu();
                 break;
-            case "L":
-                loadGame();
-                break;
-            case "N":
+            case "E":
                 System.out.println("\nExiting Game...\n");
-                // code to terminate the program
+                endGame();
                 break;
             default:
                 System.out.println("\nInvalid selection, try again.\n");
@@ -75,12 +71,13 @@ public class EndGameView extends ViewBase {
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input.
     
-    private void restartGame(){
+    private void mainMenu(){
+        View mainMenu = new MainMenuView();
+        mainMenu.displayView();
     }
-
-    private void loadGame(){
-        LoadGameView loadGame = new LoadGameView();
-        loadGame.displayView();
-    }  
+    
+    private void endGame(){
+        System.exit(0);
+    }
     
 }

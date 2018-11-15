@@ -18,9 +18,9 @@ public class EndGameView extends ViewBase {
     
     @Override
     protected String getMessage(){
-        return "\nSorry " + CityOfAaron.getCurrentGame().getPlayer().getName()
+        return "\nToo bad, " + CityOfAaron.getCurrentGame().getPlayer().getName()
                 + ", it seems you didn't meet the expectations of your mandate.\n"
-                + "What do you want to do next?...\n"
+                + "\nWhat do you want to do next?...\n"
                 + "B - Back to the Main Menu to start over or restart from a checkpoint\n"
                 + "E - Just exit the game and leave the country\n";
     }

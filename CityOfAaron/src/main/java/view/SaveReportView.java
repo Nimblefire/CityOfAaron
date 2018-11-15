@@ -16,9 +16,9 @@ public class SaveReportView extends ViewBase {
 
     @Override
     protected String getMessage(){
-        return "\nDo you want to save this report on your local Disk?\n"
+        return "\nDo you want to save this report on your local disk?\n"
                 + "Y - Save the report\n"
-                + "N - back to Report Menu\n";
+                + "N - Back to Report Menu\n";
     } 
 
     /**

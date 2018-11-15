@@ -17,9 +17,9 @@ public class SaveGameView extends ViewBase {
     
     @Override
     protected String getMessage(){
-        return "Do you want to save your progress on your local Disk?\n"
+        return "\nDo you want to save your progress?\n"
                 + "Y - Save your progress\n"
-                + "N - back to Report Menu\n";
+                + "N - Back to Game Menu\n";
     }
     
     /**

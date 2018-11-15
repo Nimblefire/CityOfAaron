@@ -98,7 +98,8 @@ public class ManageCropsView extends ViewBase {
     }
 
     private void plantCrops(){
-        System.out.println("Implementation coming soon...");
+        View plantCrops = new PlantCropsView();
+        plantCrops.displayView();
     }
 
     private void payTithesOfferings(){

@@ -88,11 +88,11 @@ public class GameMenuView extends ViewBase {
                 saveGame();
                 break;
             case "B":
-                System.out.println("Exiting Game Menu...");
+                System.out.println("\nExiting Game Menu...");
                 // return false if you want this view to exit and return to the view that called it.
                 return false;
             default: 
-                System.out.println("Invalid selection, try again.");
+                System.out.println("\nInvalid selection, try again.");
         }
               
         return true;

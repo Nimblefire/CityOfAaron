@@ -5,56 +5,29 @@
  */
 package view;
 import app.CityOfAaron;
-import control.MapControl;
-import java.util.Scanner;
-import model.*;
 import control.*;
 
 /**
  *
  * @author team Irwin - DaPonte - Rochira
  */
-public class NewGameView {
-    
-    
-    /**
-     * The message that will be displayed by this view.
-     */
-    protected String message;
-    
+public class NewGameView extends ViewBase{
     /**
      * Constructor
      */
     public NewGameView(){
         
-        message = "Starting a new game...\n\n";
-                
     }
     
-    /**
-     * Control this view's display/prompt/action loop until the user
-     * chooses and action that causes this view to close.
-     */
-    public void displayView(){
-        
-        boolean keepGoing = true;
-        
-        while(keepGoing == true){
-            
-            System.out.println(message);
-
-            // let's ask what the user wants to do and collect his choice
-            String[] inputs = getInputs();
-
-            // calling doAction method passing the user input collected by getInputs
-            keepGoing = doAction(inputs);
-        }
+    @Override
+    protected String getMessage(){
+        return "Starting a new game...";
     }
-
     /**
      * Get the set of inputs from the user.
      * @return 
      */
+    @Override
     public String[] getInputs() {
         
         // Declare the array to have the number of elements you intend to get 
@@ -69,61 +42,13 @@ public class NewGameView {
         
         return inputs;
     }
-
-    
-    /**
-     * Get the user's input. Keep prompting them until they enter a value.
-     * @param prompt
-     * @param allowEmpty - determine whether the user can enter no value (just a return key)
-     * @return 
-     */
-    // keep the following method untouched 
-    protected String getUserInput(String prompt, boolean allowEmpty){
-        
-        Scanner keyboard = new Scanner(System.in);
-        String input = "";
-        boolean inputReceived = false;
-        
-        while(inputReceived == false){
-            
-            System.out.println(prompt);
-            input = keyboard.nextLine();
-            
-            // Make sure we avoid a null-pointer error.
-            if (input == null){
-                input = "";
-            }
-            
-            // Trim any trailing whitespace, including the carriage return.
-            input = input.trim();
-            
-            if (input.equals("") == false || allowEmpty == true){
-                inputReceived = true;
-            }
-        }
-        
-        // keyboard.close();
-        return input;
-        
-    }
-    
-    /**
-     * An overloaded version of getUserInput that sets allowEmpty to false so we don't have 
-     * to type it ourselves.
-     * @param prompt
-     * @return 
-     */
-    // keep the following method untouched
-    protected String getUserInput(String prompt){
-        return getUserInput(prompt, false);
-    }
-      
     /**
      * Perform the action indicated by the user's input.
      * @param inputs
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
+    @Override
     public boolean doAction(String[] inputs){
         
         if ( inputs[0] == null || inputs[0].equals("") ) {
@@ -143,28 +68,4 @@ public class NewGameView {
     }
      
     // Define your action handlers here. These are the methods that your doAction() method will call based on the user's input
-    
-    private void createAndStartGame(String playerName){
-                
-        Player player = new Player();
-        player.setName(playerName);
-
-        Game game = new Game();
-        
-        game.setPlayer(player);
-        
-        game.setWheatInStorage(2000);
-        game.setCurrentPopulation(100);
-        
-        CityOfAaron.setCurrentGame(game);
-        MapControl.createMap();
-        
-        System.out.println("Welcome to the game " + CityOfAaron.getCurrentGame().getPlayer().getName() + ".\nEverything is ready to start your reign.");
-        
-        GameMenuView view = new GameMenuView();
-        view.displayView();
-        
-        
-    }
-
 }

@@ -82,7 +82,7 @@ public class GameControl {
         newGame.setWheatInStorage(2000);
         newGame.setBushelsForFood(0);
             
-        LandControl.getCurrentLandPrice();
+        //LandControl.getCurrentLandPrice();
             
         return newGame;
     }

@@ -8,10 +8,6 @@ import control.*;
  * @author cristinairwin
  */
 public class BuyLandView extends ViewBase {
-    //some place to hold the getRandom land price for the whole class
-    int wheatPrice = GameControl.getRandomValue(17, 27);
-/**
-     
     /**
      * Constructor
      */
@@ -23,7 +19,7 @@ public class BuyLandView extends ViewBase {
         
         return "\nBuy Land\n"
                 + "--------------------\n"
-                + "Land is selling for " + wheatPrice + " an acre.\n";
+                + "Land is selling for " + CityOfAaron.getCurrentGame().getLandPrice() + " an acre.\n";
     }
     
     
@@ -73,7 +69,7 @@ public class BuyLandView extends ViewBase {
         //int wheatCost = GameControl.getRandomValue(17, 27);
         
      
-        int totalWheatCost= wheatPrice * acresToBuy;
+        int totalWheatCost= CityOfAaron.getCurrentGame().getLandPrice() * acresToBuy;
         
         //if acresToBuy is less than -1 ask player to enter in number 0 or larger. 
         if (acresToBuy < 0) {
@@ -92,7 +88,7 @@ public class BuyLandView extends ViewBase {
         } 
         else {
            reportAcresOwned(acresToBuy);
-           reportWheatInStorage(wheatPrice, totalWheatCost);
+           reportWheatInStorage(CityOfAaron.getCurrentGame().getLandPrice(), totalWheatCost);
         }
      
         return false;

@@ -97,6 +97,7 @@ public class GameControl {
         newGame.setCurrentPopulation(100);
         newGame.setWheatInStorage(5000);
         newGame.setBushelsForFood(0);
+        newGame.setLandPrice(GameControl.getRandomValue(17, 27));
             
         //LandControl.getCurrentLandPrice();
             

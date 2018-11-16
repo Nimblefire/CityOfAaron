@@ -89,7 +89,8 @@ public class ManageCropsView extends ViewBase {
     }
 
     private void sellLand(){
-        System.out.println("Implementation coming soon...");
+        View sellLand = new SellLandView();
+        sellLand.displayView();
     }
 
     private void feedThePeople(){

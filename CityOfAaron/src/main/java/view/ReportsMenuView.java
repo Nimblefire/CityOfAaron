@@ -101,14 +101,40 @@ public class ReportsMenuView extends ViewBase {
     }
 
     private void reportLivestocks(){
-        System.out.println("List of animals in storehouse coming soon\n");
+        for (int i=0; i < CityOfAaron.getCurrentGame().getStorehouse().getAnimals().size(); i++){
+            System.out.println("\nName: " + CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getName()
+                                + "\nAge: " + CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getAge()
+                                + "\nCondition: " + CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getCondition()
+                                + "\nQuantity: " + CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getQuantity());
+            pause(2000);
+        }
+        
+        SaveReportView view = new SaveReportView();
+        view.displayView();
     }
 
     private void reportProvisions(){
-        System.out.println("List of provisions in storehouse coming soon\n");
+        for (int i=0; i < CityOfAaron.getCurrentGame().getStorehouse().getProvisions().size(); i++){
+            System.out.println("\nName: " + CityOfAaron.getCurrentGame().getStorehouse().getProvisions().get(i).getName()
+                                + "\nPerishable: " + CityOfAaron.getCurrentGame().getStorehouse().getProvisions().get(i).getPerishable()
+                                + "\nCondition: " + CityOfAaron.getCurrentGame().getStorehouse().getProvisions().get(i).getCondition()
+                                + "\nQuantity: " + CityOfAaron.getCurrentGame().getStorehouse().getProvisions().get(i).getQuantity());
+            pause(2000);
+        }
+        
+        SaveReportView view = new SaveReportView();
+        view.displayView();
     }
 
     private void reportTools(){
-        System.out.println("List of tools in storehouse coming soon\n");
+        for (int i=0; i < CityOfAaron.getCurrentGame().getStorehouse().getTools().size(); i++){
+            System.out.println("\nName: " + CityOfAaron.getCurrentGame().getStorehouse().getTools().get(i).getName()
+                                + "\nCondition: " + CityOfAaron.getCurrentGame().getStorehouse().getTools().get(i).getCondition()
+                                + "\nQuantity: " + CityOfAaron.getCurrentGame().getStorehouse().getTools().get(i).getQuantity());
+            pause(2000);
+        }
+        
+        SaveReportView view = new SaveReportView();
+        view.displayView();
     }
 }

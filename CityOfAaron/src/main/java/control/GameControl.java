@@ -6,6 +6,7 @@
 package control;
 import model.*;
 import java.util.Random;
+import java.util.ArrayList;
 
 /**
  *
@@ -104,22 +105,95 @@ public class GameControl {
     }
         
     private static Storehouse createStorehouse(){
+        
+        //Creation of the Storehouse
         Storehouse newStorehouse = new Storehouse();
+        
+        //Declaration and population of the InventoryItems
         Author irwin = new Author();
-        Author rochira = new Author();
-        Author daPonte = new Author();
-            
         irwin.setName("Cristina Irwin");
-        rochira.setName("Andrea Rochira");
-        daPonte.setName("Stefano Da Ponte");
         irwin.setTitle("Mrs");
+        
+        Author rochira = new Author();
+        rochira.setName("Andrea Rochira");
         rochira.setTitle("Mr");
+        
+        Author daPonte = new Author();
+        daPonte.setName("Stefano Da Ponte");    
         daPonte.setTitle("Mr");
-            
+        
+        Animal horse = new Animal();
+        horse.setName("Warhorse");
+        horse.setItemType(ItemType.ANIMAL);
+        horse.setCondition(Condition.GOOD);
+        horse.setQuantity(6);
+        horse.setAge(5);
+        
+        Animal cow = new Animal();
+        cow.setName("Milking cow");
+        cow.setItemType(ItemType.ANIMAL);
+        cow.setCondition(Condition.GOOD);
+        cow.setQuantity(20);
+        cow.setAge(10);
+        
+        Provision apples = new Provision();
+        apples.setItemType(ItemType.PROVISIONS);
+        apples.setName("Apple");
+        apples.setCondition(Condition.FAIR);
+        apples.setQuantity(500);
+        apples.setPerishable(true);
+        
+        Provision dates = new Provision();
+        dates.setItemType(ItemType.PROVISIONS);
+        dates.setName("Date");
+        dates.setCondition(Condition.GOOD);
+        dates.setQuantity(1000);
+        dates.setPerishable(true);
+        
+        Provision woodBeams = new Provision();
+        woodBeams.setItemType(ItemType.PROVISIONS);
+        woodBeams.setName("Wood Beams");
+        woodBeams.setCondition(Condition.GOOD);
+        woodBeams.setQuantity(200);
+        woodBeams.setPerishable(false);
+        
+        
+        InventoryItem hammers = new InventoryItem();
+        hammers.setItemType(ItemType.TOOL);
+        hammers.setName("Hammer");
+        hammers.setCondition(Condition.POOR);
+        hammers.setQuantity(20);
+        
+        InventoryItem saws = new InventoryItem();
+        saws.setItemType(ItemType.TOOL);
+        saws.setName("Saw");
+        saws.setCondition(Condition.GOOD);
+        saws.setQuantity(30);
+        
+        //Create the Arrays and assign the values
         Author[] authorArray = {irwin, rochira, daPonte};
-            
+        
+        ArrayList<Animal> animals = new ArrayList<>();
+        animals.add(horse);
+        animals.add(cow);
+        
+        ArrayList<Provision> provisions = new ArrayList<>();
+        provisions.add(apples);
+        provisions.add(dates);
+        provisions.add(woodBeams);
+        
+        
+        ArrayList<InventoryItem> tools = new ArrayList<>();
+        tools.add(hammers);
+        tools.add(saws);
+        
+        
+        //Assign the Arrays to the Storehouse
         newStorehouse.setAuthors(authorArray);
-            
+        newStorehouse.setAnimals(animals);
+        newStorehouse.setProvisions(provisions);
+        newStorehouse.setTools(tools);
+        
         return newStorehouse;
     }
     

@@ -29,7 +29,11 @@ public class EndGameView extends ViewBase {
                     + "E - Just exit the game and leave the country\n";
         }
         else if ((10 <= CityOfAaron.getCurrentGame().getAnnualReport().getYear())){
-            message = "Congratulations!! You magnified your calling and your name will be immortalized througout all ages to come!";
+            message = "Congratulations!! You magnified your calling and your name will be immortalized througout all ages to come!"
+                    + "\nWhat do you want to do next?...\n"
+                    + "B - Back to the Main Menu to start over or restart from a checkpoint\n"
+                    + "E - Just exit the game\n";
+            
         }      
         return message;
     }

@@ -6,9 +6,7 @@
 package control;
 
 import app.CityOfAaron;
-import model.Game;
-import model.Location;
-import model.Map;
+import model.*;
 
 /**
  *
@@ -76,5 +74,17 @@ public class MapControl {
         gameMap.setLocations(mapLocations);
         
         return gameMap;
+    }
+    
+    public static Location setCurrentLocation(Game game, Point newLocation){
+        if (game==null || newLocation == null){
+            return null;
+        } else if (newLocation.getRow() > game.getMap().getLocations()[0].length || newLocation.getColumn() > game.getMap().getLocations()[1].length){
+            System.out.println("Error -1");
+            return null;
+        }
+        
+        game.getMap().setCurrentLocation(newLocation);
+        return game.getMap().getLocations()[newLocation.getRow()][newLocation.getColumn()];
     }
 }

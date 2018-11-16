@@ -88,17 +88,28 @@ public class GameControl {
      * @return 
      */
     public static Game createNewGame(String playerName){
+        //Create new game
         Game newGame = new Game();
+        //Create new player
         Player newPlayer = new Player();
+        //Assign a name to player and player to the game
         newGame.setPlayer(newPlayer);
         newPlayer.setName(playerName);
+        //Create the Map and assign it to the game
         newGame.setMap(MapControl.createMap());
+        //Create he Storehouse and assign it to the game
         newGame.setStorehouse(createStorehouse());
+        //Set the acres at the beginning of the game
         newGame.setAcresOwned(990);
+        //Set the population at the beginning of the game
         newGame.setCurrentPopulation(100);
+        //Set the wheat in store at the beginning of the game
         newGame.setWheatInStorage(5000);
+        //Set the Bushels set aside as food (Not really needed)
         newGame.setBushelsForFood(0);
+        //Set the price per acre for the first year
         newGame.setLandPrice(GameControl.getRandomValue(17, 27));
+        //Create the annual report object and assign it to the game
         newGame.setAnnualReport(createAnnualReport());
             
         return newGame;
@@ -196,7 +207,7 @@ public class GameControl {
         
         return newStorehouse;
     }
-    
+    //Later we could establish default values for the beginning of the first year
     private static AnnualReport createAnnualReport(){
         AnnualReport report = new AnnualReport();
         return report;

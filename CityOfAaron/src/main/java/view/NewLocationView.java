@@ -1,33 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package view;
 
 import java.util.Arrays;
-import control.*;
-import app.CityOfAaron;
-import java.util.Scanner;
 import model.*;
 
 /**
  *
  * @author team Irwin - DaPonte - Rochira
  */
-public class NewLocationView {
-
-    /**
-     * The message that will be displayed by this view.
-     */
-    protected String message;
+public class NewLocationView extends ViewBase {
 
     /**
      * Constructor
      */
     public NewLocationView() {
-
-        message = "Each location has a column and row coordinate.\n"
+    }
+    
+    @Override
+    protected String getMessage(){
+        return "Each location has a column and row coordinate.\n"
                 + "1. View the map and notice the point(row, column) coordinates of where you want to move.\n"
                 + "2. Please enter column and row interger to indicate where you want to move.\n"
                 + "3. You will see the location name, location description, symbol and a game tip. \n\n";
@@ -35,30 +26,11 @@ public class NewLocationView {
     }
 
     /**
-     * Control this view's display/prompt/action loop until the user chooses and
-     * action that causes this view to close.
-     */
-    public void displayView() {
-
-        boolean keepGoing = true;
-
-        while (keepGoing == true) {
-
-            System.out.println(message);
-
-            // let's ask what the user wants to do and collect his choice
-            String[] inputs = getInputs();
-
-            // calling doAction method passing the user input collected by getInputs
-            keepGoing = doAction(inputs);
-        }
-    }
-
-    /**
      * Get the set of inputs from the user.
      *
      * @return
      */
+    @Override
     public String[] getInputs() {
 
         // Declare the array to have the number of elements you intend to get 
@@ -76,62 +48,13 @@ public class NewLocationView {
     }
 
     /**
-     * Get the user's input. Keep prompting them until they enter a value.
-     *
-     * @param prompt
-     * @param allowEmpty - determine whether the user can enter no value (just a
-     * return key)
-     * @return
-     */
-    // keep the following method untouched 
-    protected String getUserInput(String prompt, boolean allowEmpty) {
-
-        Scanner keyboard = new Scanner(System.in);
-        String input = "";
-        boolean inputReceived = false;
-
-        while (inputReceived == false) {
-
-            System.out.println(prompt);
-            input = keyboard.nextLine();
-
-            // Make sure we avoid a null-pointer error.
-            if (input == null) {
-                input = "";
-            }
-
-            // Trim any trailing whitespace, including the carriage return.
-            input = input.trim();
-
-            if (input.equals("") == false || allowEmpty == true) {
-                inputReceived = true;
-            }
-        }
-
-        // keyboard.close();
-        return input;
-
-    }
-
-    /**
-     * An overloaded version of getUserInput that sets allowEmpty to false so we
-     * don't have to type it ourselves.
-     *
-     * @param prompt
-     * @return
-     */
-    // keep the following method untouched
-    protected String getUserInput(String prompt) {
-        return getUserInput(prompt, false);
-    }
-
-    /**
      * Perform the action indicated by the user's input.
      *
      * @param inputs
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
+    @Override
     public boolean doAction(String[] inputs) {
 
         if (inputs[0] == null || inputs[1] == null || inputs[0].equals("") || inputs[1].equals("")) {
@@ -141,13 +64,6 @@ public class NewLocationView {
         //False breaks out of loop and returns to who called it, which is Game menu in this case.
         //If true it moves on to the next statement.
 
-        //Get input from user-my attempt
-        //String rowInput = inputs[0];
-        //int row = Integer.parseInt(rowInput);
-        //String columnInput = inputs[1];
-        //int column = Integer.parseInt(columnInput);
-        //String row = inputs[0];
-        //String column = inputs[1];
         //declare int row and int column and assign the values from string row and string column that were entered in by the player.
         int row, column;
         try {
@@ -158,9 +74,6 @@ public class NewLocationView {
             return true;//keep going
         }
 
-        //if ((row >= 0 && row <=5 ) && (column >=0 && column <=5))  {
-        //moveToNewLocation(row, column);
-        //} 
         //if row = 0,1,2,3,4 and column =  0,1,2,3,4 call moveToLocation
         if ((row > -1 && row < 5) && (column > -1 && column < 5)) {
             moveToNewLocation(row, column);

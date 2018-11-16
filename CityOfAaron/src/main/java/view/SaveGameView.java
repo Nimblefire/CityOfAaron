@@ -1,26 +1,27 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package view;
 
 /**
  *
  * @author Andrea
  */
-
-
-public class SaveReportView extends ViewBase {
-
-    /**
-     * Constructor
-     */
-    public SaveReportView(){          
+public class SaveGameView extends ViewBase {
+    
+    // Constructor 
+    public SaveGameView(){
     }
-
+    
     @Override
     protected String getMessage(){
-        return "\nDo you want to save this report on your local disk?\n"
-                + "Y - Save the report\n"
-                + "N - Back to Report Menu\n";
-    } 
-
+        return "\nDo you want to save your progress and create a checkpoint?\n"
+                + "Y - Save your progress and create a checkpoint\n"
+                + "N - Back to Game Menu\n";
+    }
+    
     /**
      * Get the set of inputs from the user.
      * @return 
@@ -50,13 +51,13 @@ public class SaveReportView extends ViewBase {
 
         switch ( inputs[0].trim().toUpperCase() ){
             case "Y":
-                saveReport();
+                saveGame();
                 break;
             case "N":
-                System.out.println("Back to Report Menu...\n");
+                System.out.println("\nBack to Game Menu...\n");
                 break;
             default:
-                System.out.println("Invalid selection, try again.\n");
+                System.out.println("\nInvalid selection, try again.\n");
                 return true;
         }
                       
@@ -66,7 +67,8 @@ public class SaveReportView extends ViewBase {
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input.
 
-    private void saveReport(){
-        System.out.println("'Saving report on disk' options coming soon...");
+    private void saveGame(){
+        System.out.println("\n'Saving progress on disk' implementation coming soon...\n");
     }
+    
 }

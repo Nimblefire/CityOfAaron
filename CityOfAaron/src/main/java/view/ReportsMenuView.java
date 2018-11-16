@@ -5,53 +5,34 @@ package view;
  * @author Andrea
  */
 
-import java.util.Scanner;
-import java.util.ArrayList;
 import model.*;
+import app.*;
 
 
-public class ReportsMenuView {
-    
-    
-    /**
-     * The message that will be displayed by this view.
-     */
-    protected String message;
-    
+public class ReportsMenuView extends ViewBase {
+  
     /**
      * Constructor
      */
-    public ReportsMenuView(){
-        
-        message = "\nReports Menu\n"
+    public ReportsMenuView(){          
+    }
+
+    @Override
+    protected String getMessage(){
+        return "\nReports Menu\n"
                 + "------------\n"
                 + "A - View the authors of this game\n"
                 + "L - View the livestock in the storehouse\n"
                 + "P - View the provisions in the storehouse\n"
                 + "T - View the tools in the storehouse\n"
-                + "B - Back to Game Menu\n";            
-    }
-    
-    /**
-     * Control this view's display/prompt/action loop until the user
-     * chooses an action that causes this view to close.
-     */
-    public void displayView(){
-        
-        boolean keepGoing = true;
-        
-        while(keepGoing == true){
-            
-            System.out.println(message);
-            String[] inputs = getInputs();
-            keepGoing = doAction(inputs);
-        }
+                + "B - Back to Game Menu\n";
     }
 
     /**
      * Get the set of inputs from the user.
      * @return 
      */
+    @Override
     public String[] getInputs() {
         
         // Declare the array to have the number of elements you intend to get from the user.
@@ -65,60 +46,13 @@ public class ReportsMenuView {
         return inputs;
     }
     
-    
-    /**
-     * An overloaded version of getUserInput that sets allowEmpty to false so we don't have 
-     * to type it ourselves.
-     * @param prompt
-     * @return 
-     */
-    // keep the following method untouched
-    protected String getUserInput(String prompt){
-        return getUserInput(prompt, false);
-    }
-
-    /**
-     * Get the user's input. Keep prompting them until they enter a value.
-     * @param prompt
-     * @param allowEmpty - determine whether the user can enter no value (just a return key)
-     * @return 
-     */
-    // keep the following method untouched 
-    protected String getUserInput(String prompt, boolean allowEmpty){
-        
-        Scanner keyboard = new Scanner(System.in);
-        String input = "";
-        boolean inputReceived = false;
-        
-        while(inputReceived == false){
-            
-            System.out.println(prompt);
-            input = keyboard.nextLine();
-            
-            // Make sure we avoid a null-pointer error.
-            if (input == null){
-                input = "";
-            }
-            
-            // Trim any trailing whitespace, including the carriage return.
-            input = input.trim();
-            
-            if (input.equals("") == false || allowEmpty == true){
-                inputReceived = true;
-            }
-        }
-        
-        // keyboard.close();
-        return input;
-        
-    }
-    
     /**
      * Perform the action indicated by the user's input.
      * @param inputs
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
+    @Override
     public boolean doAction(String[] inputs){
 
         switch ( inputs[0].trim().toUpperCase() ){
@@ -149,35 +83,17 @@ public class ReportsMenuView {
     
     // To fulfill the requirements of the rubric (do-while logic + two String methods)
     private void reportAuthors(){
-                
-        // Create Author objects
-        Author Cristina = new Author();
-        Cristina.setName("Cristina Irwin");
-        Cristina.setTitle("Mrs");
-        
-        Author Andrea = new Author();
-        Andrea.setName("Andrea Rochira");
-        Andrea.setTitle("Mr");
-        
-        Author Stefano = new Author();
-        Stefano.setName("Stefano DaPonte Becher");
-        Stefano.setTitle("Mr");
-        
-        // Add Author objects to an ArrayList
-        ArrayList<Author> authors = new ArrayList<>();
-        authors.add(Cristina);
-        authors.add(Stefano);
-        authors.add(Andrea);
-        
-        int size = authors.size();
+          
+        // Get authors from the Storehouse 
+        Author[] authors = CityOfAaron.getCurrentGame().getStorehouse().getAuthors();
         int i = 0;
         System.out.println("\nLet's get to know the authors:\n");
         
-        // loop through the arrayList by using a do-while repetition statement
+        // Display the Authors
         do {
-            System.out.println(authors.get(i).getTitle().toUpperCase() + " " + authors.get(i).getName().concat("\n"));
+            System.out.println(authors[i].getTitle().toUpperCase() + " " + authors[i].getName().concat("\n"));
             i++; 
-        } while (i < size);
+        } while (i < 3);
             
         SaveReportView view = new SaveReportView();
         view.displayView();

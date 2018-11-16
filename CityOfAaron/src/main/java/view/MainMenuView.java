@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package view;
 
-import java.util.Scanner;
+package view;
 
 /**
  *
@@ -26,7 +20,7 @@ public class MainMenuView extends ViewBase {
                 + "N - Start a New Game\n"
                 + "L - Load a Saved Game\n"
                 + "H - Help Menu\n"
-                + "Q - Quit\n";
+                + "Q - Quit the Game\n";
     }
 
     /**
@@ -68,7 +62,7 @@ public class MainMenuView extends ViewBase {
                 helpMenu();
                 break;
             case "Q":
-                System.out.println("Hope to see you soon. Good-bye.");
+                System.out.println("\nHope to see you soon. Good-bye.");
                 // return false if you want this view to exit and return to the view that called it.
                 return false;
             default: 
@@ -83,17 +77,19 @@ public class MainMenuView extends ViewBase {
     // method will call based on the user's input.
     
     private void startNewGame(){
-        NewGameView view = new NewGameView();
-        view.displayView();
+        View newGame = new NewGameView();
+        newGame.displayView();
     }
 
     private void helpMenu(){
-        HelpMenuView view = new HelpMenuView();
-        view.displayView();
+        View helpMenu = new HelpMenuView();
+        helpMenu.displayView();
     }
 
     private void loadSavedGame(){
-        System.out.println("*** loadSavedGame() called. Implementation coming soon... ");
+        LoadGameView view = new LoadGameView();
+        view.displayView();
+        //System.out.println("*** loadSavedGame() called. Implementation coming soon... ");
     }
 
     

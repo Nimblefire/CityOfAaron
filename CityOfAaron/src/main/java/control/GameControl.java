@@ -55,21 +55,37 @@ public class GameControl {
     /*public static AnnualReport liveTheYear(
            Game game, int tithesPercent, int bushelsForFood, int acresToPlant) {
         
-        //if(game == null || tithesPercent < 0 || tithesPercent > 100 || bushelsForFood < 0 || acresToPlant < 0){
+       if(game == null || tithesPercent < 0 || tithesPercent > 100 || bushelsForFood < 0 || acresToPlant < 0){
             //return null;
-        //}
+        }
         
         AnnualReport report = new AnnualReport();
-        //report.setLandPrice(LandControl.getCurrentLandPrice());
+        report.setLandPrice(LandControl.getCurrentLandPrice());
         
-        //int totalWheat = game.getWheatInStorage();
+        int totalWheat = game.getWheatInStorage();
         
-        //int harvested = WheatControl.calculateHarvest(tithesPercent, acresToPlant);
-        //int tithingAmount = (int)(double)((tithesPercent/100.0) * harvested);
-        //int lostToRats = WheatControl.calculateLossToRats(wheatIn, tithesPercent);
-        
-        
+        int harvested = WheatControl.calculateHarvest(tithesPercent, acresToPlant);
+        int tithingAmount = (int)(double)((tithesPercent/100.0) * harvested);
+        int lostToRats = WheatControl.calculateLossToRats(wheatIn, tithesPercent);
+    
+        int peopleStarved = PeopleControl.calculateMortality(bushelsForFood, game.getCurrentPopulation());
+        int peopleMovedIn = PeopleControl.calculateNewMoveIns(game.getCurrentPopulation());
+    
+        totalWheat = totalWheat + harvested - tithingAmount - lossToRats;
+        game.setWheatInStorage(totalWheat);
+        game.setCurrentPopulation(game.getCurrentPopulation() - peopleStarved + peopleMovedIn);
+    
+        report.setEndingWheatInStorage(game.getWheatInStorage());
+        report.setEndingPopulation(game.getCurrentPopulation());
+        report.setEndingAcresOwned(game.getAcresOwned());
+        return report;
     }*/
+    
+    /**
+     * 
+     * @param playerName
+     * @return 
+     */
     public static Game createNewGame(String playerName){
         Game newGame = new Game();
         Player newPlayer = new Player();
@@ -77,9 +93,9 @@ public class GameControl {
         newPlayer.setName(playerName);
         newGame.setMap(MapControl.createMap());
         newGame.setStorehouse(GameControl.createStorehouse());
-        newGame.setAcresOwned(1000);
+        newGame.setAcresOwned(990);
         newGame.setCurrentPopulation(100);
-        newGame.setWheatInStorage(2000);
+        newGame.setWheatInStorage(5000);
         newGame.setBushelsForFood(0);
             
         //LandControl.getCurrentLandPrice();
@@ -105,5 +121,15 @@ public class GameControl {
         newStorehouse.setAuthors(authorArray);
             
         return newStorehouse;
+    }
+    
+    public static Game loadSavedgame(String filename) {
+        Game savedGame = new Game();
+        Player returningPlayer = new Player();
+        savedGame.setPlayer(returningPlayer);
+        returningPlayer.setName(filename);
+        
+        
+        return savedGame;
     }
 }

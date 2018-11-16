@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package view;
 
 import java.util.Scanner;
@@ -11,20 +7,19 @@ import java.util.Scanner;
  *
  * @author team Irwin - DaPonte - Rochira
  */
-public class GameMenuView {
-    
-    
-    /**
-     * The message that will be displayed by this view.
-     */
-    protected String message;
+public class GameMenuView extends ViewBase {
     
     /**
      * Constructor
      */
-    public GameMenuView(){
-        
-        message =  "Game Menu\n"
+    
+    
+    public GameMenuView() {
+    }
+    
+    @Override
+    protected String getMessage () {
+        return "Game Menu\n"
                 + "---------\n"
                 + "M - View the Map\n"
                 + "L - Move to a new location\n"
@@ -36,26 +31,10 @@ public class GameMenuView {
     }
     
     /**
-     * Control this view's display/prompt/action loop until the user
-     * chooses an action that causes this view to close.
-     */
-    public void displayView(){
-        
-        boolean keepGoing = true;
-        
-        while(keepGoing == true){
-          // System.out.println("Annual Report called. Implementation coming soon");
-            
-            System.out.println(message);
-            String[] inputs = getInputs();
-            keepGoing = doAction(inputs);
-        }
-    }
-
-    /**
      * Get the set of inputs from the user.
      * @return 
      */
+    @Override
     public String[] getInputs() {
         
         // Declare the array to have the number of elements you intend to get from the user.
@@ -70,52 +49,6 @@ public class GameMenuView {
         return inputs;
     }
     
-    /**
-     * An overloaded version of getUserInput that sets allowEmpty to false so we don't have 
-     * to type it ourselves.
-     * @param prompt
-     * @return 
-     */
-    // keep the following method untouched
-    protected String getUserInput(String prompt){
-        return getUserInput(prompt, false);
-    }
-
-    /**
-     * Get the user's input. Keep prompting them until they enter a value.
-     * @param prompt
-     * @param allowEmpty - determine whether the user can enter no value (just a return key)
-     * @return 
-     */
-    // keep the following method untouched 
-    protected String getUserInput(String prompt, boolean allowEmpty){
-        
-        Scanner keyboard = new Scanner(System.in);
-        String input = "";
-        boolean inputReceived = false;
-        
-        while(inputReceived == false){
-            
-            System.out.println(prompt);
-            input = keyboard.nextLine();
-            
-            // Make sure we avoid a null-pointer error.
-            if (input == null){
-                input = "";
-            }
-            
-            // Trim any trailing whitespace, including the carriage return.
-            input = input.trim();
-            
-            if (input.equals("") == false || allowEmpty == true){
-                inputReceived = true;
-            }
-        }
-        
-        // keyboard.close();
-        return input;
-        
-    }
     
     /**
      * Perform the action indicated by the user's input.
@@ -123,6 +56,7 @@ public class GameMenuView {
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
+    @Override
     public boolean doAction(String[] inputs){
         
         
@@ -154,20 +88,16 @@ public class GameMenuView {
                 saveGame();
                 break;
             case "B":
-                System.out.println("Exiting Game Menu...");
+                System.out.println("\nExiting Game Menu...");
                 // return false if you want this view to exit and return to the view that called it.
                 return false;
             default: 
-                System.out.println("Invalid selection, try again.");
+                System.out.println("\nInvalid selection, try again.");
         }
-        
-        
+              
         return true;
     }
-    
-   
-    
-    
+     
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input.
     
@@ -183,8 +113,8 @@ public class GameMenuView {
     }
 
     private void manageCrops(){
-        ManageCropsView view = new ManageCropsView();
-        view.displayView();
+        View manageCrops = new ManageCropsView();
+        manageCrops.displayView();
     }
     
     private void liveTheYear(){
@@ -192,12 +122,18 @@ public class GameMenuView {
     }
 
     private void reportsMenu(){
-        ReportsMenuView view = new ReportsMenuView();
-        view.displayView();    
+        View reports = new ReportsMenuView();
+        reports.displayView();    
     }
      
     private void saveGame(){
-        System.out.println("*** saveGame() called. Implementation coming soon... ");
+        View saveGame = new SaveGameView();
+        saveGame.displayView();
+    }
+    
+    private void gameOver() {
+        View gameOver = new EndGameView();
+        gameOver.displayView();
     }
      
      //private void currentAnnualReport() {
@@ -206,9 +142,5 @@ public class GameMenuView {
      
      //private void finalRating() {
          //System.out.println("*** finalRating() called. Find out how player did after 10 years. Implementation coming soon... ");
-     //}
-     
-     //private void gameOver() {
-         //System.out.println("*** gameOver() called. More than 50% of people starved. Game over. Implementation coming soon... ");
      //}
 }

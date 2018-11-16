@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package view;
 import app.CityOfAaron;
 import control.*;
@@ -18,16 +14,16 @@ public class NewGameView extends ViewBase{
     public NewGameView(){
         
     }
-    
-    @Override
-    protected String getMessage(){
-        return "Starting a new game...";
-    }
+   @Override 
+   protected String getMessage() {
+      return "Starting a new game...\n\n";
+   }
+
     /**
      * Get the set of inputs from the user.
      * @return 
      */
-    @Override
+   @Override
     public String[] getInputs() {
         
         // Declare the array to have the number of elements you intend to get 
@@ -58,10 +54,12 @@ public class NewGameView extends ViewBase{
 
         String playerName = inputs[0];
         CityOfAaron.setCurrentGame(GameControl.createNewGame(playerName));
-        System.out.println("Welcome to the game " + CityOfAaron.getCurrentGame().getPlayer().getName() + ".\nEverything is ready to start your reign.");
+        System.out.println("\nWelcome to the game " + CityOfAaron.getCurrentGame().getPlayer().getName() + ". Everything is ready to start your reign.\n");
         
         GameMenuView view = new GameMenuView();
         view.displayView();
+        
+        
         
         // to interrupt the loop of displayView method
         return false;

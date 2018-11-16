@@ -1,26 +1,30 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package view;
+import app.*;
 
 /**
  *
  * @author Andrea
  */
-
-
-public class SaveReportView extends ViewBase {
-
-    /**
-     * Constructor
-     */
-    public SaveReportView(){          
+public class EndGameView extends ViewBase {
+    
+    // Constructor 
+    public EndGameView(){
     }
-
+    
     @Override
     protected String getMessage(){
-        return "\nDo you want to save this report on your local disk?\n"
-                + "Y - Save the report\n"
-                + "N - Back to Report Menu\n";
-    } 
-
+        return "\nToo bad, " + CityOfAaron.getCurrentGame().getPlayer().getName()
+                + ", it seems you didn't meet the expectations of your mandate.\n"
+                + "\nWhat do you want to do next?...\n"
+                + "B - Back to the Main Menu to start over or restart from a checkpoint\n"
+                + "E - Just exit the game and leave the country\n";
+    }
+    
     /**
      * Get the set of inputs from the user.
      * @return 
@@ -49,14 +53,15 @@ public class SaveReportView extends ViewBase {
     public boolean doAction(String[] inputs){
 
         switch ( inputs[0].trim().toUpperCase() ){
-            case "Y":
-                saveReport();
+            case "B":
+                mainMenu();
                 break;
-            case "N":
-                System.out.println("Back to Report Menu...\n");
+            case "E":
+                System.out.println("\nExiting Game...\n");
+                endGame();
                 break;
             default:
-                System.out.println("Invalid selection, try again.\n");
+                System.out.println("\nInvalid selection, try again.\n");
                 return true;
         }
                       
@@ -65,8 +70,14 @@ public class SaveReportView extends ViewBase {
     
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input.
-
-    private void saveReport(){
-        System.out.println("'Saving report on disk' options coming soon...");
+    
+    private void mainMenu(){
+        View mainMenu = new MainMenuView();
+        mainMenu.displayView();
     }
+    
+    private void endGame(){
+        System.exit(0);
+    }
+    
 }

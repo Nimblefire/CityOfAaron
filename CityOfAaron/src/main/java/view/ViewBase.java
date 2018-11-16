@@ -14,7 +14,7 @@ public abstract class ViewBase implements View {
     
     // Empty constructor
     public ViewBase(){
-    };
+    }
     
     
     // Get the view's content (allows to display dynamic content)

@@ -13,7 +13,7 @@ import app.CityOfAaron;
  */
 public class AnnualReportView extends ViewBase{
     /**
-     * Contructor
+     * Constructor
      */
     public AnnualReportView(){
     }

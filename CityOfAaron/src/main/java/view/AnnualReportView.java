@@ -40,9 +40,13 @@ public class AnnualReportView extends ViewBase{
         printEaten();
         printWheatInStore();
         pause(3000);
-        if ((CityOfAaron.getCurrentGame().getAnnualReport().getPeopleStarved() >= CityOfAaron.getCurrentGame().getCurrentPopulation()) 
-                ||  (10 <= CityOfAaron.getCurrentGame().getAnnualReport().getYear())){
-            View endGame = new EndGameView();
+        
+        View endGame = new EndGameView();
+        
+        if ((CityOfAaron.getCurrentGame().getAnnualReport().getPeopleStarved() >= (CityOfAaron.getCurrentGame().getCurrentPopulation() * 0.5))){
+            endGame.displayView();
+        }
+        else if (10 < CityOfAaron.getCurrentGame().getAnnualReport().getYear()) {
             endGame.displayView();
         }
         

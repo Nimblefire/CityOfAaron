@@ -63,6 +63,9 @@ public class PlantCropsView extends ViewBase {
         // declare a variable to hold the number of bushels required to plant the crops
         int bushelsRequired;
         
+        // declare a variable to hold the new amount of bushels left after using part of them for crops
+        int wheatLeftInStorage;
+        
         // test if the user input is 0 or a positive value
         if ( acresToPlant < 0 ) {
             System.out.println("\nPlease enter an amount equal or greater than 0");
@@ -82,7 +85,7 @@ public class PlantCropsView extends ViewBase {
                 return true;
             }
             else {
-                int wheatLeftInStorage = CityOfAaron.getCurrentGame().getWheatInStorage() - bushelsRequired;
+                wheatLeftInStorage = CityOfAaron.getCurrentGame().getWheatInStorage() - bushelsRequired;
                 System.out.println("\nThis is the new amount of wheat available in the Storehouse: " + wheatLeftInStorage + "\n\n");
                 CityOfAaron.getCurrentGame().setWheatInStorage(wheatLeftInStorage);
             }

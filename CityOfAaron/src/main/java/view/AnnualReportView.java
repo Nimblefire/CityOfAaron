@@ -35,6 +35,7 @@ public class AnnualReportView extends ViewBase{
         printNewComers();
         printPopulation();
         printAcres();
+        printHarvest();
         printOfferings();
         printEaten();
         printWheatInStore();

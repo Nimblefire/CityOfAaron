@@ -23,13 +23,14 @@ public class EndGameView extends ViewBase {
         
         if ((CityOfAaron.getCurrentGame().getAnnualReport().getPeopleStarved() >= CityOfAaron.getCurrentGame().getCurrentPopulation())) {
             message = "\nToo bad, " + CityOfAaron.getCurrentGame().getPlayer().getName()
-                    + ", it seems you didn't meet the expectations of your mandate.\n"
+                    + ", it seems you didn't meet the expectations of your mandate.\n\n"
                     + "\nWhat do you want to do next?...\n"
                     + "B - Back to the Main Menu to start over or restart from a checkpoint\n"
                     + "E - Just exit the game and leave the country\n";
         }
         else if ((10 <= CityOfAaron.getCurrentGame().getAnnualReport().getYear())){
-            message = "Congratulations " + CityOfAaron.getCurrentGame().getPlayer().getName() +"!! You magnified your calling and your name will be immortalized througout all ages to come!"
+            message = "Congratulations " + CityOfAaron.getCurrentGame().getPlayer().getName() +"!!\n"
+                    + "You magnified your calling and your name will be immortalized througout all ages to come!\n\n"
                     + "\nWhat do you want to do next?...\n"
                     + "B - Back to the Main Menu to start over or restart from a checkpoint\n"
                     + "E - Just exit the game\n";

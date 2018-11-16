@@ -6,26 +6,22 @@
 package view;
 import app.CityOfAaron;
 import model.*;
-import control.*;
 
 /**
  *
  * @author dapon
  */
-public class MapView {
-    /**
-     * The message that will be displayed by this view.
-     */
-    
-    protected String message;
+public class MapView extends ViewBase{
     
     /**
      * Constructor
      */
     public MapView(){
-        
-        
-        message = "City Map\n"
+    }
+    
+    @Override
+    public String getMessage(){
+        return "City Map\n"
                 + "------------------------------\n"
                 + "This is the map of your city\n"
                 + "Legend:\n"
@@ -38,29 +34,14 @@ public class MapView {
                 + /*rulerCourt.getMapSymbol()*/"C" + "- Ruler's Court\n"
                 + /*village.getMapSymbol()*/"V" + "- Village";
     }
-    
-
-     /**
-     * Control this view's display/prompt/action loop until the user
-     * chooses and action that causes this view to close.
-     */
-    public void displayView(){
-        
-        boolean keepGoing = true;
-        
-        while(keepGoing == true){
-            
-            System.out.println(message);
-            String[] inputs = getInputs();
-            keepGoing = doAction(inputs);
-        }
-    }
 
     /**
      * In this case the view does not collect any user input,
      * it only displays the welcome message and then the MAIN menu.
      * @return 
      */
+    
+   @Override
     public String[] getInputs() {
         
         return null;
@@ -72,9 +53,11 @@ public class MapView {
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
+    @Override
     public boolean doAction(String[] inputs){
         
         printMap(CityOfAaron.getCurrentGame().getMap());
+        pause(3000);
         
         // return false so that whoever call us doesn't call us again 
         return false;

@@ -6,6 +6,7 @@ import java.io.Serializable;
 public class AnnualReport implements Serializable {
     private static final long serialVersionUID = 1L;
     
+    private int year;
     private int endingWheatInStorage;
     private int endingPopulation;
     private int endingAcresOwned;
@@ -18,6 +19,14 @@ public class AnnualReport implements Serializable {
     private int peopleMovedIn;
     
     public AnnualReport(){
+    }
+    
+    public int getYear(){
+        return year;
+    }
+    
+    public void setYear(int year){
+        this.year = year;
     }
     
     public int getEndingWheatInStorage() {
@@ -43,15 +52,15 @@ public class AnnualReport implements Serializable {
     public void setEndingAcresOwned(int endingAcresOwned) {
         this.endingAcresOwned = endingAcresOwned;
     }
+   
+    public int getLandPrice(){
+        return landPrice;
+    }
     
-   public int getLandPrice() {
-	return landPrice;
-	}
-   
-   public void setLandPrice(int landPrice) {
-       this.landPrice = landPrice;
-   }
-   
+    public void setLandPrice(int landPrice){
+        this.landPrice = landPrice;
+    }
+    
    public int getBushelsHarvested() {
        return bushelsHarvested;
    }

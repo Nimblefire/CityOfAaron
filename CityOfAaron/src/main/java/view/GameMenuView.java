@@ -1,8 +1,5 @@
 
 package view;
-
-import java.util.Scanner;
-
 /**
  *
  * @author team Irwin - DaPonte - Rochira

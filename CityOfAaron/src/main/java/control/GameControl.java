@@ -92,19 +92,18 @@ public class GameControl {
         newGame.setPlayer(newPlayer);
         newPlayer.setName(playerName);
         newGame.setMap(MapControl.createMap());
-        newGame.setStorehouse(GameControl.createStorehouse());
+        newGame.setStorehouse(createStorehouse());
         newGame.setAcresOwned(990);
         newGame.setCurrentPopulation(100);
         newGame.setWheatInStorage(5000);
         newGame.setBushelsForFood(0);
         newGame.setLandPrice(GameControl.getRandomValue(17, 27));
-            
-        //LandControl.getCurrentLandPrice();
+        newGame.setAnnualReport(createAnnualReport());
             
         return newGame;
     }
         
-    public static Storehouse createStorehouse(){
+    private static Storehouse createStorehouse(){
         Storehouse newStorehouse = new Storehouse();
         Author irwin = new Author();
         Author rochira = new Author();
@@ -122,6 +121,11 @@ public class GameControl {
         newStorehouse.setAuthors(authorArray);
             
         return newStorehouse;
+    }
+    
+    private static AnnualReport createAnnualReport(){
+        AnnualReport report = new AnnualReport();
+        return report;
     }
     
     public static Game loadSavedgame(String filename) {

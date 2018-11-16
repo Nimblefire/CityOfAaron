@@ -20,7 +20,7 @@ public class SellLandView extends ViewBase {
     protected String getMessage(){
         return "\nSell Land\n"
                 + "--------------------\n"
-                + "Land is selling for " + CityOfAaron.getCurrentGame().getLandPrice() + " an acre.\n"
+                + "Land is selling for " + CityOfAaron.getCurrentGame().getLandPrice() + " bushels an acre.\n"
                 + "You own " + CityOfAaron.getCurrentGame().getAcresOwned() + " acres of land.";
     }
     
@@ -66,7 +66,10 @@ public class SellLandView extends ViewBase {
             return true;//keep going
         }
         
-        return inputCheck(acresToSell);
+        boolean check = inputCheck(acresToSell);
+        pause (2500);
+        
+        return check;
     
     }
     
@@ -74,19 +77,16 @@ public class SellLandView extends ViewBase {
         //if acresToBuy is less than -1 ask player to enter in number 0 or larger. 
         if (acresToSell < 0) {
             System.out.println("Please enter a number equal to 0 or larger");
-            ViewBase.pause(2500);
             return true;
         }
         //if total wheat price (wheatPrice * acresToBuy) is greater than the wheat in storage, ask user to try again.
         else if ( acresToSell > CityOfAaron.getCurrentGame().getAcresOwned()){
             System.out.println("You don't have enough acres of land, please try again");
-            ViewBase.pause(2500);
             return true;
         }
         else {
            reportAcresOwned(acresToSell);
            reportWheatInStorage(acresToSell);
-           ViewBase.pause(2500);
            return false;
         }
     }

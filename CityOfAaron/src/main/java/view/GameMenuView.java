@@ -56,14 +56,6 @@ public class GameMenuView extends ViewBase {
     @Override
     public boolean doAction(String[] inputs){
         
-        
-        //if more that 50% pf people starve call
-        //gameOver();
-        
-        // calls final rating at the end of 10 years
-        //finalRating();
-        
-
         switch ( inputs[0].trim().toUpperCase() ){
             case "M":
                 viewMap();
@@ -75,8 +67,8 @@ public class GameMenuView extends ViewBase {
                 manageCrops();
                 break;
             case "Y":
+                // this is the core method of the game because it triggers 
                 liveTheYear();
-                //this is where we will put function to determine if the game ends, and when to display final report
                 break;
             case "R":
                 reportsMenu();
@@ -114,6 +106,7 @@ public class GameMenuView extends ViewBase {
         manageCrops.displayView();
     }
     
+    // the code for LiveTheYear is found "uncommented" within GameControl class
     private void liveTheYear(){
         System.out.println("*** liveTheYear() called. Implementation coming soon... ");
     }
@@ -127,17 +120,4 @@ public class GameMenuView extends ViewBase {
         View saveGame = new SaveGameView();
         saveGame.displayView();
     }
-    
-    private void gameOver() {
-        View gameOver = new EndGameView();
-        gameOver.displayView();
-    }
-     
-     //private void currentAnnualReport() {
-         //System.out.println("*** currentAnnualReport() called. Implementation coming soon... ");
-     //}
-     
-     //private void finalRating() {
-         //System.out.println("*** finalRating() called. Find out how player did after 10 years. Implementation coming soon... ");
-     //}
 }

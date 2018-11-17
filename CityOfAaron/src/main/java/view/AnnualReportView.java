@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import app.CityOfAaron;
@@ -28,21 +23,17 @@ public class AnnualReportView extends ViewBase{
         return null;
     }
     
+    // initialize EndGameView
+    View endGame = new EndGameView();
+    
     @Override
     protected boolean doAction(String[] inputs){
-        printYear();
-        printStarved();
-        printNewComers();
-        printPopulation();
-        printAcres();
-        printHarvest();
-        printOfferings();
-        printEaten();
-        printWheatInStore();
+        
+        printReport();
+        
         pause(3000);
         
-        View endGame = new EndGameView();
-        
+        // selection to evaluate if calling for the EndGameView
         if ((CityOfAaron.getCurrentGame().getAnnualReport().getPeopleStarved() >= (CityOfAaron.getCurrentGame().getCurrentPopulation() * 0.5))){
             endGame.displayView();
         }
@@ -53,48 +44,29 @@ public class AnnualReportView extends ViewBase{
         return false;
     }
     
-    
-    
-    
-    private void printYear(){
-        System.out.println("Year number: " + CityOfAaron.getCurrentGame().getAnnualReport().getYear());
-    }
-    
-    private void printStarved(){
-        System.out.println("People starved: " + CityOfAaron.getCurrentGame().getAnnualReport().getPeopleStarved());
-        if (CityOfAaron.getCurrentGame().getAnnualReport().getPeopleStarved() == 0){
-            System.out.println("Well done, oh wise leader!");
-        }
-    }
-    
-    private void printNewComers(){
-        System.out.println("People immigrated into the city: " + CityOfAaron.getCurrentGame().getAnnualReport().getPeopleMovedIn());
-    }
-    
-    private void printPopulation(){
-        System.out.println("New population: " + CityOfAaron.getCurrentGame().getAnnualReport().getEndingPopulation());
-    }
-    
-    private void printAcres(){
-        System.out.println("Acres owned: " + CityOfAaron.getCurrentGame().getAnnualReport().getEndingAcresOwned());
-    }
-    
-    private void printHarvest(){
-        System.out.println("Bushels harvested: " + CityOfAaron.getCurrentGame().getAnnualReport().getBushelsHarvested());
-    }
-    
-    private void printOfferings(){
-        System.out.println("Tithing and offerings: " + CityOfAaron.getCurrentGame().getAnnualReport().getTithingAmount() + " bushels");
+    private void printReport(){
+
+        // print Year
+        System.out.println("\nYear number: " + CityOfAaron.getCurrentGame().getAnnualReport().getYear());
+        // print people starved
+        System.out.println("\nPeople starved: " + CityOfAaron.getCurrentGame().getAnnualReport().getPeopleStarved());
+        if (CityOfAaron.getCurrentGame().getAnnualReport().getYear() >= 1 && CityOfAaron.getCurrentGame().getAnnualReport().getPeopleStarved() == 0){
+            System.out.println("\nWell done, oh wise leader!");}
+        // print new entries
+        System.out.println("\nPeople immigrated into the city: " + CityOfAaron.getCurrentGame().getAnnualReport().getPeopleMovedIn());
+        // print current population
+        System.out.println("\nNew population: " + CityOfAaron.getCurrentGame().getAnnualReport().getEndingPopulation());
+        // print acres owned
+        System.out.println("\nAcres owned: " + CityOfAaron.getCurrentGame().getAnnualReport().getEndingAcresOwned());
+        // print bushels harvested
+        System.out.println("\nBushels harvested: " + CityOfAaron.getCurrentGame().getAnnualReport().getBushelsHarvested());
+        // print tithing & offering
+        System.out.println("\nTithing and offerings: " + CityOfAaron.getCurrentGame().getAnnualReport().getTithingAmount() + " bushels");
         if (CityOfAaron.getCurrentGame().getAnnualReport().getTithingAmount() > CityOfAaron.getCurrentGame().getWheatInStorage()*12){
-            System.out.println("You offered a lot to the Lord this year, you will surely be blessed for it!");
-        }
-    }
-    
-    private void printEaten(){
-        System.out.println("Wheat eaten by rats: " + CityOfAaron.getCurrentGame().getAnnualReport().getLostToRats() + " bushels");
-    }
-    
-    private void printWheatInStore(){
-        System.out.println("Wheat now in store: " + CityOfAaron.getCurrentGame().getAnnualReport().getEndingWheatInStorage() + " bushels");
+            System.out.println("\nYou offered a lot to the Lord this year, you will surely be blessed for it!");}
+        // print bushels eaten by rats
+        System.out.println("\nWheat eaten by rats: " + CityOfAaron.getCurrentGame().getAnnualReport().getLostToRats() + " bushels");
+        // print wheat left in storage
+        System.out.println("\nWheat now in store: " + CityOfAaron.getCurrentGame().getAnnualReport().getEndingWheatInStorage() + " bushels"); 
     }
 }

@@ -6,7 +6,6 @@
 package view;
 
 import app.CityOfAaron;
-import java.util.Scanner;
 
 /**
  *
@@ -33,7 +32,8 @@ public class PlantCropsView extends ViewBase {
         String[] inputs = new String[1];
         
         // the following string is printed to the console by the statement 'System.out.println(prompt)'
-        inputs[0] = getUserInput("\nHow many acres of land do you want to plant?");
+        inputs[0] = getUserInput("\nThis is the wheat now available : "+CityOfAaron.getCurrentGame().getWheatInStorage()+" bushels."
+                                +"\nYou can plant 2 acres with one bushel of wheat."+"\nHow many acres of land do you want to plant?");
         
         // Repeat for each input you need, putting it into its proper slot in the array.
          

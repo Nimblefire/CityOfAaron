@@ -1,5 +1,8 @@
 
 package view;
+
+import app.CityOfAaron;
+
 /**
  *
  * @author team Irwin - DaPonte - Rochira
@@ -16,7 +19,7 @@ public class GameMenuView extends ViewBase {
     
     @Override
     protected String getMessage () {
-        return "Game Menu\n"
+        return  "\nGame Menu\n"
                 + "---------\n"
                 + "M - View the Map\n"
                 + "L - Move to a new location\n"
@@ -46,6 +49,33 @@ public class GameMenuView extends ViewBase {
         return inputs;
     }
     
+    /**
+     * Control the behavior of this view until the user closes it
+     * As per requirement, each time the Game Menu is displayed, 
+     * the program displays the current annual report.
+     */
+    @Override
+    public void displayView(){
+        
+        boolean keepGoing = true;
+        
+        while (keepGoing == true) {
+            
+            // display AnnualReport starting from the second year of reign
+            if (CityOfAaron.getCurrentGame().getAnnualReport().getYear() >= 1){
+                View AnnualReport = new AnnualReportView();
+                AnnualReport.displayView();
+            }
+            
+            String message = getMessage();
+            if (message != null) {
+                System.out.println(getMessage());
+            }
+            
+            String[] inputs = getInputs();
+            keepGoing = doAction(inputs);      
+        }    
+    }
     
     /**
      * Perform the action indicated by the user's input.

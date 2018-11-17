@@ -67,7 +67,7 @@ public class GameMenuView extends ViewBase {
                 manageCrops();
                 break;
             case "Y":
-                // this is the core method of the game because it triggers 
+                // this is the core method of the game
                 liveTheYear();
                 break;
             case "R":

@@ -11,7 +11,7 @@ public class AnnualReport implements Serializable {
     private int endingPopulation;
     private int endingAcresOwned;
     
-    private int landPrice;
+    private int bushelsPerAcre;
     private int bushelsHarvested;
     private int tithingAmount;
     private int lostToRats;
@@ -53,12 +53,12 @@ public class AnnualReport implements Serializable {
         this.endingAcresOwned = endingAcresOwned;
     }
    
-    public int getLandPrice(){
-        return landPrice;
+    public int getBushelsPerAcre(){
+        return bushelsPerAcre;
     }
     
-    public void setLandPrice(int landPrice){
-        this.landPrice = landPrice;
+    public void setBushelsPerAcre(int bushelsPerAcre){
+        this.bushelsPerAcre = bushelsPerAcre;
     }
     
    public int getBushelsHarvested() {

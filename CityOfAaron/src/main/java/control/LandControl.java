@@ -11,8 +11,8 @@ package control;
  */
 public class LandControl {
     
-    public static void getCurrentLandPrice(){
-        System.out.println("getCurrentLandPrice() called");
-        
+    //TODO Figure out how to implement it
+    public static int createLandPrice(){
+        return GameControl.getRandomValue(17, 27);
     }
 }

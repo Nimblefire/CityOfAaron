@@ -4,9 +4,12 @@
  * and open the template in the editor.
  */
 package control;
+import app.CityOfAaron;
 import model.*;
 import java.util.Random;
 import java.util.ArrayList;
+import view.EndGameView;
+import view.View;
 
 /**
  *
@@ -85,32 +88,42 @@ public class GameControl {
     /**
      * 
      * @param playerName
-     * @return 
+     * @return newGame
      */
     public static Game createNewGame(String playerName){
         //Create new game
         Game newGame = new Game();
+        
         //Create new player
         Player newPlayer = new Player();
+        
         //Assign a name to player and player to the game
         newGame.setPlayer(newPlayer);
         newPlayer.setName(playerName);
+        
         //Create the Map and assign it to the game
         newGame.setMap(MapControl.createMap());
+        
         //Create he Storehouse and assign it to the game
         newGame.setStorehouse(createStorehouse());
+        
         //Set the acres at the beginning of the game
         newGame.setAcresOwned(990);
+        
         //Set the population at the beginning of the game
         newGame.setCurrentPopulation(100);
+        
         //Set the wheat in store at the beginning of the game
         newGame.setWheatInStorage(5000);
+        
         //Set the Bushels set aside as food (Not really needed)
         newGame.setBushelsForFood(0);
+        
         //Set the price per acre for the first year
         newGame.setLandPrice(GameControl.getRandomValue(17, 27));
+        
         //Create the annual report object and assign it to the game
-        newGame.setAnnualReport(createAnnualReport());
+        newGame.setAnnualReport(createAnnualReport(newGame));
             
         return newGame;
     }
@@ -207,9 +220,20 @@ public class GameControl {
         
         return newStorehouse;
     }
+    
     //Later we could establish default values for the beginning of the first year
-    private static AnnualReport createAnnualReport(){
+    private static AnnualReport createAnnualReport(Game game){
         AnnualReport report = new AnnualReport();
+        report.setBushelsHarvested(3000);
+        report.setBushelsPerAcre(3);
+        report.setEndingAcresOwned(game.getAcresOwned());
+        report.setEndingPopulation(game.getCurrentPopulation());
+        report.setEndingWheatInStorage(game.getWheatInStorage());
+        report.setLostToRats(0);
+        report.setPeopleMovedIn(5);
+        report.setPeopleStarved(0);
+        report.setTithingAmount(300);
+        report.setYear(1);
         return report;
     }
     
@@ -221,5 +245,14 @@ public class GameControl {
         
         
         return savedGame;
+    }
+    
+    //TODO Complete the method with the different input checks
+    public static boolean gameShouldEnd(Game game, int previousPopulation){
+        if (game.getAnnualReport().getPeopleStarved() >= previousPopulation * 0.5 
+                || game.getAnnualReport().getYear() > 10){
+            return true;
+        }
+        return false;
     }
 }

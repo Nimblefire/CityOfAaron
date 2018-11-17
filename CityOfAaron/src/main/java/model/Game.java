@@ -21,6 +21,7 @@ public class Game implements Serializable {
     private int acresOwned;
     private int wheatInStorage;
     private int bushelsForFood;
+    private int acresToSell;
     private int landPrice;
     private AnnualReport annualReport;
     
@@ -83,6 +84,14 @@ public class Game implements Serializable {
     
     public void setBushelsForFood(int bushelsForFood){
         this.bushelsForFood = bushelsForFood;
+    }
+    
+    public int getAcresToSell(){
+        return acresToSell;
+    }
+    
+    public void setAcresToSell(int acresToSell){
+        this.acresToSell = acresToSell;
     }
     
     public int getLandPrice(){

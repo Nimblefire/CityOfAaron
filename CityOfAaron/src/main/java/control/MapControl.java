@@ -76,6 +76,7 @@ public class MapControl {
         return gameMap;
     }
     
+    //TODO create a functioning test of the method, check if it really works
     public static Location setCurrentLocation(Game game, Point newLocation){
         if (game==null || newLocation == null){
             return null;

@@ -11,7 +11,6 @@ import app.CityOfAaron;
  * @author dapon
  */
 public class SellLandView extends ViewBase {
-    public static int acresToSell;
     
     public SellLandView() {
     }
@@ -60,13 +59,13 @@ public class SellLandView extends ViewBase {
         }
         
         try {
-            acresToSell = Integer.parseInt(inputs[0]);
+            CityOfAaron.getCurrentGame().setAcresToSell(Integer.parseInt(inputs[0]));
         } catch (NumberFormatException exception) {
             System.out.println("Acres must be a whole number. Try again");
             return true;//keep going
         }
         
-        boolean check = inputCheck(acresToSell);
+        boolean check = inputCheck(CityOfAaron.getCurrentGame().getAcresToSell());
         pause (2500);
         
         return check;

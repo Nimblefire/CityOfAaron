@@ -67,16 +67,16 @@ public class FeedPeopleView extends ViewBase{
     }
     
     private boolean checkInput(int bushelsForFood){
-        if (CityOfAaron.getCurrentGame().getBushelsForFood() < 0){
+        if (bushelsForFood < 0){
             System.out.println("The value must be positive whole number.");
             return true;
         }
         
-        if (CityOfAaron.getCurrentGame().getBushelsForFood() > CityOfAaron.getCurrentGame().getWheatInStorage()) {
+        if (bushelsForFood > CityOfAaron.getCurrentGame().getWheatInStorage()) {
             System.out.println("The value is greater than the wheat you have. Please insert a valid value.");
             return true;
         }
-        System.out.println("You have " + (CityOfAaron.getCurrentGame().getWheatInStorage()-CityOfAaron.getCurrentGame().getBushelsForFood()) + " bushels of wheat left.");
+        System.out.println("You have " + (CityOfAaron.getCurrentGame().getWheatInStorage()-bushelsForFood) + " bushels of wheat left.");
         return false;
     }
 }

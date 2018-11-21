@@ -93,7 +93,7 @@ public class ReportsMenuView extends ViewBase {
         do {
             System.out.println(authors[i].getTitle().toUpperCase() + " " + authors[i].getName().concat("\n"));
             i++; 
-        } while (i < 3);
+        } while (i < authors.length);
             
         SaveReportView view = new SaveReportView();
         view.displayView();

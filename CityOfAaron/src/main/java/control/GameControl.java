@@ -134,7 +134,7 @@ public class GameControl {
         ArrayList<InventoryItem> tools = new ArrayList<>();
         tools.add(new InventoryItem("Hammer",ItemType.TOOL,Condition.POOR,20));
         tools.add(new InventoryItem("Saw",ItemType.TOOL,Condition.GOOD,30));
-        tools.add(new InventoryItem("Axe", ItemType.TOOL,Condition.FAIR,30));
+        tools.add(new InventoryItem("Axe", ItemType.TOOL,Condition.FAIR,35));
         
         //Creation of the Storehouse
         Storehouse newStorehouse = new Storehouse(authorArray, animals, tools, provisions);

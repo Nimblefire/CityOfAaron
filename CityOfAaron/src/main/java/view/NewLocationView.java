@@ -3,6 +3,8 @@ package view;
 
 import java.util.Arrays;
 import model.*;
+import app.CityOfAaron;
+import control.GameControl;
 
 /**
  *
@@ -91,10 +93,12 @@ public class NewLocationView extends ViewBase {
         Point coordinates = new Point();
         coordinates.setRow(row);
         coordinates.setColumn(column);
-
-        Map map = new Map();
+        
+        // call the current map associated to the current game
+        Map map = CityOfAaron.getCurrentGame().getMap();
         map.setCurrentLocation(coordinates);
-
+        
+        /**
         //Location[][] array = map.getLocations();
         //CityOfAaron.getCurrentGame().getMap().setCurrentLocation(point);
         Location temple = new Location();
@@ -163,14 +167,11 @@ public class NewLocationView extends ViewBase {
         village.setDescription("This is where people gather to buy and sell goods.");
         village.setGameTips(tip8);
         village.setMapSymbol("V");
+        */
+        
+        Location[][] mapLocations = map.getLocations(); 
 
-        Location[][] mapLocations = {{watchtower, wheatField, river, wheatField, watchtower},
-        {undevelopedLand, temple, granary, river, undevelopedLand},
-        {wheatField, rulerCourt, village, village, river},
-        {undevelopedLand, village, village, wheatField, wheatField},
-        {watchtower, undevelopedLand, wheatField, wheatField, watchtower}};
-
-        System.out.println("You are here: " + mapLocations[row][column].getName() + "\n " + mapLocations[row][column].getDescription() + "\n " + "Game Tip: " + Arrays.toString(mapLocations[row][column].getGameTips()) + "\n " + mapLocations[row][column].getMapSymbol());
+        System.out.println("You are contemplating the " + mapLocations[row][column].getName() + "\n The symbol of this place is "+ mapLocations[row][column].getMapSymbol() + "\n" + mapLocations[row][column].getDescription() + "\n" + "Game Tip: " + mapLocations[row][column].getGameTips(GameControl.getRandomValue(0, 7)) + "\n");
 
         //CityOfAaron.getCurrentGame().getMap().setCurrentLocation(coordinates);
     }

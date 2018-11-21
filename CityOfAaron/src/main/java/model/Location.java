@@ -63,6 +63,12 @@ public class Location implements Serializable {
     public String[] getGameTips() {
         return gameTips;
     }
+    
+    // overloaded getGameTips
+    public String getGameTips(int value) {
+        String gameTip = gameTips[value];
+        return gameTip;
+    }
    
     public void setGameTips(String[] gameTips) {
       this.gameTips = gameTips;

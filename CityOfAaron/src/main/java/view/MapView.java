@@ -19,20 +19,23 @@ public class MapView extends ViewBase{
     public MapView(){
     }
     
+    Map map = CityOfAaron.getCurrentGame().getMap();
+    Location[][] mapLocations = map.getLocations(); 
+    
     @Override
     public String getMessage(){
         return "City Map\n"
                 + "------------------------------\n"
                 + "This is the map of your city\n"
                 + "Legend:\n"
-                + /*temple.getMapSymbol()*/"T" + "- Temple\n"
-                + /*watchtower.getMapSymbol()*/"W" + "- Watchtower\n"
-                + /*undevelopedLand.getMapSymbol()*/"U" + "- Undeveloped Land\n"
-                + /*wheatField.getMapSymbol()*/"F" + "- Wheat Field\n"
-                + /*river.getMapSymbol()*/"R" + "- River\n"
-                + /*granary.getMapSymbol()*/"G" + "- Granary\n"
-                + /*rulerCourt.getMapSymbol()*/"C" + "- Ruler's Court\n"
-                + /*village.getMapSymbol()*/"V" + "- Village";
+                + mapLocations[1][1].getMapSymbol() + " - " + mapLocations[1][1].getName() + "\n"
+                + /*watchtower.getMapSymbol()*/"W" + " - Watchtower\n"
+                + /*undevelopedLand.getMapSymbol()*/"U" + " - Undeveloped Land\n"
+                + /*wheatField.getMapSymbol()*/"F" + " - Wheat Field\n"
+                + /*river.getMapSymbol()*/"R" + " - River\n"
+                + /*granary.getMapSymbol()*/"G" + " - Granary\n"
+                + /*rulerCourt.getMapSymbol()*/"C" + " - Ruler's Court\n"
+                + /*village.getMapSymbol()*/"V" + " - Village";
     }
 
     /**

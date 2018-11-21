@@ -25,6 +25,7 @@ public class GameMenuView extends ViewBase {
                 + "L - Move to a new location\n"
                 + "C - Manage the Crops\n"
                 + "Y - Live the Year\n"
+                + "A - Show Annual Report\n"
                 + "R - Reports Menu\n"
                 + "S - Save Game\n"
                 + "B - Back to Main menu\n";           
@@ -61,12 +62,6 @@ public class GameMenuView extends ViewBase {
         
         while (keepGoing == true) {
             
-            // display AnnualReport starting from the second year of reign
-            if (CityOfAaron.getCurrentGame().getAnnualReport().getYear() >= 1){
-                View AnnualReport = new AnnualReportView();
-                AnnualReport.displayView();
-            }
-            
             String message = getMessage();
             if (message != null) {
                 System.out.println(getMessage());
@@ -86,6 +81,8 @@ public class GameMenuView extends ViewBase {
     @Override
     public boolean doAction(String[] inputs){
         
+        View AnnualReport = new AnnualReportView();
+        
         switch ( inputs[0].trim().toUpperCase() ){
             case "M":
                 viewMap();
@@ -99,6 +96,10 @@ public class GameMenuView extends ViewBase {
             case "Y":
                 // this is the core method of the game
                 liveTheYear();
+                AnnualReport.displayView();
+                break;
+            case "A":
+                AnnualReport.displayView();
                 break;
             case "R":
                 reportsMenu();

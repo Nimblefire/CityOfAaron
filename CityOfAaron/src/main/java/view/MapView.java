@@ -21,7 +21,14 @@ public class MapView extends ViewBase{
     
     Map map = CityOfAaron.getCurrentGame().getMap();
     Location[][] mapLocations = map.getLocations(); 
-    
+    /*String[] sybolsAndNames = 
+            
+    for each element of the array
+           get the name
+                   if name is not contained in symbolsandnames array
+                           add it
+                   else continue
+    */
     @Override
     public String getMessage(){
         return "City Map\n"
@@ -60,6 +67,7 @@ public class MapView extends ViewBase{
     public boolean doAction(String[] inputs){
         
         printMap(CityOfAaron.getCurrentGame().getMap());
+        System.out.println("You are in the " + CityOfAaron.getCurrentGame().getMap().getLocations()[CityOfAaron.getCurrentGame().getMap().getCurrentLocation().getRow()][CityOfAaron.getCurrentGame().getMap().getCurrentLocation().getColumn()].getName());
         pause(3000);
         
         // return false so that whoever call us doesn't call us again 

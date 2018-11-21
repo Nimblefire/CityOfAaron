@@ -123,6 +123,7 @@ public class GameControl {
         ArrayList<Animal> animals = new ArrayList<>();
         animals.add(new Animal("Warhorse",ItemType.ANIMAL,Condition.GOOD,6,5));
         animals.add(new Animal("Milking cow",ItemType.ANIMAL,Condition.GOOD,20,10));
+        animals.add(new Animal("Goat", ItemType.ANIMAL,Condition.GOOD,100,2));
         
         ArrayList<Provision> provisions = new ArrayList<>();
         provisions.add(new Provision("Apple",ItemType.PROVISIONS,Condition.FAIR,500,true));
@@ -133,6 +134,7 @@ public class GameControl {
         ArrayList<InventoryItem> tools = new ArrayList<>();
         tools.add(new InventoryItem("Hammer",ItemType.TOOL,Condition.POOR,20));
         tools.add(new InventoryItem("Saw",ItemType.TOOL,Condition.GOOD,30));
+        tools.add(new InventoryItem("Axe", ItemType.TOOL,Condition.FAIR,30));
         
         //Creation of the Storehouse
         Storehouse newStorehouse = new Storehouse(authorArray, animals, tools, provisions);

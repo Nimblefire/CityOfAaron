@@ -103,7 +103,7 @@ public class NewLocationView extends ViewBase {
         System.out.println("You are contemplating the " + mapLocations[row][column].getName() 
                             + " also known as \""+ mapLocations[row][column].getMapSymbol() 
                             + "\"\n" + mapLocations[row][column].getDescription() 
-                            + "\n" + "Game Tip: " + mapLocations[row][column].getGameTips(GameControl.getRandomValue(0, mapLocations[row][column].getGameTips().length)) 
+                            + "\n" + "Game Tip: " + mapLocations[row][column].getGameTips(GameControl.getRandomValue(0, mapLocations[row][column].getGameTips().length-1)) 
                             + "\n");
 
     }

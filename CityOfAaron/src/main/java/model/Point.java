@@ -19,6 +19,11 @@ public class Point implements Serializable{
     
     public Point() {
     }
+    //overloaded constructor
+    public Point(int row, int column){
+        this.row = row;
+        this.column = column;
+    }
     
     //getters and setters
     public int getRow() {

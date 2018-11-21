@@ -33,7 +33,7 @@ public class MapControl {
         Location rulerCourt = new Location("Ruler's Court","This is where you live and work.","C",gameTips);
         Location village = new Location("Village","This is where people gather to buy and sell goods.","V",gameTips);
 
-        Map gameMap = new Map();
+        
     
         Location[][] mapLocations = {{watchtower, wheatField, river, wheatField, watchtower}, 
                                     {undevelopedLand, temple, granary, river, undevelopedLand},
@@ -41,8 +41,8 @@ public class MapControl {
                                     {undevelopedLand, village, village, wheatField, wheatField},
                                     {watchtower, undevelopedLand, wheatField, wheatField, watchtower}};
         
-        
-        gameMap.setLocations(mapLocations);
+        Point currentLocation = new Point(2,1);
+        Map gameMap = new Map(mapLocations, currentLocation);
         
         return gameMap;
     }

@@ -20,6 +20,11 @@ public class Map implements Serializable {
     // constructor
     public Map(){
     }
+    // overloaded constructor
+    public Map(Location[][] locations, Point currentLocation){
+        this.locations = locations;
+        this.currentLocation = currentLocation;
+    }
 
     // getter and setter
     public Location[][] getLocations() {

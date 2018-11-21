@@ -19,6 +19,10 @@ public class Player implements Serializable {
     // constructor
     public Player(){
     }
+    // overloaded constructor
+    public Player(String name){
+        this.name = name;
+    }
 
     // getter and setter
 

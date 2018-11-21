@@ -22,7 +22,15 @@ public class Storehouse implements Serializable {
     private ArrayList<Provision> provisions = new ArrayList<>();
     
     // default empty constructor for Java Bean 
-    public Storehouse() {
+    public Storehouse(){
+        
+    }
+    //overloaded constructor
+    public Storehouse(Author[] authors, ArrayList<Animal> animals, ArrayList<InventoryItem> tools, ArrayList<Provision> provisions) {
+        this.authors = authors;
+        this.animals = animals;
+        this.tools = tools;
+        this.provisions = provisions;
     }
     
     // getters and setters

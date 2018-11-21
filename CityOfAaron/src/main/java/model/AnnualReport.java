@@ -21,6 +21,19 @@ public class AnnualReport implements Serializable {
     public AnnualReport(){
     }
     
+    public AnnualReport(int year, int endingWheatInStorage, int endingPopulation, int endingAcresOwned, int bushelsPerAcre, int bushelsHarvested, int tithingAmount, int lostToRats, int peopleStarved, int peopleMovedIn){
+        this.year = year;
+        this.endingWheatInStorage = endingWheatInStorage;
+        this.endingPopulation = endingPopulation;
+        this.endingAcresOwned = endingAcresOwned;
+        this.bushelsPerAcre = bushelsPerAcre;
+        this.bushelsHarvested = bushelsHarvested;
+        this.tithingAmount = tithingAmount;
+        this.lostToRats = lostToRats;
+        this.peopleStarved = peopleStarved;
+        this.peopleMovedIn = peopleMovedIn;
+    }
+    
     public int getYear(){
         return year;
     }

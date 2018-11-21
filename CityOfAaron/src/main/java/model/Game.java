@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @author Andrea
  */
 public class Game implements Serializable {
-    
+
     // attributes
     private Player thePlayer;
     private Map theMap;
@@ -24,11 +24,30 @@ public class Game implements Serializable {
     private int acresToSell;
     private int landPrice;
     private AnnualReport annualReport;
-    
+
     // default constructor
     public Game() {
-    } 
-    
+    }
+    //simple overloaded constructor
+    public Game(Player thePlayer, Map theMap, Storehouse theStorehouse) {
+        this.thePlayer = thePlayer;
+        this.theMap = theMap;
+        this.theStorehouse = theStorehouse;
+    }
+    //fully overloaded constructor
+    public Game(Player thePlayer, Map theMap, Storehouse theStorehouse, int currentPopulation, int acresOwned, int wheatInStorage, int bushelsForFood, int acresToSell, int landPrice, AnnualReport annualReport) {
+        this.thePlayer = thePlayer;
+        this.theMap = theMap;
+        this.theStorehouse = theStorehouse;
+        this.annualReport = annualReport;
+        this.currentPopulation = currentPopulation;
+        this.acresOwned = acresOwned;
+        this.wheatInStorage = wheatInStorage;
+        this.bushelsForFood = bushelsForFood;
+        this.acresToSell = acresToSell;
+        this.landPrice = landPrice;
+    }
+
     // getters and setters methods
     public Player getPlayer() {
         return thePlayer;
@@ -111,7 +130,7 @@ public class Game implements Serializable {
     }
 
     @Override
-    public String toString() {
+        public String toString() {
         return "Game{" + "thePlayer=" + thePlayer 
                        + ", theMap=" + theMap 
                        + ", theStorehouse=" + theStorehouse 

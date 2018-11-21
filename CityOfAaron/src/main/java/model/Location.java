@@ -26,6 +26,14 @@ public class Location implements Serializable {
     public Location() {
     }
     
+    // overloaded constructor
+    public Location(String name, String description, String mapSymbol, String[] gameTips) {
+        this.name = name;
+        this.description = description;
+        this.mapSymbol = mapSymbol;
+        this.gameTips = gameTips;
+    }
+    
     //getters and setters
     
     public String getName() {
@@ -48,16 +56,16 @@ public class Location implements Serializable {
         return mapSymbol;
     }
     
-    public void setMapSymbol(String symbol) {
-        this.mapSymbol = symbol;
+    public void setMapSymbol(String mapSymbol) {
+        this.mapSymbol = mapSymbol;
     }
     
     public String[] getGameTips() {
         return gameTips;
     }
    
-    public void setGameTips(String[] tips) {
-      this.gameTips = tips;
+    public void setGameTips(String[] gameTips) {
+      this.gameTips = gameTips;
     }
     
     @Override
@@ -67,6 +75,6 @@ public class Location implements Serializable {
                 + "\n description =" + description
                 + "\n Map symbol =" + mapSymbol
                 + "\n Game Tip =" + Arrays.toString(gameTips)
-                + '}';
+                + "}";
     }
 }

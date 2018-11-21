@@ -4,12 +4,9 @@
  * and open the template in the editor.
  */
 package control;
-import app.CityOfAaron;
 import model.*;
 import java.util.Random;
 import java.util.ArrayList;
-import view.EndGameView;
-import view.View;
 
 /**
  *

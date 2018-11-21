@@ -16,8 +16,16 @@ public class Animal extends InventoryItem implements Serializable{
     private int age;
     
     //default constructor
-    public Animal(){
-        
+    public Animal(){    
+    }
+    
+    // overloaded constructor
+    public Animal(String name, ItemType itemType, Condition condition, int quantity, int age){
+        this.name = name;
+        this.itemType = itemType;
+        this.condition = condition;
+        this.quantity = quantity;
+        this.age = age;
     }
     
     //getter and setter

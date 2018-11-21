@@ -15,9 +15,18 @@ public class Provision extends InventoryItem implements Serializable{
     private boolean perishable;
     
     //default constructor
-    public Provision(){
-        
+    public Provision(){   
     }
+    
+    // overloaded constructor
+    public Provision(String name, ItemType itemType, Condition condition, int quantity, boolean perishable){
+        this.name = name;
+        this.itemType = itemType;
+        this.condition = condition;
+        this.quantity = quantity;
+        this.perishable = perishable;
+    }
+    
     
     //getter and setter
     

@@ -24,8 +24,6 @@ public class MapControl {
                              "One person can mantain 10 acres of land.", 
                              "You can plant 2 acres with 1 bushel of wheat."};
         
-        // String randomGameTip = gameTips[GameControl.getRandomValue(0, 7)];
-        
         Location temple = new Location("Temple","You will find peace when you visit the temple.","T",gameTips);
         Location watchtower = new Location("Watchtower","You can see far and wide from this location.","W",gameTips);
         Location undevelopedLand = new Location("Undeveloped Land","You can plant more crops on this land.","U",gameTips);

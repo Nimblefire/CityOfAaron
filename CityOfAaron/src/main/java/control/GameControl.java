@@ -120,7 +120,7 @@ public class GameControl {
         newGame.setBushelsForFood(0);
         
         //Set the price per acre for the first year
-        newGame.setLandPrice(GameControl.getRandomValue(17, 27));
+        newGame.setLandPrice(getRandomValue(17, 27));
         
         //Create the annual report object and assign it to the game
         newGame.setAnnualReport(createAnnualReport(newGame));

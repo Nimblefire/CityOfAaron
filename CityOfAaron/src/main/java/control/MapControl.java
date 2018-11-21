@@ -35,11 +35,11 @@ public class MapControl {
 
         
     
-        Location[][] mapLocations = {{watchtower, wheatField, river, wheatField, watchtower}, 
-                                    {undevelopedLand, temple, granary, river, undevelopedLand},
-                                    {wheatField, rulerCourt, village, village, river},
-                                    {undevelopedLand, village, village, wheatField, wheatField},
-                                    {watchtower, undevelopedLand, wheatField, wheatField, watchtower}};
+        Location[][] mapLocations = {{watchtower,       wheatField,     river,      wheatField,     watchtower}, 
+                                    {undevelopedLand,   temple,         granary,    river,          undevelopedLand},
+                                    {wheatField,        rulerCourt,     village,    village,        river},
+                                    {undevelopedLand,   village,        village,    wheatField,     wheatField},
+                                    {watchtower,        undevelopedLand,wheatField, wheatField,     watchtower}};
         
         Point currentLocation = new Point(2,1);
         Map gameMap = new Map(mapLocations, currentLocation);

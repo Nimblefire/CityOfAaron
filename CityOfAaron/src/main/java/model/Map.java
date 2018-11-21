@@ -40,7 +40,7 @@ public class Map implements Serializable {
         return "Map{"
                 + " locations =" + Arrays.toString(locations)
                 + "\n current location =" + currentLocation
-                + '}';
+                + "}";
                 
     }
 }

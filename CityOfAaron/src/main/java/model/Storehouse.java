@@ -7,6 +7,7 @@ package model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
@@ -60,12 +61,11 @@ public class Storehouse implements Serializable {
     // auxiliary methods
     @Override
     public String toString() {
-        return "Storehouse{" + "\n authors=" + authors
+        return "Storehouse{" + "\n authors=" + Arrays.toString(authors)
                              + "\n animals=" + animals 
                              + "\n tools=" + tools
                              + "\n provisions=" + provisions 
                              + '}';
     }
-    
     
 }

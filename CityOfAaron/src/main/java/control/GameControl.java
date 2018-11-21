@@ -117,7 +117,7 @@ public class GameControl {
         newGame.setBushelsForFood(0);
         
         //Set the price per acre for the first year
-        newGame.setLandPrice(GameControl.getRandomValue(17, 27));
+        newGame.setLandPrice(getRandomValue(17, 27));
         
         //Create the annual report object and assign it to the game
         newGame.setAnnualReport(createAnnualReport(newGame));
@@ -131,65 +131,24 @@ public class GameControl {
         Storehouse newStorehouse = new Storehouse();
         
         //Declaration and population of the InventoryItems
-        Author irwin = new Author();
-        irwin.setName("Cristina Irwin");
-        irwin.setTitle("Mrs");
         
-        Author rochira = new Author();
-        rochira.setName("Andrea Rochira");
-        rochira.setTitle("Mr");
+        // Authors
+        Author irwin = new Author("Cristina Irwin","Mrs");
+        Author rochira = new Author("Andrea Rochira","Mr");        
+        Author daPonte = new Author("Stefano Da Ponte","Mr");
+
+        // Animals
+        Animal horse = new Animal("Warhorse",ItemType.ANIMAL,Condition.GOOD,6,5);
+        Animal cow = new Animal("Milking cow",ItemType.ANIMAL,Condition.GOOD,20,10);
         
-        Author daPonte = new Author();
-        daPonte.setName("Stefano Da Ponte");    
-        daPonte.setTitle("Mr");
+        // Provisions
+        Provision apples = new Provision("Apple",ItemType.PROVISIONS,Condition.FAIR,500,true);
+        Provision dates = new Provision("Date",ItemType.PROVISIONS,Condition.GOOD,1000,true);
+        Provision woodBeams = new Provision("Wood Beams",ItemType.PROVISIONS,Condition.GOOD,200,false);
         
-        Animal horse = new Animal();
-        horse.setName("Warhorse");
-        horse.setItemType(ItemType.ANIMAL);
-        horse.setCondition(Condition.GOOD);
-        horse.setQuantity(6);
-        horse.setAge(5);
-        
-        Animal cow = new Animal();
-        cow.setName("Milking cow");
-        cow.setItemType(ItemType.ANIMAL);
-        cow.setCondition(Condition.GOOD);
-        cow.setQuantity(20);
-        cow.setAge(10);
-        
-        Provision apples = new Provision();
-        apples.setItemType(ItemType.PROVISIONS);
-        apples.setName("Apple");
-        apples.setCondition(Condition.FAIR);
-        apples.setQuantity(500);
-        apples.setPerishable(true);
-        
-        Provision dates = new Provision();
-        dates.setItemType(ItemType.PROVISIONS);
-        dates.setName("Date");
-        dates.setCondition(Condition.GOOD);
-        dates.setQuantity(1000);
-        dates.setPerishable(true);
-        
-        Provision woodBeams = new Provision();
-        woodBeams.setItemType(ItemType.PROVISIONS);
-        woodBeams.setName("Wood Beams");
-        woodBeams.setCondition(Condition.GOOD);
-        woodBeams.setQuantity(200);
-        woodBeams.setPerishable(false);
-        
-        
-        InventoryItem hammers = new InventoryItem();
-        hammers.setItemType(ItemType.TOOL);
-        hammers.setName("Hammer");
-        hammers.setCondition(Condition.POOR);
-        hammers.setQuantity(20);
-        
-        InventoryItem saws = new InventoryItem();
-        saws.setItemType(ItemType.TOOL);
-        saws.setName("Saw");
-        saws.setCondition(Condition.GOOD);
-        saws.setQuantity(30);
+        // Tools
+        InventoryItem hammers = new InventoryItem("Hammer",ItemType.TOOL,Condition.POOR,20);
+        InventoryItem saws = new InventoryItem("Saw",ItemType.TOOL,Condition.GOOD,30);
         
         //Create the Arrays and assign the values
         Author[] authorArray = {irwin, rochira, daPonte};

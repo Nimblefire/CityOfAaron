@@ -14,14 +14,21 @@ import java.io.Serializable;
 public class InventoryItem implements Serializable{
     
     //attributes
-    private String name;
-    private ItemType itemType;
-    private int quantity;
-    private Condition condition;
+    protected String name;
+    protected ItemType itemType;
+    protected Condition condition;
+    protected int quantity;
     
     //default constructor
     public InventoryItem(){
- 
+    }
+    
+    // overloaded constructor
+    public InventoryItem(String name,ItemType itemType,Condition condition,int quantity){
+        this.name = name;
+        this.itemType = itemType;
+        this.condition = condition;
+        this.quantity = quantity;
     }
     
     //getter and setter

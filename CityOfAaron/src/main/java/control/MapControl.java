@@ -14,53 +14,25 @@ import model.*;
 public class MapControl {
     
     public static Map createMap(){
-        Location temple = new Location();
-        Location watchtower = new Location();
-        Location undevelopedLand = new Location();
-        Location wheatField = new Location();
-        Location river = new Location();
-        Location granary = new Location();
-        Location rulerCourt = new Location();
-        Location village = new Location();
         
-        temple.setName("Temple");
-        watchtower.setName("Watchtower");
-        undevelopedLand.setName("Undeveloped Land");
-        wheatField.setName("Wheat Field");
-        river.setName("River");
-        granary.setName("Granary");
-        rulerCourt.setName("Ruler's Court");
-        village.setName("Village");
+        String[] gameTips = {"Every person needs 20 bushels of wheat per year in order to survive.", 
+                             "Pay your tithes and offerings for a higher wheat yeild per acre.", 
+                             "Attend the temple regularly.", 
+                             "Buy land when land prices are low.", 
+                             "Pay tithing and your will suffer fewer losses of crops to rats.", 
+                             "Feed your people well and they will work hard for you.", 
+                             "One person can mantain 10 acres of land.", 
+                             "You can plant 2 acres with 1 bushel of wheat."};
         
-        temple.setDescription("Coming");
-        watchtower.setDescription("Coming");
-        undevelopedLand.setDescription("Coming");
-        wheatField.setDescription("Coming");
-        river.setDescription("Coming");
-        granary.setDescription("Coming");
-        rulerCourt.setDescription("Coming");
-        village.setDescription("Coming");
-        
-        String[] gameTips = {"Coming"};
-        
-        temple.setGameTips(gameTips);
-        watchtower.setGameTips(gameTips);
-        undevelopedLand.setGameTips(gameTips);
-        wheatField.setGameTips(gameTips);
-        river.setGameTips(gameTips);
-        granary.setGameTips(gameTips);
-        rulerCourt.setGameTips(gameTips);
-        village.setGameTips(gameTips);
-        
-        temple.setMapSymbol("T");
-        watchtower.setMapSymbol("W");
-        undevelopedLand.setMapSymbol("U");
-        wheatField.setMapSymbol("F");
-        river.setMapSymbol("R");
-        granary.setMapSymbol("G");
-        rulerCourt.setMapSymbol("C");
-        village.setMapSymbol("V"); 
-        
+        Location temple = new Location("Temple","You will find peace when you visit the temple.","T",gameTips);
+        Location watchtower = new Location("Watchtower","You can see far and wide from this location.","W",gameTips);
+        Location undevelopedLand = new Location("Undeveloped Land","You can plant more crops on this land.","U",gameTips);
+        Location wheatField = new Location("Wheat Field","This will provide your food for the year","F",gameTips);
+        Location river = new Location("River","The river provides water and recreation for the City of Aaron.","R",gameTips);
+        Location granary = new Location("Granary","Your animals, tools and provisions are stored here. The authors of this game can be viewed here as well.","G",gameTips);
+        Location rulerCourt = new Location("Ruler's Court","This is where you live and work.","C",gameTips);
+        Location village = new Location("Village","This is where people gather to buy and sell goods.","V",gameTips);
+
         Map gameMap = new Map();
     
         Location[][] mapLocations = {{watchtower, wheatField, river, wheatField, watchtower}, 
@@ -74,7 +46,7 @@ public class MapControl {
         
         return gameMap;
     }
-    
+            
     //TODO create a functioning test of the method, check if it really works
     public static Location setCurrentLocation(Game game, Point newLocation){
         if (game==null || newLocation == null){

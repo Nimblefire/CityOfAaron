@@ -21,6 +21,12 @@ public class Author implements Serializable {
     public Author() {
     }
     
+    // overloaded constructor using parameters
+    public Author(String name, String title){
+        this.name = name;
+        this.title = title;
+    }
+    
     // getters and setters
     public String getName() {
         return name;

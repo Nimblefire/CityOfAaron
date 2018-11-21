@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package model;
+import control.GameControl;
 import java.io.Serializable;
-import java.util.Arrays;
 
 
 /**
@@ -74,7 +74,7 @@ public class Location implements Serializable {
                 + "\n name =" + name
                 + "\n description =" + description
                 + "\n Map symbol =" + mapSymbol
-                + "\n Game Tip =" + Arrays.toString(gameTips)
+                + "\n Game Tip =" + gameTips[GameControl.getRandomValue(0, 7)]
                 + "}";
     }
 }

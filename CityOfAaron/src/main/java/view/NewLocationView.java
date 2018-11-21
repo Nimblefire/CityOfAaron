@@ -100,7 +100,7 @@ public class NewLocationView extends ViewBase {
         
         Location[][] mapLocations = map.getLocations(); 
 
-        System.out.println("You are contemplating the " + mapLocations[row][column].getName() + "\n The symbol of this place is "+ mapLocations[row][column].getMapSymbol() + "\n" + mapLocations[row][column].getDescription() + "\n" + "Game Tip: " + mapLocations[row][column].getGameTips(GameControl.getRandomValue(0, 7)) + "\n");
+        System.out.println("You are contemplating the " + mapLocations[row][column].getName() + " also known as \""+ mapLocations[row][column].getMapSymbol() + "\"\n" + mapLocations[row][column].getDescription() + "\n" + "Game Tip: " + mapLocations[row][column].getGameTips(GameControl.getRandomValue(0, 7)) + "\n");
 
     }
 }

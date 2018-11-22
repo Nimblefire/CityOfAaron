@@ -116,10 +116,9 @@ public class GameControl {
         //Declaration and population of the InventoryItems
         //Create the Arrays and assign the values
         Author[] authorArray = {new Author("Cristina Irwin","Mrs")
-                , new Author("Andrea Rochira","Mr")
-                , new Author("Stefano Da Ponte","Mr")
-        };
-        
+                               ,new Author("Andrea Rochira","Mr")
+                               ,new Author("Stefano Da Ponte","Mr")};
+                                    
         ArrayList<Animal> animals = new ArrayList<>();
         animals.add(new Animal("Warhorse",ItemType.ANIMAL,Condition.GOOD,6,5));
         animals.add(new Animal("Milking cow",ItemType.ANIMAL,Condition.GOOD,20,10));

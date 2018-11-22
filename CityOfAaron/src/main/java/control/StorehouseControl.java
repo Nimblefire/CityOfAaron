@@ -24,18 +24,28 @@ public class StorehouseControl {
         }
     }
     
-    /**
     public static void pickAuthorLongestName(){  
         Author[] authors = CityOfAaron.getCurrentGame().getStorehouse().getAuthors();
         int maxLength = 0;
-        Author authLongestName;
+        int index = 0;
         for(Author author : authors){
-           if (author.toString().length() > maxLength){
-                maxLength = author.toString().length();
-                authLongestName.toString() = author[maxLength].getTitle().toUpperCase() + " " + author[maxLength].getName(); 
+           if (author.getName().length() > maxLength){
+                maxLength = author.getName().length();
+                index = Arrays.asList(authors).indexOf(author);
            }   
-           System.out.println(authorLongestName);
         }
+        System.out.println(authors[index].getTitle().toUpperCase() + " " + authors[index].getName());
     }
-    */
+    
+    public static void pickAuthorByRandomIndex(int randomIndex){
+        Author[] authors = CityOfAaron.getCurrentGame().getStorehouse().getAuthors();
+        int index = 0;
+        for(Author author : authors){
+            if (randomIndex == Arrays.asList(authors).indexOf(author)){
+                index = randomIndex;
+            }
+        }
+        System.out.println(authors[index].getTitle().toUpperCase() + " " + authors[index].getName());
+    }
+    
 }

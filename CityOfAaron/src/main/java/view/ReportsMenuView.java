@@ -7,6 +7,7 @@ package view;
 
 import model.*;
 import app.*;
+import control.*;
 
 
 public class ReportsMenuView extends ViewBase {
@@ -102,7 +103,10 @@ public class ReportsMenuView extends ViewBase {
         control.StorehouseControl.pickAuthorsByTitle("Mrs");
         
         System.out.println("\nFollow the longest author's name");
-       
+        control.StorehouseControl.pickAuthorLongestName();
+        
+        System.out.println("\nFollow the name of an author randomly chosen by the system");
+        control.StorehouseControl.pickAuthorByRandomIndex(GameControl.getRandomValue(0, authors.length-1));
         
         SaveReportView view = new SaveReportView();
         view.displayView();

@@ -7,7 +7,6 @@ package view;
 import app.CityOfAaron;
 import control.MapControl;
 import model.*;
-import java.util.HashSet;
 
 /**
  *
@@ -23,12 +22,9 @@ public class MapView extends ViewBase{
     
     @Override
     public String getMessage(){
-        String message= "City Map\n"
+        return "City Map\n"
                 + "------------------------------\n"
                 + "This is the map of your city\n";
-        
-        
-        return message;
     }
 
     /**
@@ -53,10 +49,10 @@ public class MapView extends ViewBase{
     public boolean doAction(String[] inputs){
         
         printMap(CityOfAaron.getCurrentGame().getMap());
-        System.out.println("\nYou are in the " + CityOfAaron.getCurrentGame().getMap().getLocations()
-                [CityOfAaron.getCurrentGame().getMap().getCurrentLocation().getRow()]//row
-                [CityOfAaron.getCurrentGame().getMap().getCurrentLocation().getColumn()]//column
-                .getName());
+        System.out.println("\nYou are in the " + CityOfAaron.getCurrentGame().getMap().getLocations()   //Get the array
+                [CityOfAaron.getCurrentGame().getMap().getCurrentLocation().getRow()]                   //Get the row
+                [CityOfAaron.getCurrentGame().getMap().getCurrentLocation().getColumn()]                //Get the column
+                .getName());                                                                            //Get the name
         pause(5000);
         
         // return false so that whoever call us doesn't call us again 
@@ -76,7 +72,7 @@ public class MapView extends ViewBase{
 	}
         System.out.println("\nLegend: ");
         
-        for (Location location : MapControl.getLocationsList(CityOfAaron.getCurrentGame().getMap())){
+        for (Location location : MapControl.getLocationsList(map)){
             System.out.println(location.getMapSymbol() + " - " + location.getName());
         }
     }

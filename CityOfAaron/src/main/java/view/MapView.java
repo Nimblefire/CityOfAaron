@@ -5,7 +5,9 @@
  */
 package view;
 import app.CityOfAaron;
+import control.MapControl;
 import model.*;
+import java.util.HashSet;
 
 /**
  *
@@ -19,30 +21,14 @@ public class MapView extends ViewBase{
     public MapView(){
     }
     
-    Map map = CityOfAaron.getCurrentGame().getMap();
-    Location[][] mapLocations = map.getLocations(); 
-    /*String[] sybolsAndNames = 
-            
-    for each element of the array
-           get the name
-                   if name is not contained in symbolsandnames array
-                           add it
-                   else continue
-    */
     @Override
     public String getMessage(){
-        return "City Map\n"
+        String message= "City Map\n"
                 + "------------------------------\n"
-                + "This is the map of your city\n"
-                + "Legend:\n"
-                + mapLocations[1][1].getMapSymbol() + " - " + mapLocations[1][1].getName() + "\n"
-                + /*watchtower.getMapSymbol()*/"W" + " - Watchtower\n"
-                + /*undevelopedLand.getMapSymbol()*/"U" + " - Undeveloped Land\n"
-                + /*wheatField.getMapSymbol()*/"F" + " - Wheat Field\n"
-                + /*river.getMapSymbol()*/"R" + " - River\n"
-                + /*granary.getMapSymbol()*/"G" + " - Granary\n"
-                + /*rulerCourt.getMapSymbol()*/"C" + " - Ruler's Court\n"
-                + /*village.getMapSymbol()*/"V" + " - Village";
+                + "This is the map of your city\n";
+        
+        
+        return message;
     }
 
     /**
@@ -67,8 +53,11 @@ public class MapView extends ViewBase{
     public boolean doAction(String[] inputs){
         
         printMap(CityOfAaron.getCurrentGame().getMap());
-        System.out.println("You are in the " + CityOfAaron.getCurrentGame().getMap().getLocations()[CityOfAaron.getCurrentGame().getMap().getCurrentLocation().getRow()][CityOfAaron.getCurrentGame().getMap().getCurrentLocation().getColumn()].getName());
-        pause(3000);
+        System.out.println("\nYou are in the " + CityOfAaron.getCurrentGame().getMap().getLocations()
+                [CityOfAaron.getCurrentGame().getMap().getCurrentLocation().getRow()]//row
+                [CityOfAaron.getCurrentGame().getMap().getCurrentLocation().getColumn()]//column
+                .getName());
+        pause(5000);
         
         // return false so that whoever call us doesn't call us again 
         return false;
@@ -85,6 +74,10 @@ public class MapView extends ViewBase{
 		}
 		System.out.println("");
 	}
-        System.out.println("\n");
+        System.out.println("\nLegend: ");
+        
+        for (Location location : MapControl.getLocationsList(CityOfAaron.getCurrentGame().getMap())){
+            System.out.println(location.getMapSymbol() + " - " + location.getName());
+        }
     }
 }

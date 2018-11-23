@@ -57,15 +57,15 @@ public class SellLandView extends ViewBase {
             System.out.println("Missing amount. Returning to the Manage Crops Menu");
             return false; //if false return to Manage Crops, true keeps going
         }
-        
+        int acresToSell;
         try {
-            CityOfAaron.getCurrentGame().setAcresToSell(Integer.parseInt(inputs[0]));
+            acresToSell = Integer.parseInt(inputs[0]);
         } catch (NumberFormatException exception) {
             System.out.println("Acres must be a whole number. Try again");
             return true;//keep going
         }
         
-        boolean check = inputCheck(CityOfAaron.getCurrentGame().getAcresToSell());
+        boolean check = inputCheck(acresToSell);
         pause (2500);
         
         return check;
@@ -86,6 +86,7 @@ public class SellLandView extends ViewBase {
         else {
            reportAcresOwned(acresToSell);
            reportWheatInStorage(acresToSell);
+           CityOfAaron.getCurrentGame().setAcresToSell(acresToSell);
            return false;
         }
     }

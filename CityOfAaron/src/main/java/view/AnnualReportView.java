@@ -48,7 +48,7 @@ public class AnnualReportView extends ViewBase{
         System.out.println("\nYear number: " + CityOfAaron.getCurrentGame().getAnnualReport().getYear());
         // print people starved
         System.out.println("\nPeople starved: " + CityOfAaron.getCurrentGame().getAnnualReport().getPeopleStarved());
-        if (CityOfAaron.getCurrentGame().getAnnualReport().getYear() >= 1 && CityOfAaron.getCurrentGame().getAnnualReport().getPeopleStarved() == 0){
+        if (CityOfAaron.getCurrentGame().getAnnualReport().getYear() > 1 && CityOfAaron.getCurrentGame().getAnnualReport().getPeopleStarved() == 0){
             System.out.println("Well done, oh wise leader!");}
         // print new entries
         System.out.println("\nPeople immigrated into the city: " + CityOfAaron.getCurrentGame().getAnnualReport().getPeopleMovedIn());

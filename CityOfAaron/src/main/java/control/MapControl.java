@@ -5,7 +5,6 @@
  */
 package control;
 
-import app.CityOfAaron;
 import model.*;
 import java.util.HashSet;
 
@@ -47,10 +46,10 @@ public class MapControl {
             Village 7
         */
         Location[][] mapLocations = {{locations[1],     locations[3],   locations[4],   locations[3],     locations[1]}, 
-                                    {locations[2],      locations[0],   locations[5],   locations[4],     locations[2]},
-                                    {locations[3],      locations[6],   locations[7],   locations[7],     locations[4]},
-                                    {locations[2],      locations[7],   locations[7],   locations[3],     locations[4]},
-                                    {locations[1],      locations[2],   locations[3],   locations[3],     locations[1]}};
+                                     {locations[2],     locations[0],   locations[5],   locations[4],     locations[2]},
+                                     {locations[3],     locations[6],   locations[7],   locations[7],     locations[4]},
+                                     {locations[2],     locations[7],   locations[7],   locations[3],     locations[4]},
+                                     {locations[1],     locations[2],   locations[3],   locations[3],     locations[1]}};
         
         Point currentLocation = new Point(2,1);
         Map gameMap = new Map(mapLocations, currentLocation);
@@ -62,7 +61,7 @@ public class MapControl {
     public static Location setCurrentLocation(Game game, Point newLocation){
         if (game==null || newLocation == null){
             return null;
-        } else if (newLocation.getRow() > game.getMap().getLocations()[0].length || newLocation.getColumn() > game.getMap().getLocations()[1].length){
+        } else if (newLocation.getRow() > game.getMap().getLocations().length || newLocation.getColumn() > game.getMap().getLocations()[0].length){
             System.out.println("Error -1");
             return null;
         }

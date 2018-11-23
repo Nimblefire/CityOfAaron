@@ -7,6 +7,7 @@ package view;
 
 import model.*;
 import app.*;
+import control.*;
 
 
 public class ReportsMenuView extends ViewBase {
@@ -91,10 +92,22 @@ public class ReportsMenuView extends ViewBase {
         
         // Display the Authors
         do {
-            System.out.println(authors[i].getTitle().toUpperCase() + " " + authors[i].getName().concat("\n"));
+            System.out.println(authors[i].getTitle().toUpperCase() + " " + authors[i].getName());
             i++; 
         } while (i < authors.length);
-            
+        
+        System.out.println("\nFollow the list of male authors:");
+        control.StorehouseControl.pickAuthorsByTitle("Mr");
+        
+        System.out.println("\nFollow the list of female authors:");
+        control.StorehouseControl.pickAuthorsByTitle("Mrs");
+        
+        System.out.println("\nFollow the longest author's name");
+        control.StorehouseControl.pickAuthorLongestName();
+        
+        System.out.println("\nFollow the name of an author randomly chosen by the system");
+        control.StorehouseControl.pickAuthorByRandomIndex(GameControl.getRandomValue(0, authors.length-1));
+        
         SaveReportView view = new SaveReportView();
         view.displayView();
               

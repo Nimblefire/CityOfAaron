@@ -54,13 +54,14 @@ public class FeedPeopleView extends ViewBase{
      */
     @Override
     public boolean doAction(String[] inputs){
+        int bushelsForFood;
         try {
-            CityOfAaron.getCurrentGame().setBushelsForFood(Integer.parseInt(inputs[0]));
+            bushelsForFood = Integer.parseInt(inputs[0]);
         } catch (NumberFormatException exception) {
             System.out.println("The value must be positive whole number.");
             return true;//keep going
         }
-        boolean check = checkInput(CityOfAaron.getCurrentGame().getBushelsForFood());
+        boolean check = checkInput(bushelsForFood);
         pause(2000);
         
         return check;
@@ -70,13 +71,13 @@ public class FeedPeopleView extends ViewBase{
         if (bushelsForFood < 0){
             System.out.println("The value must be positive whole number.");
             return true;
-        }
-        
-        if (bushelsForFood > CityOfAaron.getCurrentGame().getWheatInStorage()) {
+        } else if (bushelsForFood > CityOfAaron.getCurrentGame().getWheatInStorage()) {
             System.out.println("The value is greater than the wheat you have. Please insert a valid value.");
             return true;
+        } else {
+            CityOfAaron.getCurrentGame().setBushelsForFood(bushelsForFood);
+            System.out.println("You have " + (CityOfAaron.getCurrentGame().getWheatInStorage()-bushelsForFood) + " bushels of wheat left.");
+            return false;
         }
-        System.out.println("You have " + (CityOfAaron.getCurrentGame().getWheatInStorage()-bushelsForFood) + " bushels of wheat left.");
-        return false;
     }
 }

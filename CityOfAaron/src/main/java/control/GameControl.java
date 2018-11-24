@@ -123,6 +123,8 @@ public class GameControl {
         animals.add(new Animal("Warhorse",ItemType.ANIMAL,Condition.GOOD,6,5));
         animals.add(new Animal("Milking cow",ItemType.ANIMAL,Condition.GOOD,20,10));
         animals.add(new Animal("Goat", ItemType.ANIMAL,Condition.GOOD,100,2));
+        animals.add(new Animal("Chicken", ItemType.ANIMAL,Condition.FAIR,200,1));
+        animals.add(new Animal("Working horse", ItemType.ANIMAL,Condition.POOR, 50, 15));
         
         ArrayList<Provision> provisions = new ArrayList<>();
         provisions.add(new Provision("Apple",ItemType.PROVISIONS,Condition.FAIR,500,true));

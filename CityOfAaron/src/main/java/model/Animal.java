@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package model;
 
 import java.io.Serializable;
@@ -26,6 +22,12 @@ public class Animal extends InventoryItem implements Serializable{
         this.condition = condition;
         this.quantity = quantity;
         this.age = age;
+    }
+    
+    //overloaded constructor
+    public Animal(String name, int age){
+        this.name = name;
+        this.age =age;
     }
     
     //getter and setter

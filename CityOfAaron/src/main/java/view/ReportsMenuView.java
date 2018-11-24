@@ -105,8 +105,11 @@ public class ReportsMenuView extends ViewBase {
         System.out.println("\nFollow the name of an author randomly chosen by the system");
         control.StorehouseControl.pickAuthorByRandomIndex(GameControl.getRandomValue(0, authors.length-1));
         
-        System.out.println("\nFollow the alphabetical list of the authors");
+        System.out.println("\nFollow the alphabetical list of the authors by using the sort() method");
         control.StorehouseControl.sortAuthorsByName();
+        
+        System.out.println("\nFollow the alphabetical list of the authors by using the bubble sort method");
+        control.StorehouseControl.sortAuthorsByNameAlgorithm();
         
         SaveReportView view = new SaveReportView();
         view.displayView();

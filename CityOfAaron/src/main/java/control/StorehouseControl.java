@@ -48,4 +48,19 @@ public class StorehouseControl {
         System.out.println(authors[index].getTitle().toUpperCase() + " " + authors[index].getName());
     }
     
+    public static void sortAuthorsByName(){
+        Author[] authors = CityOfAaron.getCurrentGame().getStorehouse().getAuthors();
+        String[] sortedAuth = new String[authors.length];
+        int i = 0;
+            for(Author author : authors){
+                String authorName = author.getName();
+                sortedAuth[i] = authorName;
+                i++;
+            }
+        Arrays.sort(sortedAuth);
+            for(String name : sortedAuth){
+                System.out.println(name);
+            }
+    }
+    
 }

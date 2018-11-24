@@ -63,4 +63,27 @@ public class StorehouseControl {
             }
     }
     
+    // credit to Brother Anderson
+    public static void sortAuthorsByNameAlgorithm(){
+        Author[] authors = CityOfAaron.getCurrentGame().getStorehouse().getAuthors();
+        
+        for (int i=0; i < authors.length-1; i++){
+        
+            for (int j=i+1; j < authors.length; j++){
+                
+                // if author[i] > author[j], then swap them...
+                if (authors[i].getName().compareTo( authors[j].getName() ) > 0){
+                    Author temp = authors[i];
+                    authors[i] = authors[j];
+                    authors[j] = temp;
+                }
+            }
+        }
+        
+        // print
+        for (Author author : authors){
+            System.out.println(author.getName());
+        }
+    }
+    
 }

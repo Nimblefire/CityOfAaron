@@ -71,8 +71,8 @@ public class StorehouseControl {
         int maxLength = 0;
         int index = 0;
         for (Author author : authors) {
-            if (author.getName().length() > maxLength) {
-                maxLength = author.getName().length();
+            if (author.getName().trim().length() > maxLength) {
+                maxLength = author.getName().trim().length();
                 index = Arrays.asList(authors).indexOf(author);
             }
         }

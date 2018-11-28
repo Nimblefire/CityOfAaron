@@ -7,6 +7,7 @@ package control;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
+import exceptions.*;
 
 /**
  *
@@ -21,7 +22,7 @@ public class WheatControlTest {
      * Test of calculateHarvest method, of class WheatControl.
      */
     @Test
-        public void test1CalculateHarvest() {
+        public void test1CalculateHarvest() throws GameControlException {
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandValue(fakeRandom);
         fakeRandom.add(1);
@@ -35,7 +36,7 @@ public class WheatControlTest {
         
     }
     @Test
-    public void test2CalculateHarvest() {
+    public void test2CalculateHarvest() throws GameControlException {
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandValue(fakeRandom);
         fakeRandom.add(2);
@@ -49,7 +50,7 @@ public class WheatControlTest {
         
     }
     @Test
-    public void test3CalculateHarvest() {
+    public void test3CalculateHarvest() throws GameControlException {
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandValue(fakeRandom);
         fakeRandom.add(1);
@@ -64,7 +65,7 @@ public class WheatControlTest {
     }
     
     @Test
-    public void test4CalculateHarvest() {
+    public void test4CalculateHarvest() throws GameControlException {
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandValue(fakeRandom);
         fakeRandom.add(1);
@@ -79,7 +80,7 @@ public class WheatControlTest {
     }
     
     @Test
-    public void test5CalculateHarvest() {
+    public void test5CalculateHarvest() throws GameControlException {
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandValue(fakeRandom);
         fakeRandom.add(1);
@@ -94,7 +95,7 @@ public class WheatControlTest {
     }
     
     @Test
-    public void test6CalculateHarvest() {
+    public void test6CalculateHarvest() throws GameControlException {
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandValue(fakeRandom);
         fakeRandom.add(1);
@@ -109,7 +110,7 @@ public class WheatControlTest {
     }
     
      @Test
-    public void test7CalculateHarvest() {
+    public void test7CalculateHarvest() throws GameControlException {
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandValue(fakeRandom);
         fakeRandom.add(2);
@@ -124,7 +125,7 @@ public class WheatControlTest {
     }
     
     @Test
-    public void test8CalculateHarvest() {
+    public void test8CalculateHarvest() throws GameControlException {
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandValue(fakeRandom);
         fakeRandom.add(2);
@@ -139,7 +140,7 @@ public class WheatControlTest {
     }
     
     @Test
-    public void test9CalculateHarvest() {
+    public void test9CalculateHarvest() throws GameControlException {
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandValue(fakeRandom);
         fakeRandom.add(2);
@@ -154,7 +155,7 @@ public class WheatControlTest {
     }
     
      @Test
-    public void test10CalculateHarvest() {
+    public void test10CalculateHarvest() throws GameControlException {
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandValue(fakeRandom);
         fakeRandom.add(2);
@@ -169,7 +170,7 @@ public class WheatControlTest {
     }
     
      @Test
-    public void test11CalculateHarvest() {
+    public void test11CalculateHarvest() throws GameControlException {
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandValue(fakeRandom);
         fakeRandom.add(1);
@@ -184,7 +185,7 @@ public class WheatControlTest {
     }
     
      @Test
-    public void test12CalculateHarvest() {
+    public void test12CalculateHarvest() throws GameControlException {
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandValue(fakeRandom);
         fakeRandom.add(0);

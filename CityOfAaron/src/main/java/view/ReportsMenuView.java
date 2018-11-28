@@ -7,6 +7,7 @@ package view;
 import model.*;
 import app.*;
 import control.*;
+import exceptions.GameControlException;
 import java.util.ArrayList;
 
 public class ReportsMenuView extends ViewBase {
@@ -58,7 +59,14 @@ public class ReportsMenuView extends ViewBase {
 
         switch (inputs[0].trim().toUpperCase()) {
             case "A":
-                reportAuthors();
+                    try {
+                        reportAuthors();
+                    } catch (GameControlException gc) {
+                            System.out.println(gc.getMessage());
+                    } catch (Throwable te) {
+                        System.out.println(te.getMessage());
+                        te.printStackTrace();
+                    }
                 break;
             case "L":
                 reportLivestocks();
@@ -80,7 +88,7 @@ public class ReportsMenuView extends ViewBase {
     }
 
     // To fulfill the requirements of the rubric (do-while logic + two String methods)
-    private void reportAuthors() {
+    private void reportAuthors() throws GameControlException {
 
         // Get authors from the Storehouse 
         Author[] authors = CityOfAaron.getCurrentGame().getStorehouse().getAuthors();
@@ -92,7 +100,8 @@ public class ReportsMenuView extends ViewBase {
             System.out.println(authors[i].getTitle().toUpperCase() + " " + authors[i].getName());
             i++;
         } while (i < authors.length);
-
+        
+        /**
         System.out.println("\nFollow the list of male authors:");
         control.StorehouseControl.pickAuthorsByTitle("Mr");
 
@@ -110,6 +119,25 @@ public class ReportsMenuView extends ViewBase {
         
         System.out.println("\nFollow the alphabetical list of the authors by using the bubble sort method");
         control.StorehouseControl.sortAuthorsByNameAlgorithm();
+        */
+        
+        // LET'S TEST ONE OF THE GAMECONTROLEXCEPTION ERRORS
+        System.out.println("\nRaise a GameControlException error when the author is randomly chosen" + 
+                           "\nby providing negative values to the getRandomValue function"+
+                           "\n---------------------------------------------------------------------");
+        control.StorehouseControl.pickAuthorByRandomIndex(GameControl.getRandomValue(0, -1));
+        
+        /**
+        System.out.println("\nRaise a GameControlException error when the author is randomly chosen" + 
+                           "\nby providing a higher value which is smaller than the lower one"+
+                           "\n---------------------------------------------------------------------");
+        control.StorehouseControl.pickAuthorByRandomIndex(GameControl.getRandomValue(5, 2));
+        
+        System.out.println("\nRaise a GameControlException error when the author is randomly chosen" +
+                           "\nby providing a higher value that equals integer type upper limit" +
+                           "\n----------------------------------------------------------------------------------");
+        control.StorehouseControl.pickAuthorByRandomIndex(GameControl.getRandomValue(0, Integer.MAX_VALUE));
+        */
         
         SaveReportView view = new SaveReportView();
         view.displayView();

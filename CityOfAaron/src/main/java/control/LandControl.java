@@ -5,6 +5,8 @@
  */
 package control;
 
+import exceptions.GameControlException;
+
 /**
  *
  * @author dapon
@@ -12,7 +14,8 @@ package control;
 public class LandControl {
     
     //TODO Figure out how to implement it
-    public static int createLandPrice(){
-        return GameControl.getRandomValue(17, 27);
+    public static int createLandPrice() throws GameControlException{
+        int randomValue = GameControl.getRandomValue(17, 27);
+        return randomValue;
     }
 }

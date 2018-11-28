@@ -62,16 +62,16 @@ public class Location implements Serializable {
         return gameTips;
     }
     
+    public void setGameTips(String[] gameTips) {
+      this.gameTips = gameTips;
+    }
+    
     // overloaded getGameTips
     public String getGameTips(int value) {
         String gameTip = gameTips[value];
         return gameTip;
     }
-   
-    public void setGameTips(String[] gameTips) {
-      this.gameTips = gameTips;
-    }
-     
+    
     @Override
     public String toString() {     
         int randomValue = 0;
@@ -84,6 +84,7 @@ public class Location implements Serializable {
             System.out.println(te.getMessage());
             te.printStackTrace();
         }
+        
         return "Location{"
                 + "\n name =" + name
                 + "\n description =" + description

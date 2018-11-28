@@ -2,7 +2,10 @@
 package view;
 import app.CityOfAaron;
 import control.*;
-
+import exceptions.GameControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+        
 /**
  *
  * @author team Irwin - DaPonte - Rochira
@@ -53,7 +56,13 @@ public class NewGameView extends ViewBase{
         }
 
         String playerName = inputs[0];
-        CityOfAaron.setCurrentGame(GameControl.createNewGame(playerName));
+        
+        try {
+            CityOfAaron.setCurrentGame(GameControl.createNewGame(playerName));
+        } catch (GameControlException gc) {
+            System.out.println(gc.getMessage());
+        }
+        
         System.out.println("\nWelcome to the game " + CityOfAaron.getCurrentGame().getPlayer().getName() + ". Everything is ready to start your reign.\n\nYou currently have: \n"
                             + CityOfAaron.getCurrentGame().getAcresOwned() + " acres\n"
                             + CityOfAaron.getCurrentGame().getWheatInStorage()+ " bushels of wheat\n"

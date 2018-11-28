@@ -1,7 +1,7 @@
 
 package control;
 
-import java.util.Random;
+import exceptions.*;
 
 /**
  *
@@ -9,29 +9,26 @@ import java.util.Random;
  */
 public class WheatControl {
     
-    public static int calculateHarvest(int tithesOfferings, int acresPlanted) {
+    public static int calculateHarvest(int tithesOfferings, int acresPlanted) throws GameControlException,WheatControlException {
        //int RanddomNumber;
         //int low = 0;
         //int high = 0;
         //int randomTest = GameControl.getRandomValue(low, high);
         int randomNumber = 0;
-        //Is this supposed to be setRandValue???
-
         
         //If acresPlanted < 0, then RETURN -1.
         if(acresPlanted < 0) {
-            return -1;
+            throw new WheatControlException("The amount of acres cannot be negative\n");
         }
 
         //If tithesOfferings is > than 100, then RETURN -2.
         if(tithesOfferings > 100) {
-            return -2;
+            throw new WheatControlException("You can't pay a tithing greater than 100% of your bushels\n");
         }
         //If tithesOfferings is < 0, then RETURN -2.
         if(tithesOfferings < 0) {
-            return -2;
+            throw new WheatControlException("The tithing amount cannot be negative\n");
         }
-       
         
         //If tithesOfferings is > 12, then randomNumber between 2 and 5.
         if(tithesOfferings > 12) {
@@ -41,15 +38,13 @@ public class WheatControl {
 
         //If tithesOfferings between 12 and 8 (<12 and >8), then random number between 2 and 4.
         if(tithesOfferings >= 8 && tithesOfferings <= 12) {
-           randomNumber = GameControl.getRandomValue(2, 4);
-            
+            randomNumber = GameControl.getRandomValue(2, 4);
         }
 
         //If tithesOfferings is < 8, then randomNumber between 1 and 3.
         if(tithesOfferings < 8) {
-          randomNumber = GameControl.getRandomValue(1, 3);
+            randomNumber = GameControl.getRandomValue(1, 3);
         }
-
         
         //calculatHarvest = acresPlanted * RandomNumber
         int calculateHarvest = acresPlanted * randomNumber;
@@ -58,24 +53,24 @@ public class WheatControl {
         return calculateHarvest;
     }
     
-    public static int calculateLossToRats(int randomNumber, int wheatInStorage, int tithesPercentage){
+    public static int calculateLossToRats(int randomNumber, int wheatInStorage, int tithesPercentage) throws WheatControlException, GameControlException {
         //int randomNumber = GameControl.getRandomValue(1, 100);
         int wheatEaten;
         int randomPercentage = 0;
         
         //IF randomNumber < 1 OR randomNumber > 100 THEN RETURN -1
         if (randomNumber < 1 || randomNumber > 100){
-            return -1;
+            throw new GameControlException("randomNumber out of range\n");
         }
         
         //IF wheatInStorage < 0 THEN RETURN -2
         if (wheatInStorage < 0){
-            return -2;
+            throw new WheatControlException("The amount of wheat in storage cannot be negative\n");
         }
         
         //IF tithesPercentage < 0 THEN RETURN -3
         if (tithesPercentage < 0){
-            return -3;
+            throw new WheatControlException("The tithes percentage cannot be negative\n");
         }
     
         //IF randomNumber >= 30 THEN wheatEaten = 0

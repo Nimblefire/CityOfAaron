@@ -2,6 +2,9 @@
 package view;
 
 import app.CityOfAaron;
+import control.WheatControl;
+import exceptions.GameControlException;
+import exceptions.WheatControlException;
 
 /**
  *
@@ -95,7 +98,12 @@ public class GameMenuView extends ViewBase {
                 break;
             case "Y":
                 // this is the core method of the game
-                liveTheYear();
+                try {
+                    liveTheYear();
+                } catch (WheatControlException | GameControlException ce) {
+                    System.out.println(ce.getMessage());
+                }
+                                
                 AnnualReport.displayView();
                 break;
             case "A":
@@ -138,8 +146,12 @@ public class GameMenuView extends ViewBase {
     }
     
     // the code for LiveTheYear is found "uncommented" within GameControl class
-    private void liveTheYear(){
-        System.out.println("*** liveTheYear() called. Implementation coming soon... ");
+    private void liveTheYear() throws WheatControlException, GameControlException {
+        System.out.println("\n-------------------------------------------------------------------------");
+        System.out.println("Calling point for methods in WheatControl to meet week 11 team assignment");
+        System.out.println("Let's test method calculateHarvest");
+        WheatControl.calculateLossToRats(50, -1, 10);
+        //WheatControl.calculateHarvest(101, 0);
     }
 
     private void reportsMenu(){

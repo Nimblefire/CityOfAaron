@@ -66,7 +66,11 @@ public class MapControl {
             return null;
         }
         
-        game.getMap().setCurrentLocation(newLocation);
+        // call the current map associated to the current game
+        Map map = game.getMap();
+        // set the new coordinates where the player is moving
+        map.setCurrentLocation(newLocation);
+       
         return game.getMap().getLocations()[newLocation.getRow()][newLocation.getColumn()];
     }
     

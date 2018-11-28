@@ -5,6 +5,7 @@
  */
 package control;
 import model.*;
+import exceptions.*;
 import java.util.Random;
 import java.util.ArrayList;
 
@@ -25,18 +26,18 @@ public class GameControl {
         randValue = random;
     }
     
-    public static int getRandomValue(int lowValue, int highValue){
+    public static int getRandomValue(int lowValue, int highValue) throws GameControlException {
     
         if( lowValue < 0 || highValue < 0 ) {
-            return -1;
+            throw new GameControlException("Function getRandomValue: the lower value and/or the higher value provided cannot be negative");
         } 
 
         if( highValue <= lowValue ){
-            return -2;
+            throw new GameControlException("Function getRandomValue: the higher value cannot be smaller or equal to the lower value");
         }
 
         if ( highValue == Integer.MAX_VALUE){
-            return -3;
+            throw new GameControlException("Function getRandomValue: the higher value can't be equal to 2.147.483.647");
         }
 
         return randValue.nextInt(highValue + 1 - lowValue) + lowValue;
@@ -86,8 +87,9 @@ public class GameControl {
      * 
      * @param playerName
      * @return newGame
+     * @throws GameControlException
      */
-    public static Game createNewGame(String playerName){
+    public static Game createNewGame(String playerName) throws GameControlException {
         //Create new game
         Game newGame = new Game(new Player(playerName), MapControl.createMap(), createStorehouse());
         

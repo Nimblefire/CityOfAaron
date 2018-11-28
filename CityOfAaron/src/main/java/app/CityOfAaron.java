@@ -27,7 +27,15 @@ public class CityOfAaron {
     
     // call the StartProgramView view
     public static void main(String[] args){
-        View startProgramView = new StartProgramView();
-        startProgramView.displayView();
+        
+        try {
+            View startProgramView = new StartProgramView();
+            startProgramView.displayView();
+        } catch (Throwable te) {
+            System.out.println("Exception caught from the main method");
+            System.out.println(te.getMessage());
+            te.printStackTrace();
+            System.exit(0);
+        }
     } 
 }

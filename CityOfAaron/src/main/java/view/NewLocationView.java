@@ -1,10 +1,11 @@
 
 package view;
 
-import java.util.Arrays;
 import model.*;
 import app.CityOfAaron;
 import control.GameControl;
+import control.MapControl;
+import exceptions.GameControlException;
 
 /**
  *
@@ -75,10 +76,14 @@ public class NewLocationView extends ViewBase {
             System.out.println("Row and Column values must be whole numbers.");
             return true;//keep going
         }
-
+        
         //if row = 0,1,2,3,4 and column =  0,1,2,3,4 call moveToLocation
         if ((row > -1 && row < 5) && (column > -1 && column < 5)) {
-            moveToNewLocation(row, column);
+            try {
+                moveToNewLocation(row, column);
+            } catch (GameControlException gc){
+                System.out.println(gc.getMessage());
+            }
         } else {
             System.out.println("Choose coordinate between 0 and 4, try again.\n");
         }
@@ -88,22 +93,20 @@ public class NewLocationView extends ViewBase {
     }
 
     // Define your action handlers here. These are the methods that your doAction() method will call based on the user's input
-    private void moveToNewLocation(int row, int column) {
-
+    private void moveToNewLocation(int row, int column) throws GameControlException {
+        
         Point coordinates = new Point();
         coordinates.setRow(row);
         coordinates.setColumn(column);
         
-        // call the current map associated to the current game
-        Map map = CityOfAaron.getCurrentGame().getMap();
-        map.setCurrentLocation(coordinates);
+        Location mapLocation = MapControl.setCurrentLocation(CityOfAaron.getCurrentGame(), coordinates);
         
-        Location[][] mapLocations = map.getLocations(); 
+        String GameTip = mapLocation.getGameTips(GameControl.getRandomValue(0, mapLocation.getGameTips().length-1));
 
-        System.out.println("You are contemplating the " + mapLocations[row][column].getName() 
-                            + " also known as \""+ mapLocations[row][column].getMapSymbol() 
-                            + "\"\n" + mapLocations[row][column].getDescription() 
-                            + "\n" + "Game Tip: " + mapLocations[row][column].getGameTips(GameControl.getRandomValue(0, mapLocations[row][column].getGameTips().length-1)) 
+        System.out.println("You are contemplating the " + mapLocation.getName() 
+                            + " also known as \""+ mapLocation.getMapSymbol() 
+                            + "\"\n" + mapLocation.getDescription() 
+                            + "\n" + "Game Tip: " + GameTip
                             + "\n");
 
     }

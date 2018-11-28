@@ -67,6 +67,6 @@ public class SaveReportView extends ViewBase {
     // method will call based on the user's input.
 
     private void saveReport(){
-        System.out.println("'Saving report on disk' options coming soon...");
+       System.out.println("'Saving report on disk' options coming soon...");
     }
 }

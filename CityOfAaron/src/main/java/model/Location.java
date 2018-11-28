@@ -5,6 +5,7 @@
  */
 package model;
 import control.GameControl;
+import exceptions.GameControlException;
 import java.io.Serializable;
 
 
@@ -18,9 +19,6 @@ public class Location implements Serializable {
     private String description;
     private String mapSymbol;
     private String[] gameTips;
-    //private String gameTips;
-    //private ArrayList<String>gameTips = new ArrayList<>();
-    //
     
     //default constructor
     public Location() {
@@ -73,14 +71,24 @@ public class Location implements Serializable {
     public void setGameTips(String[] gameTips) {
       this.gameTips = gameTips;
     }
-    
+     
     @Override
-    public String toString() {
+    public String toString() {     
+        int randomValue = 0;
+        
+        try {
+        randomValue = GameControl.getRandomValue(0, 7);
+        } catch (GameControlException gc) {
+            System.out.println(gc.getMessage());
+        } catch (Throwable te) {
+            System.out.println(te.getMessage());
+            te.printStackTrace();
+        }
         return "Location{"
                 + "\n name =" + name
                 + "\n description =" + description
                 + "\n Map symbol =" + mapSymbol
-                + "\n Game Tip =" + gameTips[GameControl.getRandomValue(0, 7)]
+                + "\n Game Tip =" + gameTips[randomValue]
                 + "}";
     }
 }

@@ -20,9 +20,11 @@ public class WheatControlTest {
 
     /**
      * Test of calculateHarvest method, of class WheatControl.
+     * @throws exceptions.GameControlException
+     * @throws exceptions.WheatControlException
      */
     @Test
-        public void test1CalculateHarvest() throws GameControlException {
+    public void test1CalculateHarvest() throws GameControlException, WheatControlException {
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandValue(fakeRandom);
         fakeRandom.add(1);
@@ -36,7 +38,7 @@ public class WheatControlTest {
         
     }
     @Test
-    public void test2CalculateHarvest() throws GameControlException {
+    public void test2CalculateHarvest() throws GameControlException, WheatControlException {
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandValue(fakeRandom);
         fakeRandom.add(2);
@@ -50,7 +52,7 @@ public class WheatControlTest {
         
     }
     @Test
-    public void test3CalculateHarvest() throws GameControlException {
+    public void test3CalculateHarvest() throws GameControlException, WheatControlException {
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandValue(fakeRandom);
         fakeRandom.add(1);
@@ -65,7 +67,7 @@ public class WheatControlTest {
     }
     
     @Test
-    public void test4CalculateHarvest() throws GameControlException {
+    public void test4CalculateHarvest() throws GameControlException, WheatControlException {
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandValue(fakeRandom);
         fakeRandom.add(1);
@@ -80,7 +82,7 @@ public class WheatControlTest {
     }
     
     @Test
-    public void test5CalculateHarvest() throws GameControlException {
+    public void test5CalculateHarvest() throws GameControlException, WheatControlException {
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandValue(fakeRandom);
         fakeRandom.add(1);
@@ -95,7 +97,7 @@ public class WheatControlTest {
     }
     
     @Test
-    public void test6CalculateHarvest() throws GameControlException {
+    public void test6CalculateHarvest() throws GameControlException, WheatControlException {
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandValue(fakeRandom);
         fakeRandom.add(1);
@@ -110,7 +112,7 @@ public class WheatControlTest {
     }
     
      @Test
-    public void test7CalculateHarvest() throws GameControlException {
+    public void test7CalculateHarvest() throws GameControlException, WheatControlException {
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandValue(fakeRandom);
         fakeRandom.add(2);
@@ -125,7 +127,7 @@ public class WheatControlTest {
     }
     
     @Test
-    public void test8CalculateHarvest() throws GameControlException {
+    public void test8CalculateHarvest() throws GameControlException, WheatControlException {
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandValue(fakeRandom);
         fakeRandom.add(2);
@@ -140,7 +142,7 @@ public class WheatControlTest {
     }
     
     @Test
-    public void test9CalculateHarvest() throws GameControlException {
+    public void test9CalculateHarvest() throws GameControlException, WheatControlException {
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandValue(fakeRandom);
         fakeRandom.add(2);
@@ -155,7 +157,7 @@ public class WheatControlTest {
     }
     
      @Test
-    public void test10CalculateHarvest() throws GameControlException {
+    public void test10CalculateHarvest() throws GameControlException, WheatControlException {
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandValue(fakeRandom);
         fakeRandom.add(2);
@@ -170,7 +172,7 @@ public class WheatControlTest {
     }
     
      @Test
-    public void test11CalculateHarvest() throws GameControlException {
+    public void test11CalculateHarvest() throws GameControlException, WheatControlException {
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandValue(fakeRandom);
         fakeRandom.add(1);
@@ -185,7 +187,7 @@ public class WheatControlTest {
     }
     
      @Test
-    public void test12CalculateHarvest() throws GameControlException {
+    public void test12CalculateHarvest() throws GameControlException, WheatControlException {
         FakeRandom fakeRandom = new FakeRandom();
         GameControl.setRandValue(fakeRandom);
         fakeRandom.add(0);
@@ -203,7 +205,7 @@ public class WheatControlTest {
      * Test of calculateLossToRats method, of class WheatControl.
      */
     @Test
-    public void test1CalculateLossToRats() {
+    public void test1CalculateLossToRats() throws GameControlException, WheatControlException {
         System.out.println("calculateLossToRats Test 1");
         int randomNumber = 20;
         int wheatInStorage = 1;
@@ -215,7 +217,7 @@ public class WheatControlTest {
     }
     
     @Test
-    public void test2CalculateLossToRats() {
+    public void test2CalculateLossToRats() throws GameControlException, WheatControlException {
         System.out.println("calculateLossToRats Test 2");
         int randomNumber = 20;
         int wheatInStorage = 1500;
@@ -227,7 +229,7 @@ public class WheatControlTest {
     }
     
     @Test
-    public void test3CalculateLossToRats() {
+    public void test3CalculateLossToRats() throws GameControlException, WheatControlException {
         System.out.println("calculateLossToRats Test 3");
         int randomNumber = 20;
         int wheatInStorage = 1500;
@@ -239,7 +241,7 @@ public class WheatControlTest {
     }
     
     @Test
-    public void test4CalculateLossToRats() {
+    public void test4CalculateLossToRats() throws GameControlException, WheatControlException {
         System.out.println("calculateLossToRats Test 4");
         int randomNumber = 50;
         int wheatInStorage = 1500;
@@ -251,7 +253,7 @@ public class WheatControlTest {
     }
     
     @Test
-    public void test5CalculateLossToRats() {
+    public void test5CalculateLossToRats() throws GameControlException, WheatControlException {
         System.out.println("calculateLossToRats Test 5");
         int randomNumber = 101;
         int wheatInStorage = 150;
@@ -263,7 +265,7 @@ public class WheatControlTest {
     }
     
     @Test
-    public void test6CalculateLossToRats() {
+    public void test6CalculateLossToRats() throws GameControlException, WheatControlException {
         System.out.println("calculateLossToRats Test 6");
         int randomNumber = 50;
         int wheatInStorage = -1;
@@ -274,7 +276,7 @@ public class WheatControlTest {
     }
     
     @Test
-    public void test7CalculateLossToRats() {
+    public void test7CalculateLossToRats() throws GameControlException, WheatControlException {
         System.out.println("calculateLossToRats Test 7");
         int randomNumber = 50;
         int wheatInStorage = 1500;
@@ -285,7 +287,7 @@ public class WheatControlTest {
     }
     
     @Test
-    public void test8CalculateLossToRats() {
+    public void test8CalculateLossToRats() throws GameControlException, WheatControlException {
         System.out.println("calculateLossToRats Test 8");
         int randomNumber = 100;
         int wheatInStorage = 150;
@@ -296,7 +298,7 @@ public class WheatControlTest {
     }
     
     @Test
-    public void test9CalculateLossToRats() {
+    public void test9CalculateLossToRats() throws GameControlException, WheatControlException {
         System.out.println("calculateLossToRats Test 9");
         int randomNumber = 1;
         int wheatInStorage = 150;
@@ -307,7 +309,7 @@ public class WheatControlTest {
     }
     
     @Test
-    public void test10CalculateLossToRats() {
+    public void test10CalculateLossToRats() throws GameControlException, WheatControlException {
         System.out.println("calculateLossToRats Test 10");
         int randomNumber = 20;
         int wheatInStorage = 150;
@@ -318,7 +320,7 @@ public class WheatControlTest {
     }
     
     @Test
-    public void test11CalculateLossToRats() {
+    public void test11CalculateLossToRats() throws GameControlException, WheatControlException {
         System.out.println("calculateLossToRats Test 11");
         int randomNumber = 20;
         int wheatInStorage = 10;

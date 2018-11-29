@@ -82,20 +82,17 @@ public class WheatControl {
         if (randomNumber < 30 && randomNumber >= 1){
             //IF tithingPercentage < 8 THEN wheatEaten = getRandomNumber(6, 10)/100 * wheatInStorage
             if (tithesPercentage < 8){
-                //randomPercentage = GameControl.getRandomValue(6, 10);
-                randomPercentage = 9;
+                randomPercentage = GameControl.getRandomValue(6, 10);
             }
             
             //IF tithingPercentage >= 8 AND tithingPercentage <= 12 THEN wheatEaten = getRandomNumber(3, 7)/100 * wheatInStorage
             if (tithesPercentage >= 8 && tithesPercentage <= 12){
-                //randomPercentage = GameControl.getRandomValue(3, 7);
-                randomPercentage = 7;
+                randomPercentage = GameControl.getRandomValue(3, 7);
             }
             
             //IF tithingPercentage > 12 THEN wheatEaten = getRandomNumber(3, 5)/100 * wheatInStorage
             if (tithesPercentage > 12){
-                //randomPercentage = GameControl.getRandomValue(3, 5);
-                randomPercentage = 4;
+                randomPercentage = GameControl.getRandomValue(3, 5);
             }
         }
         return wheatEaten = randomPercentage * wheatInStorage/100;

@@ -27,7 +27,9 @@ public class GameControl {
     }
     
     public static int getRandomValue(int lowValue, int highValue) throws GameControlException {
-    
+        if (true){
+            throw new RuntimeException("Nasty error");
+        }
         if( lowValue < 0 || highValue < 0 ) {
             throw new GameControlException("Function getRandomValue: the lower value and/or the higher value provided cannot be negative");
         } 
@@ -39,7 +41,7 @@ public class GameControl {
         if ( highValue == Integer.MAX_VALUE){
             throw new GameControlException("Function getRandomValue: the higher value can't be equal to 2.147.483.647");
         }
-
+        
         return randValue.nextInt(highValue + 1 - lowValue) + lowValue;
     } 
     

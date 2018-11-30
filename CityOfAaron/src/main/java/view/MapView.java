@@ -65,10 +65,10 @@ public class MapView extends ViewBase{
     private void printMap(Map map) {
 	// creating and initializing two dimensional array with shortcut syntax
 	for (int i = 0; i < map.getLocations().length; i++) {
-		for (int j = 0; j < map.getLocations()[i].length; j++) {
-			System.out.print("[" + map.getLocations()[i][j].getMapSymbol() + "]" + " ");
-		}
-		System.out.println("");
+            for (int j = 0; j < map.getLocations()[i].length; j++) {
+		System.out.print("[" + map.getLocations()[i][j].getMapSymbol() + "]" + " ");
+            }
+            System.out.println("");
 	}
         System.out.println("\nLegend: ");
         

@@ -35,7 +35,6 @@ public class CityOfAaron {
             System.out.println("Exception caught from the main method");
             System.out.println(te.getMessage());
             te.printStackTrace();
-            //System.exit(0);
         }
     } 
 }

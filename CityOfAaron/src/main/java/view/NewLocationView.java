@@ -78,18 +78,18 @@ public class NewLocationView extends ViewBase {
         }
         
         //if row = 0,1,2,3,4 and column =  0,1,2,3,4 call moveToLocation
-        if ((row > -1 && row < 5) && (column > -1 && column < 5)) {
+        if ((row >= 0 && row < CityOfAaron.getCurrentGame().getMap().getLocations().length) && (column >=0 && column < CityOfAaron.getCurrentGame().getMap().getLocations()[0].length)) {
             try {
                 moveToNewLocation(row, column);
             } catch (GameControlException gc){
                 System.out.println(gc.getMessage());
             }
         } else {
-            System.out.println("Choose coordinate between 0 and 4, try again.\n");
+            System.out.println("Choose coordinates between 0 and " + CityOfAaron.getCurrentGame().getMap().getLocations().length + ", try again.\n");
+            return true;
         }
 
         return false;
-        //return true;
     }
 
     // Define your action handlers here. These are the methods that your doAction() method will call based on the user's input

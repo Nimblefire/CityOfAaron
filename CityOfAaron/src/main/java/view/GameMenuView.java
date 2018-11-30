@@ -152,7 +152,7 @@ public class GameMenuView extends ViewBase {
         System.out.println("\n-------------------------------------------------------------------------");
         System.out.println("Calling point for methods in WheatControl to meet week 11 team assignment");
         System.out.println("Let's test functions for Live the Year");
-        WheatControl.calculateLossToRats(50, -1, 10);
+        //WheatControl.calculateLossToRats(50, -1, 10);
         //WheatControl.calculateHarvest(101, 10);
         //WheatControl.calculateHarvest(15, -2);
         

@@ -57,7 +57,7 @@ public class PayTithingView extends ViewBase {
         try {
             bushels = Integer.parseInt(inputs[0]);
         } catch (NumberFormatException exception) {
-            System.out.println("");
+            System.out.println("Value must be a whole number. Try again.");
             return true;//keep going
         }
         

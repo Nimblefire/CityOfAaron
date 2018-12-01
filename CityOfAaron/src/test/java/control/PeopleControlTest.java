@@ -7,6 +7,8 @@ package control;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
+import exceptions.*;
+
 
 /**
  *
@@ -20,9 +22,10 @@ public class PeopleControlTest {
 
     /**
      * Test of calculateMortality method, of class PeopleControl.
+     * @throws exceptions.PeopleControlException
      */
     @Test
-    public void test1CalculateMortality() {
+    public void test1CalculateMortality() throws PeopleControlException {
         
         
         //Test Case 1
@@ -34,7 +37,7 @@ public class PeopleControlTest {
     }
      
     @Test
-    public void test2CalculateMortality() {
+    public void test2CalculateMortality() throws PeopleControlException {
         //Test Case 2
         System.out.println("\tcalculateMortality Test case 2");
         //call the method
@@ -44,7 +47,7 @@ public class PeopleControlTest {
     }
     
     @Test
-    public void test3CalculateMortality() {
+    public void test3CalculateMortality() throws PeopleControlException{
         //Test Case 3
         System.out.println("\tcalculateMortality Test case 3");
         //call the method
@@ -54,7 +57,7 @@ public class PeopleControlTest {
     }
     
     @Test
-    public void test4CalculateMortality() {
+    public void test4CalculateMortality() throws PeopleControlException{
         //Test Case 4
         System.out.println("\tcalculateMortality Test case 4");
         //call the method
@@ -64,7 +67,7 @@ public class PeopleControlTest {
     }
      
     @Test
-    public void test5CalculateMortality() {
+    public void test5CalculateMortality() throws PeopleControlException {
         //Test Case 5
         System.out.println("\tcalculateMortality Test case 5");
         //call the method
@@ -74,7 +77,7 @@ public class PeopleControlTest {
     }    
     
     @Test
-    public void test6CalculateMortality() {
+    public void test6CalculateMortality() throws PeopleControlException {
         //Test Case 6
         System.out.println("\tcalculateMortality Test case 6");
         //call the method
@@ -84,7 +87,7 @@ public class PeopleControlTest {
     }
     
     @Test
-    public void test7CalculateMortality() {
+    public void test7CalculateMortality() throws PeopleControlException {
         //Test Case 7
         System.out.println("\tcalculateMortality Test case 7");
         //call the method
@@ -94,7 +97,7 @@ public class PeopleControlTest {
     }
     
     @Test
-    public void test8CalculateMortality() {
+    public void test8CalculateMortality() throws PeopleControlException{
         //Test Case 8
         System.out.println("\tcalculateMortality Test case 8");
         //call the method
@@ -104,7 +107,7 @@ public class PeopleControlTest {
     }
 
     @Test
-    public void test9CalculateMortality() {
+    public void test9CalculateMortality() throws PeopleControlException {
         //Test Case 9  
         // this is an extra text case to check how the method handles floating point values
         System.out.println("\tcalculateMortality Test case 9");

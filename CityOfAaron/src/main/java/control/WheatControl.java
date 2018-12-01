@@ -16,16 +16,16 @@ public class WheatControl {
         //int randomTest = GameControl.getRandomValue(low, high);
         int randomNumber = 0;
         
-        //If acresPlanted < 0, then RETURN -1.
+        //If acresPlanted < 0, then RETURN message
         if(acresPlanted < 0) {
             throw new WheatControlException("The amount of acres cannot be negative\n");
         }
 
-        //If tithesOfferings is > than 100, then RETURN -2.
+        //If tithesOfferings is > than 100, then RETURN message
         if(tithesOfferings > 100) {
             throw new WheatControlException("You can't pay a tithing greater than 100% of your bushels\n");
         }
-        //If tithesOfferings is < 0, then RETURN -2.
+        //If tithesOfferings is < 0, then RETURN message
         if(tithesOfferings < 0) {
             throw new WheatControlException("The tithing amount cannot be negative\n");
         }
@@ -58,17 +58,17 @@ public class WheatControl {
         int wheatEaten;
         int randomPercentage = 0;
         
-        //IF randomNumber < 1 OR randomNumber > 100 THEN RETURN -1
+        //IF randomNumber < 1 OR randomNumber > 100 THEN RETURN message
         if (randomNumber < 1 || randomNumber > 100){
             throw new GameControlException("randomNumber out of range\n");
         }
         
-        //IF wheatInStorage < 0 THEN RETURN -2
+        //IF wheatInStorage < 0 THEN RETURN message
         if (wheatInStorage < 0){
             throw new WheatControlException("The amount of wheat in storage cannot be negative\n");
         }
         
-        //IF tithesPercentage < 0 THEN RETURN -3
+        //IF tithesPercentage < 0 THEN RETURN message
         if (tithesPercentage < 0){
             throw new WheatControlException("The tithes percentage cannot be negative\n");
         }

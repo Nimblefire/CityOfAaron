@@ -5,13 +5,15 @@
  */
 package control;
 
+import exceptions.*;
+
 /**
  *
  * @author Team Irwin - DaPonte - Rochira
  */
 public class PeopleControl {
     
-    public static int calculateMortality(int wheatForPeople, int curPop) {
+    public static int calculateMortality(int wheatForPeople, int curPop) throws PeopleControlException {
         // Calculate the number of people who are not fed the amount required to
         // sustain life (20 bushels per person).
         
@@ -21,13 +23,15 @@ public class PeopleControl {
         int deaths = 0;
   
            
-        //IF wheatForPeople < 0 THEN RETURN -1
+        //IF wheatForPeople < 0 THEN RETURN message
         if(wheatForPeople < 0) { 
-            return -1;
+            throw new PeopleControlException("The amount of wheat for people cannot be less than 0.\n");
+        //return -1;
         }
-        //IF curPop <= 0 THEN RETURN -2
+        //IF curPop <= 0 THEN RETURN message
         if(curPop <= 0) { 
-            return -2;
+            throw new PeopleControlException("Current Population should be greater than 0.\n");
+            //return -2;
         }
 
         //IF wheatForPeople > (curPop * 20) THEN deaths = 0

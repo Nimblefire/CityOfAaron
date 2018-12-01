@@ -7,6 +7,7 @@ package control;
 
 import model.*;
 import java.util.HashSet;
+import exceptions.*;
 
 /**
  *
@@ -56,24 +57,6 @@ public class MapControl {
         
         return gameMap;
     }
-            
-    //TODO create a functioning test of the method, check if it really works
-    public static Location setCurrentLocation(Game game, Point newLocation){
-        if (game==null || newLocation == null){
-            return null;
-        } else if (newLocation.getRow() > game.getMap().getLocations().length || newLocation.getColumn() > game.getMap().getLocations()[0].length){
-            System.out.println("Error -1");
-            return null;
-        }
-        
-        // call the current map associated to the current game
-        Map map = game.getMap();
-        // set the new coordinates where the player is moving
-        map.setCurrentLocation(newLocation);
-       
-        return game.getMap().getLocations()[newLocation.getRow()][newLocation.getColumn()];
-    }
-    
     
     public static Location[] createLocationList(){
         String[] gameTips = {"Every person needs 20 bushels of wheat per year in order to survive.", 
@@ -99,8 +82,23 @@ public class MapControl {
         return locationsList;
     }
     
+    //TODO create a functioning test of the method, check if it really works
+    public static Location setCurrentLocation(Game game, Point newLocation)throws MapControlException{
+        if (game==null || newLocation == null){
+            throw new MapControlException("Invalid argument given to the method");
+        }
+        // call the current map associated to the current game
+        Map map = game.getMap();
+        // set the new coordinates where the player is moving
+        map.setCurrentLocation(newLocation);
+       
+        return game.getMap().getLocations()[newLocation.getRow()][newLocation.getColumn()];
+    }
     
-    public static HashSet<Location> getLocationsList(Map map){
+    public static HashSet<Location> getLocationsList(Map map) throws MapControlException{
+        if (map == null){
+            throw new MapControlException("Invalid argument given to the method");
+        }
         HashSet<Location> locations = new HashSet<>();
         for (Location[] locationArray : map.getLocations()){
             for (Location location : locationArray){

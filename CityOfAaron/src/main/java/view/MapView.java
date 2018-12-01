@@ -7,6 +7,7 @@ package view;
 import app.CityOfAaron;
 import control.MapControl;
 import model.*;
+import exceptions.*;
 
 /**
  *
@@ -47,13 +48,16 @@ public class MapView extends ViewBase{
      */
     @Override
     public boolean doAction(String[] inputs){
-        
+        try{
         printMap(CityOfAaron.getCurrentGame().getMap());
         System.out.println("\nYou are in the " + CityOfAaron.getCurrentGame().getMap().getLocations()   //Get the array
                 [CityOfAaron.getCurrentGame().getMap().getCurrentLocation().getRow()]                   //Get the row
                 [CityOfAaron.getCurrentGame().getMap().getCurrentLocation().getColumn()]                //Get the column
                 .getName());                                                                            //Get the name
         pause(5000);
+        } catch (MapControlException me) {
+            System.out.println(me.getMessage());
+        }
         
         // return false so that whoever call us doesn't call us again 
         return false;
@@ -62,7 +66,7 @@ public class MapView extends ViewBase{
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input.
     
-    private void printMap(Map map) {
+    private void printMap(Map map) throws MapControlException{
 	// creating and initializing two dimensional array with shortcut syntax
 	for (int i = 0; i < map.getLocations().length; i++) {
             for (int j = 0; j < map.getLocations()[i].length; j++) {
@@ -72,7 +76,7 @@ public class MapView extends ViewBase{
 	}
         System.out.println("\nLegend: ");
         
-        for (Location location : MapControl.getLocationsList(map)){
+        for (Location location : MapControl.getLocationsList(map)) {
             System.out.println(location.getMapSymbol() + " - " + location.getName());
         }
     }

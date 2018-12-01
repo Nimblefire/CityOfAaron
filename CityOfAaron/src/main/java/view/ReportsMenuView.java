@@ -63,10 +63,7 @@ public class ReportsMenuView extends ViewBase {
                         reportAuthors();
                     } catch (GameControlException gc) {
                             System.out.println(gc.getMessage());
-                    } catch (Throwable te) {
-                        System.out.println(te.getMessage());
-                        te.printStackTrace();
-                    }
+                    } 
                 break;
             case "L":
                 reportLivestocks();
@@ -103,22 +100,38 @@ public class ReportsMenuView extends ViewBase {
         
         /**
         System.out.println("\nFollow the list of male authors:");
-        control.StorehouseControl.pickAuthorsByTitle("Mr");
-
+        ArrayList<String> maleAuths = control.StorehouseControl.pickAuthorsByTitle("Mr");
+        for(String auth : maleAuths){
+            System.out.println(auth);
+        }
+          
         System.out.println("\nFollow the list of female authors:");
-        control.StorehouseControl.pickAuthorsByTitle("Mrs");
-
-        System.out.println("\nFollow the longest author's name");
-        control.StorehouseControl.pickAuthorLongestName();
-
-        System.out.println("\nFollow the name of an author randomly chosen by the system");
-        control.StorehouseControl.pickAuthorByRandomIndex(GameControl.getRandomValue(0, authors.length-1));
+        ArrayList<String> femaleAuths = control.StorehouseControl.pickAuthorsByTitle("Mrs");
+        for(String auth : femaleAuths){
+            System.out.println(auth);
+        }
         
+        System.out.println("\nFollow the longest author's name");
+        String authorLong = control.StorehouseControl.pickAuthorLongestName();
+        System.out.println(authorLong);
+        */
+        
+        System.out.println("\nFollow the name of an author randomly chosen by the system");
+        String author = control.StorehouseControl.pickAuthorByRandomIndex(GameControl.getRandomValue(0, authors.length-1));
+        System.out.println(author);
+        
+        /**
         System.out.println("\nFollow the alphabetical list of the authors by using the sort() method");
-        control.StorehouseControl.sortAuthorsByName();
+        String[] sortedAuth = control.StorehouseControl.sortAuthorsByName();
+        for(String name : sortedAuth){
+                System.out.println(name);
+            }
         
         System.out.println("\nFollow the alphabetical list of the authors by using the bubble sort method");
-        control.StorehouseControl.sortAuthorsByNameAlgorithm();
+        Author[] sortedAuthByLogarithm = control.StorehouseControl.sortAuthorsByNameAlgorithm();
+        for(Author aut : sortedAuthByLogarithm){
+            System.out.println(aut.getName());
+        }
         */
         
         // LET'S TEST ONE OF THE GAMECONTROLEXCEPTION ERRORS

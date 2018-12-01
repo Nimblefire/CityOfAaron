@@ -5,7 +5,7 @@ import model.*;
 import app.CityOfAaron;
 import control.GameControl;
 import control.MapControl;
-import exceptions.GameControlException;
+import exceptions.*;
 
 /**
  *
@@ -59,45 +59,33 @@ public class NewLocationView extends ViewBase {
      */
     @Override
     public boolean doAction(String[] inputs) {
-
-        if (inputs[0] == null || inputs[1] == null || inputs[0].equals("") || inputs[1].equals("")) {
-            System.out.println("Missing coordinates. Returning to the Game menu...");
-            return false;
-        }
-        //False breaks out of loop and returns to who called it, which is Game menu in this case.
-        //If true it moves on to the next statement.
-
+        
         //declare int row and int column and assign the values from string row and string column that were entered in by the player.
         int row, column;
         try {
             row = Integer.parseInt(inputs[0]);
             column = Integer.parseInt(inputs[1]);
         } catch (NumberFormatException exception) {
-            System.out.println("Row and Column values must be whole numbers.");
+            System.out.println("Row and Column values must be whole numbers.\n");
             return true;//keep going
         }
         
-        //if row = 0,1,2,3,4 and column =  0,1,2,3,4 call moveToLocation
-        if ((row >= 0 && row < CityOfAaron.getCurrentGame().getMap().getLocations().length) && (column >=0 && column < CityOfAaron.getCurrentGame().getMap().getLocations()[0].length)) {
-            try {
-                moveToNewLocation(row, column);
-            } catch (GameControlException gc){
-                System.out.println(gc.getMessage());
-            }
-        } else {
-            System.out.println("Choose coordinates between 0 and " + CityOfAaron.getCurrentGame().getMap().getLocations().length + ", try again.\n");
+        try {
+            moveToNewLocation(row, column);
+        } catch (GameControlException | ArrayIndexOutOfBoundsException | MapControlException ce){
+            System.out.println(ce.getMessage());
+            System.out.println("Choose coordinates between 0 and " + (CityOfAaron.getCurrentGame().getMap().getLocations().length-1) + ", try again.\n");
+            pause(2000);
             return true;
         }
-
+        
         return false;
     }
 
     // Define your action handlers here. These are the methods that your doAction() method will call based on the user's input
-    private void moveToNewLocation(int row, int column) throws GameControlException {
+    private void moveToNewLocation(int row, int column) throws GameControlException, MapControlException {
         
-        Point coordinates = new Point();
-        coordinates.setRow(row);
-        coordinates.setColumn(column);
+        Point coordinates = new Point(row, column);
         
         Location mapLocation = MapControl.setCurrentLocation(CityOfAaron.getCurrentGame(), coordinates);
         

@@ -81,13 +81,8 @@ public class StorehouseControl {
 
     public static void pickAuthorByRandomIndex(int randomIndex) {
         Author[] authors = CityOfAaron.getCurrentGame().getStorehouse().getAuthors();
-        int index = 0;
-        for (Author author : authors) {
-            if (randomIndex == Arrays.asList(authors).indexOf(author)) {
-                index = randomIndex;
-            }
-        }
-        System.out.println(authors[index].getTitle().toUpperCase() + " " + authors[index].getName());
+        String author = authors[randomIndex].getTitle().toUpperCase() + " " + authors[randomIndex].getName();
+        System.out.println(author);
     }
     
     public static void sortAuthorsByName(){

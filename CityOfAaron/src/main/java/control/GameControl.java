@@ -27,10 +27,9 @@ public class GameControl {
     }
     
     public static int getRandomValue(int lowValue, int highValue) throws GameControlException {
-        //if (true){
-            //throw new RuntimeException("Nasty error");  // Test Throwable error from Main
+        // if (true){
+        //    throw new RuntimeException("Nasty error");
         //}
-        
         if( lowValue < 0 || highValue < 0 ) {
             throw new GameControlException("Function getRandomValue: the lower value and/or the higher value provided cannot be negative");
         } 

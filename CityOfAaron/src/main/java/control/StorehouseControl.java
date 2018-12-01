@@ -56,17 +56,18 @@ public class StorehouseControl {
     }
 
     // created by Andrea Rochira
-    public static void pickAuthorsByTitle(String title) {
+    public static ArrayList<String> pickAuthorsByTitle(String title) {
         Author[] authors = CityOfAaron.getCurrentGame().getStorehouse().getAuthors();
-
+        ArrayList<String> auTitle = new ArrayList<>();
         for (Author author : authors) {
             if (author.getTitle().equals(title)) {
-                System.out.println(author.getTitle().toUpperCase() + " " + author.getName());
+                auTitle.add(author.getTitle().toUpperCase() + " " + author.getName());
             }
         }
+        return auTitle;
     }
 
-    public static void pickAuthorLongestName() {
+    public static String pickAuthorLongestName() {
         Author[] authors = CityOfAaron.getCurrentGame().getStorehouse().getAuthors();
         int maxLength = 0;
         int index = 0;
@@ -76,16 +77,17 @@ public class StorehouseControl {
                 index = Arrays.asList(authors).indexOf(author);
             }
         }
-        System.out.println(authors[index].getTitle().toUpperCase() + " " + authors[index].getName());
+        String author = authors[index].getTitle().toUpperCase() + " " + authors[index].getName();
+        return author;
     }
 
-    public static void pickAuthorByRandomIndex(int randomIndex) {
+    public static String pickAuthorByRandomIndex(int randomIndex) {
         Author[] authors = CityOfAaron.getCurrentGame().getStorehouse().getAuthors();
         String author = authors[randomIndex].getTitle().toUpperCase() + " " + authors[randomIndex].getName();
-        System.out.println(author);
+        return author;
     }
     
-    public static void sortAuthorsByName(){
+    public static String[] sortAuthorsByName(){
         Author[] authors = CityOfAaron.getCurrentGame().getStorehouse().getAuthors();
         String[] sortedAuth = new String[authors.length];
         int i = 0;
@@ -95,13 +97,11 @@ public class StorehouseControl {
                 i++;
             }
         Arrays.sort(sortedAuth);
-            for(String name : sortedAuth){
-                System.out.println(name);
-            }
+        return sortedAuth;    
     }
     
     // credit to Brother Anderson
-    public static void sortAuthorsByNameAlgorithm(){
+    public static Author[] sortAuthorsByNameAlgorithm(){
         Author[] authors = CityOfAaron.getCurrentGame().getStorehouse().getAuthors();
         
         for (int i=0; i < authors.length-1; i++){
@@ -117,10 +117,8 @@ public class StorehouseControl {
             }
         }
         
-        // print
-        for (Author author : authors){
-            System.out.println(author.getName());
-        }
+        // return
+        return authors;
     }
     
 }

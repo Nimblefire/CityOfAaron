@@ -2,8 +2,6 @@
 package view;
 import app.CityOfAaron;
 import control.GameControl;
-import java.util.Scanner;
-
 
 /**
  *
@@ -53,7 +51,7 @@ public class LoadGameView extends ViewBase {
     public boolean doAction(String[] inputs){
         
         if ( inputs[0] == null || inputs[0].equals("") ) {
-            System.out.println("Error. Returning to the Main menu...");
+            ErrorView.display(this.getClass().getName(),"Error. Returning to the Main menu...");
             return false; 
         } 
         //false breaks out of loop and returns to who called it, which is the Main Menu
@@ -63,7 +61,7 @@ public class LoadGameView extends ViewBase {
         
         String filename = inputs[0];
         CityOfAaron.setCurrentGame(GameControl.loadSavedgame(filename));
-        System.out.println("\nWelcome to your saved game " + CityOfAaron.getCurrentGame().getPlayer().getName() + ". Everything is ready to continue your reign.\n");
+        console.println("\nWelcome to your saved game " + CityOfAaron.getCurrentGame().getPlayer().getName() + ". Everything is ready to continue your reign.\n");
         
         GameMenuView view = new GameMenuView();
         view.displayView();

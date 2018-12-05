@@ -4,7 +4,10 @@
 
 package view;
 
-import java.util.Scanner;
+import app.CityOfAaron;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  *
@@ -16,10 +19,12 @@ public abstract class ViewBase implements View {
     public ViewBase(){
     }
     
+    // references to the character stream objects created in the main class (CityOfAaron)
+    protected final BufferedReader keyboard = CityOfAaron.getInFile();
+    protected final PrintWriter console = CityOfAaron.getOutFile();
     
     // Get the view's content (allows to display dynamic content)
     protected abstract String getMessage();
-    
     
     /**
      * Get all the inputs from the user
@@ -27,8 +32,7 @@ public abstract class ViewBase implements View {
      * @return
      */
     protected abstract String[] getInputs();
-    
-    
+       
     /**
      * Perform the action selected by the user
      * 
@@ -51,7 +55,7 @@ public abstract class ViewBase implements View {
             
             String message = getMessage();
             if (message != null) {
-                System.out.println(getMessage());
+                console.println(getMessage());
             }
             
             String[] inputs = getInputs();
@@ -67,27 +71,31 @@ public abstract class ViewBase implements View {
      */ 
     protected String getUserInput(String prompt, boolean allowEmpty){
         
-        Scanner keyboard = new Scanner(System.in);
+        //Scanner keyboard = new Scanner(System.in);
         String input = "";
         boolean inputReceived = false;
-        
-        while(inputReceived == false){
-            
-            System.out.println(prompt);
-            input = keyboard.nextLine();
-            
-            // Make sure we avoid a null-pointer error.
-            if (input == null){
-                input = "";
+        try {
+            while(inputReceived == false){
+
+                console.println(prompt);
+                input = keyboard.readLine();
+
+                // Make sure we avoid a null-pointer error.
+                if (input == null){
+                    input = "";
+                }
+
+                // Trim any trailing whitespace, including the carriage return.
+                input = input.trim();
+
+                if (input.equals("") == false || allowEmpty == true){
+                    inputReceived = true;
+                }
             }
-            
-            // Trim any trailing whitespace, including the carriage return.
-            input = input.trim();
-            
-            if (input.equals("") == false || allowEmpty == true){
-                inputReceived = true;
-            }
+        } catch (IOException ioe) {
+            ErrorView.display(this.getClass().getName(), "Error reading input: " + ioe.getMessage());
         }
+            
         return input;   
     }
     

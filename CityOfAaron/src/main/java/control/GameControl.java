@@ -4,8 +4,14 @@
  * and open the template in the editor.
  */
 package control;
+import app.CityOfAaron;
 import model.*;
 import exceptions.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Random;
 import java.util.ArrayList;
 
@@ -170,4 +176,49 @@ public class GameControl {
         }
         return false;
     }
+    
+    // Save Game Method
+    public static void saveGame(Game game, String filePath) throws GameControlException, IOException {
+        
+        if ( game == null || (filePath == null || filePath.length() < 1 )) {
+            throw new GameControlException("The game object OR the file path is null");
+        }
+        
+        try (ObjectOutputStream objectStream =
+            new ObjectOutputStream(new FileOutputStream(filePath))) {
+
+            objectStream.writeObject(game);
+
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+    }
+    
+    // Load saved game
+    public static Game getGame(String filePath) throws GameControlException, IOException {
+        
+        if ( filePath == null || filePath.length() < 1 ) {
+            throw new GameControlException("The file path is null");
+        } 
+        
+        Game game = null;
+        
+        try (ObjectInputStream objectStream = new ObjectInputStream(new FileInputStream(filePath))) {
+
+            game = (Game)objectStream.readObject();
+
+        } catch (IOException | ClassNotFoundException exception) {
+                
+            exception.printStackTrace();
+        }
+        
+        CityOfAaron.setCurrentGame(game);
+        
+        Player player = CityOfAaron.getCurrentGame().getPlayer();
+        
+        CityOfAaron.getCurrentGame().setPlayer(player);
+        
+        return game;
+    }
+    
 }

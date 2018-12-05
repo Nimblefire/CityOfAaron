@@ -63,7 +63,7 @@ public class SaveGameView extends ViewBase {
         } catch (IOException | GameControlException e) {
             
             ErrorView.display(this.getClass().getName(),e.getMessage());
-            pause(2000);
+            pause(3000);
             return false;
         }
                       

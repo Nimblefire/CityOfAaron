@@ -70,9 +70,7 @@ public class NewGameView extends ViewBase{
         
         GameMenuView view = new GameMenuView();
         view.displayView();
-        
-        
-        
+         
         // to interrupt the loop of displayView method
         return false;
     }    

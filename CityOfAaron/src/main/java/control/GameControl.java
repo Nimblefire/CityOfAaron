@@ -178,7 +178,7 @@ public class GameControl {
     }
     
     // Save Game Method
-    public static void saveGame(Game game, String fileName) throws GameControlException, IOException {
+    public static boolean saveGame(Game game, String fileName) throws GameControlException, IOException {
         
         if ( game == null || (fileName == null || fileName.length() < 1 )) {
             throw new GameControlException("The game object OR the file path is null");
@@ -192,12 +192,14 @@ public class GameControl {
             objectStream.writeObject(game);
 
         } catch (IOException exception) {
-            exception.printStackTrace();
+            throw exception;
         }
+        
+        return true;
     }
     
     // Load saved game
-    public static Game getGame(String fileName) throws GameControlException, IOException {
+    public static boolean getGame(String fileName) throws GameControlException, IOException {
         
         if ( fileName == null || fileName.length() < 1 ) {
             throw new GameControlException("The file path is null");
@@ -205,20 +207,18 @@ public class GameControl {
         
         String newFilePath = fileName + ".dat";
         
-        Game game = null;
-        
         try (ObjectInputStream objectStream = new ObjectInputStream(new FileInputStream(newFilePath))) {
 
-            game = (Game)objectStream.readObject();
+            Game game = (Game)objectStream.readObject();
+            
+            CityOfAaron.setCurrentGame(game);
 
-        } catch (IOException | ClassNotFoundException exception) {
-                
-            exception.printStackTrace();
-        }
-        
-        CityOfAaron.setCurrentGame(game);
-        
-        return game;
-    }
-    
+        } catch (ClassNotFoundException exception) {
+               
+            exception.getMessage();
+            return false;
+            
+        }  
+        return true;
+    }  
 }

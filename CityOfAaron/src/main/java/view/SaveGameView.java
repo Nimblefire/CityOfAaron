@@ -57,10 +57,13 @@ public class SaveGameView extends ViewBase {
         Game game = CityOfAaron.getCurrentGame();
         
         try {
-            GameControl.saveGame(game,fileName);
-            console.println("Checkpoint successfully saved in " + fileName);
+            if ( GameControl.saveGame(game,fileName)  ) {
+            console.println("Checkpoint successfully saved in " + fileName);}
+            
         } catch (IOException | GameControlException e) {
+            
             ErrorView.display(this.getClass().getName(),e.getMessage());
+            pause(2000);
             return false;
         }
                       

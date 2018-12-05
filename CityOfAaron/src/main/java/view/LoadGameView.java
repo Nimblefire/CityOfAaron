@@ -2,6 +2,8 @@
 package view;
 import app.CityOfAaron;
 import control.GameControl;
+import exceptions.GameControlException;
+import java.io.IOException;
 
 /**
  *
@@ -50,37 +52,21 @@ public class LoadGameView extends ViewBase {
     @Override
     public boolean doAction(String[] inputs){
         
-        if ( inputs[0] == null || inputs[0].equals("") ) {
-            ErrorView.display(this.getClass().getName(),"Error. Returning to the Main menu...");
-            return false; 
-        } 
-        //false breaks out of loop and returns to who called it, which is the Main Menu
-        // If true, moves to next statement
+        String filePath = inputs[0];
         
+        try {
+            GameControl.getGame(filePath);
+        } catch (IOException | GameControlException e) {
+            ErrorView.display(this.getClass().getName(),e.getMessage());
+            return true;
+        }
         
-        
-        String filename = inputs[0];
-        CityOfAaron.setCurrentGame(GameControl.loadSavedgame(filename));
         console.println("\nWelcome to your saved game " + CityOfAaron.getCurrentGame().getPlayer().getName() + ". Everything is ready to continue your reign.\n");
         
         GameMenuView view = new GameMenuView();
         view.displayView();
         
-        //loadSavedgame();
-        
-        // to interrupt the loop of displayView method
         return false;
     }
-    
-   
-    
-    // Define your action handlers here. These are the methods that your doAction()
-    // method will call based on the user's input. We don't want to do a lot of 
-    // complex game stuff in our doAction() method. It will get messy very quickly.
-    
-    
-   // private void loadSavedgame(){
-       // System.out.println("**** loadSavedgame() called. Implementation coming soon.");
-    //}
 }
 

@@ -4,6 +4,11 @@
  * and open the template in the editor.
  */
 package view;
+import app.CityOfAaron;
+import control.GameControl;
+import model.Game;
+import exceptions.GameControlException;
+import java.io.IOException;
 
 /**
  *
@@ -17,9 +22,8 @@ public class SaveGameView extends ViewBase {
     
     @Override
     protected String getMessage(){
-        return "\nDo you want to save your progress and create a checkpoint?\n"
-                + "Y - Save your progress and create a checkpoint\n"
-                + "N - Back to Game Menu\n";
+        return "\nHere you can save your progress and create a checkpoint." + 
+                "\nYou can specify just a file name or its absolute path.\n";
     }
     
     /**
@@ -33,7 +37,7 @@ public class SaveGameView extends ViewBase {
         String[] inputs = new String[1];
         
         // the following string is printed to the console by the statement 'System.out.println(prompt)'
-        inputs[0] = getUserInput("Select an action to proceed:");
+        inputs[0] = getUserInput("Please, enter a file name or a file path: ");
         
         // Repeat for each input you need, putting it into its proper slot in the array.
          
@@ -47,28 +51,20 @@ public class SaveGameView extends ViewBase {
      * should exit and return to the previous view.
      */
     @Override
-    public boolean doAction(String[] inputs){
-
-        switch ( inputs[0].trim().toUpperCase() ){
-            case "Y":
-                saveGame();
-                break;
-            case "N":
-                System.out.println("\nBack to Game Menu...\n");
-                break;
-            default:
-                System.out.println("\nInvalid selection, try again.\n");
-                return true;
+    public boolean doAction(String[] inputs) {
+        
+        String filePath = inputs[0];
+        Game game = CityOfAaron.getCurrentGame();
+        
+        try {
+            GameControl.saveGame(game,filePath);
+        } catch (IOException | GameControlException e) {
+            ErrorView.display(this.getClass().getName(),e.getMessage());
+            return true;
         }
+        
+        console.println("Checkpoint successfully saved in " + filePath);
                       
-       return false; 
-    }
-    
-    // Define your action handlers here. These are the methods that your doAction()
-    // method will call based on the user's input.
-
-    private void saveGame(){
-        System.out.println("\n'Saving progress on disk' implementation coming soon...\n");
-    }
-    
+        return false; 
+    } 
 }

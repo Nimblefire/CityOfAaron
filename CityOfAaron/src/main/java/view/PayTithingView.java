@@ -49,7 +49,7 @@ public class PayTithingView extends ViewBase {
     public boolean doAction(String[] inputs){
         //Check to see if input is empty or null
         if ( inputs[0] == null ||  inputs[0].equals("")) {
-            System.out.println("Missing donation. Returning to the Manage Crops menu...");
+            ErrorView.display(this.getClass().getName(),"Missing donation. Returning to the Manage Crops menu...");
             return false; 
         }
         // declare int bushel and assign value from string
@@ -57,36 +57,23 @@ public class PayTithingView extends ViewBase {
         try {
             bushels = Integer.parseInt(inputs[0]);
         } catch (NumberFormatException exception) {
-            System.out.println("Value must be a whole number. Try again.");
+            ErrorView.display(this.getClass().getName(),"Value must be a whole number. Try again.");
             return true;//keep going
         }
         
         //If bushels is greater than -1 or less than 101, call tithingPaid
-       if (bushels > -1 || bushels < 101) {
+       if (bushels > -1 && bushels < 101) {
             tithesPercent(bushels);
         }
        
        else {
-           System.out.println("Please enter a value between 0 and 100, try again.");
+           ErrorView.display(this.getClass().getName(),"Please enter a value between 0 and 100, try again.");
        }
 
         return false; // back to view that called doAction
     }
     
-    
-    
-    
-    
-    // Define your action handlers here. These are the methods that your doAction()
-    // method will call based on the user's input. We don't want to do a lot of 
-    // complex game stuff in our doAction() method. It will get messy very quickly.
-    
-    
     private void tithesPercent(int bushels){
-       System.out.println(bushels + " percent of wheat bushels paid in tithes and offerings.");
-        
-        //return true;
-        
-        //tithingPercent needsto be saved somewhere
+       console.println(bushels + " percent of wheat bushels paid in tithes and offerings.");
     }
 }

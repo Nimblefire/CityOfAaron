@@ -70,11 +70,11 @@ public class HelpMenuView extends ViewBase {
                 checkStorehouse();
                 break;
             case "B":
-                System.out.println("Exiting Help Menu...");
+                console.println("Exiting Help Menu...");
                 // return false if you want this view to exit and return to the view that called it.
                 return false;
             default: 
-                System.out.println("Invalid selection, try again.");
+                ErrorView.display(this.getClass().getName(),"Invalid selection, try again.");
                 
         }
         return true;
@@ -85,7 +85,7 @@ public class HelpMenuView extends ViewBase {
     // method will call based on the user's input.
     
     private void whatAreTheGoals(){
-        System.out.println("\nGoals of the game\n"
+        console.println("\nGoals of the game\n"
                          + "-----------------\n"
                          + "1. Govern the City of Aaron successfully for a 10 year term of office\n"
                          + "2. Determine how to allocate your bushels of wheat, each year you can\n"
@@ -98,19 +98,19 @@ public class HelpMenuView extends ViewBase {
     }
 
     private void whereIsTheCity(){
-        System.out.println("\nThe legendary City of Aaron, named after the high priest Aaron, brother of Moses, stands in vicinity\nof Moroni and Nephihah. The cities face Irreantum, which, being interpreted, is 'many waters'.\n\n");
+        console.println("\nThe legendary City of Aaron, named after the high priest Aaron, brother of Moses, stands in vicinity\nof Moroni and Nephihah. The cities face Irreantum, which, being interpreted, is 'many waters'.\n\n");
     }
 
     private void viewTheMap(){
-        System.out.println("\nYou can access the Map from the Game Menu, which is available when you start a new\ngame or load a saved game. Each location will teach you something about your role.\n");
+        console.println("\nYou can access the Map from the Game Menu, which is available when you start a new\ngame or load a saved game. Each location will teach you something about your role.\n");
     }
 
     private void moveToLocation(){
-        System.out.println("\nThe Map Menu includes a list of locations from which to choose from\nand move between. You will be moving by foot or by horse.\n");
+        console.println("\nThe Map Menu includes a list of locations from which to choose from\nand move between. You will be moving by foot or by horse.\n");
     }
 
     private void checkStorehouse(){
-        System.out.println("\nTo display a list of animals, provisions, and tools, access the Game Menu and select Reports Menu or 'R'.\n");
+        console.println("\nTo display a list of animals, provisions, and tools, access the Game Menu and select Reports Menu or 'R'.\n");
     }
     
 }

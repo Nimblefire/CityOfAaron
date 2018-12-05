@@ -62,7 +62,7 @@ public class ReportsMenuView extends ViewBase {
                     try {
                         reportAuthors();
                     } catch (GameControlException gc) {
-                            System.out.println(gc.getMessage());
+                            ErrorView.display(this.getClass().getName(),gc.getMessage());
                     } 
                 break;
             case "L":
@@ -75,10 +75,10 @@ public class ReportsMenuView extends ViewBase {
                 reportTools();
                 break;
             case "B":
-                System.out.println("Exiting Report Menu...\n");
+                console.println("Exiting Report Menu...\n");
                 return false;
             default:
-                System.out.println("Invalid selection, try again.\n");
+                console.println("Invalid selection, try again.\n");
         }
 
         return true;
@@ -90,15 +90,15 @@ public class ReportsMenuView extends ViewBase {
         // Get authors from the Storehouse 
         Author[] authors = CityOfAaron.getCurrentGame().getStorehouse().getAuthors();
         int i = 0;
-        System.out.println("\nLet's get to know the authors:\n");
+        console.println("\nLet's get to know the authors:\n");
 
         // Display the Authors
         do {
-            System.out.println(authors[i].getTitle().toUpperCase() + " " + authors[i].getName());
+            console.println(authors[i].getTitle().toUpperCase() + " " + authors[i].getName());
             i++;
         } while (i < authors.length);
         
-        /**
+        /*
         System.out.println("\nFollow the list of male authors:");
         ArrayList<String> maleAuths = control.StorehouseControl.pickAuthorsByTitle("Mr");
         for(String auth : maleAuths){
@@ -114,33 +114,30 @@ public class ReportsMenuView extends ViewBase {
         System.out.println("\nFollow the longest author's name");
         String authorLong = control.StorehouseControl.pickAuthorLongestName();
         System.out.println(authorLong);
-        */
         
         System.out.println("\nFollow the name of an author randomly chosen by the system");
         String author = control.StorehouseControl.pickAuthorByRandomIndex(GameControl.getRandomValue(0, authors.length-1));
         System.out.println(author);
         
-        /**
         System.out.println("\nFollow the alphabetical list of the authors by using the sort() method");
         String[] sortedAuth = control.StorehouseControl.sortAuthorsByName();
         for(String name : sortedAuth){
                 System.out.println(name);
-            }
+        }
         
         System.out.println("\nFollow the alphabetical list of the authors by using the bubble sort method");
         Author[] sortedAuthByLogarithm = control.StorehouseControl.sortAuthorsByNameAlgorithm();
         for(Author aut : sortedAuthByLogarithm){
             System.out.println(aut.getName());
         }
-        */
         
         // LET'S TEST ONE OF THE GAMECONTROLEXCEPTION ERRORS
-        System.out.println("\nRaise a GameControlException error when the author is randomly chosen" + 
-                           "\nby providing negative values to the getRandomValue function"+
-                           "\n---------------------------------------------------------------------");
-        control.StorehouseControl.pickAuthorByRandomIndex(GameControl.getRandomValue(0, -1));
         
-        /**
+        //System.out.println("\nRaise a GameControlException error when the author is randomly chosen" + 
+        //                   "\nby providing negative values to the getRandomValue function"+
+        //                   "\n---------------------------------------------------------------------");
+        // control.StorehouseControl.pickAuthorByRandomIndex(GameControl.getRandomValue(0, -1));
+        
         System.out.println("\nRaise a GameControlException error when the author is randomly chosen" + 
                            "\nby providing a higher value which is smaller than the lower one"+
                            "\n---------------------------------------------------------------------");
@@ -160,7 +157,7 @@ public class ReportsMenuView extends ViewBase {
     private void reportLivestocks() {
         // Get animals from Storehouse
         for (int i = 0; i < CityOfAaron.getCurrentGame().getStorehouse().getAnimals().size(); i++) {
-            System.out.println("\nName: " + CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getName()
+            console.println("\nName: " + CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getName()
                     + "\nAge: " + CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getAge()
                     + "\nCondition: " + CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getCondition()
                     + "\nQuantity: " + CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getQuantity());
@@ -168,24 +165,24 @@ public class ReportsMenuView extends ViewBase {
         }
 
         // List Animals in Alphabetical Order
-        System.out.println("\nList Animals in Alphabetical order");
+        console.println("\nList Animals in Alphabetical order");
         control.StorehouseControl.sortAnimalbyName();
 
         for (Animal animal : CityOfAaron.getCurrentGame().getStorehouse().getAnimals()) {
-            System.out.println(animal);
+            console.println(animal);
         }
         //Filter the Animals in GOOD condition
-        System.out.println("\nAnimals in GOOD condition");
+        console.println("\nAnimals in GOOD condition");
         ArrayList<Animal> filteredAnimals = StorehouseControl.filterAnimalbyCondition("GOOD");
         for (Animal animal : filteredAnimals) {
-            System.out.println(animal);
+            console.println(animal);
         }
 
         //Sort Animals by age
-        System.out.println("\nList Animals by Age, oldest to youngest");
+        console.println("\nList Animals by Age, oldest to youngest");
         control.StorehouseControl.sortAnimalbyAge();
         for (Animal animal : CityOfAaron.getCurrentGame().getStorehouse().getAnimals()) {
-            System.out.println(animal);
+            console.println(animal);
         }
 
         SaveReportView view = new SaveReportView();
@@ -194,7 +191,7 @@ public class ReportsMenuView extends ViewBase {
 
     private void reportProvisions() {
         for (int i = 0; i < CityOfAaron.getCurrentGame().getStorehouse().getProvisions().size(); i++) {
-            System.out.println("\nName: " + CityOfAaron.getCurrentGame().getStorehouse().getProvisions().get(i).getName()
+            console.println("\nName: " + CityOfAaron.getCurrentGame().getStorehouse().getProvisions().get(i).getName()
                     + "\nPerishable: " + CityOfAaron.getCurrentGame().getStorehouse().getProvisions().get(i).getPerishable()
                     + "\nCondition: " + CityOfAaron.getCurrentGame().getStorehouse().getProvisions().get(i).getCondition()
                     + "\nQuantity: " + CityOfAaron.getCurrentGame().getStorehouse().getProvisions().get(i).getQuantity());
@@ -207,7 +204,7 @@ public class ReportsMenuView extends ViewBase {
 
     private void reportTools() {
         for (int i = 0; i < CityOfAaron.getCurrentGame().getStorehouse().getTools().size(); i++) {
-            System.out.println("\nName: " + CityOfAaron.getCurrentGame().getStorehouse().getTools().get(i).getName()
+            console.println("\nName: " + CityOfAaron.getCurrentGame().getStorehouse().getTools().get(i).getName()
                     + "\nCondition: " + CityOfAaron.getCurrentGame().getStorehouse().getTools().get(i).getCondition()
                     + "\nQuantity: " + CityOfAaron.getCurrentGame().getStorehouse().getTools().get(i).getQuantity());
             pause(2000);

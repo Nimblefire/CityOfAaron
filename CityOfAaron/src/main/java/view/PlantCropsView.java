@@ -56,7 +56,7 @@ public class PlantCropsView extends ViewBase {
         try {
             acresToPlant = Integer.parseInt(inputs[0]);
         } catch (NumberFormatException exception) {
-            System.out.println("\nThe amount of land must be a whole number. Try again.");
+             ErrorView.display(this.getClass().getName(),"The amount of land must be a whole number. Try again.");
             return true;
         }
         
@@ -68,12 +68,12 @@ public class PlantCropsView extends ViewBase {
         
         // test if the user input is 0 or a positive value
         if ( acresToPlant < 0 ) {
-            System.out.println("\nPlease enter an amount equal or greater than 0");
+            ErrorView.display(this.getClass().getName(),"Please enter an amount equal or greater than 0");
             return true;
         }
         // also test if the user is requiring more land than available
         else if ( acresToPlant > CityOfAaron.getCurrentGame().getAcresOwned() ){
-            System.out.println("\nYou don't have all that land to till, please enter a smaller amount");
+            ErrorView.display(this.getClass().getName(),"You don't have all that land to till, please enter a smaller amount");
             return true;
         }
         else {
@@ -81,16 +81,16 @@ public class PlantCropsView extends ViewBase {
             // in case of odd user inputs and to count 1 bushel also for half acre
             bushelsRequired = (int) Math.ceil(acresToPlant/2);
             if ( bushelsRequired > CityOfAaron.getCurrentGame().getWheatInStorage() ){
-                System.out.println("\nYou don't have all that wheat available, please enter a smaller amount");
+                ErrorView.display(this.getClass().getName(),"You don't have all that wheat available, please enter a smaller amount");
                 return true;
             }
             else {
                 wheatLeftInStorage = CityOfAaron.getCurrentGame().getWheatInStorage() - bushelsRequired;
-                System.out.println("\nThis is the new amount of wheat available in the Storehouse: " + wheatLeftInStorage + "\n\n");
+                console.println("\nThis is the new amount of wheat available in the Storehouse: " + wheatLeftInStorage + "\n\n");
+                //TO DO - update in Live The Year 
                 CityOfAaron.getCurrentGame().setWheatInStorage(wheatLeftInStorage);
             }
-        }
-          
+        }     
         return false;
     }
     

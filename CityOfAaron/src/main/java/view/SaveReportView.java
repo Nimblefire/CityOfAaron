@@ -53,10 +53,10 @@ public class SaveReportView extends ViewBase {
                 saveReport();
                 break;
             case "N":
-                System.out.println("Back to Report Menu...\n");
+                console.println("Back to Report Menu...\n");
                 break;
             default:
-                System.out.println("Invalid selection, try again.\n");
+                ErrorView.display(this.getClass().getName(),"Invalid selection, try again.\n");
                 return true;
         }
                       
@@ -67,6 +67,6 @@ public class SaveReportView extends ViewBase {
     // method will call based on the user's input.
 
     private void saveReport(){
-       System.out.println("'Saving report on disk' options coming soon...");
+       console.println("'Saving report on disk' options coming soon...");
     }
 }

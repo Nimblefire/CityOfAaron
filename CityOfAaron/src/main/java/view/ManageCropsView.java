@@ -69,10 +69,10 @@ public class ManageCropsView extends ViewBase {
                 payTithesOfferings();
                 break;
             case "Q":
-                System.out.println("Exiting Manage Crops Menu...\n");
+                console.println("Exiting Manage Crops Menu...\n");
                 return false;
             default:
-                System.out.println("Invalid selection, try again.\n");
+                ErrorView.display(this.getClass().getName(),"Invalid selection, try again.\n");
         }
                 
        return true; 
@@ -80,12 +80,10 @@ public class ManageCropsView extends ViewBase {
     
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input.
-    
-    // To fulfill the requirements of the rubric (do-while logic + two String methods)
+
     private void buyLand(){
         BuyLandView buyLand = new BuyLandView();
         buyLand.displayView();
-        //System.out.println("Implementation coming soon...");
     }
 
     private void sellLand(){
@@ -106,7 +104,6 @@ public class ManageCropsView extends ViewBase {
     private void payTithesOfferings(){
         PayTithingView payTithing = new PayTithingView();
         payTithing.displayView();
-        //System.out.println("Implementation coming soon...");
     }
     
 }

@@ -62,19 +62,16 @@ public class MainMenuView extends ViewBase {
                 helpMenu();
                 break;
             case "Q":
-                System.out.println("\nHope to see you soon. Good-bye.");
+                console.println("\nHope to see you soon. Good-bye.");
                 // return false if you want this view to exit and return to the view that called it.
                 return false;
             default: 
-                System.out.println("Invalid selection, try again.");
+                ErrorView.display(this.getClass().getName(),"Invalid selection, try again.");
         }
         
         return true;
     }
     
-    
-    // Define your action handlers here. These are the methods that your doAction()
-    // method will call based on the user's input.
     
     private void startNewGame(){
         View newGame = new NewGameView();
@@ -89,7 +86,6 @@ public class MainMenuView extends ViewBase {
     private void loadSavedGame(){
         LoadGameView view = new LoadGameView();
         view.displayView();
-        //System.out.println("*** loadSavedGame() called. Implementation coming soon... ");
     }
 
     

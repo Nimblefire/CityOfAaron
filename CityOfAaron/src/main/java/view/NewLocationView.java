@@ -66,15 +66,15 @@ public class NewLocationView extends ViewBase {
             row = Integer.parseInt(inputs[0]);
             column = Integer.parseInt(inputs[1]);
         } catch (NumberFormatException exception) {
-            System.out.println("Row and Column values must be whole numbers.\n");
+            ErrorView.display(this.getClass().getName(),"Row and Column values must be whole numbers.\n");
             return true;//keep going
         }
         
         try {
             moveToNewLocation(row, column);
         } catch (GameControlException | ArrayIndexOutOfBoundsException | MapControlException ce){
-            System.out.println(ce.getMessage());
-            System.out.println("Choose coordinates between 0 and " + (CityOfAaron.getCurrentGame().getMap().getLocations().length-1) + ", try again.\n");
+            ErrorView.display(this.getClass().getName(),ce.getMessage());
+            ErrorView.display(this.getClass().getName(),"Choose coordinates between 0 and " + (CityOfAaron.getCurrentGame().getMap().getLocations().length-1) + ", try again.\n");
             pause(2000);
             return true;
         }
@@ -91,7 +91,7 @@ public class NewLocationView extends ViewBase {
         
         String GameTip = mapLocation.getGameTips(GameControl.getRandomValue(0, mapLocation.getGameTips().length-1));
 
-        System.out.println("You are contemplating the " + mapLocation.getName() 
+        console.println("\nYou are contemplating the " + mapLocation.getName() 
                             + " also known as \""+ mapLocation.getMapSymbol() 
                             + "\"\n" + mapLocation.getDescription() 
                             + "\n" + "Game Tip: " + GameTip

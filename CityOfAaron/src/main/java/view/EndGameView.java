@@ -71,11 +71,11 @@ public class EndGameView extends ViewBase {
                 mainMenu();
                 break;
             case "E":
-                System.out.println("\nExiting Game...\n");
+                console.println("\nExiting Game...\n");
                 endGame();
                 break;
             default:
-                System.out.println("\nInvalid selection, try again.\n");
+                ErrorView.display(this.getClass().getName(),"\nInvalid selection, try again.\n");
                 return true;
         }
                       

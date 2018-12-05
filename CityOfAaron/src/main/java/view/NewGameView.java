@@ -3,8 +3,6 @@ package view;
 import app.CityOfAaron;
 import control.*;
 import exceptions.GameControlException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
         
 /**
  *
@@ -51,7 +49,7 @@ public class NewGameView extends ViewBase{
     public boolean doAction(String[] inputs){
         
         if ( inputs[0] == null || inputs[0].equals("") ) {
-            System.out.println("No player name entered. Returning to the Main menu...");
+            ErrorView.display(this.getClass().getName(),"No player name entered. Returning to the Main menu...");
             return false; 
         }
 
@@ -60,10 +58,10 @@ public class NewGameView extends ViewBase{
         try {
             CityOfAaron.setCurrentGame(GameControl.createNewGame(playerName));
         } catch (GameControlException gc) {
-            System.out.println(gc.getMessage());
+            ErrorView.display(this.getClass().getName(),gc.getMessage());
         }
         
-        System.out.println("\nWelcome to the game " + CityOfAaron.getCurrentGame().getPlayer().getName() + ". Everything is ready to start your reign.\n\nYou currently have: \n"
+        console.println("\nWelcome to the game " + CityOfAaron.getCurrentGame().getPlayer().getName() + ". Everything is ready to start your reign.\n\nYou currently have: \n"
                             + CityOfAaron.getCurrentGame().getAcresOwned() + " acres\n"
                             + CityOfAaron.getCurrentGame().getWheatInStorage()+ " bushels of wheat\n"
                             + CityOfAaron.getCurrentGame().getCurrentPopulation() + " people in your city");
@@ -77,7 +75,5 @@ public class NewGameView extends ViewBase{
         
         // to interrupt the loop of displayView method
         return false;
-    }
-     
-    // Define your action handlers here. These are the methods that your doAction() method will call based on the user's input
-}
+    }    
+}    

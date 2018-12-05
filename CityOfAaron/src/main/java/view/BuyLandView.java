@@ -1,8 +1,6 @@
 package view;
 
-import java.util.Scanner;
 import app.CityOfAaron;
-import control.*;
 
 /**
  *
@@ -56,7 +54,7 @@ public class BuyLandView extends ViewBase {
         // other functions to call. You can use an if-, if-else,
         // or switch statement.
         if (inputs[0] == null || inputs[0].equals("")) {
-            System.out.println("Missing amount. Returning to the Manage Crops Menu");
+            ErrorView.display(this.getClass().getName(),"Missing amount. Returning to the Manage Crops Menu");
             return false; //if false return to Manage Crops, true keeps going
         }
 
@@ -64,7 +62,7 @@ public class BuyLandView extends ViewBase {
         try {
             acresToBuy = Integer.parseInt(inputs[0]);
         } catch (NumberFormatException exception) {
-            System.out.println("Acres must be a whole number. Try again.");
+            ErrorView.display(this.getClass().getName(),"Acres must be a whole number. Try again.");
             return true;//keep going
         }
 
@@ -80,15 +78,15 @@ public class BuyLandView extends ViewBase {
 
         //if acresToBuy is less than -1 ask player to enter in number 0 or larger. 
         if (acresToBuy < 0) {
-            System.out.println("Please enter a number 0 or larger.");
+            ErrorView.display(this.getClass().getName(),"Please enter a number 0 or larger.");
             return true;
         } //if total wheat price (wheatPrice * acresToBuy) is greater than the wheat in storage, ask user to try again.
         else if (totalWheatCost > CityOfAaron.getCurrentGame().getWheatInStorage()) {
-            System.out.println("You don't have enough wheat, please try again");
+            ErrorView.display(this.getClass().getName(),"You don't have enough wheat, please try again");
             return true;
         } //if acresToBuy is more than people to tend it (1 person can maintain 10 acres), ask user to try again.
         else if ((CityOfAaron.getCurrentGame().getCurrentPopulation() * 10) < (acresToBuy + CityOfAaron.getCurrentGame().getAcresOwned())) {
-            System.out.println(" You don't have enought people to work that amount of land, please enter in another number. ");
+            ErrorView.display(this.getClass().getName()," You don't have enought people to work that amount of land, please enter in another number. ");
             return true;//Have to ask input again
         } else {
             reportAcresOwned(acresToBuy);
@@ -105,13 +103,13 @@ public class BuyLandView extends ViewBase {
         //add the number of acres purchased to the acres owned
         //acresToBuy + acresOwned = acresOwned;
         CityOfAaron.getCurrentGame().setAcresOwned(acresToBuy + CityOfAaron.getCurrentGame().getAcresOwned());
-        System.out.println("You now have " + CityOfAaron.getCurrentGame().getAcresOwned() + " acres of land.\n");
+        console.println("You now have " + CityOfAaron.getCurrentGame().getAcresOwned() + " acres of land.\n");
     }
 
     private void reportWheatInStorage(int wheatPrice, int totalWheatCost) {
         //subtract the wheat used to purchase the land from the wheat in storage
         //CityOfAaron.getCurrentGame().getWheatInStorage() - wheatCost = wheatInStorage;
         CityOfAaron.getCurrentGame().setWheatInStorage(CityOfAaron.getCurrentGame().getWheatInStorage() - totalWheatCost);
-        System.out.println("You now have " + CityOfAaron.getCurrentGame().getWheatInStorage() + " bushels of wheat in storage.\n");
+        console.println("You now have " + CityOfAaron.getCurrentGame().getWheatInStorage() + " bushels of wheat in storage.\n");
     }
 }

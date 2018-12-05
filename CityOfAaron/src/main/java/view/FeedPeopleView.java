@@ -58,7 +58,7 @@ public class FeedPeopleView extends ViewBase{
         try {
             bushelsForFood = Integer.parseInt(inputs[0]);
         } catch (NumberFormatException exception) {
-            System.out.println("The value must be positive whole number.");
+            ErrorView.display(this.getClass().getName(),"The value must be positive whole number.");
             return true;//keep going
         }
         boolean check = checkInput(bushelsForFood);
@@ -69,14 +69,14 @@ public class FeedPeopleView extends ViewBase{
     
     private boolean checkInput(int bushelsForFood){
         if (bushelsForFood < 0){
-            System.out.println("The value must be positive whole number.");
+            ErrorView.display(this.getClass().getName(),"The value must be positive whole number.");
             return true;
         } else if (bushelsForFood > CityOfAaron.getCurrentGame().getWheatInStorage()) {
-            System.out.println("The value is greater than the wheat you have. Please insert a valid value.");
+            ErrorView.display(this.getClass().getName(),"The value is greater than the wheat you have. Please insert a valid value.");
             return true;
         } else {
             CityOfAaron.getCurrentGame().setBushelsForFood(bushelsForFood);
-            System.out.println("You have " + (CityOfAaron.getCurrentGame().getWheatInStorage()-bushelsForFood) + " bushels of wheat left.");
+            console.println("You have " + (CityOfAaron.getCurrentGame().getWheatInStorage()-bushelsForFood) + " bushels of wheat left.");
             return false;
         }
     }

@@ -178,14 +178,16 @@ public class GameControl {
     }
     
     // Save Game Method
-    public static void saveGame(Game game, String filePath) throws GameControlException, IOException {
+    public static void saveGame(Game game, String fileName) throws GameControlException, IOException {
         
-        if ( game == null || (filePath == null || filePath.length() < 1 )) {
+        if ( game == null || (fileName == null || fileName.length() < 1 )) {
             throw new GameControlException("The game object OR the file path is null");
         }
         
+        String newFilePath = fileName + ".dat";
+        
         try (ObjectOutputStream objectStream =
-            new ObjectOutputStream(new FileOutputStream(filePath))) {
+            new ObjectOutputStream(new FileOutputStream(newFilePath))) {
 
             objectStream.writeObject(game);
 
@@ -195,15 +197,17 @@ public class GameControl {
     }
     
     // Load saved game
-    public static Game getGame(String filePath) throws GameControlException, IOException {
+    public static Game getGame(String fileName) throws GameControlException, IOException {
         
-        if ( filePath == null || filePath.length() < 1 ) {
+        if ( fileName == null || fileName.length() < 1 ) {
             throw new GameControlException("The file path is null");
         } 
         
+        String newFilePath = fileName + ".dat";
+        
         Game game = null;
         
-        try (ObjectInputStream objectStream = new ObjectInputStream(new FileInputStream(filePath))) {
+        try (ObjectInputStream objectStream = new ObjectInputStream(new FileInputStream(newFilePath))) {
 
             game = (Game)objectStream.readObject();
 
@@ -213,10 +217,6 @@ public class GameControl {
         }
         
         CityOfAaron.setCurrentGame(game);
-        
-        Player player = CityOfAaron.getCurrentGame().getPlayer();
-        
-        CityOfAaron.getCurrentGame().setPlayer(player);
         
         return game;
     }

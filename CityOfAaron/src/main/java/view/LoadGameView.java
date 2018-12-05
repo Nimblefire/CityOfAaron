@@ -52,16 +52,15 @@ public class LoadGameView extends ViewBase {
     @Override
     public boolean doAction(String[] inputs){
         
-        String filePath = inputs[0];
+        String fileName = inputs[0];
         
         try {
-            GameControl.getGame(filePath);
+            GameControl.getGame(fileName);
+            console.println("\nWelcome to your saved game " + CityOfAaron.getCurrentGame().getPlayer().getName() + ". Everything is ready to continue your reign.\n");
         } catch (IOException | GameControlException e) {
             ErrorView.display(this.getClass().getName(),e.getMessage());
-            return true;
+            return false;
         }
-        
-        console.println("\nWelcome to your saved game " + CityOfAaron.getCurrentGame().getPlayer().getName() + ". Everything is ready to continue your reign.\n");
         
         GameMenuView view = new GameMenuView();
         view.displayView();

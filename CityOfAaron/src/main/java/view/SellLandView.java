@@ -54,14 +54,14 @@ public class SellLandView extends ViewBase {
         // other functions to call. You can use an if-, if-else,
         // or switch statement.
         if (inputs[0] == null || inputs[0].equals("")) {
-            System.out.println("Missing amount. Returning to the Manage Crops Menu");
+            ErrorView.display(this.getClass().getName(),"Missing amount. Returning to the Manage Crops Menu");
             return false; //if false return to Manage Crops, true keeps going
         }
         int acresToSell;
         try {
             acresToSell = Integer.parseInt(inputs[0]);
         } catch (NumberFormatException exception) {
-            System.out.println("Acres must be a whole number. Try again");
+            ErrorView.display(this.getClass().getName(),"Acres must be a whole number. Try again");
             return true;//keep going
         }
         
@@ -75,12 +75,12 @@ public class SellLandView extends ViewBase {
     private boolean inputCheck(int acresToSell){
         //if acresToBuy is less than -1 ask player to enter in number 0 or larger. 
         if (acresToSell < 0) {
-            System.out.println("Please enter a number equal to 0 or larger");
+            ErrorView.display(this.getClass().getName(),"Please enter a number equal to 0 or larger");
             return true;
         }
         //if total wheat price (wheatPrice * acresToBuy) is greater than the wheat in storage, ask user to try again.
         else if ( acresToSell > CityOfAaron.getCurrentGame().getAcresOwned()){
-            System.out.println("You don't have enough acres of land, please try again");
+            ErrorView.display(this.getClass().getName(),"You don't have enough acres of land, please try again");
             return true;
         }
         else {
@@ -93,11 +93,11 @@ public class SellLandView extends ViewBase {
     
     private void reportAcresOwned(int acresToSell) {
         CityOfAaron.getCurrentGame().setAcresOwned(CityOfAaron.getCurrentGame().getAcresOwned() - acresToSell);
-        System.out.println("You now have " + CityOfAaron.getCurrentGame().getAcresOwned() + " acres of land.");
+        console.println("You now have " + CityOfAaron.getCurrentGame().getAcresOwned() + " acres of land.");
     }
     
     private void reportWheatInStorage(int acresToSell) {
         CityOfAaron.getCurrentGame().setWheatInStorage(CityOfAaron.getCurrentGame().getWheatInStorage() + acresToSell * CityOfAaron.getCurrentGame().getLandPrice());
-        System.out.println("You now have " + CityOfAaron.getCurrentGame().getWheatInStorage()  + " bushels of wheat in storage.\n");
+        console.println("You now have " + CityOfAaron.getCurrentGame().getWheatInStorage()  + " bushels of wheat in storage.\n");
     }
 }

@@ -50,13 +50,13 @@ public class MapView extends ViewBase{
     public boolean doAction(String[] inputs){
         try{
         printMap(CityOfAaron.getCurrentGame().getMap());
-        System.out.println("\nYou are in the " + CityOfAaron.getCurrentGame().getMap().getLocations()   //Get the array
+        console.println("\nYou are in the " + CityOfAaron.getCurrentGame().getMap().getLocations()   //Get the array
                 [CityOfAaron.getCurrentGame().getMap().getCurrentLocation().getRow()]                   //Get the row
                 [CityOfAaron.getCurrentGame().getMap().getCurrentLocation().getColumn()]                //Get the column
                 .getName());                                                                            //Get the name
         pause(5000);
         } catch (MapControlException me) {
-            System.out.println(me.getMessage());
+            ErrorView.display(this.getClass().getName(),me.getMessage());
         }
         
         // return false so that whoever call us doesn't call us again 
@@ -70,14 +70,14 @@ public class MapView extends ViewBase{
 	// creating and initializing two dimensional array with shortcut syntax
 	for (int i = 0; i < map.getLocations().length; i++) {
             for (int j = 0; j < map.getLocations()[i].length; j++) {
-		System.out.print("[" + map.getLocations()[i][j].getMapSymbol() + "]" + " ");
+		console.printf("[" + map.getLocations()[i][j].getMapSymbol() + "]" + " ");
             }
-            System.out.println("");
+            console.println("");
 	}
-        System.out.println("\nLegend: ");
+        console.println("\nLegend: ");
         
         for (Location location : MapControl.getLocationsList(map)) {
-            System.out.println(location.getMapSymbol() + " - " + location.getName());
+            console.println(location.getMapSymbol() + " - " + location.getName());
         }
     }
 }

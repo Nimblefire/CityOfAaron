@@ -53,17 +53,16 @@ public class SaveGameView extends ViewBase {
     @Override
     public boolean doAction(String[] inputs) {
         
-        String filePath = inputs[0];
+        String fileName = inputs[0];
         Game game = CityOfAaron.getCurrentGame();
         
         try {
-            GameControl.saveGame(game,filePath);
+            GameControl.saveGame(game,fileName);
+            console.println("Checkpoint successfully saved in " + fileName);
         } catch (IOException | GameControlException e) {
             ErrorView.display(this.getClass().getName(),e.getMessage());
-            return true;
+            return false;
         }
-        
-        console.println("Checkpoint successfully saved in " + filePath);
                       
         return false; 
     } 

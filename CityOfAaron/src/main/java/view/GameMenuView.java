@@ -1,9 +1,7 @@
 
 package view;
 
-import app.CityOfAaron;
 import control.PeopleControl;
-import control.WheatControl;
 import exceptions.GameControlException;
 import exceptions.WheatControlException;
 import exceptions.PeopleControlException;
@@ -56,28 +54,6 @@ public class GameMenuView extends ViewBase {
     }
     
     /**
-     * Control the behavior of this view until the user closes it
-     * As per requirement, each time the Game Menu is displayed, 
-     * the program displays the current annual report.
-     */
-    @Override
-    public void displayView(){
-        
-        boolean keepGoing = true;
-        
-        while (keepGoing == true) {
-            
-            String message = getMessage();
-            if (message != null) {
-                System.out.println(getMessage());
-            }
-            
-            String[] inputs = getInputs();
-            keepGoing = doAction(inputs);      
-        }    
-    }
-    
-    /**
      * Perform the action indicated by the user's input.
      * @param inputs
      * @return true if the view should repeat itself, and false if the view
@@ -103,7 +79,7 @@ public class GameMenuView extends ViewBase {
                 try {
                     liveTheYear();
                 } catch (WheatControlException | GameControlException | PeopleControlException ce) {
-                    System.out.println(ce.getMessage());
+                    ErrorView.display(this.getClass().getName(),ce.getMessage());
                 }
 
                 AnnualReport.displayView();
@@ -118,11 +94,11 @@ public class GameMenuView extends ViewBase {
                 saveGame();
                 break;
             case "B":
-                System.out.println("\nExiting Game Menu...");
+                console.println("\nExiting Game Menu...");
                 // return false if you want this view to exit and return to the view that called it.
                 return false;
             default: 
-                System.out.println("\nInvalid selection, try again.");
+                ErrorView.display(this.getClass().getName(),"\nInvalid selection, try again.");
         }
               
         return true;
@@ -149,20 +125,19 @@ public class GameMenuView extends ViewBase {
     
     // the code for LiveTheYear is found "uncommented" within GameControl class
     private void liveTheYear() throws WheatControlException, GameControlException, PeopleControlException {
-        System.out.println("\n-------------------------------------------------------------------------");
-        System.out.println("Calling point for methods in WheatControl to meet week 11 team assignment");
-        System.out.println("Let's test functions for Live the Year");
+        console.println("\n-------------------------------------------------------------------------");
+        console.println("Calling point for methods in WheatControl to meet week 11 team assignment");
+        console.println("Let's test functions for Live the Year");
         //WheatControl.calculateLossToRats(50, -1, 10);
         //WheatControl.calculateHarvest(101, 10);
         //WheatControl.calculateHarvest(15, -2);
         
-        System.out.println("\n--------------------------------------------------------------------------");
-        System.out.println("Calling point for method in PeopleControl to meet week 11 individual assignment");
-        System.out.println("Let's test calculateMortality");
+        console.println("\n--------------------------------------------------------------------------");
+        console.println("Calling point for method in PeopleControl to meet week 11 individual assignment");
+        console.println("Let's test calculateMortality");
         PeopleControl.calculateMortality(-1, 0);
         //PeopleControl.calculateMortality(0, -1);
-        
-        
+ 
     }
 
     private void reportsMenu(){

@@ -77,6 +77,8 @@ public class ReportsMenuView extends ViewBase {
                     }
                 break;
             case "L":
+                flag ="L";
+                setCurrentFlag(flag);
                 try {
                     reportLivestocks();
                 }catch (GameControlException gc) {

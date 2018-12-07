@@ -21,7 +21,8 @@ public class ReportsMenuView extends ViewBase {
     public static String currentFlag = null;
     public static String getCurrentFlag(){
         return currentFlag;
-    } 
+    }
+    
     public static void setCurrentFlag(String flag){
         currentFlag = flag;
     }
@@ -76,9 +77,13 @@ public class ReportsMenuView extends ViewBase {
                     }
                 break;
             case "L":
-                flag = "L";
+                flag ="L";
                 setCurrentFlag(flag);
-                reportLivestocks();
+                    try {
+                        reportLivestocks();
+                    }catch (GameControlException gc) {
+                            ErrorView.display(this.getClass().getName(), gc.getMessage());
+                    }
                 break;
             case "P":
                 reportProvisions();
@@ -173,39 +178,78 @@ public class ReportsMenuView extends ViewBase {
         */    
     }
 
-    private void reportLivestocks() {
+    private void reportLivestocks() throws GameControlException{
         // Get animals from Storehouse
-        for (int i = 0; i < CityOfAaron.getCurrentGame().getStorehouse().getAnimals().size(); i++) {
-            console.println("\nName: " + CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getName()
-                    + "\nAge: " + CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getAge()
-                    + "\nCondition: " + CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getCondition()
-                    + "\nQuantity: " + CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getQuantity());
+        //for (int i = 0; i < CityOfAaron.getCurrentGame().getStorehouse().getAnimals().size(); i++) {
+            //console.println("\nName: " + CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getName()
+                    //+ "\nAge: " + CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getAge()
+                   // + "\nCondition: " + CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getCondition()
+                    //+ "\nQuantity: " + CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getQuantity());
+            //print title and column headings
+            console.println("\n\nLivestock Report                 ");
+            console.printf("%n%-20s%10s%10s%10s", "Name", "Age", "Condition", "Quantity");
+            console.printf("%n%-20s%10s%10s%10s", "----", "---", "---------", "---------");
+
+            for (int i = 0; i < CityOfAaron.getCurrentGame().getStorehouse().getAnimals().size(); i++) {
+            console.printf("%n%-20s%10s%10s%10s", CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getName(), 
+                    CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getAge(), 
+                    CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getCondition(), 
+                    CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getQuantity());
+            console.println();
             pause(2000);
         }
 
         // List Animals in Alphabetical Order
-        console.println("\nList Animals in Alphabetical order");
+        console.println("\n\nList Animals in Alphabetical order   ");
+        console.printf("%n%-15s%10s%10s%10s", "Name", "Age", "Condition", "Quantity");
+        console.printf("%n%-15s%10s%10s%10s", "----", "---", "---------", "---------");
+        
         control.StorehouseControl.sortAnimalbyName();
 
         for (Animal animal : CityOfAaron.getCurrentGame().getStorehouse().getAnimals()) {
-            console.println(animal);
+            console.printf("%n%-15s%10d%10s%7d", animal.getName()
+                                             , animal.getAge()
+                                             , animal.getCondition()
+                                             , animal.getQuantity());
+        console.println();
+        pause(1000);
+            //console.println(animal);
         }
         //Filter the Animals in GOOD condition
-        console.println("\nAnimals in GOOD condition");
+        console.println("\n\nAnimals in GOOD condition    ");
+        console.printf("%n%-15s%10s%10s%10s", "Name", "Age", "Condition", "Quantity");
+        console.printf("%n%-15s%10s%10s%10s", "----", "---", "---------", "---------");
         ArrayList<Animal> filteredAnimals = StorehouseControl.filterAnimalbyCondition("GOOD");
         for (Animal animal : filteredAnimals) {
-            console.println(animal);
+            console.printf("%n%-15s%10d%10s%7d",animal.getName()
+                                             , animal.getAge()
+                                             , animal.getCondition()
+                                             , animal.getQuantity());
+        //console.println(animal);
+        console.println();
+        pause(1000);
         }
 
         //Sort Animals by age
-        console.println("\nList Animals by Age, oldest to youngest");
+        console.println("\n\nList Animals by Age, oldest to youngest    ");
+        console.printf("%n%-15s%10s%10s%10s", "Name", "Age", "Condition", "Quantity");
+        console.printf("%n%-15s%10s%10s%10s", "----", "---", "---------", "---------");
         control.StorehouseControl.sortAnimalbyAge();
         for (Animal animal : CityOfAaron.getCurrentGame().getStorehouse().getAnimals()) {
-            console.println(animal);
+            console.printf("%n%-15s%10d%10s%7d",animal.getName()
+                                             , animal.getAge()
+                                             , animal.getCondition()
+                                             , animal.getQuantity());
+        console.println();
+        pause(1000);
+        //console.println(animal);
         }
 
         SaveReportView view = new SaveReportView();
         view.displayView();
+        
+        //SaveLivestockReportView view = new SaveLivestockReportView();
+        //view.displayView();
     }
 
     private void reportProvisions() {

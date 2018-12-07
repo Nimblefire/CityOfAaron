@@ -17,6 +17,14 @@ public class ReportsMenuView extends ViewBase {
      */
     public ReportsMenuView() {
     }
+    
+    public static String currentFlag = null;
+    public static String getCurrentFlag(){
+        return currentFlag;
+    } 
+    public static void setCurrentFlag(String flag){
+        currentFlag = flag;
+    }
 
     @Override
     protected String getMessage() {
@@ -56,23 +64,29 @@ public class ReportsMenuView extends ViewBase {
      */
     @Override
     public boolean doAction(String[] inputs) {
-
+        String flag;
         switch (inputs[0].trim().toUpperCase()) {
             case "A":
+                flag = "A";
+                setCurrentFlag(flag);
                     try {
                         reportAuthors();
                     } catch (GameControlException gc) {
                             ErrorView.display(this.getClass().getName(),gc.getMessage());
-                    } 
+                    }
                 break;
             case "L":
+                flag = "L";
+                setCurrentFlag(flag);
                 reportLivestocks();
                 break;
             case "P":
                 reportProvisions();
+
                 break;
             case "T":
                 reportTools();
+
                 break;
             case "B":
                 console.println("Exiting Report Menu...\n");
@@ -89,14 +103,23 @@ public class ReportsMenuView extends ViewBase {
 
         // Get authors from the Storehouse 
         Author[] authors = CityOfAaron.getCurrentGame().getStorehouse().getAuthors();
-        int i = 0;
         console.println("\nLet's get to know the authors:\n");
 
         // Display the Authors
+        for ( Author aut : authors ){
+                console.println(aut.getTitle() +" "+ aut.getName());
+        }
+        
+        SaveReportView view = new SaveReportView();
+        view.displayView();
+
+        /* Alternative
+        int i = 0;
         do {
             console.println(authors[i].getTitle().toUpperCase() + " " + authors[i].getName());
             i++;
         } while (i < authors.length);
+        */
         
         /*
         System.out.println("\nFollow the list of male authors:");
@@ -147,11 +170,7 @@ public class ReportsMenuView extends ViewBase {
                            "\nby providing a higher value that equals integer type upper limit" +
                            "\n----------------------------------------------------------------------------------");
         control.StorehouseControl.pickAuthorByRandomIndex(GameControl.getRandomValue(0, Integer.MAX_VALUE));
-        */
-        
-        SaveReportView view = new SaveReportView();
-        view.displayView();
-
+        */    
     }
 
     private void reportLivestocks() {

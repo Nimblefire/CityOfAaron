@@ -1,5 +1,14 @@
 package view;
 
+/*
+import app.CityOfAaron;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import model.Author;
+import static view.ViewBase.pause;
+*/
+
 /**
  *
  * @author Andrea
@@ -66,7 +75,61 @@ public class SaveReportView extends ViewBase {
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input.
 
-    private void saveReport(){
-       console.println("'Saving report on disk' options coming soon...");
+    private boolean saveReport(){
+        
+        if ( ReportsMenuView.getCurrentFlag().equals("A") ) {
+            SaveAuthorsReport view = new SaveAuthorsReport();
+            view.displayView();
+        }
+        
+        if ( ReportsMenuView.getCurrentFlag().equals("L") ) {
+            console.println("Saving Livestock report test...");
+        }
+        
+        if ( ReportsMenuView.getCurrentFlag().equals("P") ) {
+            console.println("Saving Provision report test...");
+        }
+        
+        if ( ReportsMenuView.getCurrentFlag().equals("T") ) {
+            console.println("Saving Tools report test...");
+        }
+        
+        
+           
+        /*
+        Author[] authors = CityOfAaron.getCurrentGame().getStorehouse().getAuthors();
+        String filename;
+        String test = "Please, enter a file name or file path:";
+        console.println(test);
+        
+        try {
+            filename = keyboard.readLine();
+        } catch (IOException ex) {
+            ErrorView.display(this.getClass().getName(),ex.getMessage());
+            return true;
+        }
+        
+        try (PrintWriter report = new PrintWriter(new FileWriter(filename))) {
+                report.println("\n\tAUTHORS OF THE GAME");
+                report.println();
+
+                String formatString = "%-5s %-20s";
+                report.println(String.format(formatString, "TITLE", "NAME"));
+                report.println("----- --------------------");
+                for ( Author aut : authors ){
+                        report.println(String.format(formatString,aut.getTitle(),aut.getName()));
+                }
+                report.println();
+                report.println("End");
+
+                console.println("\nReport successfully saved in " + filename);
+
+        } catch (IOException e) {
+            ErrorView.display(this.getClass().getName(),"Unreachable or unsupported file path");
+            pause(2000);
+            return true;
+        }
+        */
+        return true;       
     }
 }

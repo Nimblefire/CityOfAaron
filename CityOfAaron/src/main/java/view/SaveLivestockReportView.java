@@ -29,8 +29,8 @@ public class SaveLivestockReportView extends ViewBase {
     protected String getMessage() {
         return null;
         //return "\nDo you want to save this report on your local disk?\n"
-                //+ "Y - Save the report\n"
-                //+ "N - Back to Report Menu\n";
+        //+ "Y - Save the report\n"
+        //+ "N - Back to Report Menu\n";
     }
 
     /*
@@ -61,96 +61,29 @@ public class SaveLivestockReportView extends ViewBase {
         String filename = inputs[0];
         ArrayList<Animal> animals = CityOfAaron.getCurrentGame().getStorehouse().getAnimals();
 
-        
         try (PrintWriter report = new PrintWriter(new FileWriter(filename))) {
             report.println("\n\nLivestock Report                 ");
             report.printf("%n%-20s%10s%10s%10s", "Name", "Age", "Condition", "Quantity");
             report.printf("%n%-20s%10s%10s%10s", "----", "---", "---------", "---------");
-            
-            for (Animal animal : animals ) {
-                report.printf("%n%-20s%10s%10s%10s", animal.getName(),  animal.getAge(), 
-                                                     animal.getCondition(), animal.getQuantity());
+
+            for (Animal animal : animals) {
+                report.printf("%n%-20s%10s%10s%10s", animal.getName(), animal.getAge(),
+                        animal.getCondition(), animal.getQuantity());
             }
+
             report.println();
             report.println("End");
             console.println("\nReport successfully saved in " + filename);
-            
+            report.flush();
+
         } catch (IOException exception) {
-            ErrorView.display(this.getClass().getName(),"Unreachable or unsupported file path");
-            pause(2000);
+            ErrorView.display(this.getClass().getName(), "Unreachable or unsupported file path");
+            exception.printStackTrace();
+            pause(1000);
             return true;
         }
-        
-   return false;
+
+        return false;
     }
-        //switch (inputs[0].trim().toUpperCase()) {
-            //case "Y":
-                //try {
-                //saveAnimalReport();
-                //} catch (GameControlException |  IOException gc) {
-                    //ErrorView.display(this.getClass().getName(), gc.getMessage());
-                //}
-                //break;
-            //case "N":
-                //console.println("Back to Report Menu...\n");
-                //break;
-            //default:
-                //ErrorView.display(this.getClass().getName(), "Invalid selection, try again.\n");
-                //return true;
-        //}
-     
-    // Define your action handlers here. These are the methods that your doAction()
-    // method will call based on the user's input.
 
-   // private void saveReport() {
-       // View saveReport = new SaveLivestockReportView();
-        //saveReport.displayView();
-   // }
-    //private void saveAnimalReport(ArrayList<Animal> animal, String filename) throws GameControlException, IOException {
-
-    //private void saveAnimalReport() throws GameControlException, IOException {
-        
-        //ArrayList<Animal> animal = CityOfAaron.getCurrentGame().getStorehouse().getAnimals();
-        //String filename = "Livestock.txt";
-        
-        //try (PrintWriter report = new PrintWriter(new FileWriter(filename))) {
-            //report.println("\n\nLivestock Report                 ");
-            //report.printf("%n%-20s%10s%10s%10s", "Name", "Age", "Condition", "Quantity");
-            //report.printf("%n%-20s%10s%10s%10s", "----", "---", "---------", "---------");
-            
-            //for (int i = 0; i < CityOfAaron.getCurrentGame().getStorehouse().getAnimals().size(); i++) 
-                //report.printf("%n%-20s%10s%10s%10s", CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getName(),
-                        //CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getAge(),
-                       //CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getCondition(),
-                        //CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getQuantity());
-            //report.println();
-            //report.println("End");
-            //report.flush();
-        //} catch (IOException exception) {
-            //exception.printStackTrace();
-        //}
-        //console.println("'Saving report on disk' options coming soon...");
-        //String fileLocation = "animalreport.txt";
-        //create BufferedReader object for input file
-       // try {
-
-            //print initial report
-            //console.println("\n\nLivestock Report                 ");
-            //console.printf("%n%-20s%10s%10s%10s", "Name", "Age", "Condition", "Quantity");
-            //console.printf("%n%-20s%10s%10s%10s", "----", "---", "---------", "---------");
-
-            //for (int i = 0; i < CityOfAaron.getCurrentGame().getStorehouse().getAnimals().size(); i++) {
-                //console.printf("%n%-20s%10s%10s%10s", CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getName(),
-                        //CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getAge(),
-                       // CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getCondition(),
-                        //CityOfAaron.getCurrentGame().getStorehouse().getAnimals().get(i).getQuantity());
-                //console.println();
-            //}
-
-            //console.println("'Saving report on disk' options coming soon...");
-        //} catch (IOException ex) {
-            //ErrorView.display(this.getClass().getName(), ex.getMessage());
-            //pause(3000);
-       // }
-    //}
 }

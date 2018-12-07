@@ -78,9 +78,8 @@ public class SaveReportView extends ViewBase {
     private boolean saveReport(){
         
         if ( ReportsMenuView.getCurrentFlag().equals("A") ) {
-            console.println("Saving Authors report test...");
-           // SaveAuthorsReport view = new SaveAuthorsReport();
-           // view.displayView();
+           SaveAuthorsReport view = new SaveAuthorsReport();
+           view.displayView();
         }
         
         if ( ReportsMenuView.getCurrentFlag().equals("L") ) {

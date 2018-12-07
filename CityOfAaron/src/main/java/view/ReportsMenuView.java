@@ -79,11 +79,11 @@ public class ReportsMenuView extends ViewBase {
             case "L":
                 flag ="L";
                 setCurrentFlag(flag);
-                try {
-                    reportLivestocks();
-                }catch (GameControlException gc) {
-                    ErrorView.display(this.getClass().getName(), gc.getMessage());
-                }
+                    try {
+                        reportLivestocks();
+                    }catch (GameControlException gc) {
+                            ErrorView.display(this.getClass().getName(), gc.getMessage());
+                    }
                 break;
             case "P":
                 reportProvisions();

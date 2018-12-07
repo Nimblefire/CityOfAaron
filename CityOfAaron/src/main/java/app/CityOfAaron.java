@@ -75,8 +75,8 @@ public class CityOfAaron {
             View startProgramView = new StartProgramView();
             startProgramView.displayView();
         } catch (Throwable te) {
-            System.out.println("Exception caught from the main method");
-            System.out.println(te.getMessage());
+            System.console().printf("Exception caught from the main method");
+            System.console().printf(te.getMessage());
             te.printStackTrace();
         }   // add a finally clause to close the file streams 
             finally {

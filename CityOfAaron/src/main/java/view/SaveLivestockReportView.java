@@ -44,7 +44,7 @@ public class SaveLivestockReportView extends ViewBase {
         String[] inputs = new String[1];
 
         // the following string is printed to the console by the statement 'System.out.println(prompt)'
-        inputs[0] = getUserInput("\n Please, enter a file name or a file path to save the report: ");
+        inputs[0] = getUserInput("\nPlease, enter a file name or a file path to save the report: ");
 
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
@@ -59,8 +59,7 @@ public class SaveLivestockReportView extends ViewBase {
     @Override
     public boolean doAction(String[] inputs) {
         String filename = inputs[0];
-        //ArrayList<Animal> animal = animal;
-        ArrayList<Animal> animal = CityOfAaron.getCurrentGame().getStorehouse().getAnimals();
+        ArrayList<Animal> animals = CityOfAaron.getCurrentGame().getStorehouse().getAnimals();
 
         
         try (PrintWriter report = new PrintWriter(new FileWriter(filename))) {
@@ -68,17 +67,17 @@ public class SaveLivestockReportView extends ViewBase {
             report.printf("%n%-20s%10s%10s%10s", "Name", "Age", "Condition", "Quantity");
             report.printf("%n%-20s%10s%10s%10s", "----", "---", "---------", "---------");
             
-            for (int i = 0; i < CityOfAaron.getCurrentGame().getStorehouse().getAnimals().size(); i++) 
-                report.printf("%n%-20s%10s%10s%10s", animal.get(i).getName(),  animal.get(i).getAge(), 
-                                                     animal.get(i).getCondition(), animal.get(i).getQuantity());
+            for (Animal animal : animals ) {
+                report.printf("%n%-20s%10s%10s%10s", animal.getName(),  animal.getAge(), 
+                                                     animal.getCondition(), animal.getQuantity());
+            }
             report.println();
             report.println("End");
-            console.println("\nReport saved successfully in " + filename);
-            report.flush();
+            console.println("\nReport successfully saved in " + filename);
+            
         } catch (IOException exception) {
-            ErrorView.display(this.getClass().getName(),"File path not reachable");
-            pause(1000);
-           // exception.printStackTrace();
+            ErrorView.display(this.getClass().getName(),"Unreachable or unsupported file path");
+            pause(2000);
             return true;
         }
         

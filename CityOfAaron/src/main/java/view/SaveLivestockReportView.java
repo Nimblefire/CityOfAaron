@@ -73,9 +73,13 @@ public class SaveLivestockReportView extends ViewBase {
                                                      animal.get(i).getCondition(), animal.get(i).getQuantity());
             report.println();
             report.println("End");
+            console.println("\nReport saved successfully in " + filename);
             report.flush();
         } catch (IOException exception) {
-            exception.printStackTrace();
+            ErrorView.display(this.getClass().getName(),"File path not reachable");
+            pause(1000);
+           // exception.printStackTrace();
+            return true;
         }
         
    return false;

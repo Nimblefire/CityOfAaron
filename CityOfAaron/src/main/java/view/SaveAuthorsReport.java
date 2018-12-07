@@ -77,7 +77,7 @@ public class SaveAuthorsReport extends ViewBase {
                     ErrorView.display(this.getClass().getName(),"Unreachable or unsupported file path");
                     pause(2000);
                     return true;
-                }
+                } 
                           
         return false; 
     }

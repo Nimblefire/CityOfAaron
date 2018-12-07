@@ -1,0 +1,12 @@
+
+
+Livestock Report                 
+
+Name                       Age Condition  Quantity
+----                       --- --------- ---------
+Working horse               15      POOR        50
+Milking cow                 10      GOOD        20
+Warhorse                     5      GOOD         6
+Goat                         2      GOOD       100
+Chicken                      1      FAIR       200
+End

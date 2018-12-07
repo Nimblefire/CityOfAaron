@@ -67,6 +67,21 @@ public class SaveReportView extends ViewBase {
     // method will call based on the user's input.
 
     private void saveReport(){
-       console.println("'Saving report on disk' options coming soon...");
+       if (ReportsMenuView.getCurrentFlag().equals("A") ){
+            console.println("Saving Author report");
+        }
+       //console.println("'Saving report on disk' options coming soon...");
+       if (ReportsMenuView.getCurrentFlag().equals("L") ) {
+           SaveLivestockReportView view = new SaveLivestockReportView();
+           view.displayView();
+       }
+       
+       if (ReportsMenuView.getCurrentFlag().equals("P") ){
+            console.println("Saving Provision report");
+        }
+       
+       if (ReportsMenuView.getCurrentFlag().equals("T") ){
+            console.println("Saving Tools report");
+        }
     }
 }

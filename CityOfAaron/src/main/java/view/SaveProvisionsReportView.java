@@ -44,8 +44,8 @@ public class SaveProvisionsReportView extends ViewBase{
 
         try (PrintWriter report = new PrintWriter(new FileWriter(filename))) {
             report.println("\n\nProvisions Report");
-            report.printf("%n%-20s%10s%10s%10s", "Name", "Condition", "Quantity", "Perishable");
-            report.printf("%n%-20s%10s%10s%10s", "----", "---------", "---------", "----------");
+            report.printf("%n%-15s%10s%10s%15s", "Name", "Condition", "Quantity", "Perishable");
+            report.printf("%n%-15s%10s%10s%15s", "----", "---------", "---------", "----------");
             
             for (Provision provision : provisions) {
                 String perishable;
@@ -54,7 +54,7 @@ public class SaveProvisionsReportView extends ViewBase{
                 } else {
                     perishable = "No";
                 }
-                report.printf("%n%-20s%10s%10s%10s", provision.getName(), provision.getCondition(), provision.getQuantity(), perishable);
+                report.printf("%n%-15s%10s%10s%15s", provision.getName(), provision.getCondition(), provision.getQuantity(), perishable);
             }
 
             report.println();

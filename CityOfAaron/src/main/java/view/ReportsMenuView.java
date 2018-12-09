@@ -257,13 +257,19 @@ public class ReportsMenuView extends ViewBase {
     }
 
     private void reportProvisions() throws GameControlException{
-        for (int i = 0; i < CityOfAaron.getCurrentGame().getStorehouse().getProvisions().size(); i++) {
-            console.println("\nName: " + CityOfAaron.getCurrentGame().getStorehouse().getProvisions().get(i).getName()
-                    + "\nPerishable: " + CityOfAaron.getCurrentGame().getStorehouse().getProvisions().get(i).getPerishable()
-                    + "\nCondition: " + CityOfAaron.getCurrentGame().getStorehouse().getProvisions().get(i).getCondition()
-                    + "\nQuantity: " + CityOfAaron.getCurrentGame().getStorehouse().getProvisions().get(i).getQuantity());
-            pause(2000);
-        }
+        console.println("\n\nList Animals in Alphabetical order   ");
+        console.printf("%n%-15s%10s%10s%15s", "Name", "Condition", "Quantity", "Perishable");
+        console.printf("%n%-15s%10s%10s%15s", "----", "---------", "---------", "---------");
+        ArrayList<Provision> provisions = CityOfAaron.getCurrentGame().getStorehouse().getProvisions();
+        for (Provision provision : provisions) {
+                String perishable;
+                if (provision.getPerishable()){
+                    perishable = "Yes";
+                } else {
+                    perishable = "No";
+                }
+                console.printf("%n%-15s%10s%10s%15s", provision.getName(), provision.getCondition(), provision.getQuantity(), perishable);
+            }
 
         SaveReportView view = new SaveReportView();
         view.displayView();

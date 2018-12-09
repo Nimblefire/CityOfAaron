@@ -1,0 +1,10 @@
+
+
+Provisions Report
+
+Name                 Condition  Quantity     Perishable
+----                 --------- ---------     ----------
+Apple                     FAIR       500            Yes
+Date                      GOOD      1000            Yes
+Wood Beams                GOOD       200             No
+End

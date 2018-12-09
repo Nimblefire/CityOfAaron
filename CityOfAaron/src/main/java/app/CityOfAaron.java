@@ -29,6 +29,16 @@ public class CityOfAaron {
         currentGame = game;
     }
     
+    //Default file path
+    private static String defaultPath = "C:\\CityOfAaron\\SavedFiles\\SavedGames\\";
+    
+    public static String getDefaultPath(){
+        return defaultPath;
+    }
+    public static void setDefaultPath(String path){
+        CityOfAaron.defaultPath = path;
+    }
+    
     // instance variables for character stream files and their getters and setters
     private static BufferedReader inFile = null;
     private static PrintWriter outFile = null;

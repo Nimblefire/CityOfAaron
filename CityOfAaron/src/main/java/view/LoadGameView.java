@@ -60,6 +60,8 @@ public class LoadGameView extends ViewBase {
                 pause(3000);
                 AnnualReportView report = new AnnualReportView();
                 report.displayView();
+                GameMenuView gameMenu = new GameMenuView();
+                gameMenu.displayView();
             
         } catch (IOException | GameControlException e) {
             ErrorView.display(this.getClass().getName(), e.getMessage());

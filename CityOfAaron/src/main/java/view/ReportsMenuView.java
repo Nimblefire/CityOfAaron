@@ -86,8 +86,12 @@ public class ReportsMenuView extends ViewBase {
                     }
                 break;
             case "P":
-                reportProvisions();
-
+                currentFlag = "P";
+                try {
+                    reportProvisions();
+                } catch (GameControlException gc) {
+                    ErrorView.display(this.getClass().getName(), gc.getMessage());
+                }
                 break;
             case "T":
                 reportTools();
@@ -252,7 +256,7 @@ public class ReportsMenuView extends ViewBase {
         //view.displayView();
     }
 
-    private void reportProvisions() {
+    private void reportProvisions() throws GameControlException{
         for (int i = 0; i < CityOfAaron.getCurrentGame().getStorehouse().getProvisions().size(); i++) {
             console.println("\nName: " + CityOfAaron.getCurrentGame().getStorehouse().getProvisions().get(i).getName()
                     + "\nPerishable: " + CityOfAaron.getCurrentGame().getStorehouse().getProvisions().get(i).getPerishable()

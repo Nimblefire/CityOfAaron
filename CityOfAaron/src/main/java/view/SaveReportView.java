@@ -88,13 +88,13 @@ public class SaveReportView extends ViewBase {
         }
         
         if ( ReportsMenuView.getCurrentFlag().equals("P") ) {
-            console.println("Saving Provision report test...");
+            SaveProvisionsReportView view = new SaveProvisionsReportView();
+            view.displayView();
         }
         
         if ( ReportsMenuView.getCurrentFlag().equals("T") ) {
             console.println("Saving Tools report test...");
         }
-        
         
            
         /*

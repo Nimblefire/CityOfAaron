@@ -160,14 +160,6 @@ public class GameControl {
         return report;
     }
     
-    public static Game loadSavedgame(String filename) {
-        Game savedGame = new Game();
-        Player returningPlayer = new Player(filename);
-        savedGame.setPlayer(returningPlayer);
-        
-        return savedGame;
-    }
-    
     //TODO Complete the method with the different input checks
     public static boolean gameShouldEnd(Game game, int previousPopulation){
         if (game.getAnnualReport().getPeopleStarved() >= previousPopulation * 0.5 
@@ -184,7 +176,7 @@ public class GameControl {
             throw new GameControlException("The game object OR the file path is null");
         }
         
-        String newFilePath = fileName + ".dat";
+        String newFilePath = /*CityOfAaron.getDefaultPath() +*/ fileName + ".dat";
         
         try (ObjectOutputStream objectStream =
             new ObjectOutputStream(new FileOutputStream(newFilePath))) {
@@ -205,7 +197,7 @@ public class GameControl {
             throw new GameControlException("The file path is null");
         } 
         
-        String newFilePath = fileName + ".dat";
+        String newFilePath = /*CityOfAaron.getDefaultPath() +*/ fileName + ".dat";
         
         try (ObjectInputStream objectStream = new ObjectInputStream(new FileInputStream(newFilePath))) {
 

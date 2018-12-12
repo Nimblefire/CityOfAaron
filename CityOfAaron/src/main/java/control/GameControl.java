@@ -129,6 +129,8 @@ public class GameControl {
         report.setPeopleMovedIn(peopleMovedIn);
            
         game.setTithesPercent(0);
+        game.setBushelsForFood(0);
+        game.setAcresToPlant(0);
         return report;
     }
         

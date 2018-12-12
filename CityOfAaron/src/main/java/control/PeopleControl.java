@@ -53,7 +53,7 @@ public class PeopleControl {
         
         int randomValue = GameControl.getRandomValue(1,5);
         
-        int peopleMoved = curPop * (randomValue/100);
+        int peopleMoved = curPop * randomValue / 100;
         
         return peopleMoved;
     }

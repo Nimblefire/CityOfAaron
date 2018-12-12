@@ -11,10 +11,7 @@ import exceptions.*;
 public class WheatControl {
     
     public static int calculateHarvest(int tithesOfferings, int acresPlanted) throws GameControlException,WheatControlException {
-       //int RanddomNumber;
-        //int low = 0;
-        //int high = 0;
-        //int randomTest = GameControl.getRandomValue(low, high);
+       
         int randomNumber = 0;
         
         //If acresPlanted < 0, then RETURN message

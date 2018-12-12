@@ -148,7 +148,12 @@ public class GameMenuView extends ViewBase {
             view.displayView();
         }
         
-        AnnualReport report = GameControl.liveTheYear(game, tithesPercent, game.getBushelsForFood(), acresToPlant);
+        if ( game.getBushelsForFood() == 0 ) {
+            View view = new FeedPeopleView();
+            view.displayView();
+        }
+        
+        AnnualReport report = GameControl.liveTheYear(game, game.getTithesPercent(), game.getBushelsForFood(), game.getAcresToPlant());
         
         game.setAnnualReport(report); 
     }

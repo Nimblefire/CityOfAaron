@@ -16,7 +16,7 @@ public class AnnualReportView extends ViewBase{
     
     @Override
     public String getMessage(){
-        return "This is the report for last year:";
+        return "\nTHIS IS THE REPORT FOR THE LAST YEAR";
     }
     
     @Override

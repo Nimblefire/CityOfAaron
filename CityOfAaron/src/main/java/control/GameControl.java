@@ -165,7 +165,7 @@ public class GameControl {
     
     //Later we could establish default values for the beginning of the first year
     private static AnnualReport createAnnualReport(Game game){
-        AnnualReport report = new AnnualReport(1, game.getWheatInStorage(), game.getCurrentPopulation(), game.getAcresOwned(), 3, 3000, 300, 0, 0, 5);
+        AnnualReport report = new AnnualReport(0, game.getWheatInStorage(), game.getCurrentPopulation(), game.getAcresOwned(), 3, 3000, 300, 0, 0, 5);
        
         return report;
     }

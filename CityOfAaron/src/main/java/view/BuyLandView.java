@@ -85,10 +85,10 @@ public class BuyLandView extends ViewBase {
             ErrorView.display(this.getClass().getName(),"You don't have enough wheat, please try again");
             return true;
         } //if acresToBuy is more than people to tend it (1 person can maintain 10 acres), ask user to try again.
-        else if ((CityOfAaron.getCurrentGame().getCurrentPopulation() * 10) < (acresToBuy + CityOfAaron.getCurrentGame().getAcresOwned())) {
+        /*else if ((CityOfAaron.getCurrentGame().getCurrentPopulation() * 10) < (acresToBuy + CityOfAaron.getCurrentGame().getAcresOwned())) {
             ErrorView.display(this.getClass().getName()," You don't have enought people to work that amount of land, please enter in another number. ");
             return true;//Have to ask input again
-        } else {
+        }*/ else {
             reportAcresOwned(acresToBuy);
             reportWheatInStorage(CityOfAaron.getCurrentGame().getLandPrice(), totalWheatCost);
             return false;

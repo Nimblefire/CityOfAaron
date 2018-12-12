@@ -89,6 +89,7 @@ public class PlantCropsView extends ViewBase {
                 console.println("\nThis is the new amount of wheat available in the Storehouse: " + wheatLeftInStorage + "\n\n");
                 //TO DO - update in Live The Year 
                 CityOfAaron.getCurrentGame().setWheatInStorage(wheatLeftInStorage);
+                CityOfAaron.getCurrentGame().setAcresToPlant(acresToPlant);
             }
         }     
         return false;

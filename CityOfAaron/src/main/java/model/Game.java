@@ -24,6 +24,8 @@ public class Game implements Serializable {
     private int acresToSell;
     private int landPrice;
     private AnnualReport annualReport;
+    private int tithesPercent;
+    private int acresToPlant;
 
     // default constructor
     public Game() {
@@ -127,6 +129,22 @@ public class Game implements Serializable {
     
     public void setAnnualReport(AnnualReport annualReport){
         this.annualReport = annualReport;
+    }
+
+    public int getTithesPercent() {
+        return tithesPercent;
+    }
+
+    public void setTithesPercent(int tithesPercent) {
+        this.tithesPercent = tithesPercent;
+    }
+
+    public int getAcresToPlant() {
+        return acresToPlant;
+    }
+
+    public void setAcresToPlant(int acresToPlant) {
+        this.acresToPlant = acresToPlant;
     }
 
     @Override

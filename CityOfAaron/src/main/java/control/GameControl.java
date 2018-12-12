@@ -52,46 +52,6 @@ public class GameControl {
     } 
     
     /**
-     * Process the current year's results and update the Game object.
-     * 
-     * @param game The current Game object (pass by reference)
-     * @param tithesPercent The percentage of tithing selected for the year
-     * @param bushelsForFood The number of bushels of wheat allocated as food for the year
-     * @param acresToPlant The number of acres to be used for planing
-     * 
-     * @return The year's Annual Report data
-     */
-    
-    /*public static AnnualReport liveTheYear(
-           Game game, int tithesPercent, int bushelsForFood, int acresToPlant) {
-        
-       if(game == null || tithesPercent < 0 || tithesPercent > 100 || bushelsForFood < 0 || acresToPlant < 0){
-            //return null;
-        }
-        
-        AnnualReport report = new AnnualReport();
-        report.setLandPrice(LandControl.getCurrentLandPrice());
-        
-        int totalWheat = game.getWheatInStorage();
-        
-        int harvested = WheatControl.calculateHarvest(tithesPercent, acresToPlant);
-        int tithingAmount = (int)(double)((tithesPercent/100.0) * harvested);
-        int lostToRats = WheatControl.calculateLossToRats(wheatIn, tithesPercent);
-    
-        int peopleStarved = PeopleControl.calculateMortality(bushelsForFood, game.getCurrentPopulation());
-        int peopleMovedIn = PeopleControl.calculateNewMoveIns(game.getCurrentPopulation());
-    
-        totalWheat = totalWheat + harvested - tithingAmount - lossToRats;
-        game.setWheatInStorage(totalWheat);
-        game.setCurrentPopulation(game.getCurrentPopulation() - peopleStarved + peopleMovedIn);
-    
-        report.setEndingWheatInStorage(game.getWheatInStorage());
-        report.setEndingPopulation(game.getCurrentPopulation());
-        report.setEndingAcresOwned(game.getAcresOwned());
-        return report;
-    }*/
-    
-    /**
      * 
      * @param playerName
      * @return newGame
@@ -120,6 +80,49 @@ public class GameControl {
         newGame.setAnnualReport(createAnnualReport(newGame));
             
         return newGame;
+    }
+    
+    
+    /**
+     * Process the current year's results and update the Game object.
+     * 
+     * @param game The current Game object (pass by reference)
+     * @param tithesPercent The percentage of tithing selected for the year
+     * @param bushelsForFood The number of bushels of wheat allocated as food for the year
+     * @param acresToPlant The number of acres to be used for planing
+     * 
+     * @return The year's Annual Report data
+     */
+    
+    public static AnnualReport liveTheYear(
+           Game game, int tithesPercent, int bushelsForFood, int acresToPlant) throws GameControlException, WheatControlException, PeopleControlException {
+        
+        if(game == null || tithesPercent < 0 || tithesPercent > 100 || bushelsForFood < 0 || acresToPlant < 0){
+            //return null;
+        }
+        
+        AnnualReport report = game.getAnnualReport();
+        game.setLandPrice(LandControl.createLandPrice());
+        
+        int totalWheat = game.getWheatInStorage();
+        
+        int harvested = WheatControl.calculateHarvest(tithesPercent, acresToPlant);
+        int tithingAmount = (int)((tithesPercent/100.0) * harvested);
+        int lostToRats = WheatControl.calculateLossToRats(getRandomValue(1,100), totalWheat, tithesPercent);
+    
+        int peopleStarved = PeopleControl.calculateMortality(bushelsForFood, game.getCurrentPopulation());
+        int peopleMovedIn = PeopleControl.calculateNewMoveIns(game.getCurrentPopulation());
+    
+        totalWheat = totalWheat + harvested - tithingAmount - lostToRats;
+        game.setWheatInStorage(totalWheat);
+        game.setCurrentPopulation(game.getCurrentPopulation() - peopleStarved + peopleMovedIn);
+    
+        report.setEndingWheatInStorage(game.getWheatInStorage());
+        report.setEndingPopulation(game.getCurrentPopulation());
+        report.setEndingAcresOwned(game.getAcresOwned());
+        report.setYear(report.getYear()+1);
+        game.setTithesPercent(0);
+        return report;
     }
         
     private static Storehouse createStorehouse(){

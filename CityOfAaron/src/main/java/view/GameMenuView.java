@@ -1,10 +1,15 @@
 
 package view;
 
+import app.CityOfAaron;
+import control.GameControl;
+import control.LandControl;
 import control.PeopleControl;
 import exceptions.GameControlException;
 import exceptions.WheatControlException;
 import exceptions.PeopleControlException;
+import model.AnnualReport;
+import model.Game;
 
 /**
  *
@@ -123,21 +128,29 @@ public class GameMenuView extends ViewBase {
         manageCrops.displayView();
     }
     
-    // the code for LiveTheYear is found "uncommented" within GameControl class
     private void liveTheYear() throws WheatControlException, GameControlException, PeopleControlException {
-        console.println("\n-------------------------------------------------------------------------");
-        console.println("Calling point for methods in WheatControl to meet week 11 team assignment");
-        console.println("Let's test functions for Live the Year");
-        //WheatControl.calculateLossToRats(50, -1, 10);
-        //WheatControl.calculateHarvest(101, 10);
-        //WheatControl.calculateHarvest(15, -2);
         
-        console.println("\n--------------------------------------------------------------------------");
-        console.println("Calling point for method in PeopleControl to meet week 11 individual assignment");
-        console.println("Let's test calculateMortality");
-        PeopleControl.calculateMortality(-1, 0);
-        //PeopleControl.calculateMortality(0, -1);
- 
+        Game game = CityOfAaron.getCurrentGame();
+        
+        int tithesPercent = game.getTithesPercent();
+        
+        if ( tithesPercent == 0 ) {
+            console.println("The current amount of bushles consacrated for tithing is 0");
+            View view = new PayTithingView();
+            view.displayView();
+        }
+        
+        int acresToPlant = game.getAcresToPlant();
+            
+        if ( acresToPlant == 0 ) {
+            console.println("You are currently planting 0 acres of land");
+            View view = new PlantCropsView();
+            view.displayView();
+        }
+        
+        AnnualReport report = GameControl.liveTheYear(game, tithesPercent, game.getBushelsForFood(), acresToPlant);
+        
+        game.setAnnualReport(report); 
     }
 
     private void reportsMenu(){

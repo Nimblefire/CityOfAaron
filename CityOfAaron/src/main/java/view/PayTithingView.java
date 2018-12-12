@@ -74,6 +74,7 @@ public class PayTithingView extends ViewBase {
     }
     
     private void tithesPercent(int bushels){
-       console.println(bushels + " percent of wheat bushels paid in tithes and offerings.");
+        CityOfAaron.getCurrentGame().setTithesPercent(bushels);
+        console.println(bushels + " percent of wheat bushels paid in tithes and offerings.");
     }
 }

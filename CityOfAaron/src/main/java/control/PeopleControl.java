@@ -5,6 +5,7 @@
  */
 package control;
 
+import control.*;
 import exceptions.*;
 
 /**
@@ -47,4 +48,14 @@ public class PeopleControl {
         }
         return deaths;
     }
+    
+    public static int calculateNewMoveIns(int curPop) throws PeopleControlException, GameControlException {
+        
+        int randomValue = GameControl.getRandomValue(1,5);
+        
+        int peopleMoved = curPop * (randomValue/100);
+        
+        return peopleMoved;
+    }
+    
 }

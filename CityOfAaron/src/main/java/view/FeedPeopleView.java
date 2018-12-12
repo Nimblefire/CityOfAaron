@@ -76,7 +76,8 @@ public class FeedPeopleView extends ViewBase{
             return true;
         } else {
             CityOfAaron.getCurrentGame().setBushelsForFood(bushelsForFood);
-            console.println("You have " + (CityOfAaron.getCurrentGame().getWheatInStorage()-bushelsForFood) + " bushels of wheat left.");
+            CityOfAaron.getCurrentGame().setWheatInStorage(CityOfAaron.getCurrentGame().getWheatInStorage()-bushelsForFood);
+            console.println("You have " + (CityOfAaron.getCurrentGame().getWheatInStorage()) + " bushels of wheat left.");
             return false;
         }
     }

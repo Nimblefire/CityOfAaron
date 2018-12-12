@@ -121,6 +121,13 @@ public class GameControl {
         report.setEndingPopulation(game.getCurrentPopulation());
         report.setEndingAcresOwned(game.getAcresOwned());
         report.setYear(report.getYear()+1);
+        report.setBushelsPerAcre(game.getBushelsPerAcre());
+        report.setBushelsHarvested(harvested);
+        report.setTithingAmount(tithingAmount);
+        report.setLostToRats(lostToRats);
+        report.setPeopleStarved(peopleStarved);
+        report.setPeopleMovedIn(peopleMovedIn);
+           
         game.setTithesPercent(0);
         return report;
     }

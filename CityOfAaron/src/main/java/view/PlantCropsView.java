@@ -86,10 +86,9 @@ public class PlantCropsView extends ViewBase {
             }
             else {
                 wheatLeftInStorage = CityOfAaron.getCurrentGame().getWheatInStorage() - bushelsRequired;
-                console.println("\nThis is the new amount of wheat available in the Storehouse: " + wheatLeftInStorage + "\n\n");
-                //TO DO - update in Live The Year 
                 CityOfAaron.getCurrentGame().setWheatInStorage(wheatLeftInStorage);
                 CityOfAaron.getCurrentGame().setAcresToPlant(acresToPlant);
+                console.println("\nThis is the new amount of wheat available in the Storehouse: " + wheatLeftInStorage + "\n\n");    
             }
         }     
         return false;

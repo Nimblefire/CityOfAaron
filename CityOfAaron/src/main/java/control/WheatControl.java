@@ -1,6 +1,7 @@
 
 package control;
 
+import app.CityOfAaron;
 import exceptions.*;
 
 /**
@@ -50,6 +51,7 @@ public class WheatControl {
         int calculateHarvest = acresPlanted * randomNumber;
         
         //RETURN calculateHarvest (store calculateHarvest)
+        CityOfAaron.getCurrentGame().setBushelsPerAcre(randomNumber);
         return calculateHarvest;
     }
     

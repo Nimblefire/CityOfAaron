@@ -17,7 +17,7 @@ public class PayTithingView extends ViewBase {
     protected String getMessage() {
        return "\n Pay Tithes and Offerings\n"
                 + "---------------------------------\n"
-                + "You currently have " + CityOfAaron.getCurrentGame().getWheatInStorage() + " bushels of wheat in storage.\n"
+                + "Choose the tithing percentage to consacrate based on future harvested amount\n"
                 + "\n";
     }
     
@@ -32,7 +32,7 @@ public class PayTithingView extends ViewBase {
         // from the user.
         String[] inputs = new String[1];
         
-        inputs[0] = getUserInput("What percentage of tithing and offerings would you like to pay on your bushels of wheat? Please enter a number between 0 and 100");
+        inputs[0] = getUserInput("What percentage of tithing and offerings would you like to pay on your bushels of wheat? \nPlease enter a number between 0 and 100:");
         
         // Repeat for each input you need, putting it into its proper slot in the array.
         

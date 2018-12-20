@@ -257,7 +257,6 @@ public class ReportsMenuView extends ViewBase {
     }
 
     private void reportProvisions() throws GameControlException{
-        console.println("\n\nList Animals in Alphabetical order   ");
         console.printf("%n%-15s%10s%10s%15s", "Name", "Condition", "Quantity", "Perishable");
         console.printf("%n%-15s%10s%10s%15s", "----", "---------", "---------", "---------");
         ArrayList<Provision> provisions = CityOfAaron.getCurrentGame().getStorehouse().getProvisions();
@@ -270,7 +269,7 @@ public class ReportsMenuView extends ViewBase {
                 }
                 console.printf("%n%-15s%10s%10s%15s", provision.getName(), provision.getCondition(), provision.getQuantity(), perishable);
             }
-
+        
         SaveReportView view = new SaveReportView();
         view.displayView();
     }

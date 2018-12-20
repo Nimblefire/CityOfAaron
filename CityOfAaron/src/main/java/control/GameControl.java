@@ -151,7 +151,7 @@ public class GameControl {
         ArrayList<Provision> provisions = new ArrayList<>();
         provisions.add(new Provision("Apple",ItemType.PROVISIONS,Condition.FAIR,500,true));
         provisions.add(new Provision("Date",ItemType.PROVISIONS,Condition.GOOD,1000,true));
-        provisions.add(new Provision("Wood Beams",ItemType.PROVISIONS,Condition.GOOD,200,false));
+        provisions.add(new Provision("Wood Beam",ItemType.PROVISIONS,Condition.GOOD,200,false));
         
         
         ArrayList<InventoryItem> tools = new ArrayList<>();
